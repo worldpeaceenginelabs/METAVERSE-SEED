@@ -133,7 +133,7 @@
 
     // Function to open IndexedDB database
 async function openDB() {
-    const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+    const indexedDB = window.indexedDB;
     const request = indexedDB.open('recordsDB', 1) as IDBOpenDBRequest; // Type assertion here
     
    // Set up IndexedDB schema
