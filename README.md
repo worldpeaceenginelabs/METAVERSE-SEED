@@ -9,7 +9,7 @@ This Dev Kit isn't just a tool – it's a catalyst for innovation, enabling deve
 With "The Seed" you will create your own, location based, decentralized Metaverse, as a Webapp which can be installed on mobile and desktop like an app. 
 Let's make this tiny Dev Kit the base for our creativity and creations, this way let our Metaverses stay compatible with each other, so in turn we will be able to share our private hosted, free tier hosted, paid servers, etc. to decentralize our Nexus of Metaverses.
 
-Picture it: a Collective Computer rivaling the might of Google Earth (if their devs would not sleep), but run by the people, for the people. No longer under the thumb of monopolies – "The Seed" places the power directly in your hands. Join us in sculpting a digital frontier where innovation knows no bounds.
+Picture it: a Collective Computer rivaling the might of Google Earth (if their devs would not sleep), but run by the people, for the people. No longer under the thumb of monopolies – "The Seed" places the power directly in your hands. Join us in sculpting a digital frontier where innovation knows no bounds. It's time to unlock the true potential of the digital realm – it's time to grow with "The Seed".
 
 ### How to create a client?
 (i will commit after doing these steps local asap so you can just clone, npm install and start being creative)
@@ -19,7 +19,7 @@ Picture it: a Collective Computer rivaling the might of Google Earth (if their d
 - prompt menu sveltejs-ts
 - npm install cesiumjs@latest
 - Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript!
-- Form_prototype.svelte
+- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For example Title, Text, Zoom Link, coordinates enables Online Meetings but location based, for instance brainstorming, event planning, live session, you name it...)
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
 HTML, JS, CSS, API, WASM, WebContainers, Unreal Engine 5, Unity 6, you name it!
 
