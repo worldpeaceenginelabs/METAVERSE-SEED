@@ -26,7 +26,7 @@ This repository is a clean code base with basic instructions (coming) for expand
  
 Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript! Blazing fast because the build output is your app precompiled. Static, but reactive! This is JAMstack, which runs on edge and every other storage.
 
-- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For example Title, Text, Zoom Link, coordinates enables Online Meetings but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...)
+- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...)
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
 HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!
 
