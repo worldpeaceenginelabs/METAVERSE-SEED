@@ -15,7 +15,7 @@ Picture it: a Collective Computer rivaling the might of Google Earth (if their d
 (i will commit after doing these steps local asap so you can just clone, npm install and start being creative)
 
 - Starting from scratch
-- npm install vite@latest
+- npm create vite@latest
 - prompt menu sveltejs-ts
 - npm install cesiumjs@latest
 - Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript!
