@@ -11,8 +11,11 @@ Let's make this tiny Dev Kit the base for our creativity and creations, this way
 
 Picture it: a Collective Computer rivaling the might of Google Earth (if their devs would not sleep), but run by the people, for the people. No longer under the thumb of monopolies – "The Seed" places the power directly in your hands. Join us in sculpting a digital frontier where innovation knows no bounds. It's time to unlock the true potential of the digital realm – it's time to grow with "The Seed".
 
-This client/server is meant as a clean start point.
-A base with some  basic instructions for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs!,  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!) without caring to much about the back-end.
+### What is it?
+
+A client/server which is meant as a clean start point for location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive upcomings in front-end logic, with our traditional systems today.
+
+This is a base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs!,  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!, to unleash your creativity without without caring to much about the back-end or locking you in!
 
 ### How to create a client?
 (i will commit after doing these steps local asap so you can just clone, npm install and start being creative)
