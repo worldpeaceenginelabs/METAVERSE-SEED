@@ -25,7 +25,7 @@ This repository is a base with basic instructions (coming) for expanding it with
 - prompt menu sveltejs-ts
 - npm install cesiumjs@latest
 - Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript! Blazing fast because the build output is your app precompiled, static, but reactive! This is JAMstack, runs on edge and every other storage.
-- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For example Title, Text, Zoom Link, coordinates enables Online Meetings but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, you name it...)
+- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For example Title, Text, Zoom Link, coordinates enables Online Meetings but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...)
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
 HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!
 
@@ -41,11 +41,11 @@ Here i used a pre-version of the seed in my Project Cloud Atlas: [LINK](https://
 
 - deduplicates indexeddb
 - deletes messages older than 7 days
-- schedules on and off and ontime
-- syncs topic 1 between different clients
+- schedules on and off and ontime (you can already control the probability of concurrent connections!)
+- example form syncs topic 1 between different clients
 
 ### What's now?
-Now i'm searching for the most simple logic without storing to much bs or private data, so the websockets server is not transfereing already sent data to each other, again.
+Now i'm searching for the most simple logic without storing to much bs or private data, so the websockets server is not transfereing already sent data to each other again.
 Any help appreciated (30.03.2024)
 
 ### What's coming?
@@ -54,8 +54,8 @@ Optimizing the base:
 - deduplication process
 - transfer limiting
 - rate limiting
-- authentication "less" subsystem
-- many more, but one of them is webrtc on top, as a second sync channel for client to client sync, saving server ressources.
+- authentication-"less" authentication
+- many more ideas, but one of them is webrtc on top, as a second sync channel for client to client sync, saving server ressources.
 - multiple other protocols as fallbacks
 - the performance is already high due to Sveltes precompile step. But with Bun instead of Nodejs, the performance could get up another 2-4 times!!!
 
