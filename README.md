@@ -1,47 +1,67 @@
-# Svelte + TS + Vite
+# METAVERSE-SEED
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+30.03.2024
 
-## Recommended IDE Setup
+Introducing "The Seed" – where developers wield the power to forge their own decentralized Metaverses! With this Dev Kit, developers can unleash their creativity, crafting unique digital realms that seamlessly connect with others. Imagine a network where Metaverses, created by different developers, intertwine to form a decentralized ecosystem.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+This Dev Kit isn't just a tool – it's a catalyst for innovation, enabling developers to shape the digital landscape like never before. Together, we're building a Collective Computer, transcending the limitations of individual projects to create something truly extraordinary. "The Seed" puts the control firmly in the hands of developers, freeing them from the grasp of monopolies and ushering in a new era of digital collaboration.
 
-## Need an official Svelte framework?
+With "The Seed" you will create your own, location based, decentralized Metaverse, as a Webapp which can be installed on mobile and desktop like an app. 
+Let's make this tiny Dev Kit the base for our creativity and creations, this way let our Metaverses stay compatible with each other, so in turn we will be able to share our private hosted, free tier hosted, paid servers, user devices! etc. to decentralize our Nexus of Metaverses.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+Picture it: Your single creations adding up to a Collective Computer rivaling the might of Google Earth (if their devs would not sleep), but run by the people, for the people. No longer under the thumb of monopolies – "The Seed" places the power directly in your hands. Join us in sculpting a digital frontier where innovation knows no bounds. It's time to unlock the true potential of the digital realm – it's time to grow with "The Seed".
 
-## Technical considerations
+## What is it?
 
-**Why use this over SvelteKit?**
+A client/server which is meant as a clean start point for location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+This repository is a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+# HOW TO...
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+### How to create a client?
+- clone
+- npm install
+- npm run dev
+ 
+Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript! Blazing fast because the build output is your app precompiled. Static, but reactive! This is JAMstack, which runs on edge and every other storage.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+- Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For example Title, Text, Zoom Link, coordinates enables Online Meetings but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...)
+- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
+HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+Here i used a pre-version of the seed in my Project Cloud Atlas: [LINK](https://cloudatlas.club)
 
-**Why include `.vscode/extensions.json`?**
+### How to create a server?
+- npm run server.js
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+# FEATURES 
 
-**Why enable `allowJs` in the TS template?**
+### What does it do for now?
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+- deduplicates indexeddb
+- deletes messages older than 7 days
+- schedules on and off and ontime (you can already control the probability of concurrent connections!)
+- example client and server syncs topic 1 between different clients
 
-**Why is HMR not preserving my local component state?**
+### What's now?
+Now i'm searching for the most simple logic without storing to much bs or private data, so the websockets server is not transfereing already sent data to each other again.
+Any help appreciated (30.03.2024)
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+### What's coming?
+Optimizing the base:
+- Progressive Web App features (PWA)
+- transfer limiting
+- rate limiting
+- authentication-"less" authentication
+- many more ideas, but one of them is webrtc on top, as a second sync channel for client to client sync, saving server ressources.
+- multiple other protocols as fallbacks
+- the performance is already high due to Sveltes precompile step. But with Bun instead of Nodejs, the performance could get up another 2-4 times!!!
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+### About the performance of the uwebsocket server
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+[https://unetworkingab.medium.com/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23](https://unetworkingab.medium.com/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23)
+
+[https://unetworkingab.medium.com/5-million-http-3-requests-per-second-d8f0074a5367](https://unetworkingab.medium.com/5-million-http-3-requests-per-second-d8f0074a5367)
+
+[https://ga1.medium.com/exploring-the-power-of-uwebsockets-a-high-performance-websocket-library-83aedc26ae1](https://ga1.medium.com/exploring-the-power-of-uwebsockets-a-high-performance-websocket-library-83aedc26ae1)
