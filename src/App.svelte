@@ -1,5 +1,5 @@
 
-<!-- Every .svelte file is both a page and component. This makes it so easy to create with it for Single Page Applications. You don't need complicated router logic. You can have the magic just with Modals and Links. -->
+<!-- Every .svelte file is both a page and component. This makes it so easy to create with it for Single Page Applications. You don't need complicated router logic. You can have the magic just with Modals and Links. Not only!!! But for starters ;) -->
 
 <script lang="ts">
   
