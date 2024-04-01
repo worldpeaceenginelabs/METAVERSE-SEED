@@ -1,5 +1,5 @@
 # METAVERSE-SEED
-[Live on Cloudflare](https://cloudatlas.club) pre-version of the seed, but globe is broken<br>
+[Live on Cloudflare](https://cloudatlas.club) pre-version of the seed, but globe code is broken <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
 Restarted project The Seed at 30.03.2024
