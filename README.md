@@ -2,7 +2,7 @@
 [Live on Cloudflare](https://cloudatlas.club) pre-version of the seed, but globe is broken<br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
-30.03.2024
+Restarted project The Seed at 30.03.2024
 
 Introducing "The Seed" – where developers wield the power to forge their own decentralized Metaverses! With this Dev Kit, developers can unleash their creativity, crafting unique digital realms that seamlessly connect with others. Imagine a network where Metaverses, created by different developers, intertwine to form a decentralized ecosystem.
 
