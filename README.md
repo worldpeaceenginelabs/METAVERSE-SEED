@@ -1,4 +1,6 @@
 # METAVERSE-SEED
+[Live on Cloudflare](https://cloudatlas.club) pre-version of the seed, but globe is broken<br>
+[Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
 30.03.2024
 
@@ -29,8 +31,6 @@ Enjoy only the per page view and the bind feature of Svelte, but Code in Javascr
 - Form_prototype.svelte (showcase and livepage coming, infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...)
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
 HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!
-
-Here i used a pre-version of the seed in my Project Cloud Atlas: [LINK](https://cloudatlas.club)
 
 ### How to create a server?
 - npm run server.js
