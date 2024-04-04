@@ -39,10 +39,26 @@ HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers
 
 ### What does it do for now?
 
-- deduplicates indexeddb
-- deletes messages older than 7 days
-- schedules on and off and ontime (you can already control the probability of concurrent connections!)
-- example client and server syncs topic 1 between different clients
+- The client deduplicates the client's IndexedDB entries by ID.
+- The client deletes messages in the IndexedDB that are older than 7 days every 24 hours.
+- The example client and server are broadcasting messages published to topic 1 to all clients.
+- The client schedules turning the connection on and after 5min off, as well as reconnecting at a random time between 10-30min.
+
+Regarding the WebSocket connection behavior:
+
+Currently, when the WebSocket connection starts, it shuts down after five minutes regardless of activity and reconnects after a random time between 10 and 30 minutes. This setting is suitable for networks where real-time updates are not necessary but everyone needs to stay updated.
+
+This simple setup ensures two things:
+   1. If the server disconnects all clients simultaneously, not all clients come back online at the same time, potentially avoiding another server outage.
+   2. The connection remains open only for the necessary duration. Five minutes should be sufficient to synchronize all changes; if not, the process repeats and/or continues during the next connection attempt.
+
+You can already control the likelihood of concurrent connections. Currently, the probability is 12:1/h (5 minutes), plus the randomness of reconnection, of clients being online simultaneously. Lowering the connection duration from 5 minutes to 1 minute reduces the chance to 60:1, plus the randomness of reconnection.
+
+For my project, Cloud Atlas, based on Metaverse-Seed, I will maintain this setup until an average of 1 million clients are online simultaneously (uWebSockets can theoretically handle up to 5 million concurrent connections). Afterward, as the user base grows, I will decrease the connection duration from 5 minutes to 1-3 minutes to scale the server. This ensures that fewer online clients coincide at the same time, which is acceptable when still being connected to a big fraction of millions of users. And on the next reconnect to another big fraction. Till everything is synced.
+
+Feel free to experiment with different strategies to find the optimal one for your development or business scenario!
+
+Remove the turn off and set the reconnection strategy to a fixed 0.083 seconds (because of the multiplicator in the random function) for reconnecting after 1000ms (1 second) for real-time.
 
 ### What's now?
 Now i'm searching for the most simple logic without storing to much bs or private data, so the websockets server is not transfereing already sent data to each other again.
