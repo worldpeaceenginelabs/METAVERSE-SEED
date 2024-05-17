@@ -61,7 +61,7 @@
 	  "geocoder": true,
 	  "homeButton": true,
 	  "infoBox": false,
-	  "sceneModePicker": false,
+	  "sceneModePicker": true,
 	  "selectionIndicator": false,
 	  "timeline": false,
 	  "navigationHelpButton": false,
