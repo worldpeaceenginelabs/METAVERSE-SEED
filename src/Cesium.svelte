@@ -14,12 +14,14 @@
 	
 </script>
 
-<div id="cesiumContainer">
-</div>
+<main id="cesiumContainer">
+</main>
 
 <style>
-	#cesiumContainer {
-		width: 100%;
-		height: 100vh; /* Setzen Sie die Höhe auf 100% der Ansichtshöhe */
-	}
-</style>
+main{
+height: 100vh;
+width: 100vw;
+margin: 0;
+padding: 0;
+}
+	</style>
