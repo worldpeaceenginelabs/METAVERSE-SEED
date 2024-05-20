@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "cesium": "^1.117.0",
+    "trystero": "^0.18.0",
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.43.0"
   }
 }

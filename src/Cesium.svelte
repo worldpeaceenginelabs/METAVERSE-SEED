@@ -1,22 +1,110 @@
 <script lang="ts">
-
-	import {onMount} from 'svelte';
-  
-	import {Viewer,
-	Cartesian3,
-	ClockRange,
-	Color,
-	Entity,
-	HermitePolynomialApproximation,
-	JulianDate,
-	SampledProperty,
-	} from 'cesium';
-  
+	import { onMount } from 'svelte';
+	import { Viewer, Cartesian3, Color, Entity, JulianDate, SampledProperty, ClockRange, HermitePolynomialApproximation } from 'cesium';
+	import { recordsStore } from './recordsStore';
+	import { Cartesian2 } from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	
   
-	 // Get user location from browser api
+	import FormPrototype from './Form_prototype.svelte';
+  
+	let showModal = false;
+  
+	function openModal() {
+	  showModal = true;
+	}
+  
+	function closeModal() {
+	  showModal = false;
+	}
+  
+	window.CESIUM_BASE_URL = './';
+  
+	let viewer: Viewer;
+  
+	let records: Record[] = [];
+  
+	onMount(async () => {
+	  viewer = new Viewer('cesiumContainer', {
+		animation: false,
+		baseLayerPicker: true,
+		fullscreenButton: false,
+		vrButton: false,
+		geocoder: true,
+		homeButton: true,
+		infoBox: true,
+		sceneModePicker: true,
+		selectionIndicator: false,
+		timeline: false,
+		navigationHelpButton: false,
+		shouldAnimate: true
+	  });
+  
+	  Cesium.Ion.defaultAccessToken = 'your-cesium-ion-token';
+  
+	  recordsStore.subscribe(value => {
+		records = value;
+		updateGlobePins();
+	  });
+	});
+  
+	const updateGlobePins = () => {
+	  viewer.entities.removeAll();
+	  for (const record of records) {
+		viewer.entities.add(createRecordPin(record));
+	  }
+	};
+  
+	const createRecordPin = (record: Record): Entity => {
+  const position = Cartesian3.fromDegrees(parseFloat(record.longitude), parseFloat(record.latitude));
+  const pulseEntity = createPulsatingPoint(viewer, record.id, position, Color.RED);
+  
+  // Create a ConstantProperty for description
+  pulseEntity.description = new Cesium.ConstantProperty(`
+    <h1>${record.title}</h1>
+    <p>${record.text}</p>
+    <a href="${record.link}" target="_blank">${record.link}</a><br>
+    <em>${new Date(record.timestamp).toLocaleString()}</em>
+  `);
+  
+  return pulseEntity;
+};
+  
+	const createPulsatingPoint = (
+	  viewer: Viewer,
+	  pointId: string,
+	  userDestination: Cartesian3,
+	  color: Color
+	): Entity => {
+	  const start = JulianDate.now();
+	  const mid = JulianDate.addSeconds(start, 0.5, new JulianDate());
+	  const stop = JulianDate.addSeconds(start, 2, new JulianDate());
+  
+	  viewer.clock.startTime = start;
+	  viewer.clock.currentTime = start;
+	  viewer.clock.stopTime = stop;
+	  viewer.clock.clockRange = ClockRange.LOOP_STOP;
+  
+	  const pulseProperty = new SampledProperty(Number);
+	  pulseProperty.setInterpolationOptions({
+		interpolationDegree: 3,
+		interpolationAlgorithm: HermitePolynomialApproximation,
+	  });
+  
+	  pulseProperty.addSample(start, 7.0);
+	  pulseProperty.addSample(mid, 15.0);
+	  pulseProperty.addSample(stop, 7.0);
+  
+	  return new Entity({
+		id: pointId,
+		position: userDestination,
+		point: {
+		  pixelSize: pulseProperty,
+		  color,
+		},
+	  });
+	};
+  
 	const getLocationFromNavigator = (): Promise<GeolocationPosition> => {
 	  return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
@@ -33,212 +121,102 @@
 		}
 	  });
 	};
-	
   
+	let userLocationCartesian: Cartesian3 | null;
+	const userLocationPointId = 'user-location';
   
-	// avoid "window not declared"
-  
-	  if (typeof window !== "undefined"){
-		  // browser code
-	  }
-	  
-  // The URL on your server where CesiumJS's static files are hosted.
-  window.CESIUM_BASE_URL = './';
-  
-	// cesium viewer
-	let viewer: Viewer;
-  
-  
-  
-	// cesium basic settings
-  
-	onMount(async () => { 
-		  viewer = new Viewer('cesiumContainer', {
-	  "animation": false,
-	  "baseLayerPicker": true,
-	  "fullscreenButton": false,
-	  "vrButton": false,
-	  "geocoder": true,
-	  "homeButton": true,
-	  "infoBox": false,
-	  "sceneModePicker": true,
-	  "selectionIndicator": false,
-	  "timeline": false,
-	  "navigationHelpButton": false,
-	  "shouldAnimate": true
-  
-	  
-  
-	  //Use OpenStreetMaps
-	  // imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-	  //    url : 'https://tile.openstreetmap.org/'
-	  // })
-	  
-		  });
-	  });
-  
-  
-	  // cesium access token
-  
-	  Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiOThiNzJiOC1iNDFhLTQ4ZGMtODc0Zi0wYjJmZWIyMjZkNzAiLCJpZCI6NDcwNzcsImlhdCI6MTcwMDY3Mzk1Mn0.5AKEDm3pPCzy9lr4NKYFtK2sLLQKJyEDo2VxQib0A4w';
-	
-  
-  
-	// user location
-  let userLocationCartesian: Cartesian3 | null;
-  const userLocationPointId = 'user-location';
-  
-  // user location
 	onMount(async (): Promise<void> => {
-  let userLocation: GeolocationPosition | null = null;
-  try {
-  userLocation = await getLocationFromNavigator();
-  }
-  catch (error) {  
-	// Ignore user decline
-  }
-  
-  // Globe Auto Rotation
-  
-  let rotationPaused = true;
-  let lastRotationTime: number | null = null;
-  let eventHandler: (() => void) | null = null;
-  
-  const doRotate = (viewer: Viewer, rotationSpeed: number) => {
-	if (rotationPaused) {
-	  return;
-	}
-  
-	const now = Date.now();
-	// Positiv: rotates from left to right
-	const spinRate = rotationSpeed;
-	const delta = (now - (lastRotationTime ?? now)) / 1000;
-  
-	lastRotationTime = now;
-  
-	viewer.scene.camera.rotate(Cartesian3.UNIT_Z, spinRate * delta);
-  };
-  
-  const startRotation = (viewer: Viewer, rotationSpeed = 0.5) => {
-	// Already added, just continue the loop
-	if (eventHandler !== null) {
-	  if (rotationPaused) {
-		// Updating this prevents a large rotation after a longer pause
-		lastRotationTime = Date.now();
-		rotationPaused = false;
+	  let userLocation: GeolocationPosition | null = null;
+	  try {
+		userLocation = await getLocationFromNavigator();
+	  } catch (error) {
+		// Ignore user decline
 	  }
   
-	  return;
-	}
+	  let rotationPaused = true;
+	  let lastRotationTime: number | null = null;
+	  let eventHandler: (() => void) | null = null;
   
-	lastRotationTime = Date.now();
-	eventHandler = () => doRotate(viewer, rotationSpeed);
+	  const doRotate = (viewer: Viewer, rotationSpeed: number) => {
+		if (rotationPaused) {
+		  return;
+		}
   
-	viewer.scene.postRender.addEventListener(eventHandler);
-  };
+		const now = Date.now();
+		const spinRate = rotationSpeed;
+		const delta = (now - (lastRotationTime ?? now)) / 1000;
   
-  const stopRotation = () => {
-	rotationPaused = true;
-  };
+		lastRotationTime = now;
+		viewer.scene.camera.rotate(Cartesian3.UNIT_Z, spinRate * delta);
+	  };
   
-  startRotation(viewer, -0.05);
+	  const startRotation = (viewer: Viewer, rotationSpeed = 0.5) => {
+		if (eventHandler !== null) {
+		  if (rotationPaused) {
+			lastRotationTime = Date.now();
+			rotationPaused = false;
+		  }
+		  return;
+		}
   
-  // fly to user location on startup
+		lastRotationTime = Date.now();
+		eventHandler = () => doRotate(viewer, rotationSpeed);
+		viewer.scene.postRender.addEventListener(eventHandler);
+	  };
   
-  viewer.camera.flyTo({
-			  destination: Cesium.Cartesian3.fromDegrees(userLocation.coords.longitude,
-			  userLocation.coords.latitude, 10000000.0),
-   });
+	  const stopRotation = () => {
+		rotationPaused = true;
+	  };
   
+	  startRotation(viewer, -0.05);
   
+	  if (userLocation !== null) {
+		viewer.camera.flyTo({
+		  destination: Cartesian3.fromDegrees(userLocation.coords.longitude, userLocation.coords.latitude, 10000000.0),
+		});
   
-  // user location
-  if (userLocation !== null) {
-				  userLocationCartesian = Cartesian3.fromDegrees(
-					  userLocation.coords.longitude,
-					  userLocation.coords.latitude,
-				  )
-				  
-				  addUserLocation(
-					  viewer,
-					  userLocation,
-					  userLocationCartesian,
-					  userLocationPointId
-				  )
-			  }
-  });
+		userLocationCartesian = Cartesian3.fromDegrees(userLocation.coords.longitude, userLocation.coords.latitude);
   
-  const addUserLocation = (
-	viewer: Viewer,
-	userLocation: GeolocationPosition,
-	userLocationCartesian: Cartesian3,
-	userLocationPointId: string
-  ) => {
-	viewer.entities.add(
-	  createPulsatingPoint(
-		viewer,
-		userLocationPointId,
-		Cartesian3.fromDegrees(
-		  userLocation.coords.longitude,
-		  userLocation.coords.latitude,
-		  0
-		),
-		Color.GREEN
-	  )
-	);
-  };
+		addUserLocation(viewer, userLocation, userLocationCartesian, userLocationPointId);
+	  }
+	});
   
-  // make user location dot pulsate
-  
-  const createPulsatingPoint = (
+	const addUserLocation = (
 	  viewer: Viewer,
-	  pointId: string,
-	  userDestination: Cartesian3,
-	  color: Color
-	): Entity => {
-	  const start = JulianDate.now();
-	  const mid = JulianDate.addSeconds(start, 0.5, new JulianDate());
-	  const stop = JulianDate.addSeconds(start, 2, new JulianDate());
-	
-	  viewer.clock.startTime = start;
-	  viewer.clock.currentTime = start;
-	  viewer.clock.stopTime = stop;
-	  viewer.clock.clockRange = ClockRange.LOOP_STOP;
-	
-	  const pulseProperty = new SampledProperty(Number);
-	  pulseProperty.setInterpolationOptions({
-		interpolationDegree: 3,
-		interpolationAlgorithm: HermitePolynomialApproximation,
-	  });
-	
-	  pulseProperty.addSample(start, 7.0);
-	  pulseProperty.addSample(mid, 15.0);
-	  pulseProperty.addSample(stop, 7.0);
-	
-	  return new Entity({
-		id: pointId,
-		position: userDestination,
-		point: {
-		  pixelSize: pulseProperty,
-		  color,
-		},
-	  });
+	  userLocation: GeolocationPosition,
+	  userLocationCartesian: Cartesian3,
+	  userLocationPointId: string
+	) => {
+	  viewer.entities.add(
+		createPulsatingPoint(
+		  viewer,
+		  userLocationPointId,
+		  Cartesian3.fromDegrees(userLocation.coords.longitude, userLocation.coords.latitude, 0),
+		  Color.GREEN
+		)
+	  );
 	};
-  
-  
-  
-  
-  
   </script>
-
-<main id="cesiumContainer">
-</main>
-
-<style>
-main{
-height: 100vh;
-width: 100vw;
-margin: 0;
-padding: 0;
-}
-	</style>
+  
+  <main id="cesiumContainer"></main>
+  
+  <button on:click={openModal}>Open Form Modal</button>
+  
+  {#if showModal}
+	<div class="modal">
+	  <div class="modal-content">
+		<span class="close" on:click={closeModal}>&times;</span>
+		<FormPrototype />
+	  </div>
+	</div>
+  {/if}
+  
+  <style>
+	main {
+	  height: 100vh;
+	  width: 100vw;
+	  margin: 0;
+	  padding: 0;
+	}
+  </style>
+  
