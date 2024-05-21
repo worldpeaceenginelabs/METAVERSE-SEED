@@ -3,8 +3,8 @@
 	import { Ion, Viewer, Cartesian3, Color, Entity, JulianDate, SampledProperty, ClockRange, HermitePolynomialApproximation, ConstantProperty } from 'cesium';
 	import { recordsStore } from './recordsStore';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	import FormPrototype from './Form_prototype.svelte';
-	import type Record from './Form_prototype.svelte';
+	import FormPrototype from './AddMapmarker.svelte';
+	import type Record from './AddMapmarker.svelte';
 
 	let showModal = false;
 	let viewer: Viewer;
@@ -116,7 +116,7 @@
 		try {
 			userLocation = await getLocationFromNavigator();
 		} catch (error) {
-			// Handle error (optional)
+			console.error(error);
 		}
 
 		let rotationPaused = true;
@@ -183,7 +183,6 @@
 {/if}
 
 <style>
-	
 	main {
 		height: 100vh;
 		width: 100vw;
@@ -192,8 +191,10 @@
 	}
 	.buttononglobe {
 		position: fixed;
-		top: 0;
-		left: 0;}
+		top: 10px;
+		left: 10px;
+		z-index: 1000;
+	}
 	.modal {
 		position: fixed;
 		top: 0;
@@ -204,6 +205,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		z-index: 1001;
 	}
 	.modal-content {
 		background-color: white;
@@ -212,7 +214,6 @@
 	}
 	.close {
 		cursor: pointer;
-		float: right;
 		font-size: 24px;
 	}
 </style>
