@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Ion, Viewer, Cartesian3, Color, Entity, JulianDate, SampledProperty, ClockRange, HermitePolynomialApproximation, ConstantProperty } from 'cesium';
-	import { recordsStore } from './recordsStore';
+	import { openDB } from 'idb';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	import FormPrototype from './AddMapmarker.svelte';
 	import type Record from './AddMapmarker.svelte';
+  	import AddMapmarker from './AddMapmarker.svelte';
 
 	let showModal = false;
 	let viewer: Viewer;
@@ -38,10 +38,32 @@
 
 		Ion.defaultAccessToken = 'your-cesium-ion-token';
 
-		recordsStore.subscribe(value => {
-			records = value;
-			updateGlobePins();
+		const db = await openDB('indexeddbstore', 1, {
+			upgrade(db) {
+				db.createObjectStore('locationpins');
+			},
 		});
+
+		const transaction = db.transaction('locationpins', 'readonly'); // Open transaction in readonly mode
+		const locationpinsStore = transaction.objectStore('locationpins');
+
+		const cursorRequest = locationpinsStore.openCursor(); // Request a cursor
+
+		cursorRequest.onsuccess = function (event) {
+			const cursor = event.target.result; // Get cursor from the event
+
+			if (cursor) {
+				records.push(cursor.value);
+				cursor.continue(); // Continue to the next cursor
+			} else {
+				// Cursor has iterated over all records, do something after all records are processed
+				updateGlobePins();
+			}
+		};
+
+		cursorRequest.onerror = function (event) {
+			console.error('Error opening cursor:', event.target.error);
+		};
 	});
 
 	const updateGlobePins = () => {
@@ -177,7 +199,7 @@
 	<div class="modal">
 		<div class="modal-content">
 			<span class="close" on:click={closeModal}>&times;</span>
-			<FormPrototype />
+			<AddMapmarker />
 		</div>
 	</div>
 {/if}
