@@ -1,21 +1,20 @@
 <script lang="ts">
 
-    // Allowed dependencies
+// Allowed dependencies
 
-    import { joinRoom } from 'trystero';
-    import { onMount } from 'svelte';
-    import { writable } from 'svelte/store';
+import { joinRoom } from 'trystero';
+import { onMount } from 'svelte';
+import { writable } from 'svelte/store';
     
+
+
+
     // App initialization
-    // Check if an indexeddb with the name "indexeddbstore" and the two objectstores "mapmarker" and "client" already exists.
-    // indexeddb.createObjectStore('mapmarker', { keyPath: 'mapid' });
+    // Check if an indexeddb with the name "indexeddbstore" and the two objectstores "locationpins" and "client" already exists.
+    // If not, create them.
+    // indexeddb.createObjectStore('locationpins', { keyPath: 'mapid' });
     // indexeddb.createObjectStore('client', { keyPath: 'appid' });
-
-
-    // If not, create an indexeddb with the name "indexeddbstore".
-    // Create two objectstores.
    
-
     // If the indexeddb with the name indexeddbstore already exists, check if appid and username already exists in the objectstore "client".
     // If not, store a randomuuid into the objectstore "client" in username.
     // Then fetch the username from the objectstore "client", add a salt (let salt = salt1234), and take a sha256 hash of "username+salt".
@@ -23,56 +22,73 @@
 
     // If an appid and username already exists in the objectstore "client", fetch them from the objectstore "client",
     // add the same salt from before (same variable let=salt) to the fetched username and create a sha256 hash from the combination (hash of username+salt12345)
+    // Fetch appid from the objectstore "client" and match with the just new generated hash.
+    // If the new hash and the hash in the objectstore mismatch = start from "App initialization" again.
+    // If they match, the user is allowed to join the room, and console.log("username" with "appid" authorized) 
+    
 
 
-    // Join the user to a room with a namespace:
+
+// Trystero logic
+
+// Join the user to a room with a namespace:
     const config = { appId: 'hashOfRandomuuidPlusSecretsalt' };
     const room = joinRoom(config, 'chat-room');
   
     const messages = writable<string[]>([]);
     let message = '';
 
-    // Nachrichtensendeaktion erstellen
-    const [sendMessage, getMessage] = room.makeAction('message');
+// Create message send action
+const [sendMessage, getMessage] = room.makeAction('message');
 
-    // Nachrichtenspeicher, um Nachrichten an neue Peers zu senden
-    let messageCache: string[] = [];
+// Message cache to send messages to new peers
+let messageCache: string[] = [];
 
-    // Empfange Nachrichten von anderen Peers
-    getMessage((data: string, peerId: string) => {
-        if (!messageCache.includes(data)) {
+// Receive messages from other peers
+getMessage((data: string, peerId: string) => {
+    if (!messageCache.includes(data)) {
         messages.update(msgs => [...msgs, data]);
-        messageCache.push(data); // Nachricht zum Cache hinzufügen
-        }
-    });
+        messageCache.push(data); // Add message to cache
+    }
+});
 
-    // Nachricht senden und empfangen
-    const send = () => {
-        if (message.trim()) {
+// Send and receive messages
+const send = () => {
+    if (message.trim()) {
         sendMessage(message);
         messages.update(msgs => [...msgs, message]);
-        messageCache.push(message); // Nachricht zum Cache hinzufügen
+        messageCache.push(message); // Add message to cache
         message = '';
-        }
-    };
+    }
+};
 
-    // Neue Peers empfangen alle bisherigen Nachrichten
-    const [sendCache, getCache] = room.makeAction('cache');
+// New peers receive all previous messages
+const [sendCache, getCache] = room.makeAction('cache');
 
-    getCache((data: string[]) => {
-        const receivedMessages = data.filter(msg => !messageCache.includes(msg));
-        messages.update(msgs => [...msgs, ...receivedMessages]);
-        messageCache.push(...receivedMessages); // Nachrichten zum Cache hinzufügen
-    });
+getCache((data: string[]) => {
+    const receivedMessages = data.filter(msg => !messageCache.includes(msg));
+    messages.update(msgs => [...msgs, ...receivedMessages]);
+    messageCache.push(...receivedMessages); // Add messages to cache
+});
 
-    onMount(() => {
-        room.onPeerJoin(peerId => {
+onMount(() => {
+    room.onPeerJoin(peerId => {
         console.log(`Peer ${peerId} joined`);
-        // Sende den Nachrichten-Cache an den neuen Peer, aber nur die Nachrichten, die der Peer noch nicht hat
+        // Send message cache to the new peer, but only the messages the peer doesn't have yet
         sendCache(messageCache);
-        });
-        room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
     });
+    room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
+});
+
+
+
+
+    // Store only received messages into the objectstore "locationpins"
+    // Delete all messages older then 7 days from the objectstore "locationspins"
+
+
+
+
   </script>
   
   <main>
