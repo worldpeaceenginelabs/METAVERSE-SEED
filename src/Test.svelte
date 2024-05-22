@@ -31,32 +31,53 @@
   
     const messages = writable<string[]>([]);
     let message = '';
-  
+
     // Nachrichtensendeaktion erstellen
     const [sendMessage, getMessage] = room.makeAction('message');
-  
+
+    // Nachrichtenspeicher, um Nachrichten an neue Peers zu senden
+    let messageCache: string[] = [];
+
     // Empfange Nachrichten von anderen Peers
-    getMessage((data: string) => {
-      messages.update(msgs => [...msgs, data]);
+    getMessage((data: string, peerId: string) => {
+        if (!messageCache.includes(data)) {
+        messages.update(msgs => [...msgs, data]);
+        messageCache.push(data); // Nachricht zum Cache hinzufügen
+        }
     });
-  
+
     // Nachricht senden und empfangen
     const send = () => {
-      if (message.trim()) {
+        if (message.trim()) {
         sendMessage(message);
         messages.update(msgs => [...msgs, message]);
+        messageCache.push(message); // Nachricht zum Cache hinzufügen
         message = '';
-      }
+        }
     };
-  
+
+    // Neue Peers empfangen alle bisherigen Nachrichten
+    const [sendCache, getCache] = room.makeAction('cache');
+
+    getCache((data: string[]) => {
+        const receivedMessages = data.filter(msg => !messageCache.includes(msg));
+        messages.update(msgs => [...msgs, ...receivedMessages]);
+        messageCache.push(...receivedMessages); // Nachrichten zum Cache hinzufügen
+    });
+
     onMount(() => {
-      room.onPeerJoin(peerId => console.log(`Peer ${peerId} joined`));
-      room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
+        room.onPeerJoin(peerId => {
+        console.log(`Peer ${peerId} joined`);
+        // Sende den Nachrichten-Cache an den neuen Peer, aber nur die Nachrichten, die der Peer noch nicht hat
+        sendCache(messageCache);
+        });
+        room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
     });
   </script>
   
   <main>
-    <h1>Svelte P2P Chat</h1>
+    <h3>P2P WebRTC without signal server but the public Bittorrent tracker network instead.<br>Testing out a few things! The globe is coming back soon...</h3>
+    
     <div id="chat">
       {#each $messages as msg}
         <div class="message">{msg}</div>
@@ -65,7 +86,7 @@
     <input bind:value={message} placeholder="Type a message" on:keypress="{(e) => e.key === 'Enter' && send()}" />
     <button on:click={send}>Send</button>
   </main>
-  
+
   <style>
     main {
       font-family: Arial, sans-serif;
