@@ -198,8 +198,12 @@
 {#if showModal}
 	<div class="modal">
 		<div class="modal-content">
-			<span class="close" on:click={closeModal}>&times;</span>
-			<AddMapmarker />
+			<table>
+				<tr>
+				<td><AddMapmarker /></td>
+				<td><span class="close" on:click={closeModal}>Close</span></td>
+			  </tr>
+			</table>
 		</div>
 	</div>
 {/if}
@@ -236,6 +240,6 @@
 	}
 	.close {
 		cursor: pointer;
-		font-size: 24px;
+		font-size: 18px;
 	}
 </style>
