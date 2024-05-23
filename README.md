@@ -10,8 +10,9 @@ A decentralized Google Earth running as a 4MB stand-alone package, capable of wo
 
 # Short description
 
-Location pins (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) are shared directly peer-to-peer (P2P) between users via WebRTC. Map tiles can come from every accessible map tile API, but will also be shared directly peer-to-peer (P2P) between users via WebRTC.
-Apps, code, and assets will be shared directly peer-to-peer (P2P) between users via WebRTC.
+- Location pins (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) are shared directly peer-to-peer (P2P) between users via WebRTC.
+- Map tiles can come from every accessible map tile API, but will also be shared directly peer-to-peer (P2P) between users via WebRTC.
+- Apps, code, and assets will be shared directly peer-to-peer (P2P) between users via WebRTC.
 
 # FEATURES
 
