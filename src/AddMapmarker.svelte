@@ -5,25 +5,27 @@
 
   let indexeddb: IDBDatabase;
 
-  // Initialize IndexedDB
-  function initializeIndexedDB() {
-    const request = window.indexedDB.open('indexeddbstore', 1);
+  async function initializeIndexedDB() {
+    return new Promise<void>((resolve, reject) => {
+      const request = window.indexedDB.open('indexeddbstore', 1);
 
-    request.onupgradeneeded = function(event) {
-      indexeddb = request.result;
-      indexeddb.createObjectStore('locationpins', { keyPath: 'mapid' });
-      indexeddb.createObjectStore('client', { keyPath: 'appid' });
-    };
+      request.onupgradeneeded = function(event) {
+        indexeddb = request.result;
+        indexeddb.createObjectStore('locationpins', { keyPath: 'mapid' });
+        indexeddb.createObjectStore('client', { keyPath: 'appid' });
+      };
 
-    request.onsuccess = function(event) {
-      indexeddb = request.result;
+      request.onsuccess = function(event) {
+        indexeddb = request.result;
+        resolve();
+      };
 
-      // Call authorizeUser once IndexedDB is initialized
-      authorizeUser();
-    };
+      request.onerror = function(event) {
+        reject(request.error);
+      };
+    });
   }
 
-  // Authorize user
   async function authorizeUser() {
     const transaction = indexeddb.transaction(['client'], 'readwrite');
     const store = transaction.objectStore('client');
@@ -36,7 +38,7 @@
     if (!username || !appid) {
       const randomUUID = crypto.randomUUID();
       const salt = 'salt1234';
-      const hashedUsername = await hashData(username + salt);
+      const hashedUsername = await hashData(randomUUID + salt);
 
       store.put({ appid: hashedUsername, username: randomUUID });
     } else {
@@ -44,7 +46,6 @@
       const hashedUsername = await hashData(username + salt);
 
       if (hashedUsername !== appid) {
-        // Mismatch, reauthorize
         authorizeUser();
       } else {
         console.log(`${username} with ${appid} authorized`);
@@ -52,7 +53,6 @@
     }
   }
 
-  // Delete old records
   function deleteOldRecords() {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
     const store = transaction.objectStore('locationpins');
@@ -73,8 +73,19 @@
     };
   }
 
-  // App initialization
-  initializeIndexedDB();
+  async function storeRecord(record: Record) {
+    const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
+    const store = transaction.objectStore('locationpins');
+    await store.add(record);
+    console.log(`Stored record in IndexedDB`);
+  }
+
+  async function initializeApp() {
+    await initializeIndexedDB();
+    await authorizeUser();
+  }
+
+  initializeApp();
 
   // Trystero logic
   const config = { appId: 'hashOfRandomuuidPlusSecretsalt' };
@@ -85,31 +96,36 @@
   let record: Record = createEmptyRecord();
 
   // Create action to send record
-  const [sendRecord, getRecord] = room.makeAction('record');
+  const [sendRecordAction, getRecord] = room.makeAction('record');
 
   // Record cache to send records to new peers
   let recordCache: Record[] = [];
 
   // Receive records from other peers
-  getRecord((data: Record, peerId: string) => {
+  getRecord(async (data: Record, peerId: string) => {
     if (!recordCache.some(rec => rec.mapid === data.mapid)) {
       records.update(recs => [...recs, data]);
       recordCache.push(data); // Add record to cache
 
       // Store received record in IndexedDB "locationpins" object store
-      const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
-      const store = transaction.objectStore('locationpins');
-      store.add(data);
+      await storeRecord(data);
       console.log(`Received record from peer ${peerId} and stored in IndexedDB`);
     }
   });
 
   // Send and receive records
-  const send = () => {
+  const send = async () => {
     if (recordIsValid(record)) {
-      sendRecord(record);
-      records.update(recs => [...recs, record]);
-      recordCache.push(record); // Add record to cache
+      sendRecordAction(record);
+
+      // Immediately process the record as if it was received from another peer
+      if (!recordCache.some(rec => rec.mapid === record.mapid)) {
+        records.update(recs => [...recs, record]);
+        recordCache.push(record);
+        await storeRecord(record);
+        console.log('Self-processed the sent record and stored in IndexedDB');
+      }
+
       record = createEmptyRecord(); // Reset record
 
       // Delete old records after sending a new record
@@ -121,18 +137,16 @@
   // New peers receive all previous records
   const [sendCache, getCache] = room.makeAction('cache');
 
-  getCache((data: Record[]) => {
+  getCache(async (data: Record[]) => {
     const receivedRecords = data.filter(rec => !recordCache.some(rc => rc.mapid === rec.mapid));
     records.update(recs => [...recs, ...receivedRecords]);
     recordCache.push(...receivedRecords); // Add records to cache
 
     // Store received records in IndexedDB "locationpins" object store
-    const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
-    const store = transaction.objectStore('locationpins');
-    receivedRecords.forEach(record => {
-      store.add(record);
+    for (const record of receivedRecords) {
+      await storeRecord(record);
       console.log(`Stored received record in IndexedDB`);
-    });
+    }
   });
 
   onMount(() => {
@@ -163,8 +177,9 @@
     // For simplicity, let's just check if the title is not empty
     return rec.title.trim() !== '';
   }
-// Function to hash data using SHA-256
-async function hashData(data: string): Promise<string> {
+
+  // Function to hash data using SHA-256
+  async function hashData(data: string): Promise<string> {
     // Convert the string data to an array buffer
     const encoder = new TextEncoder();
     const buffer = encoder.encode(data);
@@ -177,10 +192,10 @@ async function hashData(data: string): Promise<string> {
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
     return hashHex;
-}
+  }
 
-// Define the Record type
-type Record = {
+  // Define the Record type
+  type Record = {
     mapid: string;
     timestamp: string;
     title: string;
@@ -246,9 +261,17 @@ type Record = {
     padding: 0.5rem;
   }
 
-  input,
-  textarea {
-    width: calc(100% - 2rem);
+  form {
+    border: 1px solid #ccc;
+    padding: 1rem;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input, textarea {
+    width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
   }

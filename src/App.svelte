@@ -7,4 +7,5 @@ import Cesium from "./Cesium.svelte";
 <!-- Here starts the app-->
 <div>
 <Cesium/>
+
 </div>
