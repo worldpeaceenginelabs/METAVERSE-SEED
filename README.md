@@ -21,9 +21,9 @@ Apps, code, and assets will be shared directly peer-to-peer (P2P) between users 
 - [x] Records are transferred between all online users.
 - [x] If a new user comes online, the new user gets all past records from the other users' record cache.
 - [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
-- [x] Records older than 7 days are deleted on every init.
-- [ ] The globe populates pins from IndexedDB.
+- [x] Records older than 7 days are deleted "on every submit". (will be changed to "on every init")
 - [ ] IndexedDB refills the record cache after reload.
+- [ ] The globe populates pins from IndexedDB.
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
 - [ ] Rate limiting.
