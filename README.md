@@ -17,20 +17,20 @@ Apps, code, and assets will be shared directly peer-to-peer (P2P) between users 
 
 ### Already working / What's coming?
 
-- [x] Trystero connects everyone using the app
-- [x] Records are transfered between all online users
-- [x] If a new user comes online, the new the user gets all past records from the other users record cache.
-- [x] Only records which are received via Trystero (also valid for the sender) are stored in idndexeddb
-- [x] Records older than 7 days are getting deleted on every init
-- [] globe populates pins from indexeddb.
-- [] indexeddb refills the recordcache after reload
-- [] Progressive Web App features (PWA)
-- [] transfer limiting
-- [] rate limiting
-- [] authentication-"less" authentication
-- [] webrtc channel for syncronizing assets (get client from client. P2P downloadable software)
-- [] multiple other protocols as fallbacks
-- [] decentralized domains
+- [x] Trystero connects everyone using the app.
+- [x] Records are transferred between all online users.
+- [x] If a new user comes online, the new user gets all past records from the other users' record cache.
+- [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
+- [x] Records older than 7 days are deleted on every init.
+- [ ] The globe populates pins from IndexedDB.
+- [ ] IndexedDB refills the record cache after reload.
+- [ ] Progressive Web App features (PWA).
+- [ ] Transfer limiting.
+- [ ] Rate limiting.
+- [ ] Authentication-less authentication.
+- [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
+- [ ] Multiple other protocols as fallbacks.
+- [ ] Decentralized domains.
 
 # Introduction
 
