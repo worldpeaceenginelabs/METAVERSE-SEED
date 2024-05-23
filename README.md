@@ -18,6 +18,7 @@ A decentralized Google Earth running as a 4MB stand-alone package, capable of wo
 
 ### Already working / What's coming?
 
+- [x] Authentication-less authentication. (combo from appid + ENVsalt + https)
 - [x] Trystero connects everyone using the app.
 - [x] Records are transferred between all online users.
 - [x] If a new user comes online, the new user gets all past records from the other users' record cache.
@@ -28,7 +29,6 @@ A decentralized Google Earth running as a 4MB stand-alone package, capable of wo
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
 - [ ] Rate limiting.
-- [ ] Authentication-less authentication.
 - [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
 - [ ] Multiple other protocols as fallbacks.
 - [ ] Decentralized domains.
