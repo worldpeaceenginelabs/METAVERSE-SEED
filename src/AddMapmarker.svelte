@@ -80,9 +80,37 @@
     console.log(`Stored record in IndexedDB`);
   }
 
+  async function loadRecordsFromIndexedDB() {
+    const transaction = indexeddb.transaction(['locationpins'], 'readonly');
+    const store = transaction.objectStore('locationpins');
+    const records: Record[] = [];
+
+    return new Promise<Record[]>((resolve, reject) => {
+      const request = store.openCursor();
+
+      request.onsuccess = function(event) {
+        const cursor = event.target.result;
+        if (cursor) {
+          records.push(cursor.value);
+          cursor.continue();
+        } else {
+          resolve(records);
+        }
+      };
+
+      request.onerror = function(event) {
+        reject(request.error);
+      };
+    });
+  }
+
   async function initializeApp() {
     await initializeIndexedDB();
     await authorizeUser();
+    const storedRecords = await loadRecordsFromIndexedDB();
+    records.set(storedRecords);
+    recordCache.push(...storedRecords);
+    console.log('Loaded records from IndexedDB');
   }
 
   initializeApp();
@@ -212,6 +240,8 @@
   <div id="records">
     {#each $records as rec}
       <div class="record">
+        <p>MapID: {rec.mapid}</p>
+        <p>Timestamp: {rec.timestamp}</p>
         <p>Title: {rec.title}</p>
         <p>Text: {rec.text}</p>
         <p>Link: {rec.link}</p>

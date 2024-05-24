@@ -24,7 +24,7 @@ A decentralized Google Earth running as a 4MB stand-alone package, capable of wo
 - [x] If a new user comes online, the new user gets all past records from the other users' record cache.
 - [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
 - [x] Records older than 7 days are deleted "on every submit". (will be changed to "on every init")
-- [ ] IndexedDB refills the record cache after reload.
+- [x] IndexedDB refills the record cache after reload.
 - [ ] The globe populates pins from IndexedDB.
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
