@@ -8,6 +8,12 @@ Restarted project The Seed at 30.03.2024
 
 A decentralized Google Earth running as a 4MB stand-alone package, capable of working offline, in your browser.
 
+
+## Metaverse-Seed is fully decentralized and uses Trystero as "back-end"! How does it connect?
+
+To establish a direct peer-to-peer connection with WebRTC, a signalling channel is needed to exchange peer information (SDP). Typically this involves running your own matchmaking server but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS).
+Metaverse-Seed uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of th world's population.
+
 # Short description
 
 - Location pins (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) are shared directly peer-to-peer (P2P) between users via WebRTC.
@@ -49,10 +55,6 @@ Picture it: Your single creations adding up to a Collective Computer rivaling th
 A client which is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
 This repository is a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!
-
-## We are using Trystero as our "back-end"! How does it connect?
-
-To establish a direct peer-to-peer connection with WebRTC, a signalling channel is needed to exchange peer information (SDP). Typically this involves running your own matchmaking server but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS).
 
 # HOW TO...
 
