@@ -12,7 +12,7 @@ A decentralized Google Earth running as a 4MB stand-alone package, capable of wo
 ## Metaverse-Seed is fully decentralized and uses Trystero as "back-end"! How does it connect?
 
 To establish a direct peer-to-peer connection with WebRTC, a signalling channel is needed to exchange peer information (SDP). Typically this involves running your own matchmaking server but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS).
-Metaverse-Seed uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of th world's population.
+Metaverse-Seed uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of the world's population.
 
 # Short description
 
@@ -37,6 +37,7 @@ Metaverse-Seed uses the BitTorrent strategy: peer-to-peer real-time data transfe
 - [ ] Rate limiting.
 - [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
 - [ ] Multiple other protocols as fallbacks.
+- [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
 - [ ] Decentralized domains.
 
 # Introduction
