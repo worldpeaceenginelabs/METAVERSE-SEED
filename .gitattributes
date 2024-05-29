@@ -1,0 +1,4 @@
+../public/Assets/* linguist-vendored
+../public/ThirdParty/* linguist-vendored
+../public/Widgets/* linguist-vendored
+../puclic/Workers/* linguist-vendored
