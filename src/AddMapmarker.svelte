@@ -235,7 +235,7 @@
 </script>
 
 <main>
-  <h3>P2P WebRTC without signal server but the public Bittorrent tracker network instead.<br>Testing out a few things! The globe is coming back soon...</h3>
+  <h3>P2P WebRTC without signal server but the public Bittorrent tracker network instead.<br>Testing out the implementations with this basic UI!</h3>
   
   <div id="records"  style="height: 100px; overflow-y: scroll;">
     {#each $records as rec}
