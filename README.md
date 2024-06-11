@@ -59,7 +59,7 @@ This repository is a clean code base with basic instructions (coming) for expand
 
 # HOW TO...
 
-### How to create a client?
+### How to create your idea, app, game, network...?
 - clone
 - npm install
 - npm run dev
