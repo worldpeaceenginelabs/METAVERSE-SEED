@@ -63,8 +63,11 @@ This repository is a clean code base with basic instructions (coming) for expand
 - clone
 - npm install
 - npm run dev
- 
-Enjoy only the per page view and the bind feature of Svelte, but Code in Javascript! Blazing fast because the build output is your app precompiled. Static, but reactive! This is JAMstack, which runs on edge and every other storage.
+
+##### No framework boilerplate
+Enjoy only the per page view and the bind feature of SvelteJS, but code in plain Javascript! Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
+
+Simply get started with whatever you can think of. Everything is well pre-configured. In turn you can start to code your idea instant, without thinking about the repo configuration or the back-end. In Javascript, without any framework boilerplate. Only the reactive store and the binds are Sveltejs, but the modifications/extensions can be done by anyone who knows JS without understanding a shred of Sveltejs. (when you see how the form in AddMapmarker.svelte works, it will click, promise! 😉😁)
 
 - Cesium.svelte: Here you control the globe and the population with entities (pins, objects, events, apps, etc...)
 
