@@ -235,7 +235,36 @@
 </script>
 
 <main>
-  <h3>P2P WebRTC without signal server but the public Bittorrent tracker network instead.<br>Testing out the implementations with this basic UI!</h3>
+  <h3>
+    An independent, community-owned Google Earth, free from centralized servers and entities, and owned by you and the public alone! <br><br>
+    No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
+    
+    What's stopping you from creating right now? Make the world work!<br>
+    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub</a><br>
+    UI Coming Soon<br><br>
+
+    Imagine building Google Maps/Earth ourselves and adding all services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies.<br><br>
+    Imagine payments P2P without middleman. Bye bye banks.<br><br>
+    Imagine crowd engineering and petitioning combined with crowdfunding. Bye bye governments...<br><br>
+
+    Open this app on another tab: They sync!<br>
+    Open this on your mobile and desktop: They sync!<br>
+    Call your friends and tell them to open this web in their browser: Guess what? They sync!!!<br><br>
+    
+    With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!<br><br>
+    
+    A pin can represent everything: posts, profiles, links, streams, apps, games, your business, your non-profit organisation - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
+
+    I've always held the theory that "everything is already there, it is just mismanaged".<br>
+    Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories:<br><br>
+    
+    CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web. It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting display, AR, and VR out of the box.<br><br>
+    
+    To establish a direct peer-to-peer connection with WebRTC, a signaling channel is needed to exchange peer information (SDP). Typically, this involves running your own matchmaking server, but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS). <br><br>
+    
+    What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!
+  </h3>
+
   
   <div id="records"  style="height: 100px; overflow-y: scroll;">
     {#each $records as rec}
@@ -309,5 +338,14 @@
 
   button {
     padding: 0.5rem 1rem;
+  }
+
+  h3 {
+    text-align: left;
+    
+            height: 100px;  /* Set the height to make the content scrollable */
+            overflow: auto; /* Enable scrolling when content overflows */
+            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+            padding: 10px; /* Optional: Add padding for better appearance */
   }
 </style>
