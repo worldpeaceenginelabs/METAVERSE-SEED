@@ -236,7 +236,7 @@
 
 <main>
   <h3>
-    An independent, community-owned Google Earth, free from centralized servers and entities, and owned by you and the public alone! <br><br>
+    Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and entities, and owned by you and the public alone! <br><br>
     No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
     
     What's stopping you from creating right now? Make the world work!<br>
@@ -266,7 +266,7 @@
   </h3>
 
   
-  <div id="records"  style="height: 100px; overflow-y: scroll;">
+  <div id="records"  style="height: 20px; overflow-y: scroll;">
     {#each $records as rec}
       <div class="record">
         <p>MapID: {rec.mapid}</p>
@@ -343,7 +343,7 @@
   h3 {
     text-align: left;
     
-            height: 100px;  /* Set the height to make the content scrollable */
+            height: 250px;  /* Set the height to make the content scrollable */
             overflow: auto; /* Enable scrolling when content overflows */
             border: 1px solid #ccc; /* Optional: Add a border for better visibility */
             padding: 10px; /* Optional: Add padding for better appearance */
