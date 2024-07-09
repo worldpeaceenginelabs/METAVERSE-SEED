@@ -235,7 +235,7 @@
 </script>
 
 <main>
-  <h3>
+  <h4>
     Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and entities, and owned by you and the public alone! <br><br>
     No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
     
@@ -263,7 +263,7 @@
     To establish a direct peer-to-peer connection with WebRTC, a signaling channel is needed to exchange peer information (SDP). Typically, this involves running your own matchmaking server, but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS). <br><br>
     
     What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!
-  </h3>
+  </h4>
 
   
   <div id="records"  style="height: 20px; overflow-y: scroll;">
@@ -340,10 +340,10 @@
     padding: 0.5rem 1rem;
   }
 
-  h3 {
+  h4 {
     text-align: left;
     
-            height: 250px;  /* Set the height to make the content scrollable */
+            height: 150px;  /* Set the height to make the content scrollable */
             overflow: auto; /* Enable scrolling when content overflows */
             border: 1px solid #ccc; /* Optional: Add a border for better visibility */
             padding: 10px; /* Optional: Add padding for better appearance */

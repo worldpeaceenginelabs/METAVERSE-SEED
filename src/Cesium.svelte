@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Ion, Viewer, Cartesian3, Color, Entity, JulianDate, SampledProperty, ClockRange, HermitePolynomialApproximation, ConstantProperty } from 'cesium';
+	import { Ion, Viewer, Cartesian3, Color, Entity, JulianDate, SampledProperty, ClockRange, HermitePolynomialApproximation, ConstantProperty, Cesium3DTileset } from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import type Record from './AddMapmarker.svelte';
   	import AddMapmarker from './AddMapmarker.svelte';
@@ -40,7 +40,12 @@
 			shouldAnimate: true
 		});
 
-		
+		try {
+  const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
+  viewer.scene.primitives.add(tileset);
+} catch (error) {
+  console.log(error);
+}
 		
 	});
 
