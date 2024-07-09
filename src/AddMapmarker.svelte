@@ -272,6 +272,10 @@
 </main>
 
 <style>
+  :root {
+  color-scheme: only light;
+  }
+
   main {
     font-family: Arial, sans-serif;
     max-width: 600px;
