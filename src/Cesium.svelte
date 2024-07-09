@@ -235,6 +235,7 @@
 	}
 	.modal-content {
 		background-color: white;
+		color: black;
 		padding: 20px;
 		border-radius: 5px;
 	}
