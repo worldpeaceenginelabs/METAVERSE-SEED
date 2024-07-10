@@ -3,6 +3,7 @@
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
+[CCCH - Collective Computer Collaboration Hub (Developer Chat)](https://matrix.to/#/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
@@ -47,7 +48,7 @@ Metaverse-Seed uses the BitTorrent strategy: peer-to-peer real-time data transfe
 # Basics
 
 - Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
-- Map tiles can come from every accessible map tile API, but will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.
+- Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.
 
 # FEATURES
 
@@ -80,8 +81,6 @@ Inspired by these visions, Cloud Atlas was born: a decentralized platform akin t
 For non-technical users, the platform offers seamless linking to existing infrastructures or resources, whether it's a website, web app, GitHub repository, game on Steam/Epic Games, or even online meetings and live streaming. The possibilities are endless.<br><br>
 
 Developers can extend and customize every aspect, from the UI to elements, using their preferred programming languages or graphical development environments like Unreal Engine 5 and Unity 3D. With CesiumJS services and a range of free tools, visualizing and animating data on the globe becomes straightforward.<br><br>
-
-With Cloud Atlas, users and developers can create searchable pins and indexes on the map with a simple click or touch, without complex back-ends or programming. These can represent anything: posts, profiles, links, streams, apps, games - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
 
 Trystero ensures decentralized data synchronization in the background via WebRTC and Bittorrent-Signaling, though traditional data persistence methods are also supported out of the box. Cloud Atlas is integrative and flexible, allowing IoT devices, sensors, or any other data sources and devices to be added to the globe or individual pins.<br><br>
 
