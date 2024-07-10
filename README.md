@@ -135,3 +135,7 @@ And if you want to fund your requested feature or app yourself or request commun
 We believe that the potential for Metaverse-DAO is enormous, and we're excited to see it evolve into the future of app development.<br><br>
 
 Join us on Cloud Atlas and be a part of this exciting new community today. Together, we can create a better world for ourselves and future generations.<br><br>
+
+# Some inspiration, ideas i had while developing the Cloud Atlas
+
+https://worldpeaceengine.pubpub.org/pub/futurefeatures/release/78
