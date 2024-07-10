@@ -9,14 +9,12 @@ https://cloudatlas.club<br>
 
 Restarted project The Seed at 30.03.2024<br><br>
 
-# Metaverse-Seed/CLOUD ATLAS
+# Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
 
-Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies:<br><br>
+### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br>
+### No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
 
-Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br>
-No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
-
-A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
+### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
 
 ### Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.
 ### Imagine decentralized payments without middleman. Bye bye banks.
@@ -71,7 +69,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 - [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
 - [ ] Decentralized domains.
 
-## Summarize
+# Summarize
 
 This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
@@ -136,6 +134,6 @@ We believe that the potential for Metaverse-DAO is enormous, and we're excited t
 
 Join us on Cloud Atlas and be a part of this exciting new community today. Together, we can create a better world for ourselves and future generations.<br><br>
 
-# Some inspiration, ideas i had while developing the Cloud Atlas
+# Some inspiration...
 
 https://worldpeaceengine.pubpub.org/pub/futurefeatures/release/78
