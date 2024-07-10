@@ -15,11 +15,11 @@ Metaverse-Seed is the repository where we collaboratively work together on Cloud
 Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br>
 No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
 
-A server farm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
+A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
 
 ### Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.
 ### Imagine decentralized payments without middleman. Bye bye banks.
-### Imagine crowd engineering and petitioning combined with crowdfunding. Imagine decentralized allocation of homes, schools, jobs, medical services, transport, food, goods and services. Bye bye governments...
+### Imagine crowd engineering and petitioning combined with crowdfunding. Imagine decentralized allocation of homes, schools, jobs, medical services, transport, food, goods and services. Bye bye governments, corporations, employers and landlords...
 <br>
 
 # Running prototype
