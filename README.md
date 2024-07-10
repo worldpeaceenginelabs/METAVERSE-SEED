@@ -16,7 +16,7 @@ Restarted project The Seed at 30.03.2024<br><br>
 
 ### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
 
-### Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.
+### Imagine creating our own version of Google Maps/Earth, incorporating all the services we desire, free from the constraints of profit-driven entities. Goodbye monopolies, influential lone wolves, guerrillas, and political cults.
 ### Imagine decentralized payments without intermediaries. Goodbye banks.
 ### Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.
 ### And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.
@@ -48,7 +48,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 # Basics
 
 - Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
-- Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.
+- Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.<br><br>
 
 # FEATURES
 
@@ -69,12 +69,13 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 - [ ] Multiple other protocols as fallbacks.
 - [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
 - [ ] Decentralized domains.
+<br><br>
 
 # Summarize
 
 This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
-It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!
+It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!<br><br>
 
 # HOW TO...
 
@@ -117,7 +118,7 @@ Cloud Atlas aims to become the world's united operating system. Whether private 
 
 Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><br>
 
-##### A working prototype already exists: Imagine a Google Earth without the server farm, where data is transferred in the background via peer-to-peer WebRTC, while signaling is done via the worldwide BitTorrent network.
+##### A working prototype already exists: Imagine a Google Earth without the server farm, where data is transferred in the background via peer-to-peer WebRTC, while signaling is done via the worldwide BitTorrent network.<br><br>
 
 # The future
 
