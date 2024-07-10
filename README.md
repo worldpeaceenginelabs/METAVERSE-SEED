@@ -1,6 +1,6 @@
 # METAVERSE-SEED
 
-![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/af250984-bd9f-4473-bf41-9ff24a6947f8)
+![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
