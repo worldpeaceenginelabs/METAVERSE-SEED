@@ -244,8 +244,8 @@
     UI Coming Soon<br><br>
 
     Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.<br><br>
-    Imagine payments P2P without middleman. Bye bye banks.<br><br>
-    Imagine crowd engineering and petitioning combined with crowdfunding. Bye bye governments...<br><br>
+    Imagine decentralized payments without middleman. Bye bye banks.<br><br>
+    Imagine crowd engineering and petitioning combined with crowdfunding. Imagine decentralized allocation of homes, schools, jobs, medical services, transport, food, goods and services. Bye bye governments...<br><br>
 
     Open this app on another tab: They sync!<br>
     Open this on your mobile and desktop: They sync!<br>
