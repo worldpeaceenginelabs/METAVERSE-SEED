@@ -3,7 +3,7 @@
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
-[CCCH - Collective Computer Collaboration Hub (Developer Chat)](https://matrix.to/#/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
+[CCC - Collective Computer Collaboration Hub (Developer Chat)](https://matrix.to/#/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
