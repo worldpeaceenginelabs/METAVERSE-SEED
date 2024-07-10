@@ -1,4 +1,7 @@
 # METAVERSE-SEED
+
+![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/af250984-bd9f-4473-bf41-9ff24a6947f8)
+
 https://cloudatlas.club<br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
