@@ -236,7 +236,7 @@
 
 <main>
   <h4>
-    Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and entities, and owned by you and the public alone! <br><br>
+    Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
     No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
     
     What's stopping you from creating right now? Make the world work!<br>

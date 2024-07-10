@@ -12,7 +12,7 @@ Restarted project The Seed at 30.03.2024<br><br>
 
 Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies:<br><br>
 
-Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and monopolized players, owned solely by you and the public!<br>
+Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br>
 No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
 
 A server farm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
