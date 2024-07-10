@@ -17,8 +17,9 @@ Restarted project The Seed at 30.03.2024<br><br>
 ### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
 
 ### Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.
-### Imagine decentralized payments without middleman. Bye bye banks.
-### Imagine crowd engineering and petitioning combined with crowdfunding. Imagine decentralized allocation of homes, schools, jobs, medical services, transport, food, goods and services. Bye bye governments, corporations, employers and landlords...
+### Imagine decentralized payments without intermediaries. Goodbye banks.
+### Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.
+### And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.
 <br>
 
 # Running prototype

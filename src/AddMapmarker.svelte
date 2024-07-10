@@ -243,13 +243,17 @@
     <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub</a><br>
     UI Coming Soon<br><br>
 
-    Imagine building Google Maps/Earth ourselves and adding all the services that we wish, free from the grip of any profit-oriented entity. Bye bye monopolies, highly influential lone wolves, guerrillas, governmental and political cults.<br><br>
-    Imagine decentralized payments without middleman. Bye bye banks.<br><br>
-    Imagine crowd engineering and petitioning combined with crowdfunding. Imagine decentralized allocation of homes, schools, jobs, medical services, transport, food, goods and services. Bye bye governments, corporations, employers and landlords...<br><br>
+    Imagine creating our own version of Google Maps/Earth, incorporating all the services we desire, free from the constraints of profit-driven entities. Goodbye monopolies, influential lone wolves, guerrillas, and political cults.<br><br>
+
+Imagine decentralized payments without intermediaries. Goodbye banks.<br><br>
+
+Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.<br><br>
+
+And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.<br><br>
 
     Open this app on another tab: They sync!<br>
     Open this on your mobile and desktop: They sync!<br>
-    Call your friends and tell them to open this web in their browser: Guess what? They sync!!!<br><br>
+    Call all your friends and tell them to open this web-app in their browser: Guess what? They sync!!!<br><br>
     
     With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!<br><br>
     
