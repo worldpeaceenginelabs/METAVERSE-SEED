@@ -25,7 +25,7 @@ Restarted project The Seed at 30.03.2024<br><br>
 
 Open this app on another tab: They sync!<br>
 Open this on your mobile and desktop: They sync!<br>
-Call all your friends and tell them to open this web in their browser: Guess what? They sync!!!<br><br>
+Call all your friends and tell them to open this web-app in their browser: Guess what? They sync!!!<br><br>
 
 With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!
 
