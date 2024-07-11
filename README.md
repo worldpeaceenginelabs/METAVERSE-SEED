@@ -1,5 +1,6 @@
 # METAVERSE-SEED
 
+![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/bac36df1-d01a-4ba1-bb10-7e0d3cfe4144)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
