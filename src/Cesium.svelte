@@ -12,7 +12,6 @@
 	  SampledProperty,
 	  ClockRange,
 	  HermitePolynomialApproximation,
-	  Cesium3DTileset,
 	  LabelStyle,
 	  VerticalOrigin
 	} from 'cesium';
@@ -53,14 +52,6 @@
 	  const transaction = db.transaction('locationpins', 'readonly');
 	  const objectStore = transaction.objectStore('locationpins');
   
-	  transaction.oncomplete = function(event: Event) {
-		// Transaction completed
-	  };
-  
-	  transaction.onerror = function(event: Event) {
-		console.error('Error in transaction:', transaction.error);
-	  };
-  
 	  objectStore.openCursor().onsuccess = function(event: Event) {
 		const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
 		if (cursor) {
@@ -68,6 +59,14 @@
 		  addLabelForRecord(cursor.value);
 		  cursor.continue();
 		}
+	  };
+  
+	  transaction.oncomplete = function(event: Event) {
+		// Transaction completed
+	  };
+  
+	  transaction.onerror = function(event: Event) {
+		console.error('Error in transaction:', transaction.error);
 	  };
 	};
   
@@ -146,7 +145,7 @@
 	};
   
 	// Function to add label and simple point for a record
-	const addLabelForRecord = (record: { latitude: string, longitude: string, title: string }) => {
+	const addLabelForRecord = (record: { mapid: string, latitude: string, longitude: string, title: string }) => {
 	  const latitude = parseFloat(record.latitude);
 	  const longitude = parseFloat(record.longitude);
   
@@ -180,22 +179,6 @@
 	  } else {
 		console.error('Invalid latitude or longitude for record:', record);
 	  }
-	};
-  
-	// Function to add a new record to IndexedDB
-	const addRecordToIndexedDB = (record: { mapid: string, latitude: string, longitude: string, title: string }) => {
-	  const transaction = db.transaction('locationpins', 'readwrite');
-	  const objectStore = transaction.objectStore('locationpins');
-  
-	  const request = objectStore.add(record);
-  
-	  request.onsuccess = function(event: Event) {
-		console.log('Record added successfully:', event);
-	  };
-  
-	  request.onerror = function(event: Event) {
-		console.error('Error adding record:', request.error);
-	  };
 	};
   
 	// Initialization on mount
@@ -253,7 +236,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker (BFV002)</button>
+  <button class="buttononglobe" on:click={openModal}>Add mapmarker003</button>
   
   {#if showModal}
   <div class="modal">
