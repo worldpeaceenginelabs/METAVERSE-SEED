@@ -32,6 +32,7 @@
 		  db = request.result;
 		  if (!db.objectStoreNames.contains('locationpins')) {
 			db.createObjectStore('locationpins', { keyPath: 'mapid' });
+			db.createObjectStore('client', { keyPath: 'appid' });
 		  }
 		};
   
@@ -133,7 +134,7 @@
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
   
-		const userLocationEntity = createPulsatingPoint(viewer, 'user-location', userPosition, pointColor);
+		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
   
 		viewer.entities.add(userLocationEntity);
   
@@ -236,7 +237,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker003</button>
+  <button class="buttononglobe" on:click={openModal}>Add mapmarker 004</button>
   
   {#if showModal}
   <div class="modal">
