@@ -241,7 +241,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker 005</button>
+  <button class="buttononglobe" on:click={openModal}>Add mapmarker</button>
   
   {#if showModal}
   <div class="modal">
