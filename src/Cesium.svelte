@@ -132,7 +132,7 @@
 	  if (userLocation !== null) {
 		const longitude = userLocation.coords.longitude;
 		const latitude = userLocation.coords.latitude;
-		const height = 0; // Ground level
+		const height = 500; // Ground level
   
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
@@ -154,7 +154,7 @@
 	  const longitude = parseFloat(record.longitude);
   
 	  if (!isNaN(latitude) && !isNaN(longitude)) {
-		const position = Cartesian3.fromDegrees(longitude, latitude);
+		const position = Cartesian3.fromDegrees(longitude, latitude, 1000);
   
 		// Create a simple point entity for the record
 		const pointEntity = new Entity({
@@ -198,6 +198,7 @@
 		fullscreenButton: false,
 		vrButton: false,
 		geocoder: true,
+		// globe: true,
 		homeButton: true,
 		infoBox: true,
 		sceneModePicker: true,
