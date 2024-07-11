@@ -180,6 +180,22 @@
 	  }
 	};
   
+	// Function to add a new record to IndexedDB
+	const addRecordToIndexedDB = (record: { mapid: string, latitude: string, longitude: string, title: string }) => {
+	  const transaction = db.transaction('locationpins', 'readwrite');
+	  const objectStore = transaction.objectStore('locationpins');
+  
+	  const request = objectStore.add(record);
+  
+	  request.onsuccess = function(event: Event) {
+		console.log('Record added successfully:', event);
+	  };
+  
+	  request.onerror = function(event: Event) {
+		console.error('Error adding record:', request.error);
+	  };
+	};
+  
 	// Initialization on mount
 	onMount(async () => {
 	  // Set Cesium's base URL and access token
@@ -203,12 +219,12 @@
 	  });
   
 	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Earth)
-	  try {
-		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
-		viewer.scene.primitives.add(tileset);
-	  } catch (error) {
-		console.log(error);
-	  }
+	  //try {
+		//const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
+		//viewer.scene.primitives.add(tileset);
+	  //} catch (error) {
+		//console.log(error);
+	  //}
   
 	  // Open IndexedDB and set interval for fetching records
 	  try {
@@ -216,10 +232,10 @@
 		fetchRecordsFromIndexedDB();
 		setInterval(fetchRecordsFromIndexedDB, 5000); // Check IndexedDB every 5000ms
 	  } catch (error) {
-		console.error('Error initializing IndexedDB:', error);
+		console.error('Failed to open IndexedDB:', error);
 	  }
   
-	  // Call functions to add user location
+	  // Call functions to add user location and label for records
 	  addUserLocation();
 	});
   
