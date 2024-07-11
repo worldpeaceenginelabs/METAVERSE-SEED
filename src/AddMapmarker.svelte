@@ -7,12 +7,16 @@
 
   async function initializeIndexedDB() {
     return new Promise<void>((resolve, reject) => {
-      const request = window.indexedDB.open('indexeddbstore', 1);
+      const request = indexedDB.open('indexeddbstore', 1);
 
       request.onupgradeneeded = function(event) {
-        indexeddb = request.result;
-        indexeddb.createObjectStore('locationpins', { keyPath: 'mapid' });
-        indexeddb.createObjectStore('client', { keyPath: 'appid' });
+        const db = request.result;
+        if (!db.objectStoreNames.contains('locationpins')) {
+          db.createObjectStore('locationpins', { keyPath: 'mapid' });
+        }
+        if (!db.objectStoreNames.contains('client')) {
+          db.createObjectStore('client', { keyPath: 'appid' });
+        }
       };
 
       request.onsuccess = function(event) {
@@ -33,7 +37,10 @@
     const getUsername = store.get('username');
     const getAppId = store.get('appid');
 
-    const [username, appid] = await Promise.all([getUsername, getAppId]);
+    const [usernameRequest, appidRequest] = await Promise.all([getUsername, getAppId]);
+
+    const username = usernameRequest.result;
+    const appid = appidRequest.result;
 
     if (!username || !appid) {
       const randomUUID = crypto.randomUUID();
@@ -76,8 +83,9 @@
   async function storeRecord(record: Record) {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
     const store = transaction.objectStore('locationpins');
-    await store.add(record);
-    console.log(`Stored record in IndexedDB`);
+    store.add(record).onsuccess = function() {
+      console.log(`Stored record in IndexedDB`);
+    };
   }
 
   async function loadRecordsFromIndexedDB() {

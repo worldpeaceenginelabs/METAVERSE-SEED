@@ -206,7 +206,7 @@
 		navigationHelpButton: false,
 		shouldAnimate: true
 	  });
-  
+	  
 	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Earth)
 	  try {
 		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
