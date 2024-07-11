@@ -137,11 +137,19 @@
   // Record cache to send records to new peers
   let recordCache: Record[] = [];
 
+  // Set a maximum size for the cache
+  const MAX_CACHE_SIZE = 1000;
+
   // Receive records from other peers
   getRecord(async (data: Record, peerId: string) => {
     if (!recordCache.some(rec => rec.mapid === data.mapid)) {
       records.update(recs => [...recs, data]);
       recordCache.push(data); // Add record to cache
+
+      // Maintain cache size limit
+      if (recordCache.length > MAX_CACHE_SIZE) {
+        recordCache.shift(); // Remove the oldest record
+      }
 
       // Store received record in IndexedDB "locationpins" object store
       await storeRecord(data);
@@ -158,6 +166,12 @@
       if (!recordCache.some(rec => rec.mapid === record.mapid)) {
         records.update(recs => [...recs, record]);
         recordCache.push(record);
+
+        // Maintain cache size limit
+        if (recordCache.length > MAX_CACHE_SIZE) {
+          recordCache.shift(); // Remove the oldest record
+        }
+
         await storeRecord(record);
         console.log('Self-processed the sent record and stored in IndexedDB');
       }
@@ -177,6 +191,11 @@
     const receivedRecords = data.filter(rec => !recordCache.some(rc => rc.mapid === rec.mapid));
     records.update(recs => [...recs, ...receivedRecords]);
     recordCache.push(...receivedRecords); // Add records to cache
+
+    // Maintain cache size limit
+    if (recordCache.length > MAX_CACHE_SIZE) {
+      recordCache.splice(0, recordCache.length - MAX_CACHE_SIZE); // Keep only the latest records
+    }
 
     // Store received records in IndexedDB "locationpins" object store
     for (const record of receivedRecords) {
@@ -230,8 +249,7 @@
     return hashHex;
   }
 
-  // Define the Record type
-  type Record = {
+  interface Record {
     mapid: string;
     timestamp: string;
     title: string;
@@ -239,46 +257,30 @@
     link: string;
     longitude: string;
     latitude: string;
-  };
+  }
 </script>
 
 <main>
   <h4>
-    Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
-    No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
-    
-    What's stopping you from creating right now? Make the world work!<br>
-    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub</a><br>
-    UI Coming Soon<br><br>
-
-    Imagine creating our own version of Google Maps/Earth, incorporating all the services we desire, free from the constraints of profit-driven entities. Goodbye monopolies, influential lone wolves, guerrillas, and political cults.<br><br>
-
-Imagine decentralized payments without intermediaries. Goodbye banks.<br><br>
-
-Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.<br><br>
-
-And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.<br><br>
-
+    Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
+    Imagine decentralized payment systems without intermediaries. Goodbye banks.<br><br>
+    Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.<br><br>
+    And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.<br><br>
     Open this app on another tab: They sync!<br>
     Open this on your mobile and desktop: They sync!<br>
     Call all your friends and tell them to open this web-app in their browser: Guess what? They sync!!!<br><br>
     
-    With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!<br><br>
+    With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with its user devices!<br><br>
     
     A pin can represent everything: posts, profiles, links, streams, apps, games, your business, your non-profit organisation - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
-
     I've always held the theory that "everything is already there, it is just mismanaged".<br>
     Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories:<br><br>
-    
     CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web. It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting display, AR, and VR out of the box.<br><br>
-    
     To establish a direct peer-to-peer connection with WebRTC, a signaling channel is needed to exchange peer information (SDP). Typically, this involves running your own matchmaking server, but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS). <br><br>
-    
     What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!
   </h4>
 
-  
-  <div id="records"  style="height: 20px; overflow-y: scroll;">
+  <div id="records" style="height: 20px; overflow-y: scroll;">
     {#each $records as rec}
       <div class="record">
         <p>MapID: {rec.mapid}</p>
@@ -307,8 +309,6 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
     <label>Longitude:</label><br>
     <input type="text" bind:value={record.longitude}><br>
-
-    
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
@@ -356,10 +356,9 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
   h4 {
     text-align: left;
-    
-            height: 150px;  /* Set the height to make the content scrollable */
-            overflow: auto; /* Enable scrolling when content overflows */
-            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
-            padding: 10px; /* Optional: Add padding for better appearance */
+    height: 150px;  /* Set the height to make the content scrollable */
+    overflow: auto; /* Enable scrolling when content overflows */
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    padding: 10px; /* Optional: Add padding for better appearance */
   }
 </style>
