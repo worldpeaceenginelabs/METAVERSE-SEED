@@ -228,9 +228,7 @@
 
   // Function to check if a record is valid
   function recordIsValid(rec: Record): boolean {
-    // Add your validation logic here
-    // For simplicity, let's just check if the title is not empty
-    return rec.title.trim() !== '';
+    return rec.title.trim() !== '' && rec.latitude.trim() !== '' && rec.longitude.trim() !== '';
   }
 
   // Function to hash data using SHA-256
