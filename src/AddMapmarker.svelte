@@ -278,8 +278,8 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
         <p>Title: {rec.title}</p>
         <p>Text: {rec.text}</p>
         <p>Link: {rec.link}</p>
-        <p>Longitude: {rec.longitude}</p>
         <p>Latitude: {rec.latitude}</p>
+        <p>Longitude: {rec.longitude}</p>
       </div>
     {/each}
   </div>
@@ -293,12 +293,14 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
     <label>Link:</label><br>
     <input type="text" bind:value={record.link}><br>
+    
+    <label>Latitude:</label><br>
+    <input type="text" bind:value={record.latitude}><br>
 
     <label>Longitude:</label><br>
     <input type="text" bind:value={record.longitude}><br>
 
-    <label>Latitude:</label><br>
-    <input type="text" bind:value={record.latitude}><br>
+    
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>

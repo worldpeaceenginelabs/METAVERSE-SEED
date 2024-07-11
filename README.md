@@ -3,7 +3,7 @@
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
-[CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
+#### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
@@ -61,7 +61,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 - [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
 - [x] Records older than 7 days are deleted "on every submit". (will be changed to "on every init")
 - [x] IndexedDB refills the record cache after reload.
-- [ ] The globe populates pins from IndexedDB.
+- [x] The globe populates pins from IndexedDB every 5000ms
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
 - [ ] Rate limiting.
@@ -135,6 +135,9 @@ And if you want to fund your requested feature or app yourself or request commun
 We believe that the potential for Metaverse-DAO is enormous, and we're excited to see it evolve into the future of app development.<br><br>
 
 Join us on Cloud Atlas and be a part of this exciting new community today. Together, we can create a better world for ourselves and future generations.<br><br>
+
+# Join our discussion:
+[CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 
 # Some inspiration...
 
