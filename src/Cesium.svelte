@@ -31,7 +31,9 @@
   
 		request.onupgradeneeded = function(event: IDBVersionChangeEvent) {
 		  db = request.result;
-		  db.createObjectStore('locationpins', { keyPath: 'mapid' });
+		  if (!db.objectStoreNames.contains('locationpins')) {
+			db.createObjectStore('locationpins', { keyPath: 'mapid' });
+		  }
 		};
   
 		request.onsuccess = function(event: Event) {
