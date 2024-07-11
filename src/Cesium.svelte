@@ -32,6 +32,8 @@
 		  db = request.result;
 		  if (!db.objectStoreNames.contains('locationpins')) {
 			db.createObjectStore('locationpins', { keyPath: 'mapid' });
+		  }
+		  if (!db.objectStoreNames.contains('client')) {
 			db.createObjectStore('client', { keyPath: 'appid' });
 		  }
 		};
@@ -134,7 +136,7 @@
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
   
-		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
+		const userLocationEntity = createPulsatingPoint(viewer, 'user-location', userPosition, pointColor);
   
 		viewer.entities.add(userLocationEntity);
   
@@ -212,17 +214,18 @@
 		//console.log(error);
 	  //}
   
-	  // Open IndexedDB and set interval for fetching records
 	  try {
 		db = await openDB();
 		fetchRecordsFromIndexedDB();
-		setInterval(fetchRecordsFromIndexedDB, 5000); // Check IndexedDB every 5000ms
 	  } catch (error) {
 		console.error('Failed to open IndexedDB:', error);
 	  }
   
 	  // Call functions to add user location and label for records
 	  addUserLocation();
+  
+	  // Periodically fetch records from IndexedDB every 5000 milliseconds
+	  setInterval(fetchRecordsFromIndexedDB, 5000);
 	});
   
 	// Function to open modal
@@ -237,7 +240,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker 004</button>
+  <button class="buttononglobe" on:click={openModal}>Add mapmarker 005</button>
   
   {#if showModal}
   <div class="modal">
