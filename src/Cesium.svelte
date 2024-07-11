@@ -13,7 +13,8 @@
 	  ClockRange,
 	  HermitePolynomialApproximation,
 	  LabelStyle,
-	  VerticalOrigin
+	  VerticalOrigin,
+	  Cesium3DTileset
 	} from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
@@ -136,7 +137,7 @@
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
   
-		const userLocationEntity = createPulsatingPoint(viewer, 'user-location', userPosition, pointColor);
+		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
   
 		viewer.entities.add(userLocationEntity);
   
@@ -207,12 +208,12 @@
 	  });
   
 	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Earth)
-	  //try {
-		//const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
-		//viewer.scene.primitives.add(tileset);
-	  //} catch (error) {
-		//console.log(error);
-	  //}
+	  try {
+		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
+		viewer.scene.primitives.add(tileset);
+	  } catch (error) {
+		console.log(error);
+	  }
   
 	  try {
 		db = await openDB();
