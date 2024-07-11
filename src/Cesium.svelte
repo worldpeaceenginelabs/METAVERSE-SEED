@@ -25,7 +25,7 @@
 	let db: IDBDatabase;
   
 	// Function to open connection to IndexedDB
-	const openDB = () => {
+	const openDB = (): Promise<IDBDatabase> => {
 	  return new Promise((resolve, reject) => {
 		const request = indexedDB.open('indexeddbstore', 1);
   
@@ -230,7 +230,7 @@
   
 	  // Open IndexedDB and set interval for fetching records
 	  try {
-		await openDB();
+		db = await openDB();
 		fetchRecordsFromIndexedDB();
 		setInterval(fetchRecordsFromIndexedDB, 5000); // Check IndexedDB every 5000ms
 	  } catch (error) {
@@ -253,7 +253,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker (BV001)</button>
+  <button class="buttononglobe" on:click={openModal}>Add mapmarker (BFV002)</button>
   
   {#if showModal}
   <div class="modal">
