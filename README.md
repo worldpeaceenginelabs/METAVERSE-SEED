@@ -1,9 +1,12 @@
 # METAVERSE-SEED
 
-![GridArt_20240712_114118483](https://github.com/user-attachments/assets/4cc535b1-7047-4f22-b6b2-5fa5a1b3c11c)
+![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
 
-![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/bac36df1-d01a-4ba1-bb10-7e0d3cfe4144)
+![image](https://github.com/user-attachments/assets/67d832d7-4b83-4636-b0c6-f889dd069017)
+### Status: Lean Startup / Incubator & Accelerator<br>Prototyping, MVPs, and Optimizing as an ongoing process.
+The first application on Cloud Atlas is Brainstorming. On private and public, local and global issues and tasks.<br>An incubator and accelerator for your ideas, solutions and funding.<br><br>
+  
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
 https://cloudatlas.club<br>
