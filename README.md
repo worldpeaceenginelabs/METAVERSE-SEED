@@ -1,5 +1,8 @@
 # METAVERSE-SEED
 
+![GridArt_20240712_114118483](https://github.com/user-attachments/assets/4cc535b1-7047-4f22-b6b2-5fa5a1b3c11c)
+“Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
+
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/bac36df1-d01a-4ba1-bb10-7e0d3cfe4144)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 
