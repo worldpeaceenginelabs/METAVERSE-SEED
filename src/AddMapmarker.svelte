@@ -37,23 +37,33 @@
     const getUsername = store.get('username');
     const getAppId = store.get('appid');
 
-    const [usernameRequest, appidRequest] = await Promise.all([getUsername, getAppId]);
+    const usernameRequest = await new Promise((resolve, reject) => {
+      getUsername.onsuccess = () => resolve(getUsername.result);
+      getUsername.onerror = () => reject(getUsername.error);
+    });
 
-    const username = usernameRequest.result;
-    const appid = appidRequest.result;
+    const appidRequest = await new Promise((resolve, reject) => {
+      getAppId.onsuccess = () => resolve(getAppId.result);
+      getAppId.onerror = () => reject(getAppId.error);
+    });
+
+    const username = usernameRequest;
+    const appid = appidRequest;
 
     if (!username || !appid) {
       const randomUUID = crypto.randomUUID();
       const salt = 'salt1234';
       const hashedUsername = await hashData(randomUUID + salt);
 
-      store.put({ appid: hashedUsername, username: randomUUID });
+      const newTransaction = indexeddb.transaction(['client'], 'readwrite');
+      const newStore = newTransaction.objectStore('client');
+      newStore.put({ appid: hashedUsername, username: randomUUID });
     } else {
       const salt = 'salt1234';
       const hashedUsername = await hashData(username + salt);
 
       if (hashedUsername !== appid) {
-        authorizeUser();
+        await authorizeUser();
       } else {
         console.log(`${username} with ${appid} authorized`);
       }
@@ -227,19 +237,19 @@
   }
 
   // Function to check if a record is valid
-function recordIsValid(rec: Record): boolean {
-  const isTitleValid = rec.title.trim() !== '';
-  const isLatitudeValid = isValidCoordinate(rec.latitude.trim());
-  const isLongitudeValid = isValidCoordinate(rec.longitude.trim());
-  
-  // Regular expression to check if the link starts with the specified patterns
-  const linkPattern = /^(https?:\/\/)?(www\.)?zoom\.us\//;
-  const isLinkValid = linkPattern.test(rec.link.trim());
-  
-  return isTitleValid && isLatitudeValid && isLongitudeValid && isLinkValid;
-}
+  function recordIsValid(rec: Record): boolean {
+    const isTitleValid = rec.title.trim() !== '';
+    const isLatitudeValid = isValidCoordinate(rec.latitude.trim());
+    const isLongitudeValid = isValidCoordinate(rec.longitude.trim());
+    
+    // Regular expression to check if the link starts with the specified patterns
+    const linkPattern = /^(https?:\/\/)?(www\.)?zoom\.us\//;
+    const isLinkValid = linkPattern.test(rec.link.trim());
+    
+    return isTitleValid && isLatitudeValid && isLongitudeValid && isLinkValid;
+  }
 
-// Function to validate latitude and longitude with max 6 decimal places
+  // Function to validate latitude and longitude with max 6 decimal places
   function isValidCoordinate(coord) {
     // Regular expression to match coordinates with up to 6 decimal places
     const coordPattern = /^[-+]?([1-8]?\d(\.\d{1,6})?|90(\.0{1,6})?)$/;

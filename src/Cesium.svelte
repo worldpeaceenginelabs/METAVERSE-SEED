@@ -56,13 +56,19 @@
 	  const transaction = db.transaction('locationpins', 'readonly');
 	  const objectStore = transaction.objectStore('locationpins');
   
-	  objectStore.openCursor().onsuccess = function(event: Event) {
+	  const cursorRequest = objectStore.openCursor();
+	  
+	  cursorRequest.onsuccess = function(event: Event) {
 		const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
 		if (cursor) {
 		  // Process each record
 		  addLabelForRecord(cursor.value);
 		  cursor.continue();
 		}
+	  };
+  
+	  cursorRequest.onerror = function(event: Event) {
+		console.error('Error in cursor request:', cursorRequest.error);
 	  };
   
 	  transaction.oncomplete = function(event: Event) {
@@ -198,7 +204,6 @@
 		fullscreenButton: false,
 		vrButton: false,
 		geocoder: true,
-		// globe: true,
 		homeButton: true,
 		infoBox: true,
 		sceneModePicker: true,
@@ -245,18 +250,18 @@
   <button class="buttononglobe" on:click={openModal}>Add Brainstorming</button>
   
   {#if showModal}
-  <div class="modal">
-	<div class="modal-content">
-	  <table>
-		<tr>
-		  <td><AddMapmarker /></td>
-		  <!-- svelte-ignore a11y-click-events-have-key-events -->
-		  <!-- svelte-ignore a11y-no-static-element-interactions -->
-		  <td><span class="close" on:click={closeModal}>Close</span></td>
-		</tr>
-	  </table>
+	<div class="modal">
+	  <div class="modal-content">
+		<table>
+		  <tr>
+			<td><AddMapmarker /></td>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<td><span class="close" on:click={closeModal}>Close</span></td>
+		  </tr>
+		</table>
+	  </div>
 	</div>
-  </div>
   {/if}
   
   <style>
