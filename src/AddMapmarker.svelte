@@ -227,8 +227,23 @@
   }
 
   // Function to check if a record is valid
-  function recordIsValid(rec: Record): boolean {
-    return rec.title.trim() !== '' && rec.latitude.trim() !== '' && rec.longitude.trim() !== '';
+function recordIsValid(rec: Record): boolean {
+  const isTitleValid = rec.title.trim() !== '';
+  const isLatitudeValid = isValidCoordinate(rec.latitude.trim());
+  const isLongitudeValid = isValidCoordinate(rec.longitude.trim());
+  
+  // Regular expression to check if the link starts with the specified patterns
+  const linkPattern = /^(https?:\/\/)?(www\.)?zoom\.us\//;
+  const isLinkValid = linkPattern.test(rec.link.trim());
+  
+  return isTitleValid && isLatitudeValid && isLongitudeValid && isLinkValid;
+}
+
+// Function to validate latitude and longitude with max 6 decimal places
+  function isValidCoordinate(coord) {
+    // Regular expression to match coordinates with up to 6 decimal places
+    const coordPattern = /^[-+]?([1-8]?\d(\.\d{1,6})?|90(\.0{1,6})?)$/;
+    return coordPattern.test(coord);
   }
 
   // Function to hash data using SHA-256
@@ -311,19 +326,19 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
   <form>
     <label>Title:</label><br>
-    <input type="text" bind:value={record.title}><br>
+    <input type="text" placeholder="The issue in one sentence - max 100 chars (ChatGPT)" maxlength="100" bind:value={record.title} required><br>
 
     <label>Text:</label><br>
-    <textarea bind:value={record.text}></textarea><br>
+    <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
 
     <label>Link:</label><br>
-    <input type="text" bind:value={record.link}><br>
+    <input type="text" placeholder="https://zoom.us/... links only" maxlength="30" bind:value={record.link} required><br>
     
     <label>Latitude:</label><br>
-    <input type="text" bind:value={record.latitude}><br>
+    <input type="text" placeholder="Latitude (e.g., 42.123456)" maxlength="11" bind:value={record.latitude} required><br>
 
     <label>Longitude:</label><br>
-    <input type="text" bind:value={record.longitude}><br>
+    <input type="text" placeholder="Longitude (e.g., -71.987654)" maxlength="11" bind:value={record.longitude} required><br>
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
@@ -334,13 +349,13 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0rem;
     font-size: small;
   }
 
   #records {
     border: 1px solid #ccc;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-bottom: 1rem;
   }
 
@@ -361,8 +376,8 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
   input, textarea {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 0rem;
+    margin-bottom: 0rem;
   }
 
   button {

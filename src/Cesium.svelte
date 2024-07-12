@@ -242,7 +242,7 @@
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add mapmarker</button>
+  <button class="buttononglobe" on:click={openModal}>Add Brainstorming</button>
   
   {#if showModal}
   <div class="modal">
