@@ -243,7 +243,7 @@
     const isLongitudeValid = isValidCoordinate(rec.longitude.trim());
     
     // Regular expression to check if the link starts with the specified patterns
-    const linkPattern = /^(https?:\/\/)?(www\.)?zoom\.us\//;
+    const linkPattern = /.*(?=zoom\.us\/)/;
     const isLinkValid = linkPattern.test(rec.link.trim());
     
     return isTitleValid && isLatitudeValid && isLongitudeValid && isLinkValid;

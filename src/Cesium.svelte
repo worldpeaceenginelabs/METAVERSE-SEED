@@ -348,7 +348,7 @@ viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movemen
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a target="_blank" href={modalRecord.link}>Link</a></p>
+    <p><a target="_blank" href={"https://" + modalRecord.link}>Link</a></p>
     <p>Latitude: {modalRecord.latitude}, Longitude: {modalRecord.longitude}</p>
     <p>Timestamp: {modalRecord.timestamp}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
