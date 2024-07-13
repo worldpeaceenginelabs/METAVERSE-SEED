@@ -184,6 +184,7 @@
 			style: LabelStyle.FILL_AND_OUTLINE,
 			verticalOrigin: VerticalOrigin.BOTTOM,
 			pixelOffset: new Cartesian2(0, -9),
+			disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		  }
 		});
 	  } else {
