@@ -366,7 +366,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 <style>
   main {
     font-family: Arial, sans-serif;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0rem;
     font-size: small;
@@ -405,7 +405,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
   h4 {
     text-align: left;
-    height: 150px;  /* Set the height to make the content scrollable */
+    height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
     border: 1px solid #ccc; /* Optional: Add a border for better visibility */
     padding: 10px; /* Optional: Add padding for better appearance */

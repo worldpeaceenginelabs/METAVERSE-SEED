@@ -371,6 +371,8 @@ handler.setInputAction(function(result) {
 		<table>
 		  <tr>
 			<td><AddMapmarker /></td>
+		  </tr>
+		  <tr>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<td><span class="close" on:click={closeModalButton}>Close</span></td>
@@ -390,6 +392,7 @@ handler.setInputAction(function(result) {
     <p><a target="_blank" href={"https://" + modalRecord.link}>Link</a></p>
     <p>Latitude: {modalRecord.latitude}, Longitude: {modalRecord.longitude}</p>
     <p>Timestamp: {modalRecord.timestamp}</p>
+	<p>MapID: {modalRecord.mapid}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <span class="close" on:click={closeModal}>Close</span>
