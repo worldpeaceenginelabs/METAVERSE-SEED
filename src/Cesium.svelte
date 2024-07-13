@@ -23,7 +23,7 @@
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
 	import { coordinates } from './store.js';
-	
+
 	// Declare global variables and states
 	let showModal = false;
 	let showModalButton = false;
@@ -266,9 +266,9 @@
 
 
 	  // Pick entitities
-viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
+	  viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
   const pickedFeature = viewer.scene.pick(movement.position);
-  if (!(pickedFeature)) {
+  if (!pickedFeature || !pickedFeature.id) {
     return;
   }
 
@@ -298,21 +298,38 @@ viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movemen
 // Pick coordinates
 
 let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+let pointEntity; // Reference to the point entity
+
 handler.setInputAction(function(result) {
 
-                                        // pick position
-                                        const cartesian = viewer.scene.pickPosition(result.position);
-                                        // save Cartesian coordinates (x,y,z)
-                                        const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
-                                        
-                                        // convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
-                                        const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-                                        const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
-                                        
+										// If a point entity already exists, remove it
+										if (pointEntity) {
+											viewer.entities.remove(pointEntity);
+										}
+
+										// pick position
+										const cartesian = viewer.scene.pickPosition(result.position);
+										// save Cartesian coordinates (x,y,z)
+										const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+										
+										// convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
+										const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+										const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+										
 										coordinates.set({ latitude: latitudeString, longitude: longitudeString });
 
-                                        },
-Cesium.ScreenSpaceEventType.LEFT_CLICK);
+										// Add a green point entity at the picked position and save the reference
+										pointEntity = viewer.entities.add({
+											position: cartesian,
+											point: {
+												pixelSize: 20,
+												color: Cesium.Color.GREEN,
+												disableDepthTestDistance: Number.POSITIVE_INFINITY,
+											}
+										});
+
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
 
 
 
