@@ -366,7 +366,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 <style>
   main {
     font-family: Arial, sans-serif;
-    max-width: 100%;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0rem;
     font-size: small;
