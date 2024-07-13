@@ -33,6 +33,7 @@
   
 		request.onupgradeneeded = function(event: IDBVersionChangeEvent) {
 		  db = request.result;
+		  // Create object stores if they do not exist
 		  if (!db.objectStoreNames.contains('locationpins')) {
 			db.createObjectStore('locationpins', { keyPath: 'mapid' });
 		  }
@@ -55,11 +56,14 @@
   
 	// Function to fetch and process records from IndexedDB
 	const fetchRecordsFromIndexedDB = () => {
+	  // Clear existing entities from the customDataSource before fetching new records
+	  customDataSource.entities.removeAll();
+  
 	  const transaction = db.transaction('locationpins', 'readonly');
 	  const objectStore = transaction.objectStore('locationpins');
   
 	  const cursorRequest = objectStore.openCursor();
-	  
+  
 	  cursorRequest.onsuccess = function(event: Event) {
 		const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
 		if (cursor) {
@@ -167,7 +171,7 @@
   
 		// Create a simple point entity for the record
 		const pointEntity = new Entity({
-			id: record.mapid + "_point",
+		  id: record.mapid + "_point",
 		  position: position,
 		  point: {
 			pixelSize: 10,
@@ -178,7 +182,7 @@
   
 		// Create a label for the record
 		const labelEntity = new Entity({
-			id: record.mapid + "_label",
+		  id: record.mapid + "_label",
 		  position: position,
 		  label: {
 			text: record.title,
@@ -221,17 +225,16 @@
 		navigationHelpButton: false,
 		shouldAnimate: true
 	  });
-	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
   
-
+	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
 	  try {
 		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
 		viewer.scene.primitives.add(tileset);
 	  } catch (error) {
 		console.log(error);
 	  }
-	  
   
+	  // Open IndexedDB and fetch initial records
 	  try {
 		db = await openDB();
 		fetchRecordsFromIndexedDB();
@@ -249,8 +252,8 @@
 	  customDataSource.clustering.enabled = true;
 	  customDataSource.clustering.pixelRange = 30;
 	  customDataSource.clustering.minimumClusterSize = 2;
-	  customDataSource.clustering.clusterLabels= true;
-	  customDataSource.clustering.clusterPoints= false;
+	  customDataSource.clustering.clusterLabels = true;
+	  customDataSource.clustering.clusterPoints = false;
   
 	  viewer.dataSources.add(customDataSource);
 	});
@@ -285,12 +288,12 @@
   {/if}
   
   <style>
-	 #cesiumContainer {
-    width: 100%;
-    height: 100vh;
-    display: block;
-  }
-
+	#cesiumContainer {
+	  width: 100%;
+	  height: 100vh;
+	  display: block;
+	}
+  
 	main {
 	  height: 100vh;
 	  width: 100vw;
