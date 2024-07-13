@@ -14,7 +14,8 @@
 	  HermitePolynomialApproximation,
 	  LabelStyle,
 	  VerticalOrigin,
-	  Cesium3DTileset
+	  Cesium3DTileset,
+	  CustomDataSource
 	} from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
@@ -23,6 +24,7 @@
 	let showModal = false;
 	let viewer: Viewer;
 	let db: IDBDatabase;
+	let customDataSource = new CustomDataSource('locationpins');
   
 	// Function to open connection to IndexedDB
 	const openDB = (): Promise<IDBDatabase> => {
@@ -107,6 +109,7 @@
 		point: {
 		  pixelSize: pulseProperty,
 		  color,
+		  disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		},
 	  });
 	};
@@ -138,7 +141,7 @@
 	  if (userLocation !== null) {
 		const longitude = userLocation.coords.longitude;
 		const latitude = userLocation.coords.latitude;
-		const height = 500; // Ground level
+		const height = 0;
   
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
@@ -160,20 +163,22 @@
 	  const longitude = parseFloat(record.longitude);
   
 	  if (!isNaN(latitude) && !isNaN(longitude)) {
-		const position = Cartesian3.fromDegrees(longitude, latitude, 1000);
+		const position = Cartesian3.fromDegrees(longitude, latitude, 0);
   
 		// Create a simple point entity for the record
 		const pointEntity = new Entity({
+			id: record.mapid + "_point",
 		  position: position,
 		  point: {
 			pixelSize: 10,
 			color: Color.RED,
+			disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		  }
 		});
-		viewer.entities.add(pointEntity);
   
 		// Create a label for the record
-		viewer.entities.add({
+		const labelEntity = new Entity({
+			id: record.mapid + "_label",
 		  position: position,
 		  label: {
 			text: record.title,
@@ -187,6 +192,9 @@
 			disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		  }
 		});
+  
+		customDataSource.entities.add(pointEntity);
+		customDataSource.entities.add(labelEntity);
 	  } else {
 		console.error('Invalid latitude or longitude for record:', record);
 	  }
@@ -213,14 +221,16 @@
 		navigationHelpButton: false,
 		shouldAnimate: true
 	  });
-	  
-	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Earth)
+	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
+  
+
 	  try {
 		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
 		viewer.scene.primitives.add(tileset);
 	  } catch (error) {
 		console.log(error);
 	  }
+	  
   
 	  try {
 		db = await openDB();
@@ -234,6 +244,15 @@
   
 	  // Periodically fetch records from IndexedDB every 5000 milliseconds
 	  setInterval(fetchRecordsFromIndexedDB, 5000);
+  
+	  // Add the custom data source with clustering enabled
+	  customDataSource.clustering.enabled = true;
+	  customDataSource.clustering.pixelRange = 20;
+	  customDataSource.clustering.minimumClusterSize = 2;
+	  customDataSource.clustering.clusterLabels= true;
+	  customDataSource.clustering.clusterPoints= false;
+  
+	  viewer.dataSources.add(customDataSource);
 	});
   
 	// Function to open modal
@@ -266,6 +285,12 @@
   {/if}
   
   <style>
+	 #cesiumContainer {
+    width: 100%;
+    height: 100vh;
+    display: block;
+  }
+
 	main {
 	  height: 100vh;
 	  width: 100vw;
