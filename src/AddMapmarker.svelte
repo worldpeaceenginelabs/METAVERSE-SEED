@@ -2,6 +2,7 @@
   import { joinRoom } from 'trystero';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
+  import { coordinates } from './store.js';
 
   let indexeddb: IDBDatabase;
 
@@ -213,6 +214,14 @@
       console.log(`Stored received record in IndexedDB`);
     }
   });
+
+    // subscribes to coordinates from click/touch in store
+    coordinates.subscribe(value => {
+    record.latitude = value.latitude;
+    record.longitude = value.longitude;
+    });
+
+
 
   onMount(() => {
     room.onPeerJoin(peerId => {

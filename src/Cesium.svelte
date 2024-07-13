@@ -19,9 +19,11 @@
 	  ScreenSpaceEventHandler,
 	  ScreenSpaceEventType
 	} from 'cesium';
+	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
-  
+	import { coordinates } from './store.js';
+	
 	// Declare global variables and states
 	let showModal = false;
 	let showModalButton = false;
@@ -263,7 +265,7 @@
 
 
 
-	  // Add this inside the onMount function
+	  // Pick entitities
 viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
   const pickedFeature = viewer.scene.pick(movement.position);
   if (!(pickedFeature)) {
@@ -291,6 +293,26 @@ viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movemen
     console.error('Error fetching record:', request.error);
   };
 }, ScreenSpaceEventType.LEFT_CLICK);
+
+
+// Pick coordinates
+
+let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+handler.setInputAction(function(result) {
+
+                                        // pick position
+                                        const cartesian = viewer.scene.pickPosition(result.position);
+                                        // save Cartesian coordinates (x,y,z)
+                                        const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+                                        
+                                        // convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
+                                        const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+                                        const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+                                        
+										coordinates.set({ latitude: latitudeString, longitude: longitudeString });
+
+                                        },
+Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
 
