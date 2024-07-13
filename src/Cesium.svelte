@@ -15,13 +15,17 @@
 	  LabelStyle,
 	  VerticalOrigin,
 	  Cesium3DTileset,
-	  CustomDataSource
+	  CustomDataSource,
+	  ScreenSpaceEventHandler,
+	  ScreenSpaceEventType
 	} from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
   
 	// Declare global variables and states
 	let showModal = false;
+	let showModalButton = false;
+	let modalRecord = null;
 	let viewer: Viewer;
 	let db: IDBDatabase;
 	let customDataSource = new CustomDataSource('locationpins');
@@ -256,8 +260,53 @@
 	  customDataSource.clustering.clusterPoints = false;
   
 	  viewer.dataSources.add(customDataSource);
+
+
+
+	  // Add this inside the onMount function
+viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
+  const pickedFeature = viewer.scene.pick(movement.position);
+  if (!(pickedFeature)) {
+    return;
+  }
+
+  const entityId = pickedFeature.id.id;
+  const mapid = entityId.replace(/(_point|_label)$/, '');
+
+  const transaction = db.transaction('locationpins', 'readonly');
+  const objectStore = transaction.objectStore('locationpins');
+  const request = objectStore.get(mapid);
+
+  request.onsuccess = function(event: Event) {
+    const record = request.result;
+    if (record) {
+      // Show the modal and display the record
+      showModal = true;
+      // Assuming you have a reactive variable for the record to be displayed in the modal
+      modalRecord = record;
+    }
+  };
+
+  request.onerror = function(event: Event) {
+    console.error('Error fetching record:', request.error);
+  };
+}, ScreenSpaceEventType.LEFT_CLICK);
+
+
+
+
 	});
   
+	// Function to open modal
+	function openModalButton() {
+	  showModalButton = true;
+	}
+  
+	// Function to close modal
+	function closeModalButton() {
+	  showModalButton = false;
+	}
+
 	// Function to open modal
 	function openModal() {
 	  showModal = true;
@@ -267,12 +316,17 @@
 	function closeModal() {
 	  showModal = false;
 	}
+	
+
+
+
+
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModal}>Add Brainstorming</button>
+  <button class="buttononglobe" on:click={openModalButton}>Add Brainstorming</button>
   
-  {#if showModal}
+  {#if showModalButton}
 	<div class="modal">
 	  <div class="modal-content">
 		<table>
@@ -280,13 +334,33 @@
 			<td><AddMapmarker /></td>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<td><span class="close" on:click={closeModal}>Close</span></td>
+			<td><span class="close" on:click={closeModalButton}>Close</span></td>
 		  </tr>
 		</table>
 	  </div>
 	</div>
   {/if}
   
+  
+
+  {#if showModal && modalRecord}
+<div class="modal">
+  <div class="modal-content">
+    <h2>{modalRecord.title}</h2>
+    <p>{modalRecord.text}</p>
+    <p><a target="_blank" href={modalRecord.link}>Link</a></p>
+    <p>Latitude: {modalRecord.latitude}, Longitude: {modalRecord.longitude}</p>
+    <p>Timestamp: {modalRecord.timestamp}</p>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <span class="close" on:click={closeModal}>Close</span>
+  </div>
+</div>
+{/if}
+
+
+
+
   <style>
 	#cesiumContainer {
 	  width: 100%;
