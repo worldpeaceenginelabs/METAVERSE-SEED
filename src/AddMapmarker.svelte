@@ -74,7 +74,7 @@
   function deleteOldRecords() {
   const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
   const store = transaction.objectStore('locationpins');
-  const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  const recordsAge = new Date(Date.now() - 5 * 1000);
 
   const request = store.openCursor();
 
