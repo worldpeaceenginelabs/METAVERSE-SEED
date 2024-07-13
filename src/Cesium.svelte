@@ -247,7 +247,7 @@
   
 	  // Add the custom data source with clustering enabled
 	  customDataSource.clustering.enabled = true;
-	  customDataSource.clustering.pixelRange = 20;
+	  customDataSource.clustering.pixelRange = 30;
 	  customDataSource.clustering.minimumClusterSize = 2;
 	  customDataSource.clustering.clusterLabels= true;
 	  customDataSource.clustering.clusterPoints= false;
