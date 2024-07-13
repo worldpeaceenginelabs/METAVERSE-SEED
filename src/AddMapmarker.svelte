@@ -72,24 +72,24 @@
   }
 
   function deleteOldRecords() {
-    const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
-    const store = transaction.objectStore('locationpins');
-    const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+  const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
+  const store = transaction.objectStore('locationpins');
+  const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
-    const request = store.openCursor();
+  const request = store.openCursor();
 
-    request.onsuccess = function(event) {
-      const cursor = event.target.result;
-      if (cursor) {
-        const recordTimestamp = new Date(cursor.value.timestamp);
-        if (recordTimestamp < oneWeekAgo) {
-          store.delete(cursor.primaryKey);
-          console.log(`Deleted record with primaryKey ${cursor.primaryKey}`);
-        }
-        cursor.continue();
+  request.onsuccess = function(event) {
+    const cursor = event.target.result;
+    if (cursor) {
+      const recordTimestamp = new Date(cursor.value.timestamp);
+      if (recordTimestamp < recordsAge) {
+        store.delete(cursor.primaryKey);
+        console.log(`Deleted record with primaryKey ${cursor.primaryKey}`);
       }
-    };
-  }
+      cursor.continue();
+    }
+  };
+}
 
   async function storeRecord(record: Record) {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
@@ -126,6 +126,7 @@
   async function initializeApp() {
     await initializeIndexedDB();
     await authorizeUser();
+    deleteOldRecords(); // Delete old records on app start
     const storedRecords = await loadRecordsFromIndexedDB();
     records.set(storedRecords);
     recordCache.push(...storedRecords);
@@ -189,9 +190,6 @@
 
       record = createEmptyRecord(); // Reset record
 
-      // Delete old records after sending a new record
-      deleteOldRecords();
-      console.log('Sent record and deleted old records');
     }
   };
 
@@ -224,6 +222,8 @@
 
 
   onMount(() => {
+    initializeApp();
+
     room.onPeerJoin(peerId => {
       // Send record cache to the new peer, but only the records the peer doesn't have yet
       sendCache(recordCache);
@@ -290,6 +290,7 @@
     longitude: string;
     latitude: string;
   }
+
 </script>
 
 <main>

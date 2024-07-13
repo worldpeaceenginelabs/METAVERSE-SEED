@@ -66,7 +66,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 - [x] Records are transferred between all online users.
 - [x] If a new user comes online, the new user gets all past records from the other users' record cache.
 - [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
-- [x] Records older than 7 days are deleted "on every submit". (will be changed to "on every init")
+- [x] Records older than 30 days are deleted on every app start.
 - [x] IndexedDB refills the record cache after reload.
 - [x] The globe populates pins from IndexedDB every 5000ms
 - [ ] Progressive Web App features (PWA).
