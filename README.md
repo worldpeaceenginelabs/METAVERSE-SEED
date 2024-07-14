@@ -39,20 +39,22 @@ With Cloud Atlas, users can create searchable pins and indexes on the map with a
 
 A pin can represent everything: posts, profiles, links, streams, apps, games, your non-profit business, your business - you name it - Literally! For displays, AR, and VR out of the box!
 
-# Higly adaptable
+# Highly Adaptable
 
-    The first "app" is Brainstorming on Zoom Meetings. Simple as that. And now imagine creating another app. Think about couchsurfing (basically free home/shelter allocation, went commercial because of missing funding) with the same ui, simply by changing the link validation to another url, and the button text.<br>
-    This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br>
-    The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
+The first "app" is Brainstorming on Zoom Meetings. Simple as that. Now, imagine re-engineering the Couchsurfing app (free home/shelter allocation, which went commercial due to lack of funding). By simply changing the link validation to another URL and modifying the button text, you can create a new app.<br><br>
 
-I've always held the theory that "everything is already there, it is just mismanaged".
-Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories:<br><br>
+This network is free of cost. If funding is needed, crowdfunding is the solution!<br><br>
 
-## CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web
+The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
+
+I've always held the theory that "everything is already there, it is just mismanaged".<br>
+Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories and watching too much science fiction:<br><br>
+
+### CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web
 
 It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting display, AR, and VR out of the box.
 
-## Cloud Atlas is fully decentralized and uses Trystero as "back-end"! How does it connect?
+### Cloud Atlas is fully decentralized and uses Trystero as "back-end"! How does it connect?
 
 To establish a direct peer-to-peer connection with WebRTC, a signalling channel is needed to exchange peer information (SDP). Typically this involves running your own matchmaking server but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS).<br><br>
 
