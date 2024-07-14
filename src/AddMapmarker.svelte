@@ -314,14 +314,27 @@
 </script>
 
 <main>
-  <h5>
-    <span class="textalign-center">Welcome to Cloud Atlas, your gateway to a new decentralized world!</span><br><br>
-    <span class="highlight"> 🔥🔥🔥 Posts cannot be edited or deleted, and they will automatically disappear after 30 days.<br>
-      🔥🔥🔥 The first app focuses on brainstorming private and public, local and global issues and solutions.<br>
-      🔥🔥🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
-      🔥🔥🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥🔥🔥</span><br><br>
+  <h4>
+    Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
+    <span class="highlight"> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 30 days.<br>
+      🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
+      🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
+      🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥</span><br><br>
 
+      ⚠️ Please note our one essential guideline:⚠️<br>In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
+      Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
+      
+
+      If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
+      
+
+      Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
+      
+
+      This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.⚠️
+      <br><br>
     
+      ||||||||||<br><br>
     
     Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
     No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
@@ -361,7 +374,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     To establish a direct peer-to-peer connection with WebRTC, a signaling channel is needed to exchange peer information (SDP). Typically, this involves running your own matchmaking server, but Trystero abstracts this away for you and offers multiple "serverless" strategies for connecting peers (currently BitTorrent, Nostr, MQTT, Firebase, and IPFS). <br><br>
 
     What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!
-  </h5>
+  </h4>
 
   <div id="records" style="height: 20px; overflow-y: scroll;">
     {#each $records as rec}
@@ -440,7 +453,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     padding: 0.5rem 1rem;
   }
 
-  h5 {
+  h4 {
     text-align: right;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
