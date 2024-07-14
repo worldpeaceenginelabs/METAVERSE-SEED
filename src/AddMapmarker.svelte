@@ -4,12 +4,15 @@
   import { writable } from 'svelte/store';
   import { coordinates } from './store.js';
 
+  // Define the IndexedDB database
   let indexeddb: IDBDatabase;
 
+  // Function to initialize the IndexedDB database
   async function initializeIndexedDB() {
     return new Promise<void>((resolve, reject) => {
       const request = indexedDB.open('indexeddbstore', 1);
 
+      // Create object stores if they don't exist
       request.onupgradeneeded = function(event) {
         const db = request.result;
         if (!db.objectStoreNames.contains('locationpins')) {
@@ -20,24 +23,29 @@
         }
       };
 
+      // On success, assign the result to the indexeddb variable
       request.onsuccess = function(event) {
         indexeddb = request.result;
         resolve();
       };
 
+      // On error, reject the promise
       request.onerror = function(event) {
         reject(request.error);
       };
     });
   }
 
+  // Function to authorize the user
   async function authorizeUser() {
     const transaction = indexeddb.transaction(['client'], 'readwrite');
     const store = transaction.objectStore('client');
 
+    // Get the username and appid from the client object store
     const getUsername = store.get('username');
     const getAppId = store.get('appid');
 
+    // Wait for the requests to complete
     const usernameRequest = await new Promise((resolve, reject) => {
       getUsername.onsuccess = () => resolve(getUsername.result);
       getUsername.onerror = () => reject(getUsername.error);
@@ -48,21 +56,26 @@
       getAppId.onerror = () => reject(getAppId.error);
     });
 
+    // Assign the results to variables
     const username = usernameRequest;
     const appid = appidRequest;
 
+    // If the username or appid doesn't exist, create a new one
     if (!username || !appid) {
       const randomUUID = crypto.randomUUID();
       const salt = 'salt1234';
       const hashedUsername = await hashData(randomUUID + salt);
 
+      // Store the new username and appid in the client object store
       const newTransaction = indexeddb.transaction(['client'], 'readwrite');
       const newStore = newTransaction.objectStore('client');
       newStore.put({ appid: hashedUsername, username: randomUUID });
     } else {
+      // If the username and appid exist, check if they match
       const salt = 'salt1234';
       const hashedUsername = await hashData(username + salt);
 
+      // If they don't match, re-authorize the user
       if (hashedUsername !== appid) {
         await authorizeUser();
       } else {
@@ -71,48 +84,56 @@
     }
   }
 
+  // Function to delete old records from the locationpins object store
   function deleteOldRecords() {
-  const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
-  const store = transaction.objectStore('locationpins');
-  const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
+    const store = transaction.objectStore('locationpins');
+    const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
-  const request = store.openCursor();
+    // Open a cursor to iterate over the records
+    const request = store.openCursor();
 
-  request.onsuccess = function(event) {
-    const cursor = event.target.result;
-    if (cursor) {
-      const recordTimestamp = new Date(cursor.value.timestamp);
-      if (recordTimestamp < recordsAge) {
-        store.delete(cursor.primaryKey);
-        console.log(`Deleted record with primaryKey ${cursor.primaryKey}`);
+    request.onsuccess = function(event) {
+      const cursor = event.target.result;
+      if (cursor) {
+        // If the record is older than 30 days, delete it
+        const recordTimestamp = new Date(cursor.value.timestamp);
+        if (recordTimestamp < recordsAge) {
+          store.delete(cursor.primaryKey);
+          console.log(`Deleted record with primaryKey ${cursor.primaryKey}`);
+        }
+        cursor.continue();
       }
-      cursor.continue();
-    }
-  };
-}
+    };
+  }
 
+  // Function to store a record in the locationpins object store
   async function storeRecord(record: Record) {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
     const store = transaction.objectStore('locationpins');
     store.add(record).onsuccess = function() {
-      console.log(`Stored record in IndexedDB`);
+      console.log('Stored record in IndexedDB');
     };
   }
 
+  // Function to load records from the locationpins object store
   async function loadRecordsFromIndexedDB() {
     const transaction = indexeddb.transaction(['locationpins'], 'readonly');
     const store = transaction.objectStore('locationpins');
     const records: Record[] = [];
 
+    // Open a cursor to iterate over the records
     return new Promise<Record[]>((resolve, reject) => {
       const request = store.openCursor();
 
       request.onsuccess = function(event) {
         const cursor = event.target.result;
         if (cursor) {
+          // Add the record to the records array
           records.push(cursor.value);
           cursor.continue();
         } else {
+          // When there are no more records, resolve the promise
           resolve(records);
         }
       };
@@ -123,6 +144,7 @@
     });
   }
 
+  // Function to initialize the app
   async function initializeApp() {
     await initializeIndexedDB();
     await authorizeUser();
@@ -133,6 +155,7 @@
     console.log('Loaded records from IndexedDB');
   }
 
+  // Initialize the app
   initializeApp();
 
   // Trystero logic
@@ -171,11 +194,12 @@
 
   // Send and receive records
   const send = async () => {
-    if (recordIsValid(record)) {
+    // Check if coordinates are present
+    if ($coordinates.latitude && $coordinates.longitude && recordIsValid(record)) {
       sendRecordAction(record);
 
       // Immediately process the record as if it was received from another peer
-      if (!recordCache.some(rec => rec.mapid === record.mapid)) {
+      if ($coordinates.latitude && $coordinates.longitude && recordIsValid(record)) {
         records.update(recs => [...recs, record]);
         recordCache.push(record);
 
@@ -190,6 +214,8 @@
 
       record = createEmptyRecord(); // Reset record
 
+    } else {
+      console.log('Please click on the map to fetch coordinates');
     }
   };
 
@@ -209,17 +235,15 @@
     // Store received records in IndexedDB "locationpins" object store
     for (const record of receivedRecords) {
       await storeRecord(record);
-      console.log(`Stored received record in IndexedDB`);
+      console.log('Stored received record in IndexedDB');
     }
   });
 
-    // subscribes to coordinates from click/touch in store
-    coordinates.subscribe(value => {
+  // Subscribe to coordinates from click/touch in store
+  coordinates.subscribe(value => {
     record.latitude = value.latitude;
     record.longitude = value.longitude;
-    });
-
-
+  });
 
   onMount(() => {
     initializeApp();
@@ -245,17 +269,14 @@
     };
   }
 
-  // Function to check if a record is valid
-  function recordIsValid(rec: Record): boolean {
+   // Function to check if a record is valid
+   function recordIsValid(rec: Record): boolean {
     const isTitleValid = rec.title.trim() !== '';
-    const isLatitudeValid = isValidCoordinate(rec.latitude.trim());
-    const isLongitudeValid = isValidCoordinate(rec.longitude.trim());
-    
     // Regular expression to check if the link starts with the specified patterns
     const linkPattern = /.*(?=zoom\.us\/)/;
     const isLinkValid = linkPattern.test(rec.link.trim());
     
-    return isTitleValid && isLatitudeValid && isLongitudeValid && isLinkValid;
+    return isTitleValid && isLinkValid;
   }
 
   // Function to validate latitude and longitude with max 6 decimal places
@@ -290,7 +311,6 @@
     longitude: string;
     latitude: string;
   }
-
 </script>
 
 <main>
@@ -354,11 +374,14 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     <label>Link:</label><br>
     <input type="text" placeholder="zoom.us/... no https etc." maxlength="100" bind:value={record.link} required><br>
     
-    <label>Latitude:</label><br>
-    <input type="text" placeholder="Latitude (e.g., 42.123456 the longer the more precise)" maxlength="11" bind:value={record.latitude} required><br>
+    <input type="hidden" bind:value={record.latitude} required>
+    <input type="hidden" bind:value={record.longitude} required>
 
-    <label>Longitude:</label><br>
-    <input type="text" placeholder="Longitude (e.g., -71.987654  the longer the more precise)" maxlength="11" bind:value={record.longitude} required><br>
+    {#if $coordinates.latitude && $coordinates.longitude}
+      <p style="color: green;">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
+    {:else}
+      <p style="color: red;">Click on the map to fetch coordinates</p>
+    {/if}
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
