@@ -352,7 +352,7 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
 
     <label>Link:</label><br>
-    <input type="text" placeholder="https://zoom.us/... links only" maxlength="100" bind:value={record.link} required><br>
+    <input type="text" placeholder="zoom.us/... no https etc." maxlength="100" bind:value={record.link} required><br>
     
     <label>Latitude:</label><br>
     <input type="text" placeholder="Latitude (e.g., 42.123456 the longer the more precise)" maxlength="11" bind:value={record.latitude} required><br>
