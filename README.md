@@ -43,7 +43,7 @@ A pin can represent everything: posts, profiles, links, streams, apps, games, yo
 
 The first "app" is Brainstorming on Zoom Meetings. Simple as that. Now, imagine re-engineering the Couchsurfing app (free home/shelter allocation, which went commercial due to lack of funding). By simply changing the link validation to another URL and modifying the button text, you can create a new app.<br><br>
 
-This network is free of cost. If funding is needed, crowdfunding is the solution!<br><br>
+This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br><br>
 
 The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 

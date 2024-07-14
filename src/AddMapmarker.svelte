@@ -317,7 +317,7 @@
   <h4>
     <span class="highlight">🔥🔥🔥 <br>
       Post cant be edited or deleted and deleting themself after 30 days.<br>
-      The first app is Brainstorming. More apps? Hit me and our fellows anytime on GitHub, Gitter.im, and the coming weekly Zoom Brainstormings on Youtube.</span><br><br>
+      The first app is Brainstorming on private and public, local and global issues and solutions. More apps? Hit me and our fellows anytime on GitHub, Gitter.im, and the coming weekly Zoom Brainstormings on Youtube.</span><br><br>
 
     Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
     
@@ -345,8 +345,10 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     A pin can represent everything: posts, profiles, links, streams, apps, games, your non-profit business, your business - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
 
     Higly adaptable:<br>
-    The first "app" is Brainstorming on Zoom Meetings. Simple as that. And now imagine creating another app. Think about couchsurfing (basically free home/shelter allocation, went commercial because of missing funding) with the same ui, simply by changing the link validation to another url, and the button text.<br>
-    This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br>
+    The first "app" is Brainstorming on Zoom Meetings. Simple as that. Now, imagine re-engineering the Couchsurfing app (free home/shelter allocation, which went commercial due to lack of funding). By simply changing the link validation to another URL and modifying the button text, you can create a new app.<br><br>
+
+    This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br><br>
+
     The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
     I've always held the theory that "everything is already there, it is just mismanaged".<br>
