@@ -60,6 +60,8 @@ To establish a direct peer-to-peer connection with WebRTC, a signalling channel 
 
 Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of the world's population.<br><br>
 
+What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!<br><br>
+
 # Basics
 
 - Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, your non-profit business, your business, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
