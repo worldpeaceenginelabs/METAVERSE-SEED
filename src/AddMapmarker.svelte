@@ -260,12 +260,21 @@
     record.longitude = value.longitude;
   });
 
+  // Define an async function to fetch and set form disabled status
+    async function updateFormDisabledStatus() {
+    const result = await checkRecordCount();
+    isFormDisabled.set(result);
+    }
+
   onMount(async () => {
     await initializeApp();
 
     // Rate limiting
-    const result = await checkRecordCount();
-    isFormDisabled.set(result);
+    updateFormDisabledStatus();
+    // Set interval to continuously update form disabled status
+    const intervalId = setInterval(async () => {
+        updateFormDisabledStatus();
+    }, 5000); // Update every 5 seconds (adjust interval as needed)
 
     room.onPeerJoin(peerId => {
       // Send record cache to the new peer, but only the records the peer doesn't have yet
@@ -276,7 +285,7 @@
     room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
   });
 
-  // Rate limiting - Function to check the number of records with the same appid suffix
+  // Implement a rate-limiting function to verify if there are more than 5 records in 'locationpins' indexedDB with the same appid suffix as in 'clients' indexedDB.
   async function checkRecordCount() {
     const transaction = indexeddb.transaction(['locationpins'], 'readonly');
     const store = transaction.objectStore('locationpins');
