@@ -40,66 +40,7 @@
     });
   }
 
-  // Function to fetch the appid from the IndexedDB
-  async function fetchAppId() {
-    const transaction = indexeddb.transaction(['client'], 'readonly');
-    const store = transaction.objectStore('client');
-    const getAppId = store.get('appid');
-
-    const appidRequest = await new Promise<string>((resolve, reject) => {
-      getAppId.onsuccess = () => resolve(getAppId.result);
-      getAppId.onerror = () => reject(getAppId.error);
-    });
-
-    appid = appidRequest; // Assign the retrieved appid to the global variable
-  }
-  // Function to authorize the user
-  async function authorizeUser() {
-    const transaction = indexeddb.transaction(['client'], 'readwrite');
-    const store = transaction.objectStore('client');
-
-    // Get the username and appid from the client object store
-    const getUsername = store.get('username');
-    const getAppId = store.get('appid');
-
-    // Wait for the requests to complete
-    const usernameRequest = await new Promise((resolve, reject) => {
-      getUsername.onsuccess = () => resolve(getUsername.result);
-      getUsername.onerror = () => reject(getUsername.error);
-    });
-
-    const appidRequest = await new Promise((resolve, reject) => {
-      getAppId.onsuccess = () => resolve(getAppId.result);
-      getAppId.onerror = () => reject(getAppId.error);
-    });
-
-    // Assign the results to variables
-    const username = usernameRequest;
-    const appid = appidRequest;
-
-    // If the username or appid doesn't exist, create a new one
-    if (!username || !appid) {
-      const randomUUID = crypto.randomUUID();
-      const salt = 'salt1234';
-      const hashedUsername = await hashData(randomUUID + salt);
-
-      // Store the new username and appid in the client object store
-      const newTransaction = indexeddb.transaction(['client'], 'readwrite');
-      const newStore = newTransaction.objectStore('client');
-      newStore.put({ appid: hashedUsername, username: randomUUID });
-    } else {
-      // If the username and appid exist, check if they match
-      const salt = 'salt1234';
-      const hashedUsername = await hashData(username + salt);
-
-      // If they don't match, re-authorize the user
-      if (hashedUsername !== appid) {
-        await authorizeUser();
-      } else {
-        console.log(`${username} with ${appid} authorized`);
-      }
-    }
-  }
+  
 
   // Function to delete old records from the locationpins object store
   function deleteOldRecords() {
@@ -164,8 +105,6 @@
   // Function to initialize the app
   async function initializeApp() {
     await initializeIndexedDB();
-    await fetchAppId(); // Fetch the appid independently
-    await authorizeUser();
     await deleteOldRecords();
     const storedRecords = await loadRecordsFromIndexedDB();
     records.set(storedRecords);
@@ -274,11 +213,11 @@
     await initializeApp();
 
     // Rate limiting
-    updateFormDisabledStatus();
+    // updateFormDisabledStatus();
     // Set interval to continuously update form disabled status
-    const intervalId = setInterval(async () => {
-        updateFormDisabledStatus();
-    }, 5000); // Update every 5 seconds (adjust interval as needed)
+    // const intervalId = setInterval(async () => {
+    //    updateFormDisabledStatus();
+    // }, 5000); // Update every 5 seconds (adjust interval as needed)
 
     room.onPeerJoin(peerId => {
       // Send record cache to the new peer, but only the records the peer doesn't have yet
