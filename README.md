@@ -1,20 +1,27 @@
 # METAVERSE-SEED
-
-![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
-“Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
-
-![image](https://github.com/user-attachments/assets/67d832d7-4b83-4636-b0c6-f889dd069017)
-### Status: Lean Startup / Incubator & Accelerator<br>Prototyping, MVPs, and Optimizing as an ongoing process.
-The first application on Cloud Atlas is Brainstorming. On private and public, local and global issues and tasks.<br>An incubator and accelerator for your ideas, solutions and funding.<br><br>
-  
-![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
-
-https://cloudatlas.club<br>
+#### DOMAIN https://cloudatlas.club<br>
 #### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
 
-Restarted project The Seed at 30.03.2024<br><br>
+Restarted project The Seed on 30.03.2024<br><br>
+
+![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
+“Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
+
+![image](https://github.com/user-attachments/assets/ce9b0001-48e2-4842-89d0-5af10d79bba9)
+### Status: Lean Startup / Incubator & Accelerator<br>Prototyping, MVPs, and Optimizing as an ongoing process.
+The first application on Cloud Atlas is Brainstorming. On private and public, local and global issues and tasks.<br>An incubator and accelerator for your ideas, solutions and funding.(GoFundMe implementation coming soon)<br><br>
+
+Simple as that. Now, imagine the crowdfunding feature. By simply changing the link validation to the Gofundme.com URL and modifying the UI (button text and choice brainstorming/crowdfunding on form), you can create a new app.<br><br>
+
+This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br><br>
+
+The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
+
+![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
+### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br>
+
 
 # Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
 
@@ -22,6 +29,8 @@ Restarted project The Seed at 30.03.2024<br><br>
 ### No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
 
 ### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
+
+# Imagine...
 
 ### Imagine creating our own version of Google Maps/Earth, incorporating all the services we desire, free from the constraints of profit-driven entities. Goodbye monopolies, influential lone wolves, guerrillas, and political cults.
 ### Imagine decentralized payments without intermediaries. Goodbye banks.
