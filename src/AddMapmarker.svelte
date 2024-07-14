@@ -315,14 +315,18 @@
 
 <main>
   <h4>
+    <span class="highlight">🔥🔥🔥 <br>
+      Post cant be edited or deleted and deleting themself after 30 days.<br>
+      The first app is Brainstorming. More apps? Hit me and our fellows anytime on GitHub, Gitter.im, and the coming weekly Zoom Brainstormings on Youtube.</span><br><br>
+
     Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
     
     Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
     No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
 
     What's stopping you from creating right now? Make the world work!<br>
-    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub</a><br>
-    UI Coming Soon<br><br>
+    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
+    UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
 
     Imagine creating our own version of Google Maps/Earth, incorporating all the services we desire, free from the constraints of profit-driven entities. Goodbye monopolies, influential lone wolves, guerrillas, and political cults.<br><br>
 
@@ -338,10 +342,15 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
 
     With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!<br><br>
 
-    A pin can represent everything: posts, profiles, links, streams, apps, games, your business, your non-profit organisation - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
+    A pin can represent everything: posts, profiles, links, streams, apps, games, your non-profit business, your business - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
+
+    Higly adaptable:<br>
+    The first "app" is Brainstorming on Zoom Meetings. Simple as that. And now imagine creating another app. Think about couchsurfing (basically free home/shelter allocation, went commercial because of missing funding) with the same ui, simply by changing the link validation to another url, and the button text.<br>
+    This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br>
+    The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
     I've always held the theory that "everything is already there, it is just mismanaged".<br>
-    Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories:<br><br>
+    Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories and watching too much science fiction:<br><br>
 
     CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web. It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting display, AR, and VR out of the box.<br><br>
 
@@ -434,4 +443,9 @@ And don't forget ChatGPT, evolving rapidly to become your all-day digital assist
     border: 1px solid #ccc; /* Optional: Add a border for better visibility */
     padding: 10px; /* Optional: Add padding for better appearance */
   }
+
+  .highlight {
+  color: red; /* Change 'red' to the desired color */
+  }
+
 </style>

@@ -37,7 +37,13 @@ Call all your friends and tell them to open this web-app in their browser: Guess
 
 With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!
 
-A pin can represent everything: posts, profiles, links, streams, apps, games, your business, your non-profit organisation - you name it - Literally! For displays, AR, and VR out of the box!
+A pin can represent everything: posts, profiles, links, streams, apps, games, your non-profit business, your business - you name it - Literally! For displays, AR, and VR out of the box!
+
+# Higly adaptable
+
+    The first "app" is Brainstorming on Zoom Meetings. Simple as that. And now imagine creating another app. Think about couchsurfing (basically free home/shelter allocation, went commercial because of missing funding) with the same ui, simply by changing the link validation to another url, and the button text.<br>
+    This network is free of cost. Funding not needed. If needed: Crowdfunding it is!<br>
+    The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
 I've always held the theory that "everything is already there, it is just mismanaged".
 Cloud Atlas is a Collective Computer and was realized with only two publicly available repositories:<br><br>
@@ -54,7 +60,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 
 # Basics
 
-- Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
+- Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, your non-profit business, your business, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
 - Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.<br><br>
 
 # FEATURES
