@@ -140,7 +140,6 @@
     const records: Record[] = [];
 
     // Open a cursor to iterate over the records
-    return new Promise<Record[]>((resolve, reject) => {
     const request = store.openCursor();
 
     return new Promise<Record[]>((resolve, reject) => {
