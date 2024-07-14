@@ -4,8 +4,12 @@
   import { writable } from 'svelte/store';
   import { coordinates } from './store.js';
 
+  // Define for rate limiting
+  let isFormDisabled = writable(false);
+
   // Define the IndexedDB database
   let indexeddb: IDBDatabase;
+  let appid: string; // Variable to store the appid
 
   // Function to initialize the IndexedDB database
   async function initializeIndexedDB() {
@@ -36,6 +40,19 @@
     });
   }
 
+  // Function to fetch the appid from the IndexedDB
+  async function fetchAppId() {
+    const transaction = indexeddb.transaction(['client'], 'readonly');
+    const store = transaction.objectStore('client');
+    const getAppId = store.get('appid');
+
+    const appidRequest = await new Promise<string>((resolve, reject) => {
+      getAppId.onsuccess = () => resolve(getAppId.result);
+      getAppId.onerror = () => reject(getAppId.error);
+    });
+
+    appid = appidRequest; // Assign the retrieved appid to the global variable
+  }
   // Function to authorize the user
   async function authorizeUser() {
     const transaction = indexeddb.transaction(['client'], 'readwrite');
@@ -124,8 +141,9 @@
 
     // Open a cursor to iterate over the records
     return new Promise<Record[]>((resolve, reject) => {
-      const request = store.openCursor();
+    const request = store.openCursor();
 
+    return new Promise<Record[]>((resolve, reject) => {
       request.onsuccess = function(event) {
         const cursor = event.target.result;
         if (cursor) {
@@ -147,8 +165,9 @@
   // Function to initialize the app
   async function initializeApp() {
     await initializeIndexedDB();
+    await fetchAppId(); // Fetch the appid independently
     await authorizeUser();
-    deleteOldRecords(); // Delete old records on app start
+    await deleteOldRecords();
     const storedRecords = await loadRecordsFromIndexedDB();
     records.set(storedRecords);
     recordCache.push(...storedRecords);
@@ -173,7 +192,7 @@
   let recordCache: Record[] = [];
 
   // Set a maximum size for the cache
-  const MAX_CACHE_SIZE = 1000;
+  const MAX_CACHE_SIZE = 10000;
 
   // Receive records from other peers
   getRecord(async (data: Record, peerId: string) => {
@@ -199,21 +218,18 @@
       sendRecordAction(record);
 
       // Immediately process the record as if it was received from another peer
-      if ($coordinates.latitude && $coordinates.longitude && recordIsValid(record)) {
-        records.update(recs => [...recs, record]);
-        recordCache.push(record);
+      records.update(recs => [...recs, record]);
+      recordCache.push(record);
 
         // Maintain cache size limit
-        if (recordCache.length > MAX_CACHE_SIZE) {
-          recordCache.shift(); // Remove the oldest record
-        }
-
-        await storeRecord(record);
-        console.log('Self-processed the sent record and stored in IndexedDB');
+      if (recordCache.length > MAX_CACHE_SIZE) {
+        recordCache.shift(); // Remove the oldest record
       }
 
-      record = createEmptyRecord(); // Reset record
+      await storeRecord(record);
+      console.log('Self-processed the sent record and stored in IndexedDB');
 
+      record = createEmptyRecord(); // Reset record
     } else {
       console.log('Please click on the map to fetch coordinates');
     }
@@ -245,32 +261,51 @@
     record.longitude = value.longitude;
   });
 
-  onMount(() => {
-    initializeApp();
+  onMount(async () => {
+    await initializeApp();
+
+    // Rate limiting
+    const result = await checkRecordCount();
+    isFormDisabled.set(result);
 
     room.onPeerJoin(peerId => {
       // Send record cache to the new peer, but only the records the peer doesn't have yet
       sendCache(recordCache);
       console.log(`Peer ${peerId} joined`);
     });
+
     room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
   });
 
-  // Function to create an empty record
-  function createEmptyRecord(): Record {
-    return {
-      mapid: crypto.randomUUID(),
-      timestamp: new Date().toISOString(),
-      title: '',
-      text: '',
-      link: '',
-      longitude: '',
-      latitude: ''
-    };
+  // Rate limiting - Function to check the number of records with the same appid suffix
+  async function checkRecordCount() {
+    const transaction = indexeddb.transaction(['locationpins'], 'readonly');
+    const store = transaction.objectStore('locationpins');
+    let count = 0;
+
+    return new Promise<boolean>((resolve, reject) => {
+      const request = store.openCursor();
+
+      request.onsuccess = function(event) {
+        const cursor = event.target.result;
+        if (cursor) {
+          if (cursor.value.mapid.endsWith(appid)) {
+            count++;
+          }
+          cursor.continue();
+        } else {
+          resolve(count >= 5); // Resolve true if there are 5 or more records with the appid
+        }
+      };
+
+      request.onerror = function(event) {
+        reject(request.error);
+      };
+    });
   }
 
-   // Function to check if a record is valid
-   function recordIsValid(rec: Record): boolean {
+  // Function to check if a record is valid
+  function recordIsValid(rec: Record): boolean {
     const isTitleValid = rec.title.trim() !== '';
     // Regular expression to check if the link starts with the specified patterns
     const linkPattern = /.*(?=zoom\.us\/)/;
@@ -281,7 +316,6 @@
 
   // Function to validate latitude and longitude with max 6 decimal places
   function isValidCoordinate(coord) {
-    // Regular expression to match coordinates with up to 6 decimal places
     const coordPattern = /^[-+]?([1-8]?\d(\.\d{1,6})?|90(\.0{1,6})?)$/;
     return coordPattern.test(coord);
   }
@@ -291,17 +325,15 @@
     // Convert the string data to an array buffer
     const encoder = new TextEncoder();
     const buffer = encoder.encode(data);
-
     // Calculate the SHA-256 hash of the array buffer
     const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
-
     // Convert the hash buffer to a hexadecimal string
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
     return hashHex;
   }
 
+  // Record interface
   interface Record {
     mapid: string;
     timestamp: string;
@@ -311,12 +343,27 @@
     longitude: string;
     latitude: string;
   }
+
+  // Function to create an empty record
+  function createEmptyRecord(): Record {
+    return {
+      mapid: crypto.randomUUID() + appid, // Append the appid as a suffix to the mapid
+      timestamp: new Date().toISOString(),
+      title: '',
+      text: '',
+      link: '',
+      longitude: '',
+      latitude: ''
+    };
+  }
+  
 </script>
 
 <main>
   <h4>
     Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
     <span class="highlight"> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 30 days.<br>
+      🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
       🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
       🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
       🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥</span><br><br>
@@ -343,21 +390,10 @@
     <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
     UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
 </h4>
-
-  <div id="records" style="height: 20px; overflow-y: scroll;">
-    {#each $records as rec}
-      <div class="record">
-        <p>MapID: {rec.mapid}</p>
-        <p>Timestamp: {rec.timestamp}</p>
-        <p>Title: {rec.title}</p>
-        <p>Text: {rec.text}</p>
-        <p>Link: {rec.link}</p>
-        <p>Latitude: {rec.latitude}</p>
-        <p>Longitude: {rec.longitude}</p>
-      </div>
-    {/each}
-  </div>
-
+  
+  {#if $isFormDisabled}
+  <p style="color: red;">The form is not available due to the record limit.</p>
+{:else}
   <form>
     <label>Title:</label><br>
     <input type="text" placeholder="The issue in one sentence - max 100 chars (ChatGPT)" maxlength="100" bind:value={record.title} required><br>
@@ -367,7 +403,7 @@
 
     <label>Link:</label><br>
     <input type="text" placeholder="zoom.us/... no https etc." maxlength="100" bind:value={record.link} required><br>
-    
+
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
 
@@ -379,6 +415,8 @@
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
+  {/if}
+
 </main>
 
 <style>
