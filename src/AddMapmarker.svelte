@@ -229,10 +229,18 @@
       console.log('Self-processed the sent record and stored in IndexedDB');
 
       record = createEmptyRecord(); // Reset record
+      $coordinates.latitude = '';
+      $coordinates.longitude = '';
     } else {
       console.log('Please click on the map to fetch coordinates');
     }
   };
+
+  // Subscribe to coordinates from click/touch in store
+  coordinates.subscribe(value => {
+    record.latitude = value.latitude;
+    record.longitude = value.longitude;
+  });
 
   // New peers receive all previous records
   const [sendCache, getCache] = room.makeAction('cache');
@@ -254,11 +262,7 @@
     }
   });
 
-  // Subscribe to coordinates from click/touch in store
-  coordinates.subscribe(value => {
-    record.latitude = value.latitude;
-    record.longitude = value.longitude;
-  });
+  
 
   // Define an async function to fetch and set form disabled status
     async function updateFormDisabledStatus() {
