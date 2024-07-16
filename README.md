@@ -4,7 +4,7 @@
 #### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
 
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
-[Live Edit on Stackblitz](https://stackblitz.com/github/worldpeaceenginelabs/metaverse-seed)
+[Live Edit on Stackblitz](https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED)
 
 Restarted project The Seed on 30.03.2024<br><br>
 
