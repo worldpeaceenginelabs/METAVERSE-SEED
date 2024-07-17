@@ -8,39 +8,121 @@
   let isFormDisabled = writable(false);
 
   // Define the IndexedDB database
-  let indexeddb: IDBDatabase;
-  let appid: string; // Variable to store the appid
+let indexeddb: IDBDatabase;
 
-  // Function to initialize the IndexedDB database
-  async function initializeIndexedDB() {
-    return new Promise<void>((resolve, reject) => {
-      const request = indexedDB.open('indexeddbstore', 1);
+// Function to initialize the IndexedDB database
+async function initializeIndexedDB() {
+  return new Promise<void>((resolve, reject) => {
+    const request = indexedDB.open('indexeddbstore', 1);
 
-      // Create object stores if they don't exist
-      request.onupgradeneeded = function(event) {
-        const db = request.result;
-        if (!db.objectStoreNames.contains('locationpins')) {
-          db.createObjectStore('locationpins', { keyPath: 'mapid' });
-        }
-        if (!db.objectStoreNames.contains('client')) {
-          db.createObjectStore('client', { keyPath: 'appid' });
-        }
-      };
+    // Create object stores if they don't exist
+    request.onupgradeneeded = function(event) {
+      const db = request.result;
+      console.log('onupgradeneeded called');
+      if (!db.objectStoreNames.contains('locationpins')) {
+        db.createObjectStore('locationpins', { keyPath: 'mapid' });
+        console.log('Created object store locationpins');
+      }
+      if (!db.objectStoreNames.contains('client')) {
+        db.createObjectStore('client', { keyPath: 'id' });
+        console.log('Created object store client');
+      }
+    };
 
-      // On success, assign the result to the indexeddb variable
-      request.onsuccess = function(event) {
-        indexeddb = request.result;
+    // On success, assign the result to the indexeddb variable
+    request.onsuccess = function(event) {
+      indexeddb = request.result;
+      console.log('Database opened successfully');
+      resolve();
+    };
+
+    // On error, reject the promise
+    request.onerror = function(event) {
+      console.error('Error opening database', request.error);
+      reject(request.error);
+    };
+  });
+}
+
+let appidfromindexeddb = null;
+let usernamefromindexeddb = null;
+
+// Ensure username and appid
+
+// BLOCK 001
+// Function to fetch 'username' and 'appid' from the object store 'client', with id 1
+async function fetchClientData() {
+  let username = writable('');
+  let appid = writable('');
+
+  return new Promise<void>((resolve, reject) => {
+    const transaction = indexeddb.transaction(['client'], 'readonly');
+    const objectStore = transaction.objectStore('client');
+    const request = objectStore.get(1);
+
+    request.onsuccess = function(event) {
+      if (request.result) {
+        console.log('Data fetched successfully', request.result);
+        username.set(request.result.username);
+        appid.set(request.result.appid);
+
+        // Update the variables outside of the function
+        username.subscribe(value => { usernamefromindexeddb = value; });
+        appid.subscribe(value => { appidfromindexeddb = value; });
+
         resolve();
-      };
+      } else {
+        console.error('Data not found');
+        reject('Data not found');
+      }
+    };
 
-      // On error, reject the promise
-      request.onerror = function(event) {
-        reject(request.error);
-      };
-    });
-  }
+    request.onerror = function(event) {
+      console.error('Error fetching data', request.error);
+      reject(request.error);
+    };
+  });
+}
 
-  
+// BLOCK 002
+// Function to create new 'username' and 'appid' and store in the object store 'client', with id 1
+async function putResultPairCreation() {
+  const usernameRandom = crypto.randomUUID();
+  const salt = 'salt1234';
+  const resultAppid = await hashData(usernameRandom + salt);
+  let resultPairCreation = { id: 1, username: usernameRandom, appid: resultAppid };
+
+  return new Promise<void>((resolve, reject) => {
+    const transaction = indexeddb.transaction(['client'], 'readwrite');
+    const objectStore = transaction.objectStore('client');
+    const request = objectStore.put(resultPairCreation);
+
+    request.onsuccess = function(event) {
+      console.log('Data has been written successfully:', resultPairCreation);
+      resolve();
+    };
+
+    request.onerror = function(event) {
+      console.error('Error writing data', request.error);
+      reject(request.error);
+    };
+  });
+}
+
+
+
+// eventually adapt the markup
+// {#await promise}
+//   <p>Loading...</p>
+// {:then data}
+//   <p>Data: {JSON.stringify(data)}</p>
+// {:catch error}
+//   <p>Error: {error.message}</p>
+// {/await}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
 
   // Function to delete old records from the locationpins object store
   function deleteOldRecords() {
@@ -102,18 +184,37 @@
     });
   }
 
-  // Function to initialize the app
-  async function initializeApp() {
+ // Function to initialize the app in the right sequence
+async function initializeApp() {
+  try {
     await initializeIndexedDB();
     await deleteOldRecords();
-    const storedRecords = await loadRecordsFromIndexedDB();
-    records.set(storedRecords);
-    recordCache.push(...storedRecords);
-    console.log('Loaded records from IndexedDB');
+    try {
+      await fetchClientData(); // Block 001
+      console.log('Fetched client data successfully');
+    } catch (error) {
+      console.warn('Fetching client data failed, attempting to create new data:', error);
+      // If Block 001 fails, then execute Block 002
+      try {
+        await putResultPairCreation(); // Block 002
+        console.log('Created new client data successfully');
+        // If Block 002 succeeds, then execute Block 001 again
+        await fetchClientData(); // Block 001
+        console.log('Fetched client data successfully after creation');
+      } catch (error) {
+        console.error('Block 002 failed:', error);
+      }
+    }
+  } catch (error) {
+    console.error('An error occurred in the outer block:', error);
   }
-
-  // Initialize the app
-  initializeApp();
+  const storedRecords = await loadRecordsFromIndexedDB();
+  records.set(storedRecords);
+  recordCache.push(...storedRecords);
+  console.log('Loaded records from IndexedDB');
+  console.log('appid:', appidfromindexeddb);
+  console.log('username:', usernamefromindexeddb);
+}
 
   // Trystero logic
   const config = { appId: 'hashOfRandomuuidPlusSecretsalt' };
@@ -298,7 +399,7 @@
   // Function to create an empty record
   function createEmptyRecord(): Record {
     return {
-      mapid: crypto.randomUUID() + appid, // Append the appid as a suffix to the mapid
+      mapid: crypto.randomUUID(), // Append the appid as a suffix to the mapid
       timestamp: new Date().toISOString(),
       title: '',
       text: '',
