@@ -27,6 +27,10 @@ async function initializeIndexedDB() {
         db.createObjectStore('client', { keyPath: 'id' });
         console.log('Created object store client');
       }
+      if (!db.objectStoreNames.contains('localpins')) {
+        db.createObjectStore('localpins', { keyPath: 'mapid' });
+        console.log('Created object store localpins');
+      }
     };
 
     // On success, assign the result to the indexeddb variable
@@ -161,12 +165,44 @@ async function putResultPairCreation() {
     };
   }
 
+  // Function to delete old records from the locationpins object store
+  function deleteOldRecordsLocal() {
+    const transaction = indexeddb.transaction(['localpins'], 'readwrite');
+    const store = transaction.objectStore('localpins');
+    const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+    // Open a cursor to iterate over the records
+    const request = store.openCursor();
+
+    request.onsuccess = function(event) {
+      const cursor = event.target.result;
+      if (cursor) {
+        // If the record is older than 30 days, delete it
+        const recordTimestamp = new Date(cursor.value.timestamp);
+        if (recordTimestamp < recordsAge) {
+          store.delete(cursor.primaryKey);
+          console.log(`Deleted record with primaryKey ${cursor.primaryKey}`);
+        }
+        cursor.continue();
+      }
+    };
+  }
+
   // Function to store a record in the locationpins object store
   async function storeRecord(record: Record) {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
     const store = transaction.objectStore('locationpins');
     store.add(record).onsuccess = function() {
       console.log('Stored record in IndexedDB');
+    };
+  }
+
+  // Function to store a record in the 'localpins' object store
+  async function storeRecordInLocalPins(record: Record) {
+    const transaction = indexeddb.transaction(['localpins'], 'readwrite');
+    const store = transaction.objectStore('localpins');
+    store.add(record).onsuccess = function() {
+      console.log('Stored record in localpins IndexedDB');
     };
   }
 
@@ -209,6 +245,7 @@ async function putResultPairCreation() {
   try {
     await initializeIndexedDB();
     await deleteOldRecords();
+    await deleteOldRecordsLocal();
     
     try {
       await fetchClientData(); // Block 001
@@ -302,6 +339,10 @@ async function putResultPairCreation() {
       records.update(recs => [...recs, record]);
       recordCache.push(record);
 
+      // Store the record in the 'localpins' object store as well
+      await storeRecordInLocalPins(record);
+      console.log('Record sent to localpins object store');
+
         // Maintain cache size limit
       if (recordCache.length > MAX_CACHE_SIZE) {
         recordCache.shift(); // Remove the oldest record
@@ -344,42 +385,33 @@ async function putResultPairCreation() {
     }
   });
 
+
   
+  // Implement a rate-limiting function to verify if there are more than 5 records in 'locationpins' indexedDB with the same appid suffix as in 'clients' indexedDB.
+  // Function to check the record count in 'localpins' and disable the form if necessary
+  async function checkRecordCount() {
+    const transaction = indexeddb.transaction(['localpins'], 'readonly');
+    const store = transaction.objectStore('localpins');
+    const countRequest = store.count();
+
+    return new Promise<boolean>((resolve, reject) => {
+      countRequest.onsuccess = function() {
+        const count = countRequest.result;
+        resolve(count > 5);
+      };
+
+      countRequest.onerror = function() {
+        reject(countRequest.error);
+      };
+    });
+  }
 
   // Define an async function to fetch and set form disabled status
-    async function updateFormDisabledStatus() {
+  async function updateFormDisabledStatus() {
     const result = await checkRecordCount();
     isFormDisabled.set(result);
     }
 
-  
-
-  // Implement a rate-limiting function to verify if there are more than 5 records in 'locationpins' indexedDB with the same appid suffix as in 'clients' indexedDB.
-  async function checkRecordCount() {
-    const transaction = indexeddb.transaction(['locationpins'], 'readonly');
-    const store = transaction.objectStore('locationpins');
-    let count = 0;
-
-    return new Promise<boolean>((resolve, reject) => {
-      const request = store.openCursor();
-
-      request.onsuccess = function(event) {
-        const cursor = event.target.result;
-        if (cursor) {
-          if (cursor.value.mapid.endsWith(appidfromindexeddb)) {
-            count++;
-          }
-          cursor.continue();
-        } else {
-          resolve(count >= 5); // Resolve true if there are 5 or more records with the appid
-        }
-      };
-
-      request.onerror = function(event) {
-        reject(request.error);
-      };
-    });
-  }
 
   // Function to check if a record is valid
   function recordIsValid(rec: Record): boolean {
@@ -422,10 +454,9 @@ async function putResultPairCreation() {
   }
   
   // Function to create an empty record with appid as a suffix to the mapid
-  function createEmptyRecord(appidfromindexeddb: string): Record {
-    console.log('global appid unten:', appidfromindexeddb);
-    return {
-      mapid: crypto.randomUUID() + appidfromindexeddb, // Append the appid as a suffix to the mapid
+  function createEmptyRecord(): Record {
+      return {
+      mapid: crypto.randomUUID(), // Append the appid as a suffix to the mapid
       timestamp: new Date().toISOString(),
       title: '',
       text: '',
@@ -435,17 +466,17 @@ async function putResultPairCreation() {
     };
   }
 
-onMount(async () => {
+onMount(async () => { 
     await initializeApp();
     startRoom(config);
 
     // Rate limiting
-    // updateFormDisabledStatus();
+    updateFormDisabledStatus();
     // Set interval to continuously update form disabled status
-    // const intervalId = setInterval(async () => {
-    //    updateFormDisabledStatus();
-    // }, 5000); // Update every 5 seconds (adjust interval as needed)
-    // Use the appid in the config for Trystero
+    const intervalId = setInterval(async () => {
+    updateFormDisabledStatus();
+    }, 5000); // Update every 5 seconds (adjust interval as needed)
+  
   });
 
 </script>
