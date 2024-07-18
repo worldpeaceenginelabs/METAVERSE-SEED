@@ -437,7 +437,7 @@ async function putResultPairCreation() {
 
 onMount(async () => {
     await initializeApp();
-    startRoom(config, room);
+    startRoom(config);
 
     // Rate limiting
     // updateFormDisabledStatus();
