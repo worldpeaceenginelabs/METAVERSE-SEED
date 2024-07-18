@@ -413,7 +413,7 @@ async function putResultPairCreation() {
   function recordIsValid(rec: Record): boolean {
     const isTitleValid = rec.title.trim() !== '';
     // Regular expression to check if the link starts with the specified patterns
-    const linkPattern = /.*(?=zoom\.us\/)/;
+    const linkPattern = /^https:\/\/(us05web\.)?zoom\.us\/j\/\d+/;
     const isLinkValid = linkPattern.test(rec.link.trim());
     
     return isTitleValid && isLinkValid;
@@ -520,7 +520,7 @@ onMount(async () => {
     <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
 
     <label>Link:</label><br>
-    <input type="text" placeholder="zoom.us/j/MEETINGNUMBER no https etc." maxlength="100" bind:value={record.link} required><br>
+    <input type="text" placeholder="https://us05web.zoom.us/j/ID?pwd=12345 or https://zoom.us/j/ID?pwd=12345" maxlength="100" bind:value={record.link} required><br>
 
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>

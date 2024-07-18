@@ -185,13 +185,36 @@
 			disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		  }
 		});
-  
+		
+		function insertLineBreaks(text, maxChars) {
+  let lines = [];
+  let words = text.split(' ');
+  let currentLine = '';
+
+  words.forEach(word => {
+    if ((currentLine.length + word.length) <= maxChars) {
+      currentLine += word + ' ';
+    } else {
+      lines.push(currentLine.trim());
+      currentLine = word + ' ';
+    }
+  });
+
+  // Push the last line
+  if (currentLine !== '') {
+    lines.push(currentLine.trim());
+  }
+
+  return lines.join('\n');
+}
+
+
 		// Create a label for the record
 		const labelEntity = new Entity({
 		  id: record.mapid + "_label",
 		  position: position,
 		  label: {
-			text: record.title,
+			text: insertLineBreaks(record.title, 25),
 			font: '24px sans-serif',
 			fillColor: Color.BLACK,
 			outlineColor: Color.WHITE,
@@ -401,7 +424,7 @@ handler.setInputAction(function(result) {
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a target="_blank" href={"https://" + modalRecord.link}>Enter Zoom Brainstorming</a></p>
+    <p><a target="_blank" href={modalRecord.link}>Enter Zoom Brainstorming</a></p>
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
