@@ -1,4 +1,8 @@
-# METAVERSE-SEED
+### OPEN-SOURCE
+# ”You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller
+<br><br>
+
+# METAVERSE-SEED - Where imagination is crafted into code...
 #### DOMAIN https://cloudatlas.club<br>
 
 #### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
@@ -6,7 +10,8 @@
 [Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
 [Live Edit on Stackblitz](https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED)
 
-Restarted project The Seed on 30.03.2024<br><br>
+Restarted project The Seed on 30.03.2024
+<br><br>
 
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
