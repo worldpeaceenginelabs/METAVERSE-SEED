@@ -401,7 +401,7 @@ handler.setInputAction(function(result) {
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a target="_blank" href={modalRecord.link}>Enter Zoom Brainstorming</a></p>
+    <p><a target="_blank" href={"https://" + modalRecord.link}>Enter Zoom Brainstorming</a></p>
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
