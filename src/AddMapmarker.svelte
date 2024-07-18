@@ -524,7 +524,7 @@ onMount(async () => {
     <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
 
     <label>Link:</label><br>
-    <input type="text" placeholder="zoom.us/... no https etc." maxlength="100" bind:value={record.link} required><br>
+    <input type="text" placeholder="zoom.us/j/MEETINGNUMBER no https etc." maxlength="100" bind:value={record.link} required><br>
 
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>

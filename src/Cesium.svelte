@@ -356,9 +356,21 @@ handler.setInputAction(function(result) {
 	  showModal = false;
 	}
 	
+	// Function to format the timestamp on the posts
+	function formatTimestamp(timestamp) {
+    const date = new Date(timestamp);
 
+    // extract parts of the timestamp
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Monate sind 0-basiert
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    const seconds = date.getUTCSeconds().toString().padStart(2, '0');
 
-
+    // formating the timestamp output
+    return `${day}.${month}.${year} ${hours}:${minutes}:${seconds} UTC`;
+  }
 
   </script>
   
@@ -389,10 +401,8 @@ handler.setInputAction(function(result) {
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a target="_blank" href={"https://" + modalRecord.link}>Link</a></p>
-    <p>Latitude: {modalRecord.latitude}, Longitude: {modalRecord.longitude}</p>
-    <p>Timestamp: {modalRecord.timestamp}</p>
-	<p>MapID: {modalRecord.mapid}</p>
+    <p><a target="_blank" href={"https://" + modalRecord.link}>Enter Zoom Brainstorming</a></p>
+    <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <span class="close" on:click={closeModal}>Close</span>
