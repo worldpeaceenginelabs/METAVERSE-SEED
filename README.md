@@ -85,17 +85,17 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 
 ### Already working / What's coming?
 
-- [x] Authentication-less authentication. (combo from appid + ENVsalt + https)
-- [x] Trystero connects everyone using the app.
-- [x] Records are transferred between all online users.
+- [x] Authentication-less authentication. Checks indexeddb for username and appid, if no result creates new username and appid (combination from username, appid, ENVsalt + https)
+- [x] Trystero connects everyone using the app. Without any server in the middle!!! WebRTC + Bittorrent Signalling 🥷
+- [x] Records are transferred between all online users automatically.
 - [x] If a new user comes online, the new user gets all past records from the other users' record cache.
-- [x] Only records which are received via Trystero (also valid for the sender) are stored in IndexedDB.
 - [x] Records older than 30 days are deleted on every app start.
 - [x] IndexedDB refills the record cache after reload.
 - [x] The globe populates pins from IndexedDB every 5000ms
+- [x] Rate limiting. Decentralized approach: More than five post in localpins objectstore will disable the input form. checkRecordCount()
+- [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
-- [ ] Rate limiting.
 - [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
 - [ ] Multiple other protocols as fallbacks.
 - [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
