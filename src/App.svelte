@@ -7,7 +7,7 @@
 
   // You can also fetch a picture and quote here if needed
   let pictureUrl = "./cloudatlas8kzip.jpg";
-  let quote = "“Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK";
+  let quote = "“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller";
 </script>
 
 <div class="app-container">
