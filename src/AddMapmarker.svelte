@@ -50,8 +50,6 @@ async function initializeIndexedDB() {
 
 let appidfromindexeddb = null;
 let usernamefromindexeddb = null;
-console.log('Global appid:', appidfromindexeddb);
-console.log('Global username:', usernamefromindexeddb);
 
 // Ensure username and appid
 
@@ -95,8 +93,8 @@ async function fetchClientData() {
 // Callback function to check if both values are updated
 function checkAndUpdate() {
   if (usernamefromindexeddb !== null && appidfromindexeddb !== null) {
-    console.log('Global appid:', appidfromindexeddb);
-    console.log('Global username:', usernamefromindexeddb);
+    console.log('Global AppID:', appidfromindexeddb);
+    console.log('Global Username:', usernamefromindexeddb);
     
     // Perform any actions that depend on these values here
   }
@@ -146,7 +144,7 @@ async function putResultPairCreation() {
   function deleteOldRecords() {
     const transaction = indexeddb.transaction(['locationpins'], 'readwrite');
     const store = transaction.objectStore('locationpins');
-    const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const recordsAge = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
 
     // Open a cursor to iterate over the records
     const request = store.openCursor();
@@ -169,7 +167,7 @@ async function putResultPairCreation() {
   function deleteOldRecordsLocal() {
     const transaction = indexeddb.transaction(['localpins'], 'readwrite');
     const store = transaction.objectStore('localpins');
-    const recordsAge = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const recordsAge = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
 
     // Open a cursor to iterate over the records
     const request = store.openCursor();
@@ -271,8 +269,6 @@ async function putResultPairCreation() {
   records.set(storedRecords);
   recordCache.push(...storedRecords);
   console.log('Loaded records from IndexedDB');
-  console.log('appid:', appidfromindexeddb);
-  console.log('username:', usernamefromindexeddb);
 }
 
 
@@ -484,7 +480,7 @@ onMount(async () => {
 <main>
   <h4>
     Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
-    <span class="highlight"> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 30 days.<br>
+    <span class="highlight"> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
       🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
       🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
       🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
