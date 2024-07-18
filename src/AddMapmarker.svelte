@@ -46,6 +46,8 @@ async function initializeIndexedDB() {
 
 let appidfromindexeddb = null;
 let usernamefromindexeddb = null;
+console.log('Global appid:', appidfromindexeddb);
+console.log('Global username:', usernamefromindexeddb);
 
 // Ensure username and appid
 
@@ -68,7 +70,9 @@ async function fetchClientData() {
 
         // Update the variables outside of the function
         username.subscribe(value => { usernamefromindexeddb = value; });
+        checkAndUpdate(); // New callback function to handle updates
         appid.subscribe(value => { appidfromindexeddb = value; });
+        checkAndUpdate(); // New callback function to handle updates
 
         resolve();
       } else {
@@ -82,6 +86,16 @@ async function fetchClientData() {
       reject(request.error);
     };
   });
+}
+
+// Callback function to check if both values are updated
+function checkAndUpdate() {
+  if (usernamefromindexeddb !== null && appidfromindexeddb !== null) {
+    console.log('Global appid:', appidfromindexeddb);
+    console.log('Global username:', usernamefromindexeddb);
+    
+    // Perform any actions that depend on these values here
+  }
 }
 
 // BLOCK 002
@@ -184,17 +198,25 @@ async function putResultPairCreation() {
     });
   }
 
- // Function to initialize the app in the right sequence
-async function initializeApp() {
+
+
+// START START START START START START START START START START START START START START START 
+
+
+
+// Function to initialize the app in the right sequence
+ async function initializeApp(): Promise<string> {
   try {
     await initializeIndexedDB();
     await deleteOldRecords();
+    
     try {
       await fetchClientData(); // Block 001
       console.log('Fetched client data successfully');
     } catch (error) {
       console.warn('Fetching client data failed, attempting to create new data:', error);
       // If Block 001 fails, then execute Block 002
+
       try {
         await putResultPairCreation(); // Block 002
         console.log('Created new client data successfully');
@@ -216,9 +238,29 @@ async function initializeApp() {
   console.log('username:', usernamefromindexeddb);
 }
 
+
+
+// START START START START START START START START START START START START START START START 
+
+
+
   // Trystero logic
-  const config = { appId: 'hashOfRandomuuidPlusSecretsalt' };
+  const config = { appId: 'username' };
   const room = joinRoom(config, 'chat-room');
+
+  function startRoom(params:type) {
+   
+    room.onPeerJoin(peerId => {
+      // Send record cache to the new peer, but only the records the peer doesn't have yet
+      sendCache(recordCache);
+      console.log(`Peer ${peerId} joined`);
+    });
+
+    room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
+  }
+  
+
+
 
   // Create writable store for records
   const records = writable<Record[]>([]);
@@ -268,7 +310,7 @@ async function initializeApp() {
       await storeRecord(record);
       console.log('Self-processed the sent record and stored in IndexedDB');
 
-      record = createEmptyRecord(); // Reset record
+      record = createEmptyRecord(appidfromindexeddb); // Reset record
       $coordinates.latitude = '';
       $coordinates.longitude = '';
     } else {
@@ -310,24 +352,7 @@ async function initializeApp() {
     isFormDisabled.set(result);
     }
 
-  onMount(async () => {
-    await initializeApp();
-
-    // Rate limiting
-    // updateFormDisabledStatus();
-    // Set interval to continuously update form disabled status
-    // const intervalId = setInterval(async () => {
-    //    updateFormDisabledStatus();
-    // }, 5000); // Update every 5 seconds (adjust interval as needed)
-
-    room.onPeerJoin(peerId => {
-      // Send record cache to the new peer, but only the records the peer doesn't have yet
-      sendCache(recordCache);
-      console.log(`Peer ${peerId} joined`);
-    });
-
-    room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
-  });
+  
 
   // Implement a rate-limiting function to verify if there are more than 5 records in 'locationpins' indexedDB with the same appid suffix as in 'clients' indexedDB.
   async function checkRecordCount() {
@@ -341,7 +366,7 @@ async function initializeApp() {
       request.onsuccess = function(event) {
         const cursor = event.target.result;
         if (cursor) {
-          if (cursor.value.mapid.endsWith(appid)) {
+          if (cursor.value.mapid.endsWith(appidfromindexeddb)) {
             count++;
           }
           cursor.continue();
@@ -395,11 +420,12 @@ async function initializeApp() {
     longitude: string;
     latitude: string;
   }
-
-  // Function to create an empty record
-  function createEmptyRecord(): Record {
+  
+  // Function to create an empty record with appid as a suffix to the mapid
+  function createEmptyRecord(appidfromindexeddb: string): Record {
+    console.log('global appid unten:', appidfromindexeddb);
     return {
-      mapid: crypto.randomUUID(), // Append the appid as a suffix to the mapid
+      mapid: crypto.randomUUID() + appidfromindexeddb, // Append the appid as a suffix to the mapid
       timestamp: new Date().toISOString(),
       title: '',
       text: '',
@@ -408,7 +434,20 @@ async function initializeApp() {
       latitude: ''
     };
   }
-  
+
+onMount(async () => {
+    await initializeApp();
+    startRoom(config, room);
+
+    // Rate limiting
+    // updateFormDisabledStatus();
+    // Set interval to continuously update form disabled status
+    // const intervalId = setInterval(async () => {
+    //    updateFormDisabledStatus();
+    // }, 5000); // Update every 5 seconds (adjust interval as needed)
+    // Use the appid in the config for Trystero
+  });
+
 </script>
 
 <main>
