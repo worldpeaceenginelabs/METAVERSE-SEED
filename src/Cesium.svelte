@@ -398,14 +398,10 @@ handler.setInputAction(function(result) {
   </script>
   
   <main id="cesiumContainer"></main>
-  
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="addbutton" on:click={openModalButton}>+</div>
 
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="circle" on:click={openModalButton}>
-	<span class="plus">+</span>
-  </div>
-  
   {#if showModalButton}
 	<div class="modal">
 	  <div class="modal-content">
@@ -456,35 +452,17 @@ handler.setInputAction(function(result) {
 	  padding: 0;
 	}
 
-	.circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: grey; /* Change this to your preferred color */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	.addbutton {
     cursor: pointer;
     position: fixed;
-    bottom: 10px;
-    left: 10px;
+    bottom: 1em;
+    left: 1em;
     z-index: 1000;
+	color: #edffff;
+	font-size: xx-large;
+	font-weight: 900;
 	}
 
-	.plus {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    pointer-events: none; /* Ensures that clicking the span doesn't interfere with the button click */
-    position: relative; /* Change to relative positioning */
-    top: -3px; /* Adjust this value to fine-tune vertical centering */
-	}
-
-	.circle:hover {
-    background-color: #abd6ff; /* Change this to your preferred hover color */
-	}
-
-  
 	.modal {
 	  position: fixed;
 	  top: 0;
