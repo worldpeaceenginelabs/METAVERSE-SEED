@@ -540,22 +540,9 @@ onMount(async () => {
 <style>
   main {
     font-family: Arial, sans-serif;
-    max-width: 600px;
     margin: 0 auto;
     padding: 0rem;
     font-size: small;
-  }
-
-  #records {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .record {
-    margin-bottom: 1rem;
-    border: 1px solid #eee;
-    padding: 0.5rem;
   }
 
   form {

@@ -504,6 +504,8 @@ handler.setInputAction(function(result) {
 	  color: black;
 	  padding: 20px;
 	  border-radius: 5px;
+	  width: 90%;
+	  max-width: 800px;
 	}
   
 	.close {
