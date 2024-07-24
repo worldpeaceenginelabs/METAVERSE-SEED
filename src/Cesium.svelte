@@ -23,6 +23,7 @@
 	import "cesium/Build/Cesium/Widgets/widgets.css";
 	import AddMapmarker from './AddMapmarker.svelte';
 	import { coordinates } from './store.js';
+	import ShareButton from './Sharebutton.svelte';
 
 	// Declare global variables and states
 	let showModal = false;
@@ -426,7 +427,12 @@ handler.setInputAction(function(result) {
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a target="_blank" href={modalRecord.link}>Enter Zoom Brainstorming</a></p>
+    <p><a class="enterbutton" target="_blank" href={modalRecord.link}>Enter Zoom Brainstorming</a></p>
+	<div class="sharebutton"><ShareButton 
+        title={modalRecord.title} 
+        text={modalRecord.text} 
+        link={modalRecord.link} 
+      /></div>
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -466,6 +472,20 @@ handler.setInputAction(function(result) {
 	font-weight: 900;
 	}
 
+	.enterbutton {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  
+    .enterbutton:hover {
+      background-color: #0056b3;
+    }
+
 	.modal {
 	  position: fixed;
 	  top: 0;
@@ -489,6 +509,13 @@ handler.setInputAction(function(result) {
 	.close {
 	  cursor: pointer;
 	  font-size: 18px;
+	  padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
 	}
 </style>
   
