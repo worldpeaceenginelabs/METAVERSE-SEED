@@ -8,9 +8,8 @@
   
     // Use reactive statements to update shareData whenever any prop changes
     $: shareData = {
-      title: title,
-      text: text,
-      url: link  // Use 'url' instead of 'link' for Web Share API
+    text: `${title}\n\n${text}\n\n`,
+    url: link  // Use 'url' for the Web Share API
     };
   
     // Function to handle sharing
@@ -30,7 +29,7 @@
   
   <!-- Add a button to trigger the share functionality -->
   <button on:click={shareText}>
-    Share this Brainstorming
+    Share
   </button>
   
   <style>
