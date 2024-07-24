@@ -98,6 +98,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 - [x] IndexedDB refills the record cache after reload.
 - [x] The globe populates pins from IndexedDB every 5000ms
 - [x] Rate limiting. Decentralized approach: More than five post in localpins objectstore will disable the input form. checkRecordCount()
+- [ ] Swearwords Detection: a static list or API
 - [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
 - [ ] Progressive Web App features (PWA).
 - [ ] Transfer limiting.
