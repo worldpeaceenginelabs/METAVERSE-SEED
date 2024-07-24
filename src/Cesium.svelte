@@ -246,7 +246,7 @@
 		fullscreenButton: false,
 		vrButton: true,
 		geocoder: false,
-		homeButton: true,
+		homeButton: false,
 		infoBox: true,
 		sceneModePicker: false,
 		selectionIndicator: false,
@@ -457,8 +457,8 @@ handler.setInputAction(function(result) {
 	height: 50px;
     cursor: pointer;
     position: fixed;
-    bottom: 1em;
-    left: 1em;
+    bottom: 0.1em;
+    left: 0.1em;
     z-index: 1000;
 	color: #edffff;
 	background-color: transparent;
