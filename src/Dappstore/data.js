@@ -41,7 +41,7 @@ export default
     { key: `2`,
     title: "DAPP/REPORT DECEPTIVE PACKAGING (coming soon / help wanted)",
     content: 'Deceptive packaging occurs when a product\'s packaging misleads the customer in various ways, such as by providing incorrect information regarding quantity, size, shape, or content. A common example of deceptive packaging is when a product is packaged in a container that appears to be full, but is only half-filled and the empty space is not visible from the outside. This can be a disappointing experience for the customer upon opening the packaging, and does result in unnecessary waste and environmental pollution.)',
-    href: 'https://app.code4socialgood.org/project/view/3396',
+    href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
     target: '_blank',
     avatar: 'fuzzy-avatar/key2.jpg?auto=compress',
     color: '#efb700',
@@ -83,23 +83,11 @@ export default
     { key: `6`,
     title: 'DAPP/D-NEWS (geolocated) - News made by the people, for the people... (coming soon / help wanted)',
     content: '“We carry devices that know a lot about us and know exactly where we are all the time, so why not deliver news, information and content based on who we are, what we like and where we are?” “Just by geolocating the fires and the events in the Amazon, many people felt closer” Credits: Eduardo Acquarone',
-    href: 'https://app.code4socialgood.org/project/view/3396',
+    href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
     target: '_blank',
     avatar: 'fuzzy-avatar/key6.jpg?auto=compress',
     color: '#efb700',
     categorytext:'DEVELOP'},
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -151,7 +139,7 @@ export default
   { key: `15`,
   title: 'DAPP/D-SPONTACTS (Spontaneous Contacts) - Spontacts is a social discovery application that connects various users for joint activities in a vicinity. (coming soon / help wanted)',
   content: 'On the leisure platform Spontacts you can discover numerous leisure activities in your area every day and join friendly people in your neighborhood. Whether you want to go out for a nice meal, drink a beer together after work, jog through the park together on the weekend, or spend a relaxing evening at the movies or a concert. All this and much more you can discover on Spontacts and experience with great leisure partners. Take part in meetings safely and easily or organize your own activities.',
-  href: 'https://app.code4socialgood.org/project/view/3396',
+  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
   target: '_blank',
   avatar: 'fuzzy-avatar/key15.jpg?auto=compress',
   color: '#efb700',
@@ -162,7 +150,7 @@ export default
   { key: `16`,
   title: 'DAPP/D-COUCHSURFING - Meet locals around the world and stay overnight with them! (coming soon / help wanted)',
   content: 'CouchSurfing is a hospitality exchange service by which users can request homestays or interact with other people who are interested in travel. Hosts are not allowed to charge for lodging.',
-  href: 'https://app.code4socialgood.org/project/view/3396',
+  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
   target: '_blank',
   avatar: 'fuzzy-avatar/key16.jpg?auto=compress',
   color: '#efb700',
@@ -183,8 +171,8 @@ export default
 
   { key: `18`,
   title: 'LEARN/Svelte - Forget frameworks, forget even the Svelte specifics',
-  content: 'I actually "abuse" Svelte as a compiler only. I always start like npm install vite@latest, choose Svelte/TS, and use Typescript only (JAMstack) and NOTHING Svelte specific but the bindings 😍 The bundler rewards me with Vanilla JS at the end which can be dropped on edge(static but reactive), and npm run dev hot-reload does load in just milliseconds, even if the project gets bigger. The app itself is small and lightspeed.',
-  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-DAO_CLOUD-ATLAS#quickstart-for-coding-devs-jump-to-quickstart',
+  content: 'I actually "abuse" Svelte as a compiler only. I always start like npm install vite@latest, choose Svelte/TS, and use Javascript, HTML, CSS only (JAMstack) and NOTHING Svelte specific but the bindings 😍 The bundler rewards me with Vanilla JS at the end which can be dropped on edge(static but reactive), and npm run dev hot-reload does load in just milliseconds, even if the project gets bigger. The app itself is small and lightspeed.',
+  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
   target: '_blank',
   avatar: 'fuzzy-avatar/key18.jpg?auto=compress',
   color: '#c9c6d0',
