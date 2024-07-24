@@ -427,7 +427,7 @@ handler.setInputAction(function(result) {
   <div class="modal-content">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
-    <p><a class="enterbutton" target="_blank" href={modalRecord.link}>Enter Zoom Brainstorming</a></p>
+    <p><a class="enterbutton" target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></p>
 	<div class="sharebutton"><ShareButton 
         title={modalRecord.title} 
         text={modalRecord.text} 
