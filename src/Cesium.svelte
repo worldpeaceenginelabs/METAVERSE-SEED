@@ -242,13 +242,13 @@
 	  // Initialize Cesium viewer with specified configuration options
 	  viewer = new Viewer('cesiumContainer', {
 		animation: false,
-		baseLayerPicker: true,
+		baseLayerPicker: false,
 		fullscreenButton: false,
-		vrButton: false,
-		geocoder: true,
+		vrButton: true,
+		geocoder: false,
 		homeButton: true,
 		infoBox: true,
-		sceneModePicker: true,
+		sceneModePicker: false,
 		selectionIndicator: false,
 		timeline: false,
 		navigationHelpButton: false,
@@ -398,7 +398,13 @@ handler.setInputAction(function(result) {
   </script>
   
   <main id="cesiumContainer"></main>
-  <button class="buttononglobe" on:click={openModalButton}>Add Brainstorming</button>
+  
+
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div class="circle" on:click={openModalButton}>
+	<span class="plus">+</span>
+  </div>
   
   {#if showModalButton}
 	<div class="modal">
@@ -436,7 +442,7 @@ handler.setInputAction(function(result) {
 
 
 
-  <style>
+<style>
 	#cesiumContainer {
 	  width: 100%;
 	  height: 100vh;
@@ -449,13 +455,35 @@ handler.setInputAction(function(result) {
 	  margin: 0;
 	  padding: 0;
 	}
-  
-	.buttononglobe {
-	  position: fixed;
-	  top: 10px;
-	  left: 10px;
-	  z-index: 1000;
-	}
+
+	.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: grey; /* Change this to your preferred color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.plus {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    pointer-events: none; /* Ensures that clicking the span doesn't interfere with the button click */
+    position: relative; /* Change to relative positioning */
+    top: -3px; /* Adjust this value to fine-tune vertical centering */
+}
+
+.circle:hover {
+    background-color: #abd6ff; /* Change this to your preferred hover color */
+}
+
   
 	.modal {
 	  position: fixed;
@@ -481,5 +509,5 @@ handler.setInputAction(function(result) {
 	  cursor: pointer;
 	  font-size: 18px;
 	}
-  </style>
+</style>
   
