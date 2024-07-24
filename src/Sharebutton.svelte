@@ -8,7 +8,7 @@
   
     // Use reactive statements to update shareData whenever any prop changes
     $: shareData = {
-    text: `Unite for Impact: If you’re passionate about creating a lasting change in the world, join our brainstorming session and be the catalyst.\n\nTitle: ${title}\n\nText: ${text}\n\nMore Missions on https://CloudAtlas.Club\n\n`,
+    text: `Unite for Impact: If you’re passionate about creating a lasting change in the world, join our brainstorming session and be the catalyst.\n\nTitle: ${title}\n\nText: ${text}\n\nMore Missions on https://CloudAtlas.Club\n\nJoin Brainstorm Session: `,
     url: link  // Use 'url' for the Web Share API
   };
   
