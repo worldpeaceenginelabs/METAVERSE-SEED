@@ -469,20 +469,20 @@ handler.setInputAction(function(result) {
     bottom: 10px;
     left: 10px;
     z-index: 1000;
-}
+	}
 
-.plus {
+	.plus {
     color: white;
     font-size: 24px;
     font-weight: bold;
     pointer-events: none; /* Ensures that clicking the span doesn't interfere with the button click */
     position: relative; /* Change to relative positioning */
     top: -3px; /* Adjust this value to fine-tune vertical centering */
-}
+	}
 
-.circle:hover {
+	.circle:hover {
     background-color: #abd6ff; /* Change this to your preferred hover color */
-}
+	}
 
   
 	.modal {
