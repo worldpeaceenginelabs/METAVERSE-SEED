@@ -453,12 +453,15 @@ handler.setInputAction(function(result) {
 	}
 
 	.addbutton {
+	width: 50px;
+	height: 50px;
     cursor: pointer;
     position: fixed;
     bottom: 1em;
     left: 1em;
     z-index: 1000;
 	color: #edffff;
+	background-color: transparent;
 	font-size: xx-large;
 	font-weight: 900;
 	}
