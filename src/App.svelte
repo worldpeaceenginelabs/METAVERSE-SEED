@@ -54,7 +54,8 @@
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust for exact centering */
       z-index: 10; /* Ensure it's above the Cesium component */
-      width: 75%;
+      width: 99%;
+      max-width: 800px;
   }
 
   .picture-container {
