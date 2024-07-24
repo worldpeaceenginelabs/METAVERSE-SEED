@@ -513,22 +513,22 @@ onMount(async () => {
   <p style="color: red;">The form is not available due to the record limit.</p>
 {:else}
   <form>
-    <label>Title:</label><br>
+    <label><div style="text-align:left">Title</div></label>
     <input type="text" placeholder="The issue in one sentence - max 100 chars (ChatGPT)" maxlength="100" bind:value={record.title} required><br>
 
-    <label>Text:</label><br>
+    <label><div style="text-align:left">Text</div></label>
     <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
 
-    <label>Link:</label><br>
+    <label><div style="text-align:left">Zoom Link</div></label>
     <input type="text" placeholder="https://us05web.zoom.us/j/ID?pwd=12345 or https://zoom.us/j/ID?pwd=12345" maxlength="100" bind:value={record.link} required><br>
 
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
 
     {#if $coordinates.latitude && $coordinates.longitude}
-      <p style="color: green;">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
+      <p style="color: green; font-size:large; font-weight:900">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
     {:else}
-      <p style="color: red;">Click on the map to fetch coordinates</p>
+      <p style="color: red; font-size:large; font-weight:900">Click on the map to fetch coordinates first</p>
     {/if}
 
     <button on:click|preventDefault={send}>Send Record</button>
