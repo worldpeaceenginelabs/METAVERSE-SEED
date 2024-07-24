@@ -1,6 +1,7 @@
 <script lang="ts">
   import Cesium from "./Cesium.svelte";
   import AddMapmarker from "./AddMapmarker.svelte"; // Importiere die AddMapmarker Komponente
+  import Appsearch from "./Dappstore/Appsearch.svelte";
 
   // State to track visibility of the picture
   let showPicture = true;
@@ -10,7 +11,7 @@
   let quote = "“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller";
 </script>
 
-<div class="app-container">
+<div>
   {#if showPicture}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -19,7 +20,10 @@
           <div class="quote">{quote}</div>
       </div>
   {:else}
-      <Cesium />
+  
+    <div class="cesiumcontainer"><Cesium /></div> 
+    <div class="searchcontainer"><Appsearch /></div>
+  
   {/if}
 
   
@@ -37,11 +41,20 @@
       overflow: hidden; /* Prevent scrolling */
   }
 
-  .app-container {
+  .cesiumcontainer {
       display: flex;
       flex-direction: column;
       height: 100vh;
       width: 100vw;
+  }
+
+  .searchcontainer {
+      position: absolute; /* Position it absolutely to overlay */
+      top: 0; /* Align to the top of the cesium container */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Adjust for exact centering */
+      z-index: 10; /* Ensure it's above the Cesium component */
+      width: 75%;
   }
 
   .picture-container {
@@ -52,6 +65,8 @@
       flex: 1; /* Make the container take up the full height */
       text-align: center;
       background-color: #f0f0f0;
+      height: 100vh;
+      width: 100vw;
   }
 
   .picture {
