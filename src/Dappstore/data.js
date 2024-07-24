@@ -92,39 +92,14 @@ export default
 
 
 
-  { key: `8`,
-    title: 'DAPP/D-Tube - A full-featured video sharing website, decentralized',
-    content: 'DTube is a community powered video sharing platform where users vote on videos to reward creators, curators, influencers and viewers in cryptocurrency.',
-    href: 'https://d.tube/',
-    target: '_blank',
-    avatar: 'fuzzy-avatar/key8.jpg?auto=compress',
-    color: '#008450',
-    categorytext:'OPEN'  
-  },
 
 
 
-  { key: `9`,
-    title: 'DAPP/LBRY - LBRY does to publishing, what Bitcoin did to money...',
-    content: 'Meet LBRY, a content sharing and publishing platform that is decentralized and owned by its users.',
-    href: 'https://odysee.com/',
-    target: '_blank',
-    avatar: 'fuzzy-avatar/key9.jpg?auto=compress',
-    color: '#008450',
-    categorytext:'OPEN'  
-  },
 
 
 
-  { key: `10`,
-    title: 'DAPP/Flixxo - Original short-form series from all around the world',
-    content: 'Flixxo is a platform for microseries from around the world. The distribution and monetization model in Flixxo is different from everything that exists.',
-    href: 'https://www.flixxo.com/',
-    target: '_blank',
-    avatar: 'fuzzy-avatar/key10.jpg?auto=compress',
-    color: '#008450',
-    categorytext:'OPEN'  
-  },
+
+
 
 
 
