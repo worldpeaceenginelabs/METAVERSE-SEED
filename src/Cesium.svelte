@@ -502,7 +502,7 @@ handler.setInputAction(function(result) {
 	.modal-content {
 	  background-color: white;
 	  color: black;
-	  padding: 20px;
+	  padding: 10px;
 	  border-radius: 5px;
 	  width: 90%;
 	  max-width: 800px;
@@ -518,6 +518,8 @@ handler.setInputAction(function(result) {
       color: white;
       border: none;
       border-radius: 5px;
+	  padding-bottom: 5px;
+
 	}
 </style>
   

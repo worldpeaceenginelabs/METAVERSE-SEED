@@ -540,14 +540,15 @@ onMount(async () => {
 <style>
   main {
     font-family: Arial, sans-serif;
-    margin: 0 auto;
+    margin: 0;
     padding: 0rem;
     font-size: small;
   }
 
   form {
-    border: 1px solid #ccc;
-    padding: 1rem;
+    border: 0px solid #ccc;
+    padding-bottom: 1rem;
+    margin: 0;
   }
 
   label {
@@ -568,7 +569,7 @@ onMount(async () => {
     text-align: right;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
-    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    
     padding: 10px; /* Optional: Add padding for better appearance */
   }
 
