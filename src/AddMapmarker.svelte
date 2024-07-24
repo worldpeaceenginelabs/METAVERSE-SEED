@@ -480,7 +480,17 @@ onMount(async () => {
 <main>
   <h4>
     Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
-    <span class="highlight"> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
+
+    Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
+    No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
+
+    What's stopping you from creating right now? Make the world work!<br>
+    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
+    UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
+
+    |||||||||||||||||||||||||||||||||||||||||||||||||<br><br>
+
+    <span class="highlight">No central authority!!!<br> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
       🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
       🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
       🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
@@ -497,16 +507,7 @@ onMount(async () => {
       
 
       This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.⚠️
-      <br><br>
-    
-      ||||||||||<br><br>
-    
-    Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
-    No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
-
-    What's stopping you from creating right now? Make the world work!<br>
-    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
-    UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
+      <br><br>    
 </h4>
   
   {#if $isFormDisabled}
