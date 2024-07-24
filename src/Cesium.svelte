@@ -519,7 +519,10 @@ handler.setInputAction(function(result) {
       border: none;
       border-radius: 5px;
 	  padding-bottom: 5px;
-
+	  position: absolute; /* Position it absolutely to overlay */
+      bottom: 10px; /* Align to the top of the cesium container */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Adjust for exact centering */
 	}
 </style>
   
