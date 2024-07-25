@@ -275,13 +275,14 @@ async function putResultPairCreation() {
 
 // START START START START START START START START START START START START START START START 
 
-
+  // Access environment variable directly
+const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
 
   // Trystero logic
   const config = { appId: 'username' };
-  const room = joinRoom(config, 'chat-room');
+  const room = joinRoom(config, trysteroroomname);
 
-  function startRoom(params:type) {
+  function startRoom() {
    
     room.onPeerJoin(peerId => {
       // Send record cache to the new peer, but only the records the peer doesn't have yet
