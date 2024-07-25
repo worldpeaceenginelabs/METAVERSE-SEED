@@ -480,7 +480,7 @@ onMount(async () => {
 
 <main>
   <h4>
-      <span class="highlight">
+      <span>
         🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
         🔥 No central authority!!!<br>
         🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
@@ -547,15 +547,12 @@ onMount(async () => {
   }
 
   h4 {
-    text-align: right;
+    color: white;
+    text-align: center;
+    font-size: medium;
     height: 50px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
-    
     padding: 10px; /* Optional: Add padding for better appearance */
-  }
-
-  .highlight {
-  color: red; /* Change 'red' to the desired color */
   }
 
 </style>

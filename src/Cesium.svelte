@@ -415,7 +415,7 @@ handler.setInputAction(function(result) {
 		  <tr>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<td><span class="close" on:click={closeModalButton}>Close</span></td>
+			<td><div class="close" on:click={closeModalButton}>Close</div></td>
 		  </tr>
 		</table>
 	  </div>
@@ -438,7 +438,7 @@ handler.setInputAction(function(result) {
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <span class="close" on:click={closeModal}>Close</span>
+    <div class="close" on:click={closeModal}>Close</div>
   </div>
 </div>
 {/if}
@@ -486,6 +486,12 @@ handler.setInputAction(function(result) {
       color: white;
       border: none;
       border-radius: 5px;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   
     .enterbutton:hover {
@@ -503,32 +509,41 @@ handler.setInputAction(function(result) {
 	  justify-content: center;
 	  align-items: center;
 	  z-index: 1001;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
   
 	.modal-content {
 	  background-color: white;
-	  color: black;
+	  color: white;
 	  padding: 10px;
 	  border-radius: 5px;
 	  width: 90%;
 	  max-width: 800px;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
-  
+	
+
+
 	.close {
-	  cursor: pointer;
-	  font-size: 18px;
-	  padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 5px;
-	  padding-bottom: 5px;
-	  position: absolute; /* Position it absolutely to overlay */
-      bottom: 10px; /* Align to the top of the cesium container */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Adjust for exact centering */
+	cursor: pointer;
+	font-size: 16px;
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
 	}
+
+	
 </style>
   
