@@ -241,9 +241,7 @@
 
 	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
 	  Ion.defaultAccessToken = ionaccesstoken;
-	  console.log('whole env', import.meta.env);
-	console.log('VITE ION ACCESS TOKEN', import.meta.env.VITE_ION_ACCESS_TOKEN);
-
+	  
 	  // Initialize Cesium viewer with specified configuration options
 	  viewer = new Viewer('cesiumContainer', {
 		animation: false,
