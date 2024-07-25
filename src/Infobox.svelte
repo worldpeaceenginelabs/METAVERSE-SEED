@@ -6,16 +6,19 @@
     <h5>
 	🔥⚠️Digital Government coming 2024⚠️
     </h5>
-    <h4>
-        Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
+    <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
+        
+        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br>Buckminster Fuller<br><br>
+
+        
     
         Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
         No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
     
         What's stopping you from creating right now?<br>
-        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br>Buckminster Fuller<br>
+        
         <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
-        UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
+        UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.<br><br>
         
         <span class="highlight">
             🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</span><br><br>
