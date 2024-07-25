@@ -1,8 +1,8 @@
 <script lang="ts">
 </script>
 
-<div>
-<div class="sub_div">
+
+<div class="main_div">
     <h5>
 	🔥⚠️Digital Government coming 2024⚠️
     </h5>
@@ -36,7 +36,7 @@
         <a href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
     </h5>
 </div>
-</div>
+
 
 
 <style>
@@ -99,9 +99,17 @@
     color: red; /* Change 'red' to the desired color */
     }
 
-    .sub_div {
-        
-        background: black;
+    .main_div {
+
+    position: fixed; /* Position it absolutely to overlay */
+    bottom: 5px; /* Align to the top of the cesium container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    z-index: 10; /* Ensure it's above the Cesium component */
+    background: black;
+    width: 99%;
+    max-width: 800px;
+    height: 230px;
         
         
 

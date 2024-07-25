@@ -24,7 +24,7 @@
   
     <div class="cesiumcontainer"><Cesium /></div> 
     <div class="searchcontainer"><Appsearch /></div>
-    <div class="infoboxcontainer"><Infobox /></div>
+    <div><Infobox /></div>
   
   {/if}
 
@@ -60,16 +60,6 @@
       max-width: 800px;
   }
 
-  .infoboxcontainer {
-    position: absolute; /* Position it absolutely to overlay */
-      bottom: 1.4%; /* Align to the top of the cesium container */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Adjust for exact centering */
-      z-index: 10; /* Ensure it's above the Cesium component */
-      width: 99%;
-      max-width: 800px;      
-  }
-
   .picture-container {
       display: flex;
       flex-direction: column;
@@ -81,6 +71,7 @@
       height: 100vh;
       width: 100vw;
   }
+
 
   .picture {
       max-width: 100%;
