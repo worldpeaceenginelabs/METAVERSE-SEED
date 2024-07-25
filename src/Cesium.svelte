@@ -472,6 +472,10 @@ handler.setInputAction(function(result) {
 	font-weight: 900;
 	}
 
+	.addbutton:hover {
+		color: #abd6ff;
+	}
+
 	.enterbutton {
       padding: 10px 20px;
       font-size: 16px;

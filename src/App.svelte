@@ -2,6 +2,7 @@
   import Cesium from "./Cesium.svelte";
   import AddMapmarker from "./AddMapmarker.svelte"; // Importiere die AddMapmarker Komponente
   import Appsearch from "./Dappstore/Appsearch.svelte";
+  import Infobox from "./Infobox.svelte";
 
   // State to track visibility of the picture
   let showPicture = true;
@@ -23,6 +24,7 @@
   
     <div class="cesiumcontainer"><Cesium /></div> 
     <div class="searchcontainer"><Appsearch /></div>
+    <div class="infoboxcontainer"><Infobox /></div>
   
   {/if}
 
@@ -53,9 +55,19 @@
       top: 0; /* Align to the top of the cesium container */
       left: 50%; /* Center horizontally */
       transform: translateX(-50%); /* Adjust for exact centering */
-      z-index: 10; /* Ensure it's above the Cesium component */
+      z-index: 20; /* Ensure it's above the Cesium component */
       width: 99%;
       max-width: 800px;
+  }
+
+  .infoboxcontainer {
+    position: absolute; /* Position it absolutely to overlay */
+      bottom: 1.4%; /* Align to the top of the cesium container */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Adjust for exact centering */
+      z-index: 10; /* Ensure it's above the Cesium component */
+      width: 99%;
+      max-width: 800px;      
   }
 
   .picture-container {

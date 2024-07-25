@@ -479,35 +479,14 @@ onMount(async () => {
 
 <main>
   <h4>
-    Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
-
-    Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
-    No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
-
-    What's stopping you from creating right now? Make the world work!<br>
-    <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
-    UI and apps thrive solely on your feedback. We've developed Crowd Engineering into an application.<br><br>
-
-    |||||||||||||||||||||||||||||||||||||||||||||||||<br><br>
-
-    <span class="highlight">No central authority!!!<br> 🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
+      <span class="highlight">
+        🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
+        🔥 No central authority!!!<br>
+        🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
       🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
-      🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
-      🔥 Want more apps? Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br>
+      🔥 Other mechanisms are coming...<br>
+      
       🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥</span><br><br>
-
-      ⚠️ Please note our one essential guideline:⚠️<br>In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
-      Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
-      
-
-      If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
-      
-
-      Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
-      
-
-      This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.⚠️
-      <br><br>    
 </h4>
   
   {#if $isFormDisabled}
@@ -568,7 +547,7 @@ onMount(async () => {
 
   h4 {
     text-align: right;
-    height: 100px;  /* Set the height to make the content scrollable */
+    height: 50px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
     
     padding: 10px; /* Optional: Add padding for better appearance */
