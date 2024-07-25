@@ -346,33 +346,24 @@ handler.setInputAction(function(result) {
 
 										// Add a green point entity at the picked position and save the reference
 										pointEntity = viewer.entities.add({
-											position: cartesian,
-											point: {
-												pixelSize: 20,
-												color: Cesium.Color.GREEN,
-												disableDepthTestDistance: Number.POSITIVE_INFINITY,
-											}
-										});
+										id: "pickedPoint", // Unique ID for the entity
+										position: cartesian,
+										point: {
+										pixelSize: 20,
+										color: Cesium.Color.GREEN,
+										disableDepthTestDistance: Number.POSITIVE_INFINITY,
+										}
+									});
 
-										const screenPosition = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian);
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
-	// Green Point entity is the Add Button
-      const button = document.createElement('div');
-      button.className = 'addbutton';
-      button.innerText = '+';
-      button.style.position = 'absolute';
-      button.style.left = `${screenPosition.x}px`;
-      button.style.top = `${screenPosition.y}px`;
-      button.onclick = openModalButton;
-      document.body.appendChild(button);
-
-      if (pointEntity) {
-        document.body.removeChild(pointEntity);
+    // Add a click event listener to the viewer
+    viewer.screenSpaceEventHandler.setInputAction(function(click) {
+      const pickedObject = viewer.scene.pick(click.position);
+      if (Cesium.defined(pickedObject) && pickedObject.id && pickedObject.id.id === "pickedPoint") {
+        openModalButton();
       }
-
-      pointEntity = button;
-
-}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
 
