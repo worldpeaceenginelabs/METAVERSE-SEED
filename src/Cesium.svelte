@@ -238,7 +238,9 @@
 	onMount(async () => {
 	  // Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
-	  Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiOThiNzJiOC1iNDFhLTQ4ZGMtODc0Zi0wYjJmZWIyMjZkNzAiLCJpZCI6NDcwNzcsImlhdCI6MTcwMDY3Mzk1Mn0.5AKEDm3pPCzy9lr4NKYFtK2sLLQKJyEDo2VxQib0A4w';
+
+	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
+	  Ion.defaultAccessToken = ionaccesstoken;
   
 	  // Initialize Cesium viewer with specified configuration options
 	  viewer = new Viewer('cesiumContainer', {
