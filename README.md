@@ -3,12 +3,13 @@
 <br><br>
 
 # METAVERSE-SEED - Where imagination is crafted into code...
-#### DOMAIN https://cloudatlas.club<br>
+#### LIVE DOMAIN https://cloudatlas.club
+#### LIVE EDIT on Stackblitz https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED (MAIN)<br>
+
+#### LIVE PREVIEW https://preview.metaverse-seed.pages.dev/
+#### LIVE EDIT on Stackblitz https://github.com/worldpeaceenginelabs/METAVERSE-SEED/tree/Preview (PREVIEW)<br>
 
 #### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
-
-[Live on Cloudflare](https://metaverse-seed.pages.dev/) <br>
-[Live Edit on Stackblitz](https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED)
 
 Restarted project The Seed on 30.03.2024
 <br><br>
