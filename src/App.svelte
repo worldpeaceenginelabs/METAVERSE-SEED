@@ -5,7 +5,7 @@
   import Infobox from "./Infobox.svelte";
 
   // State to track visibility of the picture
-  let showPicture = false;
+  let showPicture = true;
 
   // You can also fetch a picture and quote here if needed
   let pictureUrl = "./cloudatlas8kzip.jpg";

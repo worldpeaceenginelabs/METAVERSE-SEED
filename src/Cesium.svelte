@@ -324,55 +324,68 @@
 // Pick coordinates
 
 let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-let pointEntity; // Reference to the point entity
+    let pointEntity; // Reference to the point entity
 
-handler.setInputAction(function(result) {
+    handler.setInputAction(function(result) {
+      // Pick position
+      const cartesian = viewer.scene.pickPosition(result.position);
+      if (!cartesian) return;
 
-										// If a point entity already exists, remove it
-										if (pointEntity) {
-											viewer.entities.remove(pointEntity);
-										}
+      // Save Cartesian coordinates (x, y, z)
+      const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
 
-										// pick position
-										const cartesian = viewer.scene.pickPosition(result.position);
-										// save Cartesian coordinates (x,y,z)
-										const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
-										
-										// convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
-										const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-										const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
-										
-										coordinates.set({ latitude: latitudeString, longitude: longitudeString });
+      // Convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
+      const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+      const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
 
-										// Add a green point entity at the picked position and save the reference
-										pointEntity = viewer.entities.add({
-											position: cartesian,
-											point: {
-												pixelSize: 20,
-												color: Cesium.Color.GREEN,
-												disableDepthTestDistance: Number.POSITIVE_INFINITY,
-											}
-										});
+      coordinates.set({ latitude: latitudeString, longitude: longitudeString });
 
-										const screenPosition = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian);
-
-	// Green Point entity is the Add Button
-      const button = document.createElement('div');
-      button.className = 'addbutton';
-      button.innerText = '+';
-      button.style.position = 'absolute';
-      button.style.left = `${screenPosition.x}px`;
-      button.style.top = `${screenPosition.y}px`;
-      button.onclick = openModalButton;
-      document.body.appendChild(button);
-
+      // If a point entity already exists, remove it
       if (pointEntity) {
-        document.body.removeChild(pointEntity);
+        viewer.entities.remove(pointEntity);
       }
 
-      pointEntity = button;
+      // Add a green point entity at the picked position and save the reference
+      pointEntity = viewer.entities.add({
+        id: "pickedPoint", // Unique ID for the entity
+        position: cartesian,
+        point: {
+          pixelSize: 20,
+          color: Cesium.Color.GREEN,
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+        }
+      });
 
-}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+    // Add a click event listener to the viewer
+    viewer.screenSpaceEventHandler.setInputAction(function(click) {
+      const pickedObject = viewer.scene.pick(click.position);
+      if (!Cesium.defined(pickedObject) || !pickedObject.id) return;
+
+      if (pickedObject.id.id === "pickedPoint") {
+        openModalButton();
+      } else {
+        const entityId = pickedObject.id.id;
+        const mapid = entityId.replace(/(_point|_label)$/, '');
+
+        const transaction = db.transaction('locationpins', 'readonly');
+        const objectStore = transaction.objectStore('locationpins');
+        const request = objectStore.get(mapid);
+
+        request.onsuccess = function(event) {
+          const record = request.result;
+          if (record) {
+            showModal = true;
+            modalRecord = record;
+          }
+        };
+
+        request.onerror = function(event) {
+          console.error('Error fetching record:', request.error);
+        };
+      }
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
 
