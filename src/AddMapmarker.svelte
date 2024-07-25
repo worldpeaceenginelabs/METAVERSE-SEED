@@ -275,11 +275,11 @@ async function putResultPairCreation() {
 
 // START START START START START START START START START START START START START START START 
 
-const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
+
 
   // Trystero logic
   const config = { appId: 'username' };
-  const room = joinRoom(config, trysteroroomname);
+  const room = joinRoom(config, '+q@4k&jPz6Zof@OVTT%3$k+8W8Z+wA');
 
   function startRoom(params:type) {
    
