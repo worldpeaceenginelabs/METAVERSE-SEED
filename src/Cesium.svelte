@@ -24,9 +24,6 @@
 	import AddMapmarker from './AddMapmarker.svelte';
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
-	import {
-		VITE_ION_ACCESS_TOKEN
-} from "$env/static/private";
 
 	// Declare global variables and states
 	let showModal = false;
@@ -242,7 +239,7 @@
 	  // Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
 
-	  const ionaccesstoken = VITE_ION_ACCESS_TOKEN;
+	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
 	  Ion.defaultAccessToken = ionaccesstoken;
   
 	  // Initialize Cesium viewer with specified configuration options
