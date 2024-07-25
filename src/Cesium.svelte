@@ -217,8 +217,8 @@
 		  label: {
 			text: insertLineBreaks(record.title, 25),
 			font: '24px sans-serif',
-			fillColor: Color.BLACK,
-			outlineColor: Color.WHITE,
+			fillColor: Color.WHITE,
+			outlineColor: Color.BLACK,
 			outlineWidth: 2,
 			style: LabelStyle.FILL_AND_OUTLINE,
 			verticalOrigin: VerticalOrigin.BOTTOM,
@@ -354,6 +354,24 @@ handler.setInputAction(function(result) {
 											}
 										});
 
+										const screenPosition = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian);
+
+	// Green Point entity is the Add Button
+      const button = document.createElement('div');
+      button.className = 'addbutton';
+      button.innerText = '+';
+      button.style.position = 'absolute';
+      button.style.left = `${screenPosition.x}px`;
+      button.style.top = `${screenPosition.y}px`;
+      button.onclick = openModalButton;
+      document.body.appendChild(button);
+
+      if (pointEntity) {
+        document.body.removeChild(pointEntity);
+      }
+
+      pointEntity = button;
+
 }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
@@ -372,11 +390,6 @@ handler.setInputAction(function(result) {
 	  showModalButton = false;
 	}
 
-	// Function to open modal
-	function openModal() {
-	  showModal = true;
-	}
-  
 	// Function to close modal
 	function closeModal() {
 	  showModal = false;
@@ -403,7 +416,7 @@ handler.setInputAction(function(result) {
   <main id="cesiumContainer"></main>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="addbutton" on:click={openModalButton}>+</div>
+  
 
   {#if showModalButton}
 	<div class="modal">
@@ -415,7 +428,7 @@ handler.setInputAction(function(result) {
 		  <tr>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<td><span class="close" on:click={closeModalButton}>Close</span></td>
+			<td><div class="close" on:click={closeModalButton}>Close</div></td>
 		  </tr>
 		</table>
 	  </div>
@@ -438,7 +451,7 @@ handler.setInputAction(function(result) {
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <span class="close" on:click={closeModal}>Close</span>
+    <div class="close" on:click={closeModal}>Close</div>
   </div>
 </div>
 {/if}
@@ -460,24 +473,6 @@ handler.setInputAction(function(result) {
 	  padding: 0;
 	}
 
-	.addbutton {
-	width: 50px;
-	height: 50px;
-    cursor: pointer;
-    position: fixed;
-    bottom: 0.1em;
-    left: 0.1em;
-    z-index: 1000;
-	color: #edffff;
-	background-color: transparent;
-	font-size: xx-large;
-	font-weight: 900;
-	}
-
-	.addbutton:hover {
-		color: #abd6ff;
-	}
-
 	.enterbutton {
       padding: 10px 20px;
       font-size: 16px;
@@ -486,6 +481,12 @@ handler.setInputAction(function(result) {
       color: white;
       border: none;
       border-radius: 5px;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
   
     .enterbutton:hover {
@@ -502,33 +503,42 @@ handler.setInputAction(function(result) {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
-	  z-index: 1001;
+	  z-index: 1100;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
   
 	.modal-content {
 	  background-color: white;
-	  color: black;
+	  color: white;
 	  padding: 10px;
 	  border-radius: 5px;
 	  width: 90%;
 	  max-width: 800px;
+	  /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
-  
+	
+
+
 	.close {
-	  cursor: pointer;
-	  font-size: 18px;
-	  padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 5px;
-	  padding-bottom: 5px;
-	  position: absolute; /* Position it absolutely to overlay */
-      bottom: 10px; /* Align to the top of the cesium container */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Adjust for exact centering */
+	cursor: pointer;
+	font-size: 16px;
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
 	}
+
+	
 </style>
   

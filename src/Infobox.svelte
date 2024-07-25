@@ -3,21 +3,21 @@
 
 
 <div class="main_div">
-    <h5>
-	🔥⚠️Digital Government coming 2024⚠️
+    <h5 class="animated-gradient">
+        🔥⚠️Digital Government coming 2024⚠️
     </h5>
     <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
         
-        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br>Buckminster Fuller<br><br>
+        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><strong>Buckminster Fuller</strong><br><br>
 
-        
+        <!-- Add emotionally intelligent content here -->
     
         Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
         No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
     
         What's stopping you from creating right now?<br>
         
-        <a target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
+        <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
         UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.<br><br>
         
         <span class="highlight">
@@ -34,10 +34,10 @@
         This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.
     </h4>
     <h5>
-        <a href="https://github.com/worldpeaceenginelabs/METAVERSE-DAO_CLOUD-ATLAS#readme" target="blank">@Github</a>
-        <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">@DEVChat</a>
-        <a href="https://twitter.com/peace_engine" target="blank">@Twitter</a>
-        <a href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
+        <a class="glassmorphism" href="https://github.com/worldpeaceenginelabs/METAVERSE-DAO_CLOUD-ATLAS#readme" target="blank">@Github</a>
+        <a class="glassmorphism" href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">@DEVChat</a>
+        <a class="glassmorphism" href="https://twitter.com/peace_engine" target="blank">@Twitter</a>
+        <a class="glassmorphism" href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
     </h5>
 </div>
 
@@ -109,10 +109,16 @@
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for exact centering */
     z-index: 10; /* Ensure it's above the Cesium component */
-    background: black;
     width: 99%;
     max-width: 800px;
     height: 230px;
+    background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  color: #fff;
         
         
 
@@ -133,5 +139,40 @@
 		-webkit-box-shadow: 2px 2px 3px #666;
 		box-shadow: 2px 2px 3px #666;
 
-        }   
+        }
+
+        .animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.neumorphic {
+  background: #e0e5ec;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px #a3b1c6,
+              -6px -6px 10px #ffffff;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  color: #fff;
+}
     </style>
