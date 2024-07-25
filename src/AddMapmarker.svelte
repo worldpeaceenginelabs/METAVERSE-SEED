@@ -282,16 +282,25 @@ const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
   const config = { appId: 'username' };
   const room = joinRoom(config, trysteroroomname);
 
-  function startRoom() {
-   
+  function getCurrentTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+}
+
+function startRoom() {
     room.onPeerJoin(peerId => {
-      // Send record cache to the new peer, but only the records the peer doesn't have yet
-      sendCache(recordCache);
-      console.log(`Peer ${peerId} joined`);
+        // Send record cache to the new peer, but only the records the peer doesn't have yet
+        sendCache(recordCache);
+        console.log(`[${getCurrentTime()}] Peer ${peerId} joined`);
     });
 
-    room.onPeerLeave(peerId => console.log(`Peer ${peerId} left`));
-  }
+    room.onPeerLeave(peerId => {
+        console.log(`[${getCurrentTime()}] Peer ${peerId} left`);
+    });
+}
   
 
 
