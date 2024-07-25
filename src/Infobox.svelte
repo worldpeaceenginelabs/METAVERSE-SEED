@@ -20,7 +20,7 @@
         <span class="highlight">
             🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</span><br><br>
 
-        <h3>⚠️ Please note our one essential guideline:⚠️</h3><br>In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
+        <span style="font-size: larger;">⚠️ Please note our one essential guideline:⚠️</span><br>In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
         Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
         
         If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
@@ -91,7 +91,6 @@
     text-align: right;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
-    
     padding: 10px; /* Optional: Add padding for better appearance */
     }
 
