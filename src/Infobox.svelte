@@ -1,19 +1,23 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
+  import { writable } from 'svelte/store';
+
+  export let isVisible = writable(true);
+
+  function toggleInfobox() {
+    isVisible.update(visible => !visible);
+  }
 </script>
 
-
-<div class="main_div">
-    <h5 class="animated-gradient">
-        🔥⚠️Digital Government coming 2024⚠️
-    </h5>
+{#if $isVisible}
+  <div class="main_div" transition:slide={{ duration: 300 }}>
+    <h5 class="animated-gradient" on:click={toggleInfobox}>⚠️Digital Government coming 2024⚠️</h5>
     <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
         
         Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><strong>Buckminster Fuller</strong><br><br>
-
-        <!-- Add emotionally intelligent content here -->
     
-        Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br><br>
-        No back-end! Syncs via public tracker networks. Now BitTorrent, fallback to Nostr coming...<br><br>
+        Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
+        IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
     
         What's stopping you from creating right now?<br>
         
@@ -39,140 +43,160 @@
         <a class="glassmorphism" href="https://twitter.com/peace_engine" target="blank">@Twitter</a>
         <a class="glassmorphism" href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
     </h5>
-</div>
-
-
+  </div>
+{:else}
+<h5 class="toggle-bar-hidden" on:click={toggleInfobox}>
+  ⚠️“A decentralized government of the people, run by the people, for the people.”⚠️
+</h5>
+{/if}
 
 <style>
-    a   {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #007bff;
-        padding: 0%;
-        margin: 0%;        
-        text-decoration: none;           
-        }
-    a:hover {
-        color: #abd6ff;
-    }
-
-    h5  {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: white;
-        		
-		/* using a bigger font for demo purposes so the box isn't too small */
-		
-		/* with a big radius/font there needs to be padding left and right
-		* otherwise the text is too close to the radius.
-		* on a smaller radius/font it may not be necessary
-		*/
-		padding: 0px 10px;
-		
-		/* only needed for webkit browsers which show a rectangular outline;
-		* others do not do outline when radius used.
-		* android browser still displays a big outline
-		*/
-		outline: 0;
-
-		/* this is needed for iOS devices otherwise a shadow/line appears at the
-		* top of the input. depending on the ratio of radius to height it will
-		* go all the way across the full width of the input and look really messy.
-		* ensure the radius is no more than half the full height of the input, 
-		* and the following is set, and everything will render well in iOS.
-		*/
-		-webkit-appearance: none;
-
-        }
-    
-    h4 {
+  a {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    height: 100px;  /* Set the height to make the content scrollable */
-    overflow: auto; /* Enable scrolling when content overflows */
-    padding: 10px; /* Optional: Add padding for better appearance */
-    }
+    color: #007bff;
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;           
+  }
 
-    .highlight {
-    color: red; /* Change 'red' to the desired color */
-    }
+  a:hover {
+    color: #abd6ff;
+  }
 
-    .main_div {
+  h5 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: white;
+    padding: 0px 10px;
+    outline: 0;
+    -webkit-appearance: none;
+  }
 
-    position: fixed; /* Position it absolutely to overlay */
-    bottom: 5px; /* Align to the top of the cesium container */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    z-index: 10; /* Ensure it's above the Cesium component */
+  h4 {
+    text-align: center;
+    height: 100px;
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .highlight {
+    color: red;
+  }
+
+  .ovalbox {
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+  }
+
+  .toggle-bar {
+    height: 5px;
+    background: #ccc;
+    cursor: pointer;
+    z-index: 20;
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+  }
+
+  .toggle-bar:hover {
+    background: #abd6ff;
+  }
+
+  .toggle-bar-hidden {
+    height: 15px;
+    background: #ccc;
+    color: black;
+    cursor: pointer;
+    z-index: 20;
+    position: fixed;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  .toggle-bar-hidden:hover {
+    background: #abd6ff;
+  }
+
+
+  .main_div {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     width: 99%;
     max-width: 800px;
     height: 230px;
     background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  color: #fff;
-        
-        
-
-        /* Safari 5, Chrome support border-radius without vendor prefix.
-		* FF 3.0/3.5/3.6, Mobile Safari 4.0.4 require vendor prefix.
-		* No support in Safari 3/4, IE 6/7/8, Opera 10.0.
-		*/
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
-
-        /* Chrome, FF 4.0 support box-shadow without vendor prefix.
-		* Safari 3/4/5 and FF 3.5/3.6 require vendor prefix.
-		* No support in FF 3.0, IE 6/7/8, Opera 10.0, iPhone 3.
-		* change the offsets, blur and color to suit your design.
-		*/
-		-moz-box-shadow: 2px 2px 3px #666;
-		-webkit-box-shadow: 2px 2px 3px #666;
-		box-shadow: 2px 2px 3px #666;
-
-        }
-
-        .animated-gradient {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    color: #fff;
+    overflow: hidden;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
-.neumorphic {
-  background: #e0e5ec;
-  border-radius: 10px;
-  box-shadow: 6px 6px 10px #a3b1c6,
-              -6px -6px 10px #ffffff;
-}
+  .animated-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
 
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  color: #fff;
-}
-    </style>
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .neumorphic {
+    background: #e0e5ec;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px #a3b1c6, -6px -6px 10px #ffffff;
+  }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    color: #fff;
+  }
+</style>

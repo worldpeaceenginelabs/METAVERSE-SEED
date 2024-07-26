@@ -491,11 +491,11 @@ onMount(async () => {
   <h4>
       <span>
         🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
+        🔥 Crowdfunding coming soon to fund your solutions...<br>
         🔥 No central authority!!!<br>
         🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
       🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
-      🔥 Other mechanisms are coming...<br>
-      
+      🔥 Other mechanisms for edit and delete are coming...<br>
       🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥</span><br><br>
 </h4>
   
@@ -559,7 +559,7 @@ onMount(async () => {
     color: white;
     text-align: center;
     font-size: medium;
-    height: 50px;  /* Set the height to make the content scrollable */
+    height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
     padding: 10px; /* Optional: Add padding for better appearance */
   }

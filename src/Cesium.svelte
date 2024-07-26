@@ -503,7 +503,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     }
   
     .enterbutton:hover {
-      background-color: #0056b3;
+      background-color: #abd6ff;
     }
 
 	.modal {
