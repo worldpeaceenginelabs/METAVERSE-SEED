@@ -11,6 +11,7 @@
 
 {#if $isVisible}
   <div class="main_div" transition:slide={{ duration: 300 }}>
+    <div class="float-right" style="font-size:small; padding-right:5px" on:click={toggleInfobox}>X</div>
     <h5 class="animated-gradient" on:click={toggleInfobox}>⚠️ Decentralized Government coming 2024 ⚠️</h5>
     <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.”<br><br>
         
@@ -67,6 +68,10 @@
   a:hover {
     color: #abd6ff;
   }
+
+  .float-right {
+        float: right;
+    }
 
   h5 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
