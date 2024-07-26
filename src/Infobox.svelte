@@ -11,13 +11,16 @@
 
 {#if $isVisible}
   <div class="main_div" transition:slide={{ duration: 300 }}>
-    <h5 class="animated-gradient" on:click={toggleInfobox}>⚠️Digital Government coming 2024⚠️</h5>
-    <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world!<br><br>
+    <h5 class="animated-gradient" on:click={toggleInfobox}>⚠️ Decentralized Government coming 2024 ⚠️</h5>
+    <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.”<br><br>
         
         Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><strong>Buckminster Fuller</strong><br><br>
     
         Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
+        
         IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
+
+        
     
         What's stopping you from creating right now?<br>
         
@@ -45,9 +48,7 @@
     </h5>
   </div>
 {:else}
-<h5 class="toggle-bar-hidden" on:click={toggleInfobox}>
-  ⚠️“A decentralized government of the people, run by the people, for the people.”⚠️
-</h5>
+<h5 class="toggle-bar-hidden" on:click={toggleInfobox}>About</h5>
 {/if}
 
 <style>
