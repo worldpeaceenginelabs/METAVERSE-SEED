@@ -37,7 +37,6 @@
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #007bff;
       color: white;
       border: none;
       border-radius: 5px;

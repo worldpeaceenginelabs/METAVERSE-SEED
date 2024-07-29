@@ -11,11 +11,28 @@
 
 {#if $isVisible}
   <div class="main_div" transition:slide={{ duration: 750 }}>
-    <div class="float-right" style="font-size:small; padding-right:5px" on:click={toggleInfobox}>X</div>
-    <h5 class="animated-gradient" on:click={toggleInfobox}>⚠️ Decentralized Government coming 2024 ⚠️</h5>
-    <h4>Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.”<br><br>
-        
-        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><strong>Buckminster Fuller</strong><br><br>
+
+    <div class="close float-right" on:click={toggleInfobox}>
+      <svg viewBox="0 0 36 36" class="circle">
+        <path
+          stroke-dasharray="100, 100"
+          d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+      </svg>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <h5 class="animated-gradient">⚠️ Decentralized Government coming 2024 ⚠️</h5>
+    <h4 class="diffuseshadow">
+        <div class="center">Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.<br><br>
+        </div>
+
+        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
     
         Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
         
@@ -23,23 +40,34 @@
 
         
     
-        What's stopping you from creating right now?<br>
+        <div class="center">What's stopping you from creating right now?</div><br>
         
+        <div class="center">
         <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
-        UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.<br><br>
-        
-        <span class="highlight">
-            🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</span><br><br>
+        </div>
 
-        ⚠️ Please note our one essential guideline:⚠️<br>
-        In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
-        Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
+        <div class="center">UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</div>
+        <br>
         
-        If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
+  
+          <div class="container">
+            <div class="emoji">⚠️</div>
+            <div class="text" >
+              Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.
+            </div>
+          </div>
+         <br>   
+
+        <div class="center">⚠️ Please note our one essential guideline:⚠️</div>
+        <br>
+        1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
+        2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
         
-        Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
+        3. If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
         
-        This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.
+        4. Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
+        
+        5. This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.
     </h4>
     <h5>
         <a class="glassmorphism" href="https://github.com/worldpeaceenginelabs/METAVERSE-DAO_CLOUD-ATLAS#readme" target="blank">@Github</a>
@@ -86,45 +114,30 @@
   }
 
   h4 {
-    text-align: center;
-    height: 100px;
+    text-align: left;
+    height: 365px;
     overflow: auto;
     padding: 10px;
   }
 
-  .highlight {
-    color: red;
+  .diffuseshadow {
+    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
   }
 
-  .ovalbox {
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 5px;
+  .center {
+    text-align: center;
   }
 
-  .toggle-bar {
-    height: 5px;
-    background: #ccc;
-    cursor: pointer;
-    z-index: 20;
-    position: absolute;
-    bottom: 220px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 97%;
-    max-width: 800px;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-  }
-
-  .toggle-bar:hover {
-    background: #abd6ff;
-  }
+  .container {
+            display: flex;
+            align-items: flex-start;
+        }
+        .emoji {
+            margin-right: 5px; /* Adjust this value to add space between emoji and text */
+        }
+        .text {
+            flex: 1;
+        }
 
   .toggle-bar-hidden {
     height: 15px;
@@ -161,7 +174,7 @@
     z-index: 10;
     width: 99%;
     max-width: 800px;
-    height: 230px;
+    height: 500px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
@@ -205,4 +218,98 @@
     padding: 5px;
     color: #fff;
   }
+
+  .close {
+  --size: 22px;
+  --borderSize: 2px;
+  --borderColor: rgba(255, 255, 255, 1);
+  --speed: 0.5s;
+
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  background: #455A64;
+  border-radius: 50%;
+  box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+  animation: fade-in var(--speed) ease-out 0.25s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.close .circle path {
+  stroke: var(--borderColor);
+  fill: none;
+  stroke-width: calc(var(--borderSize) / 2);
+  stroke-linecap: round;
+  animation: progress var(--speed) ease-out 0.25s both;
+}
+
+@keyframes progress {
+  from {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.close span {
+  display: block;
+  width: calc(var(--size) / 4 - 2px);
+  height: var(--borderSize);
+  background: var(--borderColor);
+  box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  position: absolute;
+  --padding: calc(var(--size) / 3);
+  transition: 0.25s ease-in-out;
+  animation: slide-in var(--speed) ease-in-out 0.25s both;
+}
+
+@keyframes slide-in {
+  from {
+    width: 0;
+  }
+}
+
+.close span:nth-child(2) {
+  top: calc(var(--padding) - var(--borderSize) / 2);
+  left: var(--padding);
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.close span:nth-child(3) {
+  top: calc(var(--padding) - var(--borderSize) / 2);
+  right: var(--padding);
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.close span:nth-child(4) {
+  bottom: calc(var(--padding) - var(--borderSize) / 2);
+  left: var(--padding);
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+}
+
+.close span:nth-child(5) {
+  bottom: calc(var(--padding) - var(--borderSize) / 2);
+  right: var(--padding);
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+}
+
+.close:hover {
+  background: #37474F;
+}
+
+.close:hover span {
+  width: calc(var(--size) / 4);
+}
+
 </style>

@@ -435,14 +435,32 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	<div class="modal">
 	  <div class="modal-content">
 		<table>
+			<tr>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<td>
+
+					<div class="close float-right" on:click={closeModalButton}>
+						<svg viewBox="0 0 36 36" class="circle">
+						  <path
+							stroke-dasharray="100, 100"
+							d="M18 2.0845
+							  a 15.9155 15.9155 0 0 1 0 31.831
+							  a 15.9155 15.9155 0 0 1 0 -31.831"
+						  />
+						</svg>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					  </div>
+
+				</td>
+			  </tr>
 		  <tr>
 			<td><AddMapmarker /></td>
 		  </tr>
-		  <tr>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<td><div class="close" on:click={closeModalButton}>Close</div></td>
-		  </tr>
+		  
 		</table>
 	  </div>
 	</div>
@@ -453,10 +471,30 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   {#if showModal && modalRecord}
 <div class="modal">
   <div class="modal-content">
+
+
+	<div class="close float-right" on:click={closeModal}>
+		<svg viewBox="0 0 36 36" class="circle">
+		  <path
+			stroke-dasharray="100, 100"
+			d="M18 2.0845
+			  a 15.9155 15.9155 0 0 1 0 31.831
+			  a 15.9155 15.9155 0 0 1 0 -31.831"
+		  />
+		</svg>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	  </div>
+
+
+	  <div style="padding: 5px;">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
+	</div>
     <p><a class="enterbutton" target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></p>
-	<div class="sharebutton"><ShareButton 
+	<div><ShareButton 
         title={modalRecord.title} 
         text={modalRecord.text} 
         link={modalRecord.link} 
@@ -464,7 +502,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class="close" on:click={closeModal}>Close</div>
   </div>
 </div>
 {/if}
@@ -490,7 +527,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #007bff;
       color: white;
       border: none;
       border-radius: 5px;
@@ -539,19 +575,107 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
-	
 
+	.float-right {
+        float: right;
+    }
+
+	.diffuseshadow {
+    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
+  }
+	
 
 	.close {
-	cursor: pointer;
-	font-size: 16px;
-	background-color: red;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	}
+  --size: 22px;
+  --borderSize: 2px;
+  --borderColor: rgba(255, 255, 255, 1);
+  --speed: 0.5s;
 
-	
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  background: #455A64;
+  border-radius: 50%;
+  box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+  animation: fade-in var(--speed) ease-out 0.25s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.close .circle path {
+  stroke: var(--borderColor);
+  fill: none;
+  stroke-width: calc(var(--borderSize) / 2);
+  stroke-linecap: round;
+  animation: progress var(--speed) ease-out 0.25s both;
+}
+
+@keyframes progress {
+  from {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.close span {
+  display: block;
+  width: calc(var(--size) / 4 - 2px);
+  height: var(--borderSize);
+  background: var(--borderColor);
+  box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  position: absolute;
+  --padding: calc(var(--size) / 3);
+  transition: 0.25s ease-in-out;
+  animation: slide-in var(--speed) ease-in-out 0.25s both;
+}
+
+@keyframes slide-in {
+  from {
+    width: 0;
+  }
+}
+
+.close span:nth-child(2) {
+  top: calc(var(--padding) - var(--borderSize) / 2);
+  left: var(--padding);
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+
+.close span:nth-child(3) {
+  top: calc(var(--padding) - var(--borderSize) / 2);
+  right: var(--padding);
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.close span:nth-child(4) {
+  bottom: calc(var(--padding) - var(--borderSize) / 2);
+  left: var(--padding);
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+}
+
+.close span:nth-child(5) {
+  bottom: calc(var(--padding) - var(--borderSize) / 2);
+  right: var(--padding);
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+}
+
+.close:hover {
+  background: #37474F;
+}
+
+.close:hover span {
+  width: calc(var(--size) / 4);
+}
 </style>
   

@@ -490,13 +490,48 @@ onMount(async () => {
 <main>
   <h4>
       <span>
-        🔥 The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.<br>
-        🔥 Crowdfunding coming soon to fund your solutions...<br>
-        🔥 No central authority!!!<br>
-        🔥 Posts cannot be edited or deleted, and they will automatically disappear after 14 days.<br>
-      🔥 You can only have up to 5 posts at a time. Choose wisely!<br>
-      🔥 Other mechanisms for edit and delete are coming...<br>
-      🔥 Stream your Zoom meetings to YouTube for permanent storage. 🔥</span><br><br>
+        <div class="container">
+          <div class="emoji">🌎</div>
+          <div class="text">
+            The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.
+          </div>
+      </div>
+      <div class="container">
+        <div class="emoji">🔥</div>
+        <div class="text">
+          Crowdfunding coming soon to fund your solutions...
+        </div>
+    </div>
+    <div class="container">
+      <div class="emoji">🔥</div>
+      <div class="text">
+        No central authority!!!
+      </div>
+  </div>
+  <div class="container">
+    <div class="emoji">⚠️</div>
+    <div class="text">
+      Posts cannot be edited or deleted, and they will automatically disappear after 14 days.
+    </div>
+</div>
+<div class="container">
+  <div class="emoji">⚠️</div>
+  <div class="text">
+    You can only have up to 5 posts at a time. Choose wisely!
+  </div>
+</div>
+<div class="container">
+  <div class="emoji">🔥</div>
+  <div class="text">
+    Other mechanisms for edit and delete are coming...
+  </div>
+</div>
+<div class="container">
+  <div class="emoji">🔥</div>
+  <div class="text">
+    Stream your Zoom meetings to YouTube for permanent storage.
+  </div>
+</div>
 </h4>
   
   {#if $isFormDisabled}
@@ -515,11 +550,7 @@ onMount(async () => {
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
 
-    {#if $coordinates.latitude && $coordinates.longitude}
-      <p style="color: green; font-size:large; font-weight:900">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
-    {:else}
-      <p style="color: red; font-size:large; font-weight:900">Click on the map to fetch coordinates first</p>
-    {/if}
+    <p class="coordgreen animated-gradient">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
@@ -552,16 +583,70 @@ onMount(async () => {
   }
 
   button {
-    padding: 0.5rem 1rem;
-  }
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      /* Apply glassmorphism style for the modal content */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+  button:hover {
+      background-color: #abd6ff;
+    }
 
   h4 {
     color: white;
-    text-align: center;
+    text-align: left;
     font-size: medium;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
     padding: 10px; /* Optional: Add padding for better appearance */
+  }
+
+  .diffuseshadow {
+    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
+  }
+
+  .container {
+            display: flex;
+            align-items: flex-start;
+        }
+        .emoji {
+            margin-right: 5px; /* Adjust this value to add space between emoji and text */
+        }
+        .text {
+            flex: 1;
+        }
+
+
+
+  .coordgreen {
+    color: green; font-size:large; font-weight:900;
+  }
+
+  .animated-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
 </style>
