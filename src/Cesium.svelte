@@ -454,7 +454,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 						<span></span>
 						<span></span>
 					  </div>
-
 				</td>
 			  </tr>
 		  <tr>
@@ -499,6 +498,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
         text={modalRecord.text} 
         link={modalRecord.link} 
       /></div>
+	  <br>
     <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->

@@ -489,7 +489,6 @@ onMount(async () => {
 
 <main>
   <h4>
-      <span>
         <div class="container">
           <div class="emoji">🌎</div>
           <div class="text">

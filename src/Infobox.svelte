@@ -28,7 +28,7 @@
     </div>
 
     <h5 class="animated-gradient">⚠️ Decentralized Government coming 2024 ⚠️</h5>
-    <h4 class="diffuseshadow">
+    <h4>
         <div class="center">Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.<br><br>
         </div>
 
@@ -40,18 +40,18 @@
 
         
     
-        <div class="center">What's stopping you from creating right now?</div><br>
-        
+        <div class="center">What's stopping you from creating right now?</div>
+        <br>
         <div class="center">
-        <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
+          <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
         </div>
-
+        <br>
         <div class="center">UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</div>
         <br>
         
   
           <div class="container">
-            <div class="emoji">⚠️</div>
+            <div class="emoji">🔥</div>
             <div class="text" >
               Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.
             </div>
