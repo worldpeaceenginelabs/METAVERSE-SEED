@@ -1,4 +1,5 @@
 <script>
+    import { fade } from 'svelte/transition';
     import VirtualList from './VirtualList.svelte';
     import ListItem from './ListItem.svelte';
     import items from './data.js';
@@ -26,7 +27,7 @@
 </div>
 
 {#if isFocused}
-    <div class='container'>
+    <div class='container' transition:fade={{ duration: 500 }}>
         <VirtualList items={filteredList} bind:start bind:end let:item>
             <ListItem {...item} />
         </VirtualList>
@@ -62,7 +63,7 @@
     }
 
     .searchfield:focus {
-        border-color: #339933;
+        border-color: #abd6ff;
     }
 
     .container {
