@@ -72,7 +72,6 @@
     <h5>
         <a class="glassmorphism" href="https://worldpeaceenginelabs.org/" target="blank">@WPEL</a>
         <a class="glassmorphism" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED#readme" target="blank">@Github</a>
-        <a class="glassmorphism" href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">@DEVChat</a>
         <a class="glassmorphism" href="https://twitter.com/peace_engine" target="blank">@Twitter</a>
         <a class="glassmorphism" href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
     </h5>
