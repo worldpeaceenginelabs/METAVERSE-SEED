@@ -1,17 +1,14 @@
-### OPEN-SOURCE
-# ”You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller
-<br><br>
+![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
+# You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete. _Buckminster Fuller_
+<br>
 
-# METAVERSE-SEED - Where imagination is crafted into code...
-#### LIVE DOMAIN https://cloudatlas.club
-#### LIVE EDIT on Stackblitz https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED (MAIN)<br>
+**Live Domain:** [cloudatlas.club](https://cloudatlas.club)  
+**Live Edit on Stackblitz:** [Metaverse-Seed (MAIN)](https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED)  
+**Live Preview:** [Preview](https://preview.metaverse-seed.pages.dev/)  
+**Join Our Discussion:** [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
+<br>
 
-#### LIVE PREVIEW https://preview.metaverse-seed.pages.dev/
-#### LIVE EDIT on Stackblitz https://github.com/worldpeaceenginelabs/METAVERSE-SEED/tree/Preview (PREVIEW)<br>
-
-#### JOIN OUR DISCUSSION [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
-
-Restarted project The Seed on 30.03.2024
+Restarted Project The Seed on 30.03.2024
 <br><br>
 
 # Want more apps and functions?
@@ -20,8 +17,7 @@ Reach out to me and our community anytime on GitHub, Gitter.im, or during our up
 ![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
 
-![image](https://github.com/user-attachments/assets/ce9b0001-48e2-4842-89d0-5af10d79bba9)
-### Status: Lean Startup / Incubator & Accelerator<br>Prototyping, MVPs, and Optimizing as an ongoing process.
+### Status: Lean Startup Mode (Startup, Incubator & Accelerator united in one entity)<br>Prototyping, MVPs, and Optimizing as an ongoing process.
 The first application on Cloud Atlas is Brainstorming. On private and public, local and global issues and tasks.<br>An incubator and accelerator for your ideas, solutions and funding.(GoFundMe implementation coming soon)<br><br>
 
 Simple as that. Now, imagine the crowdfunding feature. By simply changing the link validation to the Gofundme.com URL and modifying the UI (button text and choice brainstorming/crowdfunding on form), you can create a new app.<br><br>
