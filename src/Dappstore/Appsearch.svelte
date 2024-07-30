@@ -69,6 +69,6 @@
     .container {
         border-top: 1px solid #333;
         border-bottom: 1px solid #333;
-        height: calc(100vh - 15em);
+        height: 90vh;
     }
 </style>

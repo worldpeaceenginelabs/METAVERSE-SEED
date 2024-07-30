@@ -10,7 +10,7 @@
 </script>
 
 
-
+{#if href}
 <a href="{href}" target="{target}">
 <div class='card' style:background-color={color}>
 	
@@ -33,7 +33,28 @@
 
 </div>
 </a>
+{:else}
+<div class='card' style:background-color={color}>
+	
+	<img class="avatar" src="{avatar}">
 
+	<h2>{title}</h2>
+	<p>{content}</p>
+	
+	<div class="category">
+	
+		{#if categorypic}
+		<img width="20px" height="20px" src="{categorypic}">
+		{/if}
+		
+		{#if categorytext}
+		<p style:font-weight="bold">{categorytext}</p>
+		{/if}
+	
+	</div>	
+
+</div>
+{/if}
 
 
 <style>

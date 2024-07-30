@@ -49,14 +49,12 @@ export default
     
     { key: `3`,
     title: 'By refining and developing the digital twin of the real world, you can drive positive change in the physical world, ultimately leading to personal growth and development.',
-    content: 'Are you a creative individual, a developer, maker, activist, or non-profit/for-profit entrepreneur? Take your ideas to the next level by bringing them to life in Unreal Engine 5 or Unity 3D, and then showcase them to the world through browser, mobile, desktop, VR, or WebVR applications and games out of the box. Even if you have no experience in coding, you can still create complete games and applications with ease.',
+    content: 'Are you a creative individual, a developer, maker, activist, or non-profit/for-profit entrepreneur? Take your ideas to the next level by bringing them to life in Unreal Engine 5 or Unity 3D, and then showcase them to the world through browser, mobile, desktop, VR, or WebVR applications and games out of the box. But every other available tool works too (HTML, JS, CSS, APIs! (JAMstack), WASM (C, C++, Rust for the Web), WebContainers (Node in Browser) Unleash your creativity without caring to much about the back-end scaling (99% "automatically") or locking you in! Even if you have no experience in coding, you can still create complete games and applications with ease. What\'s stopping you from creating right now? Your creations will never be limited to just one environment again. (coming "Seamlessly transition between diverse creations as if navigating a singular, expansive game world.") Hit this card...',
     href: 'https://youtube.com/shorts/G0jctnM3HGA?feature=share',
     target: '_blank',
     avatar: 'fuzzy-avatar/key3.jpg?auto=compress',
     color: '#ffffff',
     categorypic:'./fuzzy-category/globe.jpg'},
-
-
 
     { key: `4`,
     title: 'Want to see more stuff thats on the future roadmap?',
@@ -66,8 +64,6 @@ export default
     avatar: 'fuzzy-avatar/key4.jpg?auto=compress',
     color: '#ffffff',
     categorypic:'./fuzzy-category/globe.jpg'},
-
-
 
     { key: `5`,
     title: 'WORLD PEACE ENGINE LABS',
@@ -92,11 +88,11 @@ export default
 
 
   { key: `11`,
-    title: 'Cloud Atlas is a groundbreaking endeavor that enables individuals to harness the power of multitasking and polymathy - regardless of their innate abilities or current proficiency levels.',
-    content: 'The project centers around the creation of a planetary collective-computer. The Cloud Atlas is a web app that serves as a digital twin of the real-world. A distorted, cartographic dimension that is yet informatically not connected well. Your task is to photograph, update and describe places to fight the distortion and to create detail. By connecting and rendering playful Wikipedia articles to their right counterparts, locations on the globe, and places in time, you can help verify that the contents of the articles match reality. The Virtual Encyclopedia will be able to compare daily authorities\' behavior and decisions with human rights, laws, sustainable development goals, medical records, STEM, HASS, and crafting, etc. This will allow you to see if these authorities are behaving in accordance with impartial truth, making it easy to determine who is right. With Cloud Atlas, you can become part of one shared open-source brain/connectome for both AI and humanity, allowing you to walk through it and experience a whole new level of decentralized and interconnected computing and collaboration. Decentralize and join us today!',
-    href: 'https://youtu.be/FUGqzE6Je5c',
+    title: 'A Connectome you can navigate like a Virtual Library: Unleashing the Potential of Multitasking and Polymathy for All - regardless of their innate abilities or current proficiency levels.',
+    content: 'Welcome to Cloud Atlas, a visionary project that transforms the way we interact with information and each other. At its heart lies a planetary collective-computer, a web application that mirrors our world through a digital lens. This virtual realm, a cartographic echo of reality, is ripe for exploration and enrichment. As a contributor, your mission is to capture, refine, and narrate the essence of places, combating the fog of distortion with clarity and precision. By tethering playful Wikipedia narratives to their physical and temporal anchors, you become a guardian of truth, ensuring the digital and the real harmoniously align. The Virtual Encyclopedia stands as a beacon of accountability, juxtaposing the actions of authorities against the pillars of human rights, legal frameworks, and global objectives. It scrutinizes the alignment of governance with the immutable standards of truth across diverse domains, from STEM to HASS, and beyond. Joining Cloud Atlas means more than contributing to a database; it’s about becoming a neuron in a collective consciousness that spans both AI and humanity. Traverse this open-source connectome, where decentralized computing and collaboration elevate our collective intellect. Embrace the revolution. Decentralize. Connect. Enrich the Cloud Atlas.',
+    href: 'https://youtu.be/r1y6uOEzkYI?si=sGhv3Q51tNmHPcBx',
     target: '_blank',
-    avatar: 'fuzzy-avatar/key11.jpg?auto=compress',
+    avatar: 'fuzzy-avatar/key20.jpg?auto=compress',
     color: '#ffffff',
     categorypic:'./fuzzy-category/globe.jpg'},
 
@@ -178,17 +174,13 @@ export default
   color: '#c9c6d0',
   categorytext:'LEARN'},
 
-
-  
-
-  { key: `20`,
-  title: 'AAA - Access all areas...',
-  content: 'What\'s stopping you from creating right now? Your creations will never be limited to just one environment again. Hit this card...',
-  avatar: 'fuzzy-avatar/key20.jpg?auto=compress',
-  color: '#ffffff',
-  categorypic:'./fuzzy-category/globe.jpg',
-  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
-  target: '_blank'
-}
+  { key: `19`,
+    title: 'Available to Everyone! Sharing the same tools! - Who Do We Serve?',
+    content: '- CITIZENS: Create and participate in community and global initiatives, brainstorm solutions, and support projects that matter to you via Crowdfunding or get funding for your own projects. (coming "Get paid for the subject you love!") - PROFESSIONALS, SCIENTISTS AND HOBBYISTS: Collaborate on research, projects, and funding opportunities with a global network of contributors. - STARTUPS: Utilize our platform to brainstorm, fund, and develop innovative solutions and initiatives. - POLITICIANS AND POLICYMAKERS: Engage with citizens to gather innovative solutions and diverse perspectives on public and private matters. - NONPROFITS and NGOs: Leverage our platform to gather support, co-develop new initiatives with real-time feedback from those affected (also by your solutions). - BUSINESSES: Enhance corporate social responsibility, engage in community projects, and co-create products and services with real-time feedback from users.',
+    href: 'https://www.youtube.com/watch?v=_cfPY1QoMgY',
+    target: '_blank',
+    avatar: 'fuzzy-avatar/key21.jpg?auto=compress',
+    color: '#ffffff',
+    categorypic:'./fuzzy-category/globe.jpg'},
 
   ];
