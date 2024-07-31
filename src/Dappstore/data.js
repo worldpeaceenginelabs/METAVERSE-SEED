@@ -168,7 +168,7 @@ export default
   { key: `18`,
   title: 'LEARN/Svelte - Forget frameworks, forget even the Svelte specifics',
   content: 'I actually "abuse" Svelte as a compiler only. I always start like npm install vite@latest, choose Svelte/TS, and use Javascript, HTML, CSS only (JAMstack) and NOTHING Svelte specific but the bindings 😍 The bundler rewards me with Vanilla JS at the end which can be dropped on edge(static but reactive), and npm run dev hot-reload does load in just milliseconds, even if the project gets bigger. The app itself is small and lightspeed.',
-  href: 'https://github.com/worldpeaceenginelabs/METAVERSE-SEED',
+  href: 'https://svelte.dev/tutorial/basics',
   target: '_blank',
   avatar: 'fuzzy-avatar/key18.jpg?auto=compress',
   color: '#c9c6d0',
