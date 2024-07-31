@@ -1,18 +1,38 @@
+Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app is Cloud Atlas<br><br>
+
 ![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
 # You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete. _Buckminster Fuller_
-<br>
+<br><br>
+
+# Welcome to Cloud Atlas!
 
 **Live Domain:** [cloudatlas.club](https://cloudatlas.club)  
 **Live Edit on Stackblitz:** [Metaverse-Seed (MAIN)](https://stackblitz.com/~/github.com/worldpeaceenginelabs/METAVERSE-SEED)  
-**Live Preview:** [Preview](https://preview.metaverse-seed.pages.dev/)  
-**Join Our Discussion:** [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im)
-<br>
+**Live Preview:** [Preview](https://preview.metaverse-seed.pages.dev/)
+<br><br>
 
-Restarted Project The Seed on 30.03.2024
+# Join our Community:
+[CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br>
+Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
 
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
+
+# Creating Your Own Apps with Cloud Atlas*:
+##### *in the future!!! For now you code your app with your prefered tools or use our components as template, then you decide for a location, then you open an issue on GitHub. (we will optimize this process fast, figuring out together what works best for all of us)
+
+Interested in building your own applications on Cloud Atlas? Enter Metaverse-DAO. This platform features a user-friendly red dot system that empowers you to propose new apps, enhancements, and fixes directly within the app. These suggestions are then brought to life by our skilled developer community.<br><br>
+
+We’re exploring ways to integrate the console with the red dot system, enabling even those without technical expertise to experiment and contribute solutions. Imagine discovering a fix and submitting it through a simple pull request, all within the app itself!<br><br>
+
+#### Funding Innovation:
+
+Want to support the development of a feature or app? With Metaverse-DAO, you can finance it yourself or rally community support through donations and crowdfunding. This opens up a vast marketplace for development work and incentivizes contributions, democratizing app creation like never before.<br><br>
+
+#### Free Access to All Updates:
+
+The best part is that all enhancements and new applications are free for every user. We’re committed to the vast potential of Metaverse-DAO and are thrilled to witness its growth as the future of app development.<br><br>
 
 ![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
@@ -183,15 +203,6 @@ You can also experience Wikipedia articles in 3D and engage with them on a whole
 But Cloud Atlas is more than just a platform for exploration and learning. It also provides a social network where people from different backgrounds can come together to brainstorm solutions to local and global issues. With the power of in-person meetups, crowdfunding, and petitions, you can turn your ideas into reality and make a difference in the world. And that's not all.<br><br>
 
 Cloud Atlas also features MissionTV, a decentralized platform similar to YouTube or Twitch, but with a focus on showcasing good deeds. With built-in live-chat and donation options, MissionTV provides an easy way to share your achievements and inspire others to do good.<br><br>
-
-But what if you want to create your own apps and features for Cloud Atlas? That's where Metaverse-DAO comes in. The simple and intuitive red dot system allows users to request apps, features, bug-fixes, and improvements, from inside the app, which are then tackled by the talented community of developers, You.<br>
-And if you want to fund your requested feature or app yourself or request community donations and crowdfunding, you can do that too. This creates a huge marketplace for development jobs and incentivized contributions, making app development more accessible and democratic than ever before. And the best part? All updates and new apps are available to all users for free!<br>
-We believe that the potential for Metaverse-DAO is enormous, and we're excited to see it evolve into the future of app development.<br><br>
-
-Join us on Cloud Atlas and be a part of this exciting new community today. Together, we can create a better world for ourselves and future generations.<br><br>
-
-# Join our discussion:
-[CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br><br>
 
 # Some inspiration...
 
