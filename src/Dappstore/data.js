@@ -52,7 +52,7 @@ export default
     content: 'Whether you’re a creator, developer, activist, or for-profit or non-profit entrepreneur from any sector!<br><br>Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using Unreal Engine 5, Unity 3D, and/or HTML, CSS, JS, APIs (JAMstack), WASM (WebAssembly for C, C++, Rust), or WebContainers (Node.js in the browser).<br><br>Launch your creations to a global audience across various platforms—be it browsers, mobile devices, desktops, VR, or WebVR, right out of the gate. Enjoy the liberty of creation, supported by a backend that scales automatically by 99%, free from any restrictive ties.<br><br>Lacking coding skills? No worries! Craft complete games and apps with ease using Blueprints in UE, or you can use ChatGPT for applications based on the already existing components in the code on GitHub.<br><br>What’s stopping you from unleashing your creativity today? Liberate yourself from the constraints of your surroundings and navigate through diverse projects as if they were realms within an expansive, unified digital universe.<br><br>Take the plunge and start creating now!',
     href: 'https://youtube.com/shorts/G0jctnM3HGA?feature=share',
     target: '_blank',
-    avatar: 'fuzzy-avatar/key3.jpg?auto=compress',
+    avatar: 'fuzzy-avatar/developer.jpg?auto=compress',
     color: '#ffffff',
     categorypic:'./fuzzy-category/globe.jpg'},
 
