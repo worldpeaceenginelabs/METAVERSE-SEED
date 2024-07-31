@@ -98,7 +98,7 @@ Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers 
 
 What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!<br><br>
 
-# Basics
+# BASICS
 
 - Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, your non-profit business, your business, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
 - Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.<br><br>
@@ -132,6 +132,12 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
 It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!<br><br>
+
+# RESOURCES
+https://cesium.com/platform/cesium-for-o3de/<br>
+https://cesium.com/platform/cesium-for-unreal/<br>
+https://cesium.com/platform/cesium-for-omniverse/<br>
+https://cesium.com/platform/cesium-for-unity/<br><br>
 
 # HOW TO...
 
