@@ -134,6 +134,26 @@ Simply get started with whatever you can think of. Everything is well pre-config
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
 HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!<br><br>
 
+# My Journey with Cloud Atlas
+I have always been fascinated by the peaceful and knowledge-seeking society depicted in Star Trek. The movie
+“First Contact” explains the shift from our current society to a post-scarcity society, triggered by the Vulcans’ first
+contact with humanity. However, the movie never explained what the Vulcans gave humanity to facilitate this
+transformation. Given our tendency to use new technologies as weapons, I wondered what could possibly have led
+to such a profound change.<br><br>
+
+The answer, I believe, lies in a collective computer—a resource-based economy management system with a
+collective knowledge database and collaboration tools. This is what I have been working on for the past seven years:
+creating The Cloud Atlas, a platform inspired by the idea of The Computer from Star Trek.<br><br>
+
+The Cloud Atlas is designed to enable spontaneous cooperation and innovative problem-solving, making the world
+work for 100% of humanity without ecological offense or disadvantaging anyone. It allows participants to brainstorm
+solutions, petition for necessary changes, and crowdfund their initiatives. Whether it’s a local private matter project
+or a global public initiative, The Cloud Atlas provides the resources and support needed to turn ideas into reality.<br><br>
+
+My journey has been filled with challenges and learning experiences, but each step has brought me closer to
+realizing a world where collaboration and innovation drive positive change. I believe that by working together, we can
+create a more connected, proactive, and sustainable future.<br><br>
+
 # Pitch
 
 Buckminster Fuller once said, "You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."<br><br>
@@ -153,8 +173,6 @@ Additionally, Cloud Atlas offers digital governance through Crowd Engineering Mi
 Cloud Atlas aims to become the world's united operating system. Whether private or public, local or global, idea generation or conflict resolution, non-profit initiative or profitable enterprise – with Cloud Atlas, anything is possible.<br><br>
 
 Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone."<br><br>
-
-##### A working prototype already exists: Imagine a Google Earth without the server farm, where data is transferred in the background via peer-to-peer WebRTC, while signaling is done via the worldwide BitTorrent network.<br><br>
 
 # The future
 
