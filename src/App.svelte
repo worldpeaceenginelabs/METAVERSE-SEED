@@ -46,7 +46,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 20;
+    z-index: 30;
     width: 99%;
     max-width: 800px;
   }
