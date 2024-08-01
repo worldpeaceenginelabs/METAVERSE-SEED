@@ -19,12 +19,14 @@ Become a part of Cloud Atlas today and join an exciting community that’s shapi
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
-# Creating Your Own Apps with Cloud Atlas*:
-##### *in the future!!! For now you code your app with your prefered tools or use our components as template, then you decide for a location, then you open an issue on GitHub. (we will optimize this process fast, figuring out together what works best for all of us)
+## Creating Your Own Apps with Cloud Atlas now:  
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5, Unity 3D,</strong> and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (WebAssembly for C, C++, Rust), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
 
-Interested in building your own applications on Cloud Atlas? Enter Metaverse-DAO. This platform features a user-friendly red dot system that empowers you to propose new apps, enhancements, and fixes directly within the app. These suggestions are then brought to life by our skilled developer community.<br><br>
+## Creating Your Own Apps with Cloud Atlas in the future:
 
-We’re exploring ways to integrate the console with the red dot system, enabling even those without technical expertise to experiment and contribute solutions. Imagine discovering a fix and submitting it through a simple pull request, all within the app itself!<br><br>
+Interested in building your own applications on Cloud Atlas? Enter Metaverse-DAO. This platform features a user-friendly red dot system that empowers you to propose and even create new apps, enhancements, and fixes directly within the app.<br><br>
+
+I'm exploring ways to integrate coding, a WYSIWYG editor and the console with the red dot system, enabling even those without technical expertise to experiment and eventually contribute solutions. Imagine discovering a fix or creating an app and submitting it through a simple pull request, all within the app itself!<br><br>
 
 #### Funding Innovation:
 
