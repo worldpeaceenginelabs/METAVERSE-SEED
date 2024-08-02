@@ -48,6 +48,7 @@ This network is free of cost. Funding not needed. If needed: Crowdfunding it is!
 
 The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
+![image](https://github.com/user-attachments/assets/d44c4929-b106-4b42-881d-0bdbad96d7a6)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 ### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br>
 
