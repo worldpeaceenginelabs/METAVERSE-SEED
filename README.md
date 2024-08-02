@@ -16,6 +16,11 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
 
+# Want to Support Cloud Atlas? Become a Relay Node!
+Contribute to our network by pinning the Cloud Atlas tab in your desktop browser and help us grow.
+
+Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.
+
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
