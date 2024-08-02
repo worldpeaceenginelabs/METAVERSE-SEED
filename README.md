@@ -25,7 +25,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
 ## Creating Your Own Apps with Cloud Atlas now:  
-Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5, Unity 3D,</strong> and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (WebAssembly for C, C++, Rust), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5, Unity 3D,</strong> and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
 
 ## Creating Your Own Apps with Cloud Atlas in the future:
 
@@ -54,7 +54,7 @@ This network is free of cost. Funding not needed. If needed: Crowdfunding it is!
 The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
 ![image](https://github.com/user-attachments/assets/d44c4929-b106-4b42-881d-0bdbad96d7a6)
-![Cloud Atlas Stack](https://github.com/user-attachments/assets/5b5d1c75-b39e-4509-b0ea-c55bebffe057)
+![Cloud Atlas Stack](https://github.com/user-attachments/assets/a4d33219-c335-4368-9867-e1742a9aa8db)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 ### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br>
 
@@ -167,7 +167,7 @@ Simply get started with whatever you can think of. Everything is well pre-config
 - AddMapmarker.svelte: Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
 
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
-HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!<br><br>
+HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!<br><br>
 
 # My Journey with Cloud Atlas
 I have always been fascinated by the peaceful and knowledge-seeking society depicted in Star Trek. The movie
