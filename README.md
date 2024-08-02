@@ -25,7 +25,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
 ## Creating Your Own Apps with Cloud Atlas now:  
-Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5, Unity 3D,</strong> and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
 
 ## Creating Your Own Apps with Cloud Atlas in the future:
 
@@ -140,7 +140,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 
 This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
 
-It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, Rust for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!<br><br>
+It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!<br><br>
 
 # RESOURCES
 https://cesium.com/platform/cesium-for-o3de/<br>
@@ -167,7 +167,7 @@ Simply get started with whatever you can think of. Everything is well pre-config
 - AddMapmarker.svelte: Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
 
 - from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
-HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (C++ and visual blueprints), Unity6 (C#), you name it!<br><br>
+HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
 
 # My Journey with Cloud Atlas
 I have always been fascinated by the peaceful and knowledge-seeking society depicted in Star Trek. The movie
