@@ -278,9 +278,29 @@ async function putResultPairCreation() {
   // Access environment variable directly
 const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
 
+
+
+// *******************************
+// *                             *
+// *  SWITCH ROOMNAME TO         *
+// *  'TEST' FOR LIVE EDIT MODE  *
+// *    THEN HIT STRG+S (Save)   *
+// *                             *
+// *******************************
+
   // Trystero logic
   const config = { appId: 'username' };
   const room = joinRoom(config, trysteroroomname);
+// LIVE EDIT = joinRoom(config, 'test');
+// FULLY FUNCTIONAL BUT THE GLOBE IS INVISIBLE. IN THE WORKS.
+
+// *******************************
+// *                             *
+// *  SWITCH ROOMNAME TO         *
+// *  'TEST' FOR LIVE EDIT MODE  *
+// *    THEN HIT STRG+S (Save)   *
+// *                             *
+// *******************************
 
   function getCurrentTime() {
     const now = new Date();

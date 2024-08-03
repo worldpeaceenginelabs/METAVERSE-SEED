@@ -2,6 +2,7 @@
   import Cesium from "./Cesium.svelte";
   import AddMapmarker from "./AddMapmarker.svelte";
   import Appsearch from "./Dappstore/Appsearch.svelte";
+  import LiveEdit from "./LiveEdit.svelte";
   import Infobox from "./Infobox.svelte";
   import { writable } from 'svelte/store';
 
@@ -22,7 +23,8 @@
   {:else}
     <div class="cesiumcontainer"><Cesium /></div>
     <div class="searchcontainer"><Appsearch /></div>
-    <Infobox {isVisible} />
+    <div class="liveeditcontainer"><LiveEdit/></div>
+    <div class="infoboxcontainer"><Infobox {isVisible} /></div>
   {/if}
 </div>
 
@@ -49,6 +51,24 @@
     z-index: 30;
     width: 99%;
     max-width: 800px;
+  }
+
+  .liveeditcontainer {
+    position: fixed;
+        top:10px;
+        right:10px;
+  }
+
+  .infoboxcontainer{
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 99%;
+    max-width: 800px;
+    height: 500px;
+    padding: 0px;
   }
   .picture-container {
     display: flex;
