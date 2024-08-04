@@ -45,7 +45,7 @@
   }
   .searchcontainer {
     position: absolute;
-    top: 0;
+    top: 1em;
     left: 50%;
     transform: translateX(-50%);
     z-index: 30;
@@ -55,8 +55,9 @@
 
   .liveeditcontainer {
     position: fixed;
-        top:10px;
-        right:10px;
+        top:1em;
+        right:0.5em;
+        z-index: 40;
   }
 
   .infoboxcontainer{

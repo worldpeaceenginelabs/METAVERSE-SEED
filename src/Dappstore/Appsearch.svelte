@@ -37,7 +37,6 @@
 <style>
     .searchcontainer {
         position: relative;
-        margin-top: 1em;
         text-align: center;
     }
 
