@@ -55,8 +55,8 @@
 
   .liveeditcontainer {
     position: fixed;
-        top:1em;
-        right:0.5em;
+        top:1.2em;
+        right:0.3em;
         z-index: 40;
   }
 
