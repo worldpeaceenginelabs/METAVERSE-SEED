@@ -24,6 +24,7 @@
 	import AddMapmarker from './AddMapmarker.svelte';
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
+	import { fade } from 'svelte/transition';
 
 	// Declare global variables and states
 	let showModal = false;
@@ -432,7 +433,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   
 
   {#if showModalButton}
-	<div class="modal">
+	<div class="modal" transition:fade={{ duration: 500 }}>
 	  <div class="modal-content">
 		<table>
 			<tr>
@@ -468,7 +469,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   
 
   {#if showModal && modalRecord}
-<div class="modal">
+<div class="modal" transition:fade={{ duration: 500 }}>
   <div class="modal-content">
 
 

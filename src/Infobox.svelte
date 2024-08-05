@@ -10,7 +10,7 @@
 </script>
 
 {#if $isVisible}
-  <div class="main_div" transition:slide={{ duration: 750 }}>
+  <div class="main_div" transition:slide={{ duration: 500 }}>
 
     <div class="close float-right" on:click={toggleInfobox}>
       <svg viewBox="0 0 36 36" class="circle">
@@ -174,6 +174,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
     color: #fff;
     overflow: hidden;
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 99%;
+    max-width: 800px;
+    height: 500px;
+    padding: 0px;
   }
 
   .animated-gradient {

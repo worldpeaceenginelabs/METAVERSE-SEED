@@ -24,7 +24,7 @@
     <div class="cesiumcontainer"><Cesium /></div>
     <div class="searchcontainer"><Appsearch /></div>
     <div class="liveeditcontainer"><LiveEdit/></div>
-    <div class="infoboxcontainer"><Infobox {isVisible} /></div>
+    <Infobox {isVisible} />
   {/if}
 </div>
 
@@ -60,17 +60,6 @@
         z-index: 40;
   }
 
-  .infoboxcontainer{
-    position: fixed;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 99%;
-    max-width: 800px;
-    height: 500px;
-    padding: 0px;
-  }
   .picture-container {
     display: flex;
     flex-direction: column;

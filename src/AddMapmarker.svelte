@@ -2,6 +2,7 @@
   import { joinRoom } from 'trystero';
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
+  import { fade } from 'svelte/transition';
   import { coordinates } from './store.js';
 
   // Define for rate limiting
@@ -507,7 +508,7 @@ onMount(async () => {
 
 </script>
 
-<main>
+<main transition:fade={{ duration: 500 }}>
   <h4>
         <div class="container">
           <div class="emoji">🌎</div>
