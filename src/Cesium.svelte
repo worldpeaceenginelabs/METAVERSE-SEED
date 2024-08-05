@@ -256,9 +256,18 @@
 		selectionIndicator: false,
 		timeline: false,
 		navigationHelpButton: false,
-		shouldAnimate: true
+		shouldAnimate: true,
+	//	skyBox: false,
+    // skyAtmosphere: false,
+    // contextOptions: {
+    //    webgl: {
+    //        alpha: true
+    //    },
+    // },
 	  });
-  
+	
+	  // viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
+	  
 	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
 	  try {
 		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);

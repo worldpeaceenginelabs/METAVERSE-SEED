@@ -42,6 +42,7 @@
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    z-index: 10;
   }
   .searchcontainer {
     position: absolute;
