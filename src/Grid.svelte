@@ -71,11 +71,14 @@
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
-    const messageWidth = 380; // Adjust this value based on your message width
+    const messageWidth = 300; // Adjust this value based on your message width
     const messageHeight = 500; // Adjust this value based on your message height
 
-    const x = Math.random() * (vw - messageWidth);
-    const y = Math.random() * (vh - messageHeight);
+   // Ensure the message doesn't overlap with other components by adding a X px padding
+   // dont now how it works but it does its job
+  const x = 50 + Math.random() * (vw - messageWidth - 100); // Subtract 100px for left and right padding
+  const y = 50 + Math.random() * (vh - messageHeight + 100); // Add 100px for top and bottom padding
+  
 
     if (messageElement) {
       messageElement.style.left = `${x}px`;
@@ -91,7 +94,7 @@
       setTimeout(() => {
         messageElement.style.opacity = '0';
         setTimeout(showMessage, 5000); // wait for a short time before showing the next message
-      }, 5000); // show each message for 10 seconds
+      }, 5000); // show each message for x seconds
     }
   }
 
@@ -151,7 +154,7 @@
 
   #hex-grid .message {
     position: absolute;
-    width: 380px; /* Adjust based on message length */
+    width: 300px; /* Adjust based on message length */
     height: 500px; /* Adjust based on message height */
     font-size: 1.5em;
     color: #fff;
@@ -169,6 +172,7 @@
     color: grey;
     padding: 0%;
     margin: 0%;
-    text-decoration: none;   
+    text-decoration: none;
+    box-sizing: border-box;
   }
 </style>
