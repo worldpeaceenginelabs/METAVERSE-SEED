@@ -74,10 +74,6 @@
   </div>
 </div>
 
-<div class="grid">
-  <img src="./grid.svg" alt="Grid" style="width: 100%; height: 100%;">
-</div>
-
 <style>
   .container {
     background: #2b2b2b;
