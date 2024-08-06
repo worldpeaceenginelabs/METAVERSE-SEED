@@ -65,13 +65,13 @@
       top: 1em;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 30;
+      z-index: 40;
       width: 99%;
       max-width: 800px;
     }
   
     .infoboxcontainer{
-      z-index: 40;
+      z-index: 30;
       position: absolute;
     }
   
