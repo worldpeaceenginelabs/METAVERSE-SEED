@@ -531,6 +531,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	  width: 100vw;
 	  margin: 0;
 	  padding: 0;
+	  
 	}
 
 	.enterbutton {
@@ -584,6 +585,15 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #007bff;
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;   
 	}
 
 	.float-right {
