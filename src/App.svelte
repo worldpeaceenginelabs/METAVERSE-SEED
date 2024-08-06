@@ -45,8 +45,11 @@
     }
   
     .gridcontainer{
+        top: 0px;
         z-index: 10;
         position: absolute;
+        height: 100%;
+        width: 100%;
     }
     
     .cesiumcontainer {
@@ -69,11 +72,11 @@
   
     .infoboxcontainer{
       z-index: 40;
-      position: relative;
+      position: absolute;
     }
   
     .liveeditcontainer {
-      position: fixed;
+      position: absolute;
           top:1.2em;
           right:0.3em;
           z-index: 50;

@@ -75,7 +75,7 @@
 </div>
 
 <div class="grid">
-  <img src="grid.svg" alt="Grid" style="width: 100%; height: 100%;">
+  <img src="./grid.svg" alt="Grid" style="width: 100%; height: 100%;">
 </div>
 
 <style>
