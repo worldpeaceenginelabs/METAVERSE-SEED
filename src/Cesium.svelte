@@ -17,7 +17,7 @@
 	  Cesium3DTileset,
 	  CustomDataSource,
 	  ScreenSpaceEventHandler,
-	  ScreenSpaceEventType
+	  ScreenSpaceEventType,
 	} from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
@@ -237,7 +237,9 @@
   
 	// Initialization on mount
 	onMount(async () => {
-	  // Set Cesium's base URL and access token
+
+
+	// Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
 
 	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
@@ -246,35 +248,168 @@
 	  // Initialize Cesium viewer with specified configuration options
 	  viewer = new Viewer('cesiumContainer', {
 		animation: false,
-		baseLayerPicker: false,
 		fullscreenButton: false,
 		vrButton: true,
 		geocoder: false,
 		homeButton: false,
 		infoBox: true,
-		sceneModePicker: false,
 		selectionIndicator: false,
 		timeline: false,
 		navigationHelpButton: false,
 		shouldAnimate: true,
 	skyBox: false,
-    skyAtmosphere: false,
     contextOptions: {
     webgl: {
     alpha: true
     },
     },
+	 // This is a global 3D Tiles tileset so disable the
+  // globe to prevent it from interfering with the data
+  // globe: false,
+  // Disabling the globe means we need to manually
+  // re-enable the atmosphere
+  // skyAtmosphere: false, // new Cesium.SkyAtmosphere(),
+  // 2D and Columbus View are not currently supported
+  // for global 3D Tiles tilesets
+  sceneModePicker: false,
+  // Imagery layers are not currently supported for
+  // global 3D Tiles tilesets
+  baseLayerPicker: false,
 	  });
 	
 	  viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
-	  
-	  // Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
-	  try {
-		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
-		viewer.scene.primitives.add(tileset);
-	  } catch (error) {
-		console.log(error);
-	  }
+
+	// Deactivated because of possible Cesium Bug (using 2D tiles instead)
+	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
+	// try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);} catch (error) {console.log(error);}
+
+	  // Atmosphere
+	  const scene = viewer.scene;
+		const globe = scene.globe;
+		const skyAtmosphere = scene.skyAtmosphere;
+
+		scene.highDynamicRange = true;
+		globe.enableLighting = true;
+		globe.atmosphereLightIntensity = 20.0;
+
+		// Function to get the current time in ISO 8601 format
+	function getCurrentTimeIso8601() {
+		const now = new Date();
+		return now.toISOString();
+		}
+
+    // Get the current time in ISO 8601 format and update the viewer's clock
+    const currentTime = getCurrentTimeIso8601();
+    viewer.clock.currentTime = JulianDate.fromIso8601(currentTime);
+
+	const canvas = viewer.canvas;
+	canvas.setAttribute("tabindex", "0"); // needed to put focus on the canvas
+	canvas.onclick = function () {
+	canvas.focus();
+	};
+
+	const defaultGroundAtmosphereLightIntensity =
+	globe.atmosphereLightIntensity;
+	const defaultGroundAtmosphereRayleighCoefficient =
+	globe.atmosphereRayleighCoefficient;
+	const defaultGroundAtmosphereMieCoefficient =
+	globe.atmosphereMieCoefficient;
+	const defaultGroundAtmosphereMieAnisotropy =
+	globe.atmosphereMieAnisotropy;
+	const defaultGroundAtmosphereRayleighScaleHeight =
+	globe.atmosphereRayleighScaleHeight;
+	const defaultGroundAtmosphereMieScaleHeight =
+	globe.atmosphereMieScaleHeight;
+	const defaultGroundAtmosphereHueShift = globe.atmosphereHueShift;
+	const defaultGroundAtmosphereSaturationShift =
+	globe.atmosphereSaturationShift;
+	const defaultGroundAtmosphereBrightnessShift =
+	globe.atmosphereBrightnessShift;
+	const defaultLightFadeOut = globe.lightingFadeOutDistance;
+	const defaultLightFadeIn = globe.lightingFadeInDistance;
+	const defaultNightFadeOut = globe.nightFadeOutDistance;
+	const defaultNightFadeIn = globe.nightFadeInDistance;
+
+	const defaultSkyAtmosphereLightIntensity =
+	skyAtmosphere.atmosphereLightIntensity;
+	const defaultSkyAtmosphereRayleighCoefficient =
+	skyAtmosphere.atmosphereRayleighCoefficient;
+	const defaultSkyAtmosphereMieCoefficient =
+	skyAtmosphere.atmosphereMieCoefficient;
+	const defaultSkyAtmosphereMieAnisotropy =
+	skyAtmosphere.atmosphereMieAnisotropy;
+	const defaultSkyAtmosphereRayleighScaleHeight =
+	skyAtmosphere.atmosphereRayleighScaleHeight;
+	const defaultSkyAtmosphereMieScaleHeight =
+	skyAtmosphere.atmosphereMieScaleHeight;
+	const defaultSkyAtmosphereHueShift = skyAtmosphere.hueShift;
+	const defaultSkyAtmosphereSaturationShift =
+	skyAtmosphere.saturationShift;
+	const defaultSkyAtmosphereBrightnessShift =
+	skyAtmosphere.brightnessShift;
+
+	const viewModel = {
+	// Globe settings
+
+	enableTerrain: false,
+	enableLighting: true,
+	groundTranslucency: false,
+
+	// Ground atmosphere settings
+
+	showGroundAtmosphere: true,
+	groundAtmosphereLightIntensity: defaultGroundAtmosphereLightIntensity,
+	groundAtmosphereRayleighCoefficientR:
+		defaultGroundAtmosphereRayleighCoefficient.x / 1e-6,
+	groundAtmosphereRayleighCoefficientG:
+		defaultGroundAtmosphereRayleighCoefficient.y / 1e-6,
+	groundAtmosphereRayleighCoefficientB:
+		defaultGroundAtmosphereRayleighCoefficient.z / 1e-6,
+	groundAtmosphereMieCoefficient:
+		defaultGroundAtmosphereMieCoefficient.x / 1e-6,
+	groundAtmosphereRayleighScaleHeight: defaultGroundAtmosphereRayleighScaleHeight,
+	groundAtmosphereMieScaleHeight: defaultGroundAtmosphereMieScaleHeight,
+	groundAtmosphereMieAnisotropy: defaultGroundAtmosphereMieAnisotropy,
+	groundHueShift: defaultGroundAtmosphereHueShift,
+	groundSaturationShift: defaultGroundAtmosphereSaturationShift,
+	groundBrightnessShift: defaultGroundAtmosphereBrightnessShift,
+	lightingFadeOutDistance: defaultLightFadeOut,
+	lightingFadeInDistance: defaultLightFadeIn,
+	nightFadeOutDistance: defaultNightFadeOut,
+	nightFadeInDistance: defaultNightFadeIn,
+
+	// Sky atmosphere settings
+
+	showSkyAtmosphere: true,
+	skyAtmosphereLightIntensity: defaultSkyAtmosphereLightIntensity,
+	skyAtmosphereRayleighCoefficientR:
+		defaultSkyAtmosphereRayleighCoefficient.x / 1e-6,
+	skyAtmosphereRayleighCoefficientG:
+		defaultSkyAtmosphereRayleighCoefficient.y / 1e-6,
+	skyAtmosphereRayleighCoefficientB:
+		defaultSkyAtmosphereRayleighCoefficient.z / 1e-6,
+	skyAtmosphereMieCoefficient:
+		defaultSkyAtmosphereMieCoefficient.x / 1e-6,
+	skyAtmosphereRayleighScaleHeight: defaultSkyAtmosphereRayleighScaleHeight,
+	skyAtmosphereMieScaleHeight: defaultSkyAtmosphereMieScaleHeight,
+	skyAtmosphereMieAnisotropy: defaultSkyAtmosphereMieAnisotropy,
+	skyHueShift: defaultSkyAtmosphereHueShift,
+	skySaturationShift: defaultSkyAtmosphereSaturationShift,
+	skyBrightnessShift: defaultSkyAtmosphereBrightnessShift,
+	perFragmentAtmosphere: false,
+	dynamicLighting: true,
+	dynamicLightingFromSun: false,
+
+	// Fog settings
+
+	showFog: true,
+	density: 1.0,
+	minimumBrightness: 0.03,
+
+	// Scene settings
+
+	hdr: true,
+	};
   
 	  // Open IndexedDB and fetch initial records
 	  try {

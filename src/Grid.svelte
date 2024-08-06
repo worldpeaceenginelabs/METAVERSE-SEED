@@ -5,15 +5,16 @@
   let messageElement;
   const messages = [
     "An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!",
+    "IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...",
     "Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.",
     "Pick what suits your flow: Unreal Engine 5, Unity 3D, HTML, CSS, JS, APIs (JAMstack), WASM or WebContainers.",
     "Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.",
-    "They always said it’s impossible and then one came who didn’t know that and just did - Multiple",
-    "A function of civil society is to organize ourselves to collectively stand up to those who add to the suffering of others. - Ira Chaleff",
-    "Get paid for the subject you love! - Cloud Atlas",
+    "They always said it’s impossible and then one came who didn’t know that and just did<br> - Multiple Authors",
+    "A function of civil society is to organize ourselves to collectively stand up to those who add to the suffering of others.<br> - Ira Chaleff",
+    "Get paid for the subject you love!<br> - Cloud Atlas",
     "Create and participate in local and global issues, brainstorm solutions, petition for necessary permissions to bring your ideas to life via Crowdfunding.",
-    "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone. - B.F.",
-];
+    "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone.<br> - B. Fuller",
+  ];
   let fadeDuration = 5; // Duration in seconds
 
   function moveLight() {
@@ -82,15 +83,15 @@
 
       // Choose a random message index
       const randomIndex = Math.floor(Math.random() * messages.length);
-      messageElement.textContent = messages[randomIndex];
+      messageElement.innerHTML = messages[randomIndex]; // Set the innerHTML directly
 
       messageElement.style.transition = `opacity ${fadeDuration}s ease-in-out`;
       messageElement.style.opacity = '1';
 
       setTimeout(() => {
         messageElement.style.opacity = '0';
-        setTimeout(showMessage, 10000); // wait for a short time before showing the next message
-      }, 15000); // show each message for 10 seconds
+        setTimeout(showMessage, 5000); // wait for a short time before showing the next message
+      }, 5000); // show each message for 10 seconds
     }
   }
 

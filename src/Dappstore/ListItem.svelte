@@ -39,7 +39,7 @@
 	<img class="avatar" src="{avatar}">
 
 	<h2>{title}</h2>
-	<p>{content}</p>
+	<p>{@html content}</p>
 	
 	<div class="category">
 	
