@@ -171,7 +171,7 @@
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
-    const messageWidth = 450; // Adjust this value based on your message width
+    const messageWidth = 380; // Adjust this value based on your message width
     const messageHeight = 50; // Adjust this value based on your message height
 
     const x = Math.random() * (vw - messageWidth);
@@ -251,7 +251,7 @@
 
   #hex-grid .message {
     position: absolute;
-    width: 450px; /* Adjust based on message length */
+    width: 380px; /* Adjust based on message length */
     height: 50px; /* Adjust based on message height */
     font-size: 1.5em;
     color: #fff;
