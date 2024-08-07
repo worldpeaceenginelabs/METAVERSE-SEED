@@ -50,23 +50,18 @@
     </h4>
   
     <div class="center"><h4>What's stopping you from creating right now?</h4></div>
-    <br>
+    
   
     <div class="center">
       <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
     </div>
-  
-    <br>
     <div class="center"><h4>UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</h4></div>
-    <br>
+    
   
     
-    <h4>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</h4>
-   
-    <br>   
-  
-    <div class="center"><h4>⚠️ Please note our one essential guideline:⚠️</h4></div>
+    <h4>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</h4>   
     <br>
+    <div class="center"><h4>⚠️ Please note our one essential guideline:⚠️</h4></div>
     <h4>
       1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
       2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
@@ -79,19 +74,19 @@
 
   <div style="position: fixed; bottom: 5px; left: 0; height: 30px; width: 100%; display: flex; justify-content: center; align-items: center;">
     <a href="https://worldpeaceenginelabs.org/" target="_blank">
-        <img class="bottomicons" style="background-color: white;" src="/public/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
+        <img class="bottomicons" style="background-color: white;" src="./public/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
     </a>
     <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">
-        <img class="bottomicons" src="/public/chat-icon.svg" alt="" title="Developer Chat" height="30" width="30">
+        <img class="bottomicons" src="./public/chat-icon.svg" alt="" title="Developer Chat" height="30" width="30">
     </a>
     <a href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED#readme" target="_blank">
-        <img class="bottomicons" src="/public/github-icon.svg" alt="" title="GitHub" height="30" width="30">
+        <img class="bottomicons" src="./public/github-icon.svg" alt="" title="GitHub" height="30" width="30">
     </a>
     <a href="https://twitter.com/peace_engine" target="_blank">
-        <img class="bottomicons" src="/public/x-icon.svg" alt="" title="X" height="30" width="30">
+        <img class="bottomicons" src="./public/x-icon.svg" alt="" title="X" height="30" width="30">
     </a>
     <a href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">
-        <img class="bottomicons" src="/public/youtube-icon.svg" alt="" title="Youtube" height="30" width="30">
+        <img class="bottomicons" src="./public/youtube-icon.svg" alt="" title="Youtube" height="30" width="30">
     </a>
 </div>
 
