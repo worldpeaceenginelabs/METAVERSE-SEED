@@ -29,7 +29,7 @@ Don’t get hung up on the tools; pick what suits your flow. Elevate your concep
 
 ## Stackblitz IDE Integration (Live Edit)
 
-The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly—all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.
+The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - in Browser — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.
 
 ## Future App Creation with Cloud Atlas
 
