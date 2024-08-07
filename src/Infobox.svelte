@@ -48,24 +48,25 @@
   
       The <strong>Stackblitz IDE</strong> is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - <strong>in Browser</strong> — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
 
-    <strong>Main App:</strong> Create and participate in <strong>local and global</strong> issues, <strong>brainstorm</strong> solutions, <strong>petition</strong> for necessary permissions to bring your ideas to life via <strong>Crowdfunding.</strong><br><br>
+    <strong>Main App:</strong> Create and participate in <strong>local and global</strong> issues, <strong>brainstorm</strong> solutions, <strong>petition</strong> for eventually necessary permissions, and bring your ideas to life via <strong>Crowdfunding.</strong><br><br>
 
       The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games, your non-profit business, your business</strong> - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
     </h4>
   
-    <div class="center"><h4>What's stopping you from creating right now?</h4></div>
+    <div class="center"><h4><strong>What's stopping you from creating right now?</strong></h4></div>
     
   
     <div class="center">
       <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
     </div>
-    <div class="center"><h4>UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</h4></div>
+    <div class="center"><h4><strong>We've developed Crowd Engineering into a social network application.</strong><br>
+      UI and apps will thrive solely on your feedback and pull-requests.</h4></div>
     
   
     
-    <h4>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</h4>   
+    <h4><strong>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</strong></h4>   
     <br>
-    <div class="center"><h4>⚠️ Please note our one essential guideline:⚠️</h4></div>
+    <div class="center"><h4><strong>⚠️ Please note our one essential guideline:⚠️</strong></h4></div>
     <h4>
       1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
       2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
