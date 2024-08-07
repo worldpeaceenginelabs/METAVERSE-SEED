@@ -74,19 +74,19 @@
 
   <div style="position: fixed; bottom: 5px; left: 0; height: 30px; width: 100%; display: flex; justify-content: center; align-items: center;">
     <a href="https://worldpeaceenginelabs.org/" target="_blank">
-        <img class="bottomicons" style="background-color: white;" src="./public/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
+        <img class="bottomicons" style="background-color: white;" src="tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
     </a>
     <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">
-        <img class="bottomicons" src="./public/chat-icon.svg" alt="" title="Developer Chat" height="30" width="30">
+        <img class="bottomicons" src="chat-icon.svg" alt="" title="Developer Chat" height="30" width="30">
     </a>
     <a href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED#readme" target="_blank">
-        <img class="bottomicons" src="./public/github-icon.svg" alt="" title="GitHub" height="30" width="30">
+        <img class="bottomicons" src="github-icon.svg" alt="" title="GitHub" height="30" width="30">
     </a>
     <a href="https://twitter.com/peace_engine" target="_blank">
-        <img class="bottomicons" src="./public/x-icon.svg" alt="" title="X" height="30" width="30">
+        <img class="bottomicons" src="x-icon.svg" alt="" title="X" height="30" width="30">
     </a>
     <a href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">
-        <img class="bottomicons" src="./public/youtube-icon.svg" alt="" title="Youtube" height="30" width="30">
+        <img class="bottomicons" src="youtube-icon.svg" alt="" title="Youtube" height="30" width="30">
     </a>
 </div>
 
