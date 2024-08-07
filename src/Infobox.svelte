@@ -10,72 +10,93 @@
 </script>
 
 {#if $isVisible}
-  <div class="main_div" transition:slide={{ duration: 500 }}>
+<div class="main_div" transition:slide={{ duration: 500 }}>
 
-    <div class="close float-right" on:click={toggleInfobox}>
-      <svg viewBox="0 0 36 36" class="circle">
-        <path
-          stroke-dasharray="100, 100"
-          d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831"
-        />
-      </svg>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <h5 class="animated-gradient">⚠️ Decentralized Government coming 2024 ⚠️</h5>
-    <h4>
-        <div class="center">Welcome to Cloud Atlas, your gateway to a new decentralized world of the people, run by the people, for the people.<br><br>
-        </div>
-
-        Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
-    
-        Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
-        
-        IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
-
-        The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - in Browser — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
-
-        <div class="center">What's stopping you from creating right now?</div>
-        <br>
-        <div class="center">
-          <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
-        </div>
-        <br>
-        <div class="center">UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</div>
-        <br>
-        
-  
-          <div class="container">
-            <div class="emoji">🔥</div>
-            <div class="text" >
-              Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.
-            </div>
-          </div>
-         <br>   
-
-        <div class="center">⚠️ Please note our one essential guideline:⚠️</div>
-        <br>
-        1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
-        2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
-        
-        3. If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
-        
-        4. Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
-        
-        5. This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.
-    </h4>
-    <h5>
-        <a class="glassmorphism" href="https://worldpeaceenginelabs.org/" target="blank">@WPEL</a>
-        <a class="glassmorphism" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED#readme" target="blank">@Github</a>
-        <a class="glassmorphism" href="https://twitter.com/peace_engine" target="blank">@Twitter</a>
-        <a class="glassmorphism" href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">@YouTube</a>
-    </h5>
+  <div style="position: fixed; left: 0px; top: 5px; width: 100%; display: flex; justify-content: center; align-items: center;">
+    <div class="animated-gradient" style="width: 100%; height: 30px; position: relative; display: flex; align-items: center;">
+      <h5 style="margin: 0; position: absolute; left: 50%; transform: translateX(-50%); width: 100%;">⚠️ Decentralized Government coming 2024 ⚠️</h5>
+      
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <div class="close" style="margin: 0; position: absolute; right: 10px; cursor: pointer;" on:click={toggleInfobox}>
+    <svg viewBox="0 0 36 36" class="circle">
+      <path
+        stroke-dasharray="100, 100"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+    </svg>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  </div>
+  </div>
+
+  <div class="textbox">
+    <h4>Welcome to Cloud Atlas - Your gateway to a new decentralized world of the people, run by the people, for the people.</h4>
+  
+    <h4 style="text-align: left;">
+      Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
+  
+      Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
+  
+      IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
+  
+      The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - in Browser — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
+    </h4>
+  
+    <div class="center"><h4>What's stopping you from creating right now?</h4></div>
+    <br>
+  
+    <div class="center">
+      <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
+    </div>
+  
+    <br>
+    <div class="center"><h4>UI and apps will thrive solely on your feedback. We've developed Crowd Engineering into a social network application.</h4></div>
+    <br>
+  
+    
+    <h4>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</h4>
+   
+    <br>   
+  
+    <div class="center"><h4>⚠️ Please note our one essential guideline:⚠️</h4></div>
+    <br>
+    <h4>
+      1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
+      2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
+      3. If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
+      4. Together, we’ll create a space that’s collaborative, respectful, and leaderless. Thank you for contributing to our collective journey.<br><br>
+      5. This introduction reinforces the idea that even those who help ensure the meeting runs smoothly are not taking on a leadership role, but rather contributing to the group’s collective operation.
+    </h4>
+  </div>
+
+
+  <div style="position: fixed; bottom: 5px; left: 0; height: 30px; width: 100%; display: flex; justify-content: center; align-items: center;">
+    <a href="https://worldpeaceenginelabs.org/" target="_blank">
+        <img class="bottomicons" style="background-color: white;" src="/public/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
+    </a>
+    <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">
+        <img class="bottomicons" src="/public/chat-icon.svg" alt="" title="Developer Chat" height="30" width="30">
+    </a>
+    <a href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED#readme" target="_blank">
+        <img class="bottomicons" src="/public/github-icon.svg" alt="" title="GitHub" height="30" width="30">
+    </a>
+    <a href="https://twitter.com/peace_engine" target="_blank">
+        <img class="bottomicons" src="/public/x-icon.svg" alt="" title="X" height="30" width="30">
+    </a>
+    <a href="https://www.youtube.com/@worldpeaceenginelabs3955/videos" target="_blank">
+        <img class="bottomicons" src="/public/youtube-icon.svg" alt="" title="Youtube" height="30" width="30">
+    </a>
+</div>
+
+
+</div>
 {:else}
 <h5 class="toggle-bar-hidden" on:click={toggleInfobox}>About</h5>
 {/if}
@@ -88,8 +109,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #007bff;
-    padding: 0%;
-    margin: 0%;
+    padding: 0px;
+    margin: 0px;
     text-decoration: none;           
   }
 
@@ -97,47 +118,33 @@
     color: #abd6ff;
   }
 
-  .float-right {
-        float: right;
-    }
-
   h5 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: white;
-    padding: 0px 10px;
-    outline: 0;
-    -webkit-appearance: none;
   }
 
   h4 {
-    text-align: left;
-    height: 365px;
-    overflow: auto;
-    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
   }
 
-  .diffuseshadow {
-    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
+  .textbox{
+    overflow-y: scroll;
+    top: 50px;
+    position: fixed;
+    bottom: 50px;
+    
   }
 
   .center {
     text-align: center;
   }
-
-  .container {
-            display: flex;
-            align-items: flex-start;
-        }
-        .emoji {
-            margin-right: 5px; /* Adjust this value to add space between emoji and text */
-        }
-        .text {
-            flex: 1;
-        }
 
   .toggle-bar-hidden {
     height: 15px;
@@ -182,8 +189,24 @@
     width: 99%;
     max-width: 800px;
     height: 500px;
-    padding: 0px;
+    padding: 5px;
   }
+
+  .bottomicons{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2.5px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+  }
+
+  .bottomicons:hover{
+    background: #abd6ff;
+  }
+  
 
   .animated-gradient {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -210,14 +233,14 @@
   }
 
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
+ 
 
   .close {
   --size: 22px;
