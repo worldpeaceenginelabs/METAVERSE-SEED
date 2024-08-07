@@ -188,10 +188,10 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    width: 99%;
+    width: 94%;
     max-width: 800px;
     height: 500px;
-    padding: 5px;
+    padding: 10px;
   }
 
   .bottomicons{
