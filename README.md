@@ -19,27 +19,29 @@ Become a part of Cloud Atlas today and join an exciting community that’s shapi
 # Want to Support Cloud Atlas? Become a Relay Node!
 Contribute to our network by pinning the Cloud Atlas tab in your desktop browser and help us grow.
 
-Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.
+Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br>
 
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
 ## Creating Your Own Apps with Cloud Atlas now:  
-Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then select a coordinate for your creation and initiate a GitHub issue (automation is in the works)
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then continue with <strong>*Stackblitz IDE Integration (Live Edit)*</strong>
 
-## Creating Your Own Apps with Cloud Atlas in the future:
+## Stackblitz IDE Integration (Live Edit)
 
-Interested in building your own applications on Cloud Atlas? Enter Metaverse-DAO. This platform features a user-friendly red dot system that empowers you to propose and even create new apps, enhancements, and fixes directly within the app.<br><br>
+The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly—all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.
 
-I'm exploring ways to integrate coding, a WYSIWYG editor and the console with the red dot system, enabling even those without technical expertise to experiment and eventually contribute solutions. Imagine discovering a fix or creating an app and submitting it through a simple pull request, all within the app itself!<br><br>
+## Future App Creation with Cloud Atlas
 
 #### Funding Innovation:
 
-Want to support the development of a feature or app? With Metaverse-DAO, you can finance it yourself or rally community support through donations and crowdfunding. This opens up a vast marketplace for development work and incentivizes contributions, democratizing app creation like never before.<br><br>
+Want to support the development of a feature or app? With Cloud Atlas, you can finance it yourself or rally community support through applying as pop app so (pop)ular, devs want to code it for free) money and code donations, and crowdfunding. This opens up a vast marketplace for development work and incentivizes contributions, democratizing app creation like never before.
 
 #### Free Access to All Updates:
 
-The best part is that all enhancements and new applications are free for every user. We’re committed to the vast potential of Metaverse-DAO and are thrilled to witness its growth as the future of app development.<br><br>
+The best part is that all enhancements and new applications are free for every user. Since the creation was donated/paid for by the crowd and the operation on Cloud Atlas is free due to its decentralized nature.
+
+We’re committed to the vast potential of Cloud Atlas and are thrilled to witness its growth as the future of app development.<br><br>
 
 ![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
@@ -127,6 +129,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 - [x] Sharing function: Posts can be shared to Whatsapp, Gmail, and many more app and services via the Web Share API, on both mobile (templatetext + post text + post link) and desktop (post link only)
 - [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
 - [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
+- [x] Atmosphere: Space and Ground Atmosphere added. 3D map had to be deactivated because Atmosphere and Google Photorealistic 3D were not running together. Fix coming soon!
 - [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
 - [ ] Swearwords Detection: a static list or API
 - [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
