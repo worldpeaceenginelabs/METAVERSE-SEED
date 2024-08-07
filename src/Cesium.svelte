@@ -244,7 +244,9 @@
 
 	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
 	  Ion.defaultAccessToken = ionaccesstoken;
-	  
+	  // FOR LIVE EDIT: Ion.defaultAccessToken = 'yourtoken';
+	  // TO USE THE GLOBE IN LIVE EDIT GET A FREE API KEY AT https://ion.cesium.com/
+
 	  // Initialize Cesium viewer with specified configuration options
 	  viewer = new Viewer('cesiumContainer', {
 		animation: false,

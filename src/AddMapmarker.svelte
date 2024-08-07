@@ -292,8 +292,10 @@ const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
   // Trystero logic
   const config = { appId: 'username' };
   const room = joinRoom(config, trysteroroomname);
-// LIVE EDIT = joinRoom(config, 'test');
-// FULLY FUNCTIONAL BUT THE GLOBE IS INVISIBLE. IN THE WORKS.
+// FOR LIVE EDIT: const room = joinRoom(config, '123456'); 
+// FULLY FUNCTIONAL BUT THE GLOBE IS INVISIBLE.
+// TO USE THE GLOBE IN LIVE EDIT GET A FREE API KEY AT https://ion.cesium.com/ 
+// ENTER API KEY IN Cesium.svelte => (search (F3) "defaultAccessToken", more instruction provided there)
 
 // *******************************
 // *                             *
