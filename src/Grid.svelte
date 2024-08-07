@@ -14,6 +14,8 @@
     "Get paid for the subject you love!<br> - Cloud Atlas",
     "Create and participate in local and global issues, brainstorm solutions, petition for necessary permissions to bring your ideas to life via Crowdfunding.",
     "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone.<br> - B. Fuller",
+    "The Settings Icon TOP-RIGHT enables you to propose, create, and implement new applications, enhancements, and bug fixes directly - in Browser. Contributions can be made effortlessly via a simple pull request.",
+    "You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.<br>- Buckminster Fuller",
   ];
   let fadeDuration = 5; // Duration in seconds
 
@@ -94,7 +96,7 @@
       setTimeout(() => {
         messageElement.style.opacity = '0';
         setTimeout(showMessage, 5000); // wait for a short time before showing the next message
-      }, 5000); // show each message for x seconds
+      }, 10000); // show each message for x seconds
     }
   }
 

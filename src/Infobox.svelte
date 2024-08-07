@@ -38,8 +38,8 @@
         
         IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
 
-        
-    
+        The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly—all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
+
         <div class="center">What's stopping you from creating right now?</div>
         <br>
         <div class="center">
