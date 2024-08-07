@@ -164,7 +164,7 @@
   
 		// Optional: Fly to the user's location
 		viewer.camera.flyTo({
-		  destination: Cartesian3.fromDegrees(longitude, latitude, 10000000.0),
+		  destination: Cartesian3.fromDegrees(longitude, latitude, 15000000.0),
 		});
 	  }
 	};

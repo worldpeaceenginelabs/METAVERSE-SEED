@@ -40,13 +40,17 @@
     <h4>Welcome to Cloud Atlas - Your gateway to a new decentralized world of the people, run by the people, for the people.</h4>
   
     <h4 style="text-align: left;">
-      Our Main Directive: "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
+    <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
+      
+      Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
   
-      Cloud Atlas is an independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
+    <strong>IT'S FREE!</strong> More users mean more app storage and computational power. <strong>No back-end needed!</strong> Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
   
-      IT'S FREE! More users mean more app storage and computational power. No back-end needed! Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
-  
-      The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - in Browser — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
+      The <strong>Stackblitz IDE</strong> is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - <strong>in Browser</strong> — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
+
+    <strong>Main App:</strong> Create and participate in <strong>local and global</strong> issues, <strong>brainstorm</strong> solutions, <strong>petition</strong> for necessary permissions to bring your ideas to life via <strong>Crowdfunding.</strong><br><br>
+
+      The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games, your non-profit business, your business</strong> - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
     </h4>
   
     <div class="center"><h4>What's stopping you from creating right now?</h4></div>
@@ -119,6 +123,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
+    font-weight: normal;
   }
 
   h4 {
@@ -127,6 +132,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
+    font-weight: normal;
   }
 
   .textbox{
