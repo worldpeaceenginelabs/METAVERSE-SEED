@@ -37,7 +37,7 @@
   </div>
 
   <div class="textbox">
-    <h4>Welcome to Cloud Atlas - Your gateway to a new decentralized world of the people, run by the people, for the people.</h4>
+    <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world of the people, <strong>run by the people, for the people.</strong></h4>
   
     <h4 style="text-align: left;">
     <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
