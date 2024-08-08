@@ -24,7 +24,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
 
-## Creating Your Own Apps with Cloud Atlas now:  
+## Creating Your Own Apps with Cloud Atlas:  
 Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then continue with <strong>*Stackblitz IDE Integration (Live Edit)*</strong>
 
 ## Stackblitz IDE Integration (Live Edit)
@@ -35,7 +35,7 @@ The Stackblitz IDE is seamlessly integrated (settings icon top-right), enabling 
 
 #### Funding Innovation:
 
-Want to support the development of a feature or app? With Cloud Atlas, you can finance it yourself or rally community support through applying as pop app so (pop)ular, devs want to code it for free) money and code donations, and crowdfunding. This opens up a vast marketplace for development work and incentivizes contributions, democratizing app creation like never before.
+Want to support the development of a feature or app? With Cloud Atlas, you can finance it yourself or rally community support through applying as pop app (so (pop)ular, devs want to code it for free) money and code donations, and/or crowdfunding. This opens up a vast marketplace for development work and incentivizes contributions, democratizing app creation like never before.
 
 #### Free Access to All Updates:
 
@@ -46,7 +46,7 @@ We’re committed to the vast potential of Cloud Atlas and are thrilled to witne
 ![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
 
-### Status: Lean Startup Mode (Startup, Incubator & Accelerator united in one entity)<br>Prototyping, MVPs, and Optimizing as an ongoing process.
+### Status: (OPEN BETA)<br>Lean Startup Mode (Startup, Incubator & Accelerator united in one entity)<br>Prototyping, MVPs, and Optimizing as an ongoing process.
 The first application on Cloud Atlas is Brainstorming. On private and public, local and global issues and tasks.<br>An incubator and accelerator for your ideas, solutions and funding.(GoFundMe implementation coming soon)<br><br>
 
 Simple as that. Now, imagine the crowdfunding feature. By simply changing the link validation to the Gofundme.com URL and modifying the UI (button text and choice brainstorming/crowdfunding on form), you can create a new app.<br><br>
@@ -63,10 +63,10 @@ The possibilities are endless. The question is: How can we implement various app
 
 # Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
 
-### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public!<br>
-### No backend! Syncs via public tracker networks. Now BitTorrent, with fallback to Nostr coming soon...<br><br>
+### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer<br>
+### No need for back-end servers! Cloud Atlas syncs via public tracker networks using BitTorrent, with Nostr as a fallback coming soon. However, persistent storage and computational power (cloud/servers) can be simply added if needed.<br><br>
 
-### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. Scales automatically with its user devices. You are the server farm.<br><br>
+### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. (coming) It’s free and scales 99% autonomously! More users mean more app storage and computational power. You are the server farm.<br><br>
 
 # Imagine...
 
@@ -75,16 +75,6 @@ The possibilities are endless. The question is: How can we implement various app
 ### Imagine combining crowd engineering and petitioning with crowdfunding. Envision decentralized allocation of homes, schools, jobs, medical services, transport, food, goods, and services. Goodbye governments, corporations, employers, and landlords.
 ### And don't forget ChatGPT, evolving rapidly to become your all-day digital assistant with coming access to your display and the Cloud Atlas API.
 <br>
-
-# Running prototype
-
-Open this app on another tab: They sync!<br>
-Open this on your mobile and desktop: They sync!<br>
-Call all your friends and tell them to open this web-app in their browser: Guess what? They sync!!!<br><br>
-
-With Cloud Atlas, users can create searchable pins and indexes on the map with a simple click or touch, without worrying about back-ends or programming. Cloud Atlas scales automatically with it's user devices!
-
-A pin can represent everything: posts, profiles, links, streams, apps, games, your non-profit business, your business - you name it - Literally! For displays, AR, and VR out of the box!
 
 # Highly Adaptable
 
@@ -111,7 +101,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 
 # BASICS
 
-- Location pins can be everything (Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, App, Game, VR Location, Live Stream, and/or game, your non-profit business, your business, everything else...) and are shared directly peer-to-peer (P2P) between users via WebRTC.
+- A pin can represent everything: Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, posts, profiles, links, streams, apps, games (including your Steam, Epic,... games), your non-profit business, your for-profit business - you name it - Literally! For displays, AR, and VR out of the box! They are shared directly peer-to-peer (P2P) between users via WebRTC.
 - Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.<br><br>
 
 # FEATURES
@@ -130,6 +120,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 - [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
 - [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
 - [x] Atmosphere: Space and Ground Atmosphere added. 3D map had to be deactivated because Atmosphere and Google Photorealistic 3D were not running together. Fix coming soon!
+- [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
 - [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
 - [ ] Swearwords Detection: a static list or API
 - [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
@@ -161,7 +152,10 @@ https://cesium.com/platform/cesium-for-unity/<br><br>
 - npm run dev
 
 ##### No framework boilerplate
-Enjoy only the per page view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. every file has an area for script, markup, css per page/component)
+SvelteJS is not a framework, its more of a WYSIWYG editor and compiler.
+https://learn.svelte.dev/tutorial/welcome-to-svelte
+
+Enjoy the per page/component view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. Every file has an area for script, markup, css per page/component)
 
 Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
 

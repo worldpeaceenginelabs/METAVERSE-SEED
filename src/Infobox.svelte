@@ -36,26 +36,28 @@
   </div>
   </div>
 
-  <div class="textbox">
-    <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world of the people, <strong>run by the people, for the people.</strong></h4>
+  <div class="textbox" style="text-align:center;">
+    <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world, <strong>run by the people, for the people.</strong></h4>
   
-    <h4 style="text-align: left;">
+
+    <h4 style="text-align:justify;">
     <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
-      
-      Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
-  
-    <strong>IT'S FREE!</strong> More users mean more app storage and computational power. <strong>No back-end needed!</strong> Syncs via public tracker networks. Now using BitTorrent, with Nostr as a fallback coming soon...<br><br>
-  
-      The <strong>Stackblitz IDE</strong> is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - <strong>in Browser</strong> — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
-
-    <strong>Main App:</strong> Create and participate in <strong>local and global</strong> issues, <strong>brainstorm</strong> solutions, <strong>petition</strong> for eventually necessary permissions, and bring your ideas to life via <strong>Crowdfunding.</strong><br><br>
-
-      The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games, your non-profit business, your business</strong> - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
-    </h4>
-  
-    <div class="center"><h4><strong>What's stopping you from creating right now?</strong></h4></div>
+    <strong>What is Cloud Atlas?</strong><br>
+    Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
     
-  
+    The <strong>Main Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm</strong> solutions,  with people from all walks of life, secure eventually necessary permissions to enhance public spaces via <strong>petition</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding.</strong><br><br>
+
+    The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games (including your Steam, Epic,... games), your non-profit business, your for-profit business</strong> - you name it - Literally! For displays, AR, and VR out of the box!<br><br>
+    
+    <strong>In-Browser Development:</strong> The <strong>Stackblitz IDE</strong> is seamlessly integrated (settings icon top-right), enabling you to propose, create, and implement new applications, enhancements, and bug fixes directly - <strong>in Browser</strong> — all without the need for installing a coding environment. Contributions can be made effortlessly via a simple pull request.<br><br>
+    
+    <strong>It’s free and scales 99% autonomously!</strong> More users mean more app storage and computational power.
+    <strong>No need for back-end servers!</strong> Cloud Atlas syncs via public tracker networks using BitTorrent, with Nostr as a fallback coming soon. However, persistent storage and computational power (cloud/servers) can be simply added if needed.<br><br>
+    </h4>
+
+
+    <div class="center"><h4><strong>What's stopping you from creating right now? Your creativity is the limit.</strong></h4></div>
+    
     <div class="center">
       <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
     </div>
@@ -67,7 +69,7 @@
     <h4><strong>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</strong></h4>   
     <br>
     <div class="center"><h4><strong>⚠️ Please note our one essential guideline:⚠️</strong></h4></div>
-    <h4>
+    <h4 style="text-align:justify;">
       1. In our unique gathering, let’s embrace our unique backgrounds and perspectives. We strive for a space where everyone feels comfortable, so please leave discussions of politics, religion, nationality, gender, age, and profession at the door.<br><br>
       2. Our meeting thrives on collective participation, no one person orchestrates our time together. If someone becomes too prominent, we trust in our collective wisdom to guide the conversation back to balance. Remember, those who help to moderate or remind others of our guidelines are not assuming leadership; they are simply helping to preserve our shared space. Stepping in to guide or moderate does not make one the leader; there are no leaders here.<br><br>
       3. If a member seeks help, we champion a culture where everyone pitches in to assist.<br><br>
@@ -107,7 +109,6 @@
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #007bff;
     padding: 0px;
     margin: 0px;
@@ -137,10 +138,11 @@
   }
 
   .textbox{
-    overflow-y: scroll;
+    overflow-y: auto;
     top: 50px;
     position: fixed;
     bottom: 50px;
+    padding: 10px;
     
   }
 
@@ -188,10 +190,9 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    width: 94%;
+    width: 98%;
     max-width: 800px;
     height: 500px;
-    padding: 10px;
   }
 
   .bottomicons{
