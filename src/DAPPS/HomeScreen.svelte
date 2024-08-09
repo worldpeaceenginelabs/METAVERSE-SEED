@@ -380,7 +380,7 @@ function startRoom() {
       await storeRecord(record);
       console.log('Self-processed the sent record and stored in IndexedDB');
 
-      record = createEmptyRecord(appidfromindexeddb); // Reset record
+      record = createEmptyRecord(); // Reset record
       $coordinates.latitude = '';
       $coordinates.longitude = '';
     } else {

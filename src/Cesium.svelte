@@ -165,9 +165,9 @@
 		viewer.entities.add(userLocationEntity);
   
 		// Optional: Fly to the user's location
-		viewer.camera.flyTo({
-		  destination: Cartesian3.fromDegrees(longitude, latitude, 15000000.0),
-		});
+		//viewer.camera.flyTo({
+		  //destination: Cartesian3.fromDegrees(longitude, latitude, 15000000.0),
+		//});
 	  }
 	};
   
@@ -240,6 +240,10 @@
 	// Initialization on mount
 	onMount(async () => {
 
+	// set cesium container translucent at init
+	setTimeout(() => {
+      isTranslucent = false;
+    }, 5000); // 5000 milliseconds = 5 seconds
 
 	// Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
@@ -287,13 +291,13 @@
 	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
 
 	// Initially hide the 3D tileset
-    tileset.show = false;
+    tileset.show = true;
 		
     // Set up a camera move end event listener
     viewer.camera.moveEnd.addEventListener(function () {
       const height = viewer.camera.positionCartographic.height; console.log(`Distance to ground ${Math.floor(height / 1000)} km`);
 
-      if (height > 14000000) {
+      if (height > 6000000) {
         // Show the base layer and hide the 3D tileset
         globe.show = true;
         tileset.show = false;
@@ -307,6 +311,21 @@
 	} catch (error) {console.log(error);}
 	
 	
+	// Get the current camera position in Cartographic coordinates (longitude, latitude, height)
+    var cameraPosition = viewer.scene.camera.positionCartographic;
+    // Update the camera's position with the new height
+	viewer.scene.camera.setView({
+        destination: Cesium.Cartesian3.fromRadians(
+            cameraPosition.longitude,
+            cameraPosition.latitude,
+            15000000
+        ),
+        orientation: {
+            heading: viewer.scene.camera.heading,
+            pitch: viewer.scene.camera.pitch,
+            roll: viewer.scene.camera.roll
+        }
+    });
 
 	  // Atmosphere
 	  const scene = viewer.scene;
@@ -578,6 +597,8 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	function closeModal() {
 	  showModal = false;
 	}
+
+	let isTranslucent = true;
 	
 	// Function to format the timestamp on the posts
 	function formatTimestamp(timestamp) {
@@ -595,9 +616,12 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     return `${day}.${month}.${year} ${hours}:${minutes}:${seconds} UTC`;
   }
 
+  
+
+
   </script>
   
-  <main id="cesiumContainer"></main>
+  <main class={isTranslucent ? 'translucent' : 'opaque'} id="cesiumContainer"></main>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
   
@@ -692,8 +716,19 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	  width: 100vw;
 	  margin: 0;
 	  padding: 0;
-	  
+	  transition: opacity 1.5s ease-in-out;
 	}
+
+	.translucent {
+    opacity: 0.0;
+  }
+
+  .opaque {
+    opacity: 1;
+  }
+
+
+
 
 	.enterbutton {
       padding: 10px 20px;
