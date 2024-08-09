@@ -45,7 +45,7 @@
     <strong>What is Cloud Atlas?</strong><br>
     Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
     
-    <strong>Where Your Vision Meets Collective Action</strong><br>
+    <strong>Where Your Vision Meets Collective Action...</strong><br>
     The <strong>Home Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm</strong> solutions,  with people from all walks of life, secure eventually necessary permissions to enhance public spaces via <strong>petition</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding.</strong><br><br>
 
     The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games (including your Steam, Epic,... games), your non-profit business, your for-profit business</strong> - you name it - Literally! For displays, AR, and VR out of the box!<br><br>

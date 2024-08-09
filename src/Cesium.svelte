@@ -21,7 +21,7 @@
 	} from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	import AddMapmarker from './AddMapmarker.svelte';
+	import AddMapmarker from './DAPPS/HomeScreen.svelte';
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
 	import { fade } from 'svelte/transition';
@@ -157,6 +157,7 @@
   
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
 		const pointColor = Color.GREEN;
+		
   
 		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
   
@@ -259,31 +260,53 @@
 		timeline: false,
 		navigationHelpButton: false,
 		shouldAnimate: true,
-	skyBox: false,
-    contextOptions: {
-    webgl: {
-    alpha: true
-    },
-    },
-	 // This is a global 3D Tiles tileset so disable the
-  // globe to prevent it from interfering with the data
-  // globe: false,
-  // Disabling the globe means we need to manually
-  // re-enable the atmosphere
-  // skyAtmosphere: false, // new Cesium.SkyAtmosphere(),
-  // 2D and Columbus View are not currently supported
-  // for global 3D Tiles tilesets
-  sceneModePicker: false,
-  // Imagery layers are not currently supported for
-  // global 3D Tiles tilesets
-  baseLayerPicker: false,
+		skyBox: false,
+		contextOptions: {
+		webgl: {
+		alpha: true
+		},
+		},
+		// This is a global 3D Tiles tileset so disable the
+		// globe to prevent it from interfering with the data
+		// globe: false,
+		// Disabling the globe means we need to manually
+		// re-enable the atmosphere
+		// skyAtmosphere: false, // new Cesium.SkyAtmosphere(),
+		// 2D and Columbus View are not currently supported
+		// for global 3D Tiles tilesets
+		sceneModePicker: false,
+		// Imagery layers are not currently supported for
+		// global 3D Tiles tilesets
+		baseLayerPicker: false,
 	  });
 	
 	  viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
 
 	// Deactivated because of possible Cesium Bug (using 2D tiles instead)
 	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
-	// try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);} catch (error) {console.log(error);}
+	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
+
+	// Initially hide the 3D tileset
+    tileset.show = false;
+
+    // Set up a camera move end event listener
+    viewer.camera.moveEnd.addEventListener(function () {
+      const height = viewer.camera.positionCartographic.height; console.log(height)
+
+      if (height > 14000000) {
+        // Show the base layer and hide the 3D tileset
+        globe.show = true;
+        tileset.show = false;
+      } else {
+        // Hide the base layer and show the 3D tileset
+        globe.show = false;
+        tileset.show = true;
+      }
+    });
+	
+	} catch (error) {console.log(error);}
+	
+	
 
 	  // Atmosphere
 	  const scene = viewer.scene;
