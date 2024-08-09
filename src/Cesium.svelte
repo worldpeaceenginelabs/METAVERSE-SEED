@@ -124,6 +124,7 @@
 		  disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		},
 	  });
+	  
 	};
   
 	// Function to fetch user's geolocation
@@ -160,7 +161,7 @@
 		
   
 		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
-  
+
 		viewer.entities.add(userLocationEntity);
   
 		// Optional: Fly to the user's location
@@ -188,7 +189,7 @@
 			disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		  }
 		});
-		
+
 		function insertLineBreaks(text, maxChars) {
   let lines = [];
   let words = text.split(' ');
@@ -281,17 +282,16 @@
 	  });
 	
 	  viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
-
-	// Deactivated because of possible Cesium Bug (using 2D tiles instead)
+	 
 	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
 	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
 
 	// Initially hide the 3D tileset
     tileset.show = false;
-
+		
     // Set up a camera move end event listener
     viewer.camera.moveEnd.addEventListener(function () {
-      const height = viewer.camera.positionCartographic.height; console.log(height)
+      const height = viewer.camera.positionCartographic.height; console.log(`Distance to ground ${Math.floor(height / 1000)} km`);
 
       if (height > 14000000) {
         // Show the base layer and hide the 3D tileset
@@ -525,6 +525,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
           disableDepthTestDistance: Number.POSITIVE_INFINITY,
         }
       });
+	  
 
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 

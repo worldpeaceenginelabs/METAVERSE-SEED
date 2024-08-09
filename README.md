@@ -89,7 +89,7 @@ Cloud Atlas is a Collective Computer and was realized with only two publicly ava
 
 ### CesiumJS is a powerful open-source JavaScript library for creating 3D globes and maps on the web
 
-It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting display, AR, and VR out of the box.
+It enables high-performance visualization of geospatial data, dynamic data, and 3D models. Integrating seamlessly with Unreal Engine and Unity 3D, it leverages advanced rendering and development tools to create high-fidelity, interactive 3D geospatial experiences for urban planning, simulations, immersive virtual environments, apps, and games, supporting mobile, desktop, AR, and VR out of the box.
 
 ### Cloud Atlas is fully decentralized and uses Trystero as "back-end"! How does it connect?
 
@@ -210,7 +210,7 @@ Our Main Directive: "Make the world work for 100% of humanity, in the shortest p
 
 # The future
 
-With Cloud Atlas, you can explore stunning UE5 content, games, and applications on any device, including browser, mobile, desktop, and VR. But that's not all.<br><br>
+With Cloud Atlas, you can explore stunning UE5 content, games, and applications on any device, including browser, mobile, desktop, AR and VR. But that's not all.<br><br>
 
 You can also experience Wikipedia articles in 3D and engage with them on a whole new level. Each article has an artificial identity, which means they can communicate with each other and identify conflicting information, which they will forward as pull-requests to the Wikipedia community. This helps maintain the accuracy of Wikipedia and promotes collaboration on knowledge among users.<br><br>
 
