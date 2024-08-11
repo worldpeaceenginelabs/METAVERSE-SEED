@@ -241,9 +241,7 @@
 	onMount(async () => {
 
 	// set cesium container translucent at init
-	setTimeout(() => {
-      isTranslucent = false;
-    }, 5000); // 5000 milliseconds = 5 seconds
+	
 
 	// Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
@@ -285,8 +283,8 @@
 		baseLayerPicker: false,
 	  });
 	
-	  viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
-	 
+	viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
+	
 	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
 	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
 
@@ -309,16 +307,18 @@
     });
 	
 	} catch (error) {console.log(error);}
-	
-	
+6
 	// Get the current camera position in Cartographic coordinates (longitude, latitude, height)
     var cameraPosition = viewer.scene.camera.positionCartographic;
+	// Determine the appropriate height based on screen width
+    var screenWidth = window.innerWidth;
+    var height = screenWidth < 500 ? 20000000 : 10000000;
     // Update the camera's position with the new height
 	viewer.scene.camera.setView({
         destination: Cesium.Cartesian3.fromRadians(
             cameraPosition.longitude,
             cameraPosition.latitude,
-            15000000
+            height
         ),
         orientation: {
             heading: viewer.scene.camera.heading,
@@ -454,6 +454,8 @@
 
 	hdr: true,
 	};
+
+	
   
 	  // Open IndexedDB and fetch initial records
 	  try {
@@ -597,8 +599,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	function closeModal() {
 	  showModal = false;
 	}
-
-	let isTranslucent = true;
 	
 	// Function to format the timestamp on the posts
 	function formatTimestamp(timestamp) {
@@ -620,11 +620,9 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
   </script>
-  
-  <main class={isTranslucent ? 'translucent' : 'opaque'} id="cesiumContainer"></main>
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-  
+<div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+  <main id="cesiumContainer"></main>
+</div>  
 
   {#if showModalButton}
 	<div class="modal" transition:fade={{ duration: 500 }}>
@@ -705,28 +703,34 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
 <style>
-	#cesiumContainer {
-	  width: 100%;
-	  height: 100vh;
-	  display: block;
-	}
-  
 	main {
+	  width: 100%;
+	  max-width: 100vh;
 	  height: 100vh;
-	  width: 100vw;
 	  margin: 0;
 	  padding: 0;
-	  transition: opacity 1.5s ease-in-out;
+	opacity: 0; /* Initial state */
+	animation: fade-in-scale-up 3s ease-in-out forwards; /* Apply the fade-in animation */
+	animation-delay: 1s;
+	overflow: visible
 	}
 
-	.translucent {
-    opacity: 0.0;
-  }
+	:global(.cesium-button.cesium-vrButton) {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border-radius: 0;
+	opacity: 0;
+	animation: fade-in 3s ease-in-out forwards; /* Apply the fade-in animation */
+	animation-delay: 3s;
+	}
 
-  .opaque {
-    opacity: 1;
-  }
-
+	:global(.cesium-widget-credits){
+	opacity: 0;
+	animation: fade-in 3s ease-in-out forwards; /* Apply the fade-in animation */
+	animation-delay: 3s;
+	}
 
 
 
@@ -815,14 +819,41 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
   transition: 0.25s ease-in-out;
   cursor: pointer;
-  animation: fade-in var(--speed) ease-out 0.25s both;
+  animation: fade-in-scale-down var(--speed) ease-out 0.25s both;
 }
 
+/* Keyframes for fade-in-scale down effect */
+@keyframes fade-in-scale-down {
+    from {
+        opacity: 0;
+        transform: scale(1.1); /* Optional: add a slight zoom-in effect */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1); /* Reset to normal scale */
+    }
+}
+
+/* Keyframes for fade-in-scale-up effect */
+@keyframes fade-in-scale-up {
+    from {
+        opacity: 0;
+        transform: scale(0.01); /* Optional: add a slight zoom-in effect */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1); /* Reset to normal scale */
+    }
+}
+
+/* Keyframes for fade-in effect */
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
-  }
+    from {
+        opacity: 0;
+        }
+    to {
+        opacity: 1;
+        }
 }
 
 .close .circle path {

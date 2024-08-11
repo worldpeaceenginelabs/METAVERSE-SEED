@@ -119,7 +119,7 @@ What's more on GitHub and the internet to aim for the moon of a post-scarcity, p
 - [x] Sharing function: Posts can be shared to Whatsapp, Gmail, and many more app and services via the Web Share API, on both mobile (templatetext + post text + post link) and desktop (post link only)
 - [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
 - [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
-- [x] Atmosphere: Space and Ground Atmosphere added. 3D map had to be deactivated because Atmosphere and Google Photorealistic 3D were not running together. Fix coming soon!
+- [x] Atmosphere: Space and Ground Atmosphere added together with Google Photorealistic 3D tiles.
 - [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
 - [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
 - [ ] Swearwords Detection: a static list or API
