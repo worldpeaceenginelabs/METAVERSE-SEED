@@ -21,7 +21,7 @@
 	} from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	import AddMapmarker from './DAPPS/HomeScreen.svelte';
+	import AddMapmarker from './DAPPS/HomeScreen/HomeScreen.svelte';
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
 	import { fade } from 'svelte/transition';
