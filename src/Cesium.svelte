@@ -239,10 +239,7 @@
   
 	// Initialization on mount
 	onMount(async () => {
-
-	// set cesium container translucent at init
 	
-
 	// Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
 
@@ -310,15 +307,13 @@
 6
 	// Get the current camera position in Cartographic coordinates (longitude, latitude, height)
     var cameraPosition = viewer.scene.camera.positionCartographic;
-	// Determine the appropriate height based on screen width
-    var screenWidth = window.innerWidth;
-    var height = screenWidth < 500 ? 20000000 : 10000000;
+
     // Update the camera's position with the new height
 	viewer.scene.camera.setView({
         destination: Cesium.Cartesian3.fromRadians(
             cameraPosition.longitude,
             cameraPosition.latitude,
-            height
+            20000000
         ),
         orientation: {
             heading: viewer.scene.camera.heading,
@@ -705,7 +700,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 <style>
 	main {
 	  width: 100%;
-	  max-width: 100vh;
+	  
 	  height: 100vh;
 	  margin: 0;
 	  padding: 0;
