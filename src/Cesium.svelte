@@ -154,20 +154,24 @@
 	  if (userLocation !== null) {
 		const longitude = userLocation.coords.longitude;
 		const latitude = userLocation.coords.latitude;
-		const height = 0;
+		const height = 100;
   
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
-		const pointColor = Color.GREEN;
+		const pointColor = Color.BLUE;
 		
   
 		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
-
+		
 		viewer.entities.add(userLocationEntity);
-  
-		// Optional: Fly to the user's location
-		//viewer.camera.flyTo({
-		  //destination: Cartesian3.fromDegrees(longitude, latitude, 15000000.0),
-		//});
+		
+		setTimeout(() => {
+      // Fly to the user's location
+		viewer.camera.flyTo({
+		  destination: Cartesian3.fromDegrees(longitude, latitude, 20000000.0),
+		});
+    	}, 3000);
+
+
 	  }
 	};
   
@@ -177,8 +181,8 @@
 	  const longitude = parseFloat(record.longitude);
   
 	  if (!isNaN(latitude) && !isNaN(longitude)) {
-		const position = Cartesian3.fromDegrees(longitude, latitude, 0);
-  
+		const position = Cartesian3.fromDegrees(longitude, latitude, 100);
+		
 		// Create a simple point entity for the record
 		const pointEntity = new Entity({
 		  id: record.mapid + "_point",
@@ -266,12 +270,6 @@
 		alpha: true
 		},
 		},
-		// This is a global 3D Tiles tileset so disable the
-		// globe to prevent it from interfering with the data
-		// globe: false,
-		// Disabling the globe means we need to manually
-		// re-enable the atmosphere
-		// skyAtmosphere: false, // new Cesium.SkyAtmosphere(),
 		// 2D and Columbus View are not currently supported
 		// for global 3D Tiles tilesets
 		sceneModePicker: false,
@@ -700,7 +698,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 <style>
 	main {
 	  width: 100%;
-	  
 	  height: 100vh;
 	  margin: 0;
 	  padding: 0;
@@ -718,13 +715,13 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	border-radius: 0;
 	opacity: 0;
 	animation: fade-in 3s ease-in-out forwards; /* Apply the fade-in animation */
-	animation-delay: 3s;
+	animation-delay: 4s;
 	}
 
 	:global(.cesium-widget-credits){
 	opacity: 0;
 	animation: fade-in 3s ease-in-out forwards; /* Apply the fade-in animation */
-	animation-delay: 3s;
+	animation-delay: 4s;
 	}
 
 
@@ -785,7 +782,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #007bff;
+    color: white;
     padding: 0%;
     margin: 0%;
     text-decoration: none;   

@@ -572,7 +572,11 @@ onMount(async () => {
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
 
+    {#if $coordinates.latitude && $coordinates.longitude}
     <p class="coordgreen animated-gradient">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
+    {:else}
+    <p class="coordgreen animated-gradient">Pin dropped...</p>
+    {/if}
 
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
