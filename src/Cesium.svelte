@@ -120,7 +120,9 @@
 		position: userDestination,
 		point: {
 		  pixelSize: pulseProperty,
-		  color,
+		  color: Cesium.Color.fromCssColorString('#4285F4'), // Blue color
+        outlineColor: Cesium.Color.WHITE, // White edge
+        outlineWidth: 1, // Width of the white edge
 		  disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		},
 	  });
@@ -157,10 +159,10 @@
 		const height = 100;
   
 		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
-		const pointColor = Color.BLUE;
+		
 		
   
-		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition, pointColor);
+		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition);
 		
 		viewer.entities.add(userLocationEntity);
 		
