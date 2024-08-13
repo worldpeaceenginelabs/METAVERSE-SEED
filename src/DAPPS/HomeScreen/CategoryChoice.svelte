@@ -114,8 +114,14 @@
   }
 
   .description {
-    font-size: 1em;
-    color: efefef;
+      font-size: 1em;
+      color: #efefef; /* added the missing hash for the color */
+  }
+
+  @media screen and (max-width: 450px) {
+      .title, .description {
+          font-size: 0.9em;
+      }
   }
 
   /* Modal styles */
