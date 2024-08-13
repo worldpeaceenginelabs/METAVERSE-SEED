@@ -34,22 +34,22 @@
 
 
   <div style="padding: 20px;">
-    <div class="box " on:click={() => openModal("Brainstorming")}>
+    <div class="box glassmorphism" on:click={() => openModal("Brainstorming")}>
       <div class="title">Brainstorming (zoom.us)</div>
       <div class="description">Brainstorm solutions, with people from all walks of life...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("ActionEvent")}>
+    <div class="box glassmorphism" on:clickx={() => openModal("ActionEvent")}>
       <div class="title">ActionEvent (coming soon)  (cloudatlas.club)</div>
       <div class="description">Realize your solutions through sheer man-power...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("Petition")}>
+    <div class="box glassmorphism" on:clickx={() => openModal("Petition")}>
       <div class="title">Petition (coming soon)  (change.org)</div>
       <div class="description">Secure eventually necessary permissions to enhance public spaces...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("Crowdfunding")}>
+    <div class="box glassmorphism" on:clickx={() => openModal("Crowdfunding")}>
       <div class="title">Crowdfunding (coming soon)  (gofundme.com)</div>
       <div class="description">Turn your visionary ideas into reality with the power of Crowdfunding...</div>
     </div>
@@ -109,13 +109,13 @@
   .title {
     font-weight: bold;
     margin-bottom: 5px;
-    color: black;
+    color: white;
     font-size: 1em;
   }
 
   .description {
     font-size: 1em;
-    color: #666;
+    color: efefef;
   }
 
   /* Modal styles */

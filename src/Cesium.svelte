@@ -623,7 +623,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
   {#if showModalButton}
-	<div class="modal glassmorphism" transition:fade={{ duration: 500 }}>
+	<div class="modal" transition:fade={{ duration: 500 }}>
 	  <div class="modal-category">
 	
 
@@ -660,7 +660,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
   {#if showModal && modalRecord}
 <div class="modal" transition:fade={{ duration: 500 }}>
-  <div class="modal-record glassmorphism">
+  <div class="modal-record">
 
 
 
@@ -727,6 +727,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	opacity: 0;
 	animation: fade-in 3s ease-in-out forwards; /* Apply the fade-in animation */
 	animation-delay: 4s;
+	z-index: 60;
 	}
 
 	:global(.cesium-widget-credits){
@@ -756,7 +757,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
@@ -764,27 +764,25 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	}
 
 	.modal-category {
-	background-color: rgba(0, 0, 0, 0.2);
 	width: 95%;
 	max-width: 800px; 
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.5);
 	}
 
 	.modal-record {
 	  width: 95%;
-	  max-width: 800px; 
+	  max-width: 800px;
+	  border-radius: 15px;
+   	  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	  background-color: rgba(0, 0, 0, 0.5);
 	}
 
 	.float-right {
         float: right;
     }
 
-	.diffuseshadow {
-    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
-  }
-
- 
 	.glassmorphism{
 	/* Apply glassmorphism style for the modal content */
 	background: rgba(255, 255, 255, 0.1);
