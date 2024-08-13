@@ -685,11 +685,13 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
 
-	  <div style="padding: 5px;">
+	  <div>
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
 	</div>
-    <p><a class="enterbutton glassmorphism" target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></p>
+	<div>
+    <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></button></p>
+	</div>
 	<div><ShareButton 
         title={modalRecord.title} 
         text={modalRecord.text} 
@@ -715,7 +717,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	opacity: 0; /* Initial state */
 	animation: fade-in-scale-up 3s ease-in-out forwards; /* Apply the fade-in animation */
 	animation-delay: 1s;
-	overflow: visible
 	}
 
 	:global(.cesium-button.cesium-vrButton) {
@@ -736,19 +737,29 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	animation-delay: 4s;
 	}
 
+	a {
+    color: inherit;
+    text-decoration: none;
+	}
 
+	a:hover,
+	a:visited,
+	a:active {
+		color: inherit;
+		text-decoration: none;
+	}
 
-	.enterbutton {
+	button {
       padding: 10px 20px;
-      font-size: 16px;
+      
       cursor: pointer;
       color: white;
       border: none;
       border-radius: 5px;
-	  
+      width: 100%;
     }
   
-    .enterbutton:hover {
+    button:hover {
       background-color: #abd6ff;
     }
 
@@ -772,11 +783,12 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	}
 
 	.modal-record {
-	  width: 95%;
+	  width: 90%;
 	  max-width: 800px;
 	  border-radius: 15px;
    	  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	  background-color: rgba(0, 0, 0, 0.5);
+	  padding: 20px;
 	}
 
 	.float-right {

@@ -36,22 +36,22 @@
   <div style="padding: 20px;">
     <div class="box glassmorphism" on:click={() => openModal("Brainstorming")}>
       <div class="title">Brainstorming (zoom.us)</div>
-      <div class="description">Brainstorm solutions, with people from all walks of life...</div>
+      <div class="description">Collaborate with a diverse community to brainstorm innovative solutions to local and global challenges...</div>
     </div>
 
-    <div class="box glassmorphism" on:clickx={() => openModal("ActionEvent")}>
+    <div class="box" on:clickx={() => openModal("ActionEvent")}>
       <div class="title">ActionEvent (coming soon)  (cloudatlas.club)</div>
-      <div class="description">Realize your solutions through sheer man-power...</div>
+      <div class="description">Mobilize collective action to bring your ideas to life through organized community efforts...</div>
     </div>
 
-    <div class="box glassmorphism" on:clickx={() => openModal("Petition")}>
+    <div class="box" on:clickx={() => openModal("Petition")}>
       <div class="title">Petition (coming soon)  (change.org)</div>
-      <div class="description">Secure eventually necessary permissions to enhance public spaces...</div>
+      <div class="description">Advocate for change by securing the necessary permissions to improve public spaces and policies...</div>
     </div>
 
-    <div class="box glassmorphism" on:clickx={() => openModal("Crowdfunding")}>
+    <div class="box" on:clickx={() => openModal("Crowdfunding")}>
       <div class="title">Crowdfunding (coming soon)  (gofundme.com)</div>
-      <div class="description">Turn your visionary ideas into reality with the power of Crowdfunding...</div>
+      <div class="description">Empower your vision by raising the funds needed to turn your ideas into impactful realities...</div>
     </div>
   </div>
 
@@ -78,7 +78,7 @@
         </div>
         
       {#if currentComponent}
-      <div style="padding: 10px;">
+      <div style="padding: 20px;">
         <svelte:component this={currentComponent} />
       </div>
         {/if}
@@ -94,7 +94,7 @@
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

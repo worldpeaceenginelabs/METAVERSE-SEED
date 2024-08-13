@@ -28,7 +28,7 @@
   </script>
   
   <!-- Add a button to trigger the share functionality -->
-  <button on:click={shareText}>
+  <button class="glassmorphism" on:click={shareText}>
     Invite to Session
   </button>
   
@@ -40,6 +40,10 @@
       color: white;
       border: none;
       border-radius: 5px;
+      width: 100%;
+    }
+
+    .glassmorphism{
       /* Apply glassmorphism style for the modal content */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);

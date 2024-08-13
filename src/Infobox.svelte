@@ -46,7 +46,7 @@
     Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
     
     <strong>Where Your Vision Meets Collective Action...</strong><br>
-    The <strong>Home Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm (Zoom.us)</strong> solutions,  with people from all walks of life, realize your solutions through sheer man-power with <strong>ActionEvents (dapp)</strong>, secure eventually necessary permissions to enhance public spaces via <strong>Petition (change.org)</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding (gofundme.com).</strong><br><br>
+    The <strong>Home Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm (zoom.us)</strong> solutions,  with people from all walks of life, realize your solutions through sheer man-power with <strong>ActionEvents (dapp)</strong>, secure eventually necessary permissions to enhance public spaces via <strong>Petition (change.org)</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding (gofundme.com).</strong><br><br>
     
     <strong>Your creations will never be limited to just one environment again...</strong><br>
     The <strong>Dapp Store</strong> is a dedicated space designed to prominently feature your digital creations, each uniquely associated with coordinates on the map. A coordinate can represent everything: <strong>posts, profiles, links, API, streams, live-stream, apps, games (including your Steam, Epic,... games), your non-profit business, your for-profit business</strong> - you name it - Literally! For mobile, desktop, AR, and VR out of the box!<br><br>
@@ -144,7 +144,7 @@
     top: 50px;
     position: fixed;
     bottom: 50px;
-    padding: 10px;
+    padding: 20px;
     
   }
 

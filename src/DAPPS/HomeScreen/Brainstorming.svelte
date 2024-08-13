@@ -515,15 +515,15 @@ onMount(async () => {
         <div class="container">
           <div class="emoji">🌎</div>
           <div class="text">
-            The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.
+            Create and participate in brainstormings (zoom.us) addressing <strong>local and global</strong> issues. Find solutions together with people from all walks of life.
           </div>
       </div>
       <div class="container">
         <div class="emoji">🔥</div>
         <div class="text">
-          Crowdfunding coming soon to fund your solutions...
+          Stream your Zoom meetings to YouTube for permanent storage.
         </div>
-    </div>
+      </div>
     <div class="container">
       <div class="emoji">🔥</div>
       <div class="text">
@@ -546,12 +546,6 @@ onMount(async () => {
   <div class="emoji">🔥</div>
   <div class="text">
     Other mechanisms for edit and delete are coming...
-  </div>
-</div>
-<div class="container">
-  <div class="emoji">🔥</div>
-  <div class="text">
-    Stream your Zoom meetings to YouTube for permanent storage.
   </div>
 </div>
 </h4>
@@ -638,11 +632,6 @@ onMount(async () => {
     font-size: medium;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
-    padding: 10px; /* Optional: Add padding for better appearance */
-  }
-
-  .diffuseshadow {
-    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
   }
 
   .container {
