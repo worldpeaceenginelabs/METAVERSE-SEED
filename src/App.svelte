@@ -1,6 +1,6 @@
 <script lang="ts">
     import Cesium from "./Cesium.svelte";
-    import AddMapmarker from "./DAPPS/HomeScreen/HomeScreen.svelte";
+    import AddMapmarker from "./DAPPS/HomeScreen/Brainstorming.svelte";
     import Appsearch from "./Dappstore/Appsearch.svelte";
     import LiveEdit from "./LiveEdit.svelte";
     import Infobox from "./Infobox.svelte";
@@ -8,11 +8,11 @@
     import { writable } from 'svelte/store';
   
     // State to track visibility of the picture
-    let showPicture = true;
+    let showPicture = false;
     let pictureUrl = "./cloudatlas8kzip.jpg";
     let quote = "“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller";
   
-    const isVisible = writable(true);
+    const isVisible = writable(false);
   </script>
   
   <div>

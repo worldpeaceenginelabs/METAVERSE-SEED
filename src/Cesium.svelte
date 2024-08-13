@@ -21,7 +21,7 @@
 	} from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
-	import AddMapmarker from './DAPPS/HomeScreen/HomeScreen.svelte';
+	import CategoryChoice from "./DAPPS/HomeScreen/CategoryChoice.svelte";   
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
 	import { fade } from 'svelte/transition';
@@ -619,14 +619,13 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   <main id="cesiumContainer"></main>
 </div>  
 
+
+
+
   {#if showModalButton}
-	<div class="modal" transition:fade={{ duration: 500 }}>
+	<div class="mainmodal-category" transition:fade={{ duration: 500 }}>
 	  <div class="modal-content">
-		<table>
-			<tr>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<td>
+	
 
 					<div class="close float-right" on:click={closeModalButton}>
 						<svg viewBox="0 0 36 36" class="circle">
@@ -642,13 +641,8 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 						<span></span>
 						<span></span>
 					  </div>
-				</td>
-			  </tr>
-		  <tr>
-			<td><AddMapmarker /></td>
-		  </tr>
-		  
-		</table>
+
+				<div><CategoryChoice /></div>
 	  </div>
 	</div>
   {/if}
@@ -656,8 +650,8 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
   
 
   {#if showModal && modalRecord}
-<div class="modal" transition:fade={{ duration: 500 }}>
-  <div class="modal-content">
+<div class="mainmodal-record" transition:fade={{ duration: 500 }}>
+  <div class="modal-record">
 
 
 	<div class="close float-right" on:click={closeModal}>
@@ -747,26 +741,26 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
       background-color: #abd6ff;
     }
 
-	.modal {
+	.mainmodal-category {
 	  position: fixed;
 	  top: 0;
 	  left: 0;
 	  width: 100%;
 	  height: 100%;
-	  background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.mainmodal-record {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
-	  z-index: 1100;
-	  /* Apply glassmorphism style for the modal content */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
-  
-	.modal-content {
+
+	.modal-record {
 	  background-color: white;
 	  color: white;
 	  padding: 10px;
