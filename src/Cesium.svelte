@@ -623,35 +623,47 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
   {#if showModalButton}
-	<div class="mainmodal-category" transition:fade={{ duration: 500 }}>
-	  <div class="modal-content">
+	<div class="modal glassmorphism" transition:fade={{ duration: 500 }}>
+	  <div class="modal-category">
 	
 
-					<div class="close float-right" on:click={closeModalButton}>
-						<svg viewBox="0 0 36 36" class="circle">
-						  <path
-							stroke-dasharray="100, 100"
-							d="M18 2.0845
-							  a 15.9155 15.9155 0 0 1 0 31.831
-							  a 15.9155 15.9155 0 0 1 0 -31.831"
-						  />
-						</svg>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-					  </div>
 
-				<div><CategoryChoice /></div>
+
+
+		<div class="close float-right" on:click={closeModalButton}>
+			<svg viewBox="0 0 36 36" class="circle">
+			  <path
+				stroke-dasharray="100, 100"
+				d="M18 2.0845
+				  a 15.9155 15.9155 0 0 1 0 31.831
+				  a 15.9155 15.9155 0 0 1 0 -31.831"
+			  />
+			</svg>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		  </div>
+	
+	
+	
+	
+	
+		
+		<div><CategoryChoice /></div>
+		
 	  </div>
 	</div>
-  {/if}
+	{/if}
   
   
 
   {#if showModal && modalRecord}
-<div class="mainmodal-record" transition:fade={{ duration: 500 }}>
-  <div class="modal-record">
+<div class="modal" transition:fade={{ duration: 500 }}>
+  <div class="modal-record glassmorphism">
+
+
+
 
 
 	<div class="close float-right" on:click={closeModal}>
@@ -670,11 +682,14 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	  </div>
 
 
+
+
+
 	  <div style="padding: 5px;">
     <h2>{modalRecord.title}</h2>
     <p>{modalRecord.text}</p>
 	</div>
-    <p><a class="enterbutton" target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></p>
+    <p><a class="enterbutton glassmorphism" target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></p>
 	<div><ShareButton 
         title={modalRecord.title} 
         text={modalRecord.text} 
@@ -729,59 +744,35 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
       color: white;
       border: none;
       border-radius: 5px;
-	  /* Apply glassmorphism style for the modal content */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	  
     }
   
     .enterbutton:hover {
       background-color: #abd6ff;
     }
 
-	.mainmodal-category {
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
+	.modal { 
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 	}
 
-	.mainmodal-record {
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
+	.modal-category {
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	}
 
 	.modal-record {
-	  background-color: white;
-	  color: white;
-	  padding: 10px;
-	  border-radius: 5px;
 	  width: 90%;
-	  max-width: 800px;
-	  /* Apply glassmorphism style for the modal content */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: white;
-    padding: 0%;
-    margin: 0%;
-    text-decoration: none;   
+	  max-width: 800px; 
 	}
 
 	.float-right {
@@ -791,6 +782,17 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	.diffuseshadow {
     background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
   }
+
+ 
+	.glassmorphism{
+	/* Apply glassmorphism style for the modal content */
+	background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 	
 
 	.close {

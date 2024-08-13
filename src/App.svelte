@@ -8,11 +8,11 @@
     import { writable } from 'svelte/store';
   
     // State to track visibility of the picture
-    let showPicture = false;
+    let showPicture = true;
     let pictureUrl = "./cloudatlas8kzip.jpg";
     let quote = "“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller";
   
-    const isVisible = writable(false);
+    const isVisible = writable(true);
   </script>
   
   <div>

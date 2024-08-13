@@ -26,41 +26,35 @@
   }
 
   onMount(() => {
-    // Handle clicks outside the modal to close it
-    window.addEventListener('click', (event) => {
-      const modalContent = document.querySelector('.modal-content');
-      if (showModal && !modalContent.contains(event.target)) {
-        closeModal();
-      }
-    });
+   
   });
 </script>
 
 
 
-<div class="container">
-  <div class="boxcontainer">
-    <div class="box" on:click={() => openModal("Brainstorming")}>
+
+  <div style="padding: 20px;">
+    <div class="box " on:click={() => openModal("Brainstorming")}>
       <div class="title">Brainstorming (zoom.us)</div>
       <div class="description">Brainstorm solutions, with people from all walks of life...</div>
     </div>
 
-    <div class="box" on:click={() => openModal("ActionEvent")}>
-      <div class="title">(coming soon) ActionEvent (cloudatlas.club)</div>
+    <div class="box" on:clickx={() => openModal("ActionEvent")}>
+      <div class="title">ActionEvent (coming soon)  (cloudatlas.club)</div>
       <div class="description">Realize your solutions through sheer man-power...</div>
     </div>
 
-    <div class="box" on:click={() => openModal("Petition")}>
-      <div class="title">(coming soon) Petition (change.org)</div>
+    <div class="box" on:clickx={() => openModal("Petition")}>
+      <div class="title">Petition (coming soon)  (change.org)</div>
       <div class="description">Secure eventually necessary permissions to enhance public spaces...</div>
     </div>
 
-    <div class="box" on:click={() => openModal("Crowdfunding")}>
-      <div class="title">(coming soon) Crowdfunding (gofundme.com)</div>
+    <div class="box" on:clickx={() => openModal("Crowdfunding")}>
+      <div class="title">Crowdfunding (coming soon)  (gofundme.com)</div>
       <div class="description">Turn your visionary ideas into reality with the power of Crowdfunding...</div>
     </div>
   </div>
-</div>
+
 
 
 
@@ -84,8 +78,10 @@
         </div>
         
       {#if currentComponent}
+      <div style="padding: 10px;">
         <svelte:component this={currentComponent} />
-      {/if}
+      </div>
+        {/if}
     </div>
   </div>
 {/if}
@@ -94,26 +90,6 @@
 
 
 <style>
-  .container {
-    top: 0px;
-    left:0px;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .boxcontainer {
-    width: 300px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-  }
-
   .box {
     padding: 15px;
     margin-bottom: 15px;
@@ -145,6 +121,8 @@
   /* Modal styles */
   .modal {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -153,28 +131,12 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    
   }
 
   .modal-content {
-	  background-color: white;
-	  color: white;
-	  padding: 10px;
-	  border-radius: 5px;
 	  width: 90%;
 	  max-width: 800px;  
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: white;
-    padding: 0%;
-    margin: 0%;
-    text-decoration: none;   
-	}
+  }
 
   .glassmorphism {
     /* Apply glassmorphism style for the modal content */

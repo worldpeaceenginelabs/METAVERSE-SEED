@@ -594,7 +594,7 @@ onMount(async () => {
     color: white;
     padding: 0%;
     margin: 0%;
-    text-decoration: none;   
+    text-decoration: none;
   }
 
   form {
