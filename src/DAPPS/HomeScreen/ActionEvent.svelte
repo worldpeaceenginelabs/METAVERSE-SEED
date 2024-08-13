@@ -495,18 +495,18 @@ function startRoom() {
     };
   }
 
-onMount(async () => { 
-    await initializeApp();
-    startRoom(config);
+//onMount(async () => { 
+    //await initializeApp();
+    //startRoom(config);
 
     // Rate limiting
-    updateFormDisabledStatus();
+    //updateFormDisabledStatus();
     // Set interval to continuously update form disabled status
-    const intervalId = setInterval(async () => {
-    updateFormDisabledStatus();
-    }, 5000); // Update every 5 seconds (adjust interval as needed)
+    //const intervalId = setInterval(async () => {
+    //updateFormDisabledStatus();
+    //}, 5000); // Update every 5 seconds (adjust interval as needed)
   
-  });
+  //});
 
 </script>
 

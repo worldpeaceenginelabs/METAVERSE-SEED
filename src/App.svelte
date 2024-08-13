@@ -1,6 +1,6 @@
 <script lang="ts">
     import Cesium from "./Cesium.svelte";
-    import AddMapmarker from "./DAPPS/HomeScreen/HomeScreen.svelte";
+    import AddMapmarker from "./DAPPS/HomeScreen/Brainstorming.svelte";
     import Appsearch from "./Dappstore/Appsearch.svelte";
     import LiveEdit from "./LiveEdit.svelte";
     import Infobox from "./Infobox.svelte";
