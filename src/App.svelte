@@ -60,6 +60,7 @@
       z-index: 20;
       position: relative;
     }
+    
     .searchcontainer {
       position: absolute;
       top: 1em;

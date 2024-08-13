@@ -120,7 +120,7 @@
 
   @media screen and (max-width: 450px) {
       .title, .description {
-          font-size: 0.7em;
+          font-size: 0.8em;
       }
   }
 
