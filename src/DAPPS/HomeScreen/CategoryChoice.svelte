@@ -110,11 +110,11 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: black;
-    font-size: 0.7em;
+    font-size: 1em;
   }
 
   .description {
-    font-size: 0.7em;
+    font-size: 1em;
     color: #666;
   }
 
@@ -134,7 +134,7 @@
   }
 
   .modal-content {
-	  width: 90%;
+	  width: 95%;
 	  max-width: 800px;  
   }
 

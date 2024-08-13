@@ -765,13 +765,14 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 	.modal-category {
 	background-color: rgba(0, 0, 0, 0.2);
-	width: 300px;
+	width: 95%;
+	max-width: 800px; 
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	}
 
 	.modal-record {
-	  width: 90%;
+	  width: 95%;
 	  max-width: 800px; 
 	}
 
