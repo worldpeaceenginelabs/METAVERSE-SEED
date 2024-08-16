@@ -16,6 +16,80 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
 
+# Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
+
+### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer...<br>
+### No need for back-end servers! Cloud Atlas syncs via public tracker networks using BitTorrent, with Nostr as a fallback coming soon. However, persistent storage and computational power (cloud/servers) can be simply added if needed.<br>
+
+### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline (coming) in your browser. It’s free and scales 99% autonomously! More users mean more app storage and computational power. You are the server farm.<br><br>
+
+# CLOUD ATLAS STACK
+![Cloud Atlas Stack](https://github.com/user-attachments/assets/a4d33219-c335-4368-9867-e1742a9aa8db)
+
+# FEATURES
+
+### Already working / What's coming?
+
+- [x] Authentication-less authentication. Checks indexeddb for username and appid, if no result creates new username and appid (combination from username, appid, ENVsalt + https)
+- [x] Trystero connects everyone using the app. Without any server in the middle!!! WebRTC + BitTorrent Signalling 🥷
+- [x] Records are transferred between all online users automatically.
+- [x] If a new user comes online, the new user gets all past records from the other users' record cache.
+- [x] Records older than 30 days are deleted on every app start.
+- [x] IndexedDB refills the record cache after reload.
+- [x] The globe populates pins from IndexedDB every 5000ms
+- [x] Rate limiting. Decentralized approach: More than five post in localpins objectstore will disable the input form. checkRecordCount()
+- [x] Sharing function: Posts can be shared to Whatsapp, Gmail, and many more app and services via the Web Share API, on both mobile (templatetext + post text + post link) and desktop (post link only)
+- [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
+- [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
+- [x] Atmosphere: Space and Ground Atmosphere added together with Google Photorealistic 3D tiles.
+- [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
+- [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
+- [ ] Swearwords Detection: a static list or API
+- [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
+- [ ] Progressive Web App features (PWA).
+- [ ] Transfer limiting.
+- [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
+- [ ] Multiple other protocols as fallbacks.
+- [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
+- [ ] Decentralized domains.
+<br><br>
+
+# Summarize
+
+This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we are missing a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today. Unleash your creativity without without caring to much about the tools and the back-end scaling (99% "automatically") or locking yourself in!<br>
+
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then continue with the settings icon in the top-right and do a pull-request.<br>
+
+Launch your creations to a global audience across various platforms—be it <strong>browsers, mobile devices, desktops, VR, or WebVR, right out of the box.</strong> Enjoy the liberty of creation, supported by a <strong>backend that scales automatically by 99%, free from any restrictive ties.</strong><br><br>
+
+# RESOURCES
+https://cesium.com/platform/cesium-for-o3de/<br>
+https://cesium.com/platform/cesium-for-unreal/<br>
+https://cesium.com/platform/cesium-for-omniverse/<br>
+https://cesium.com/platform/cesium-for-unity/<br><br>
+
+# How to create your idea, app, game, network...?
+- clone or LiveEdit (settings-icon top-right)
+- npm install
+- npm run dev
+
+##### No framework boilerplate
+SvelteJS is not a framework, its more of a WYSIWYG editor and compiler.
+https://learn.svelte.dev/tutorial/welcome-to-svelte
+
+Enjoy the per page/component view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. Every file has an area for script, markup, css per page/component)
+
+Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
+
+Simply get started with whatever you can think of. Everything is well pre-configured. In turn you can start to code your idea instant, without thinking about the repo configuration or the back-end. In Javascript, without any framework boilerplate. Only the reactive store and the binds are Sveltejs, but the modifications/extensions can be done by anyone who knows JS without understanding a shred of Sveltejs. (when you see how the form in Brainstorming.svelte works, it will click, promise! 😉😁)
+
+- Cesium.svelte: Here you control the globe and the population with entities (pins, objects, events, apps, etc...)
+
+- /DAPPS/HomeScreen.svelte(App Template): Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
+
+- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
+HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
+
 # Want to Support Cloud Atlas? Become a Relay Node!
 Contribute to our network by pinning the Cloud Atlas tab in your desktop browser and help us grow.
 
@@ -56,17 +130,8 @@ This network is free of cost. Funding not needed. If needed: Crowdfunding it is!
 The possibilities are endless. The question is: How can we implement various apps in an organized way, ensuring the most sustainable ones remain prioritized?<br><br>
 
 ![image](https://github.com/user-attachments/assets/d44c4929-b106-4b42-881d-0bdbad96d7a6)
-![Cloud Atlas Stack](https://github.com/user-attachments/assets/a4d33219-c335-4368-9867-e1742a9aa8db)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
 ### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br>
-
-
-# Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
-
-### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer<br>
-### No need for back-end servers! Cloud Atlas syncs via public tracker networks using BitTorrent, with Nostr as a fallback coming soon. However, persistent storage and computational power (cloud/servers) can be simply added if needed.<br><br>
-
-### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline in your browser. (coming) It’s free and scales 99% autonomously! More users mean more app storage and computational power. You are the server farm.<br><br>
 
 # Imagine...
 
@@ -98,75 +163,6 @@ To establish a direct peer-to-peer connection with WebRTC, a signalling channel 
 Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of the world's population.<br><br>
 
 What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!<br><br>
-
-# BASICS
-
-- A pin can represent everything: Info, News, Brainstorming, Event, Petition, Crowdfunding, Live Stream, posts, profiles, links, streams, apps, games (including your Steam, Epic,... games), your non-profit business, your for-profit business - you name it - Literally! For displays, AR, and VR out of the box! They are shared directly peer-to-peer (P2P) between users via WebRTC.
-- Map tiles can come from every accessible map tile API (users can use their maptile service api keys and or server addresses in the future), but maptiles will eventually also be shared directly peer-to-peer (P2P) between users via WebRTC in the future.<br><br>
-
-# FEATURES
-
-### Already working / What's coming?
-
-- [x] Authentication-less authentication. Checks indexeddb for username and appid, if no result creates new username and appid (combination from username, appid, ENVsalt + https)
-- [x] Trystero connects everyone using the app. Without any server in the middle!!! WebRTC + BitTorrent Signalling 🥷
-- [x] Records are transferred between all online users automatically.
-- [x] If a new user comes online, the new user gets all past records from the other users' record cache.
-- [x] Records older than 30 days are deleted on every app start.
-- [x] IndexedDB refills the record cache after reload.
-- [x] The globe populates pins from IndexedDB every 5000ms
-- [x] Rate limiting. Decentralized approach: More than five post in localpins objectstore will disable the input form. checkRecordCount()
-- [x] Sharing function: Posts can be shared to Whatsapp, Gmail, and many more app and services via the Web Share API, on both mobile (templatetext + post text + post link) and desktop (post link only)
-- [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
-- [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
-- [x] Atmosphere: Space and Ground Atmosphere added together with Google Photorealistic 3D tiles.
-- [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
-- [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
-- [ ] Swearwords Detection: a static list or API
-- [ ] Decentralized censorship: If you dont like it, you can block it! But locally only! Every user decides for themselves what they want and what they dont want to see!
-- [ ] Progressive Web App features (PWA).
-- [ ] Transfer limiting.
-- [ ] WebRTC channel for synchronizing assets (get client from client, P2P downloadable software).
-- [ ] Multiple other protocols as fallbacks.
-- [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
-- [ ] Decentralized domains.
-<br><br>
-
-# Summarize
-
-This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we miss a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today.
-
-It's a clean code base with basic instructions (coming) for expanding it with your creativity and all available tools (HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and you name it!, to unleash your creativity without without caring to much about the back-end scaling (99% "automatically") or locking you in!<br><br>
-
-# RESOURCES
-https://cesium.com/platform/cesium-for-o3de/<br>
-https://cesium.com/platform/cesium-for-unreal/<br>
-https://cesium.com/platform/cesium-for-omniverse/<br>
-https://cesium.com/platform/cesium-for-unity/<br><br>
-
-# HOW TO...
-
-### How to create your idea, app, game, network...?
-- clone
-- npm install
-- npm run dev
-
-##### No framework boilerplate
-SvelteJS is not a framework, its more of a WYSIWYG editor and compiler.
-https://learn.svelte.dev/tutorial/welcome-to-svelte
-
-Enjoy the per page/component view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. Every file has an area for script, markup, css per page/component)
-
-Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
-
-Simply get started with whatever you can think of. Everything is well pre-configured. In turn you can start to code your idea instant, without thinking about the repo configuration or the back-end. In Javascript, without any framework boilerplate. Only the reactive store and the binds are Sveltejs, but the modifications/extensions can be done by anyone who knows JS without understanding a shred of Sveltejs. (when you see how the form in AddMapmarker.svelte works, it will click, promise! 😉😁)
-
-- Cesium.svelte: Here you control the globe and the population with entities (pins, objects, events, apps, etc...)
-
-- /DAPPS/HomeScreen.svelte(App Template): Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
-
-- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
-HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
 
 # My Journey with Cloud Atlas
 I have always been fascinated by the peaceful and knowledge-seeking society depicted in Star Trek. The movie
