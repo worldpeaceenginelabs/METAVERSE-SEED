@@ -1,3 +1,59 @@
+# Index
+
+1. [Introduction](#introduction)
+   - [Restarted Project](#restarted-project)
+   - [Inspirational Quote](#inspirational-quote)
+
+2. [Welcome to Cloud Atlas!](#welcome-to-cloud-atlas)
+   - [Live Domain](#live-domain)
+   - [Live Edit on Stackblitz](#live-edit-on-stackblitz)
+   - [Live Preview](#live-preview)
+
+3. [Join our Community](#join-our-community)
+   - [CCC - Collective Computer Collaboration Hub (Developer Chat)](#ccc---collective-computer-collaboration-hub-developer-chat)
+
+4. [Support Cloud Atlas](#support-cloud-atlas)
+   - [Become a Relay Node](#become-a-relay-node)
+
+5. [About Metaverse-Seed](#about-metaverse-seed)
+   - [Cloud Atlas Overview](#cloud-atlas---an-independent-community-owned-google-earth)
+   - [Decentralized Architecture](#no-need-for-back-end-servers)
+
+6. [Cloud Atlas Stack](#cloud-atlas-stack)
+
+7. [Features](#features)
+   - [Already Working / What's Coming](#already-working--whats-coming)
+
+8. [Creating Your Own Apps](#creating-your-own-apps-with-cloud-atlas)
+   - [Stackblitz IDE Integration](#stackblitz-ide-integration-live-edit)
+   - [Future App Creation](#future-app-creation-with-cloud-atlas)
+   - [Funding Innovation](#funding-innovation)
+   - [Free Access to All Updates](#free-access-to-all-updates)
+
+9. [How to Create Your Idea, App, Game, Network](#how-to-create-your-idea-app-game-network)
+   - [No Framework Boilerplate](#no-framework-boilerplate)
+   - [Connecting Creations to Coordinates](#its-essentially-about-connecting-any-creation-to-specific-coordinates-on-the-globe)
+
+10. [Summary](#summarize)
+
+11. [Resources](#resources)
+
+12. [Imagine...](#imagine)
+
+13. [Highly Adaptable](#highly-adaptable)
+
+14. [My Journey with Cloud Atlas](#my-journey-with-cloud-atlas)
+
+15. [Pitch](#pitch)
+
+16. [The Future](#the-future)
+
+17. [Some Inspiration...](#some-inspiration)
+
+<br><br><br>
+
+
+
 Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app is Cloud Atlas<br><br>
 
 ![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
