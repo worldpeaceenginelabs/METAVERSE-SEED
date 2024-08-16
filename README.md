@@ -4,7 +4,7 @@
    - [Restarted Project](#restarted-project)
    - [Inspirational Quote](#inspirational-quote)
 
-2. [Welcome to Cloud Atlas!](#welcome-to-cloud-atlas)
+2. [Welcome to Cloud Atlas](#welcome-to-cloud-atlas)
    - [Live Domain](#live-domain)
    - [Live Edit on Stackblitz](#live-edit-on-stackblitz)
    - [Live Preview](#live-preview)
@@ -16,25 +16,25 @@
    - [Become a Relay Node](#become-a-relay-node)
 
 5. [About Metaverse-Seed](#about-metaverse-seed)
-   - [Cloud Atlas Overview](#cloud-atlas---an-independent-community-owned-google-earth)
-   - [Decentralized Architecture](#no-need-for-back-end-servers)
+   - [Cloud Atlas Overview](#cloud-atlas-overview)
+   - [Decentralized Architecture](#decentralized-architecture)
 
 6. [Cloud Atlas Stack](#cloud-atlas-stack)
 
 7. [Features](#features)
    - [Already Working / What's Coming](#already-working--whats-coming)
 
-8. [Creating Your Own Apps](#creating-your-own-apps-with-cloud-atlas)
-   - [Stackblitz IDE Integration](#stackblitz-ide-integration-live-edit)
-   - [Future App Creation](#future-app-creation-with-cloud-atlas)
+8. [Creating Your Own Apps](#creating-your-own-apps)
+   - [Stackblitz IDE Integration](#stackblitz-ide-integration)
+   - [Future App Creation](#future-app-creation)
    - [Funding Innovation](#funding-innovation)
    - [Free Access to All Updates](#free-access-to-all-updates)
 
 9. [How to Create Your Idea, App, Game, Network](#how-to-create-your-idea-app-game-network)
    - [No Framework Boilerplate](#no-framework-boilerplate)
-   - [Connecting Creations to Coordinates](#its-essentially-about-connecting-any-creation-to-specific-coordinates-on-the-globe)
+   - [Connecting Creations to Coordinates](#connecting-creations-to-coordinates)
 
-10. [Summary](#summarize)
+10. [Summary](#summary)
 
 11. [Resources](#resources)
 
@@ -48,7 +48,7 @@
 
 16. [The Future](#the-future)
 
-17. [Some Inspiration...](#some-inspiration)
+17. [Some Inspiration](#some-inspiration)
 
 <br><br><br>
 
