@@ -2,7 +2,8 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 
 ![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
 # You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete. _Buckminster Fuller_
-<br><br>
+<br><br><br>
+
 
 # Welcome to Cloud Atlas!
 
@@ -15,6 +16,12 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br>
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
+
+# Want to Support Cloud Atlas? Become a Relay Node!
+Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
+
+Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br><br>
+
 
 # Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
 
@@ -52,48 +59,7 @@ Become a part of Cloud Atlas today and join an exciting community that’s shapi
 - [ ] Multiple other protocols as fallbacks.
 - [ ] Bluetooth beacon and other Adhoc strategies (quickshare?)
 - [ ] Decentralized domains.
-<br><br>
-
-# Summarize
-
-This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we are missing a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today. Unleash your creativity without without caring to much about the tools and the back-end scaling (99% "automatically") or locking yourself in!<br>
-
-Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then continue with the settings icon in the top-right and do a pull-request.<br>
-
-Launch your creations to a global audience across various platforms—be it <strong>browsers, mobile devices, desktops, VR, or WebVR, right out of the box.</strong> Enjoy the liberty of creation, supported by a <strong>backend that scales automatically by 99%, free from any restrictive ties.</strong><br><br>
-
-# RESOURCES
-https://cesium.com/platform/cesium-for-o3de/<br>
-https://cesium.com/platform/cesium-for-unreal/<br>
-https://cesium.com/platform/cesium-for-omniverse/<br>
-https://cesium.com/platform/cesium-for-unity/<br><br>
-
-# How to create your idea, app, game, network...?
-- clone or LiveEdit (settings-icon top-right)
-- npm install
-- npm run dev
-
-##### No framework boilerplate
-SvelteJS is not a framework, its more of a WYSIWYG editor and compiler.
-https://learn.svelte.dev/tutorial/welcome-to-svelte
-
-Enjoy the per page/component view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. Every file has an area for script, markup, css per page/component)
-
-Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
-
-Simply get started with whatever you can think of. Everything is well pre-configured. In turn you can start to code your idea instant, without thinking about the repo configuration or the back-end. In Javascript, without any framework boilerplate. Only the reactive store and the binds are Sveltejs, but the modifications/extensions can be done by anyone who knows JS without understanding a shred of Sveltejs. (when you see how the form in Brainstorming.svelte works, it will click, promise! 😉😁)
-
-- Cesium.svelte: Here you control the globe and the population with entities (pins, objects, events, apps, etc...)
-
-- /DAPPS/HomeScreen.svelte(App Template): Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
-
-- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
-HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
-
-# Want to Support Cloud Atlas? Become a Relay Node!
-Contribute to our network by pinning the Cloud Atlas tab in your desktop browser and help us grow.
-
-Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br>
+<br><br><br>
 
 # Want more apps and functions?
 Reach out to me and our community anytime on GitHub, Gitter.im, or during our upcoming weekly Zoom brainstorming sessions on YouTube.<br><br>
@@ -117,6 +83,45 @@ The best part is that all enhancements and new applications are free for every u
 
 We’re committed to the vast potential of Cloud Atlas and are thrilled to witness its growth as the future of app development.<br><br>
 
+# How to create your idea, app, game, network...?
+- clone or LiveEdit (settings-icon top-right)
+- npm install
+- npm run dev
+
+##### No framework boilerplate
+SvelteJS is not a framework, its more of a WYSIWYG editor and compiler.
+https://learn.svelte.dev/tutorial/welcome-to-svelte
+
+Enjoy the per page/component view, reactive store, and the bind feature of SvelteJS, but code in plain Javascript! (every .svelte file is a page AND a component, based on your usecase. Every file has an area for script, markup, css per page/component)
+
+Blazing fast because the build output is your app precompiled. Static, but reactive! This is SvelteJS/JAMstack, which runs on edge and every other storage. 😝
+
+Simply get started with whatever you can think of. Everything is well pre-configured. In turn you can start to code your idea instant, without thinking about the repo configuration or the back-end. In Javascript, without any framework boilerplate. Only the reactive store and the binds are Sveltejs, but the modifications/extensions can be done by anyone who knows JS without understanding a shred of Sveltejs. (when you see how the form in Brainstorming.svelte works, it will click, promise! 😉😁)<br><br>
+
+### It’s essentially about connecting any creation to specific coordinates on the globe. Imagine a future where you can seamlessly run, drive, or fly virtually from one real-world game or app to another.
+
+- Cesium.svelte: Here you control the globe and the population with entities (pins, objects, events, apps, etc...)
+
+- /DAPPS/HomeScreen.svelte(App Template): Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
+
+- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
+HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
+
+# Summarize
+
+This repository is meant as a clean start point for decentralized, location based apps. I even go so far to say, EVERY APP should be location based! Since everything in reality is happening in the 3D space anyway, we are missing a lot of spatial intelligence and even very positive outcomes/synergies in app logic, compared to our traditional systems today. Unleash your creativity without without caring to much about the tools and the back-end scaling (99% "automatically") or locking yourself in!<br>
+
+Don’t get hung up on the tools; pick what suits your flow. Elevate your concepts using <strong>Unreal Engine 5</strong> (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), <strong>Unity 3D</strong> (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), and/or <strong>HTML, CSS, JS, APIs</strong> (JAMstack), <strong>WASM</strong> (C, C++, C#, and Rust, but for the Web), or <strong>WebContainers</strong> (Node.js in the browser). Then continue with the settings icon in the top-right and do a pull-request.<br>
+
+Launch your creations to a global audience across various platforms—be it <strong>browsers, mobile devices, desktops, VR, or WebVR, right out of the box.</strong> Enjoy the liberty of creation, supported by a <strong>backend that scales automatically by 99%, free from any restrictive ties.</strong><br><br>
+
+# RESOURCES
+https://cesium.com/platform/cesium-for-o3de/<br>
+https://cesium.com/platform/cesium-for-unreal/<br>
+https://cesium.com/platform/cesium-for-omniverse/<br>
+https://cesium.com/platform/cesium-for-unity/<br><br><br>
+
+
 ![cloudatlas8k](https://github.com/user-attachments/assets/e4e5443d-7f66-4e2b-a973-f42fe1c113da)
 “Decentralization places the globe within your grasp, ensuring your voice resonates daily, not merely at the ballot box every few years. It’s about making your voice count every day, not just delegating it during elections.” BK<br><br>
 
@@ -131,7 +136,8 @@ The possibilities are endless. The question is: How can we implement various app
 
 ![image](https://github.com/user-attachments/assets/d44c4929-b106-4b42-881d-0bdbad96d7a6)
 ![image](https://github.com/worldpeaceenginelabs/METAVERSE-SEED/assets/67427045/c20604d6-10af-4d98-bab0-05cc053aa743)
-### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br>
+### 2D/3D Display, Augmented, Virtual... Everything out of the box!<br><br><br>
+
 
 # Imagine...
 
@@ -162,7 +168,8 @@ To establish a direct peer-to-peer connection with WebRTC, a signalling channel 
 
 Cloud Atlas uses the BitTorrent strategy: peer-to-peer real-time data transfers with WebRTC, but without signal server but the public Bittorrent tracker network instead. A network consisting of 2 Billion users. One quarter of the world's population.<br><br>
 
-What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!<br><br>
+What's more on GitHub and the internet to aim for the moon of a post-scarcity, post-government society? Imagine dragons...!<br><br><br>
+
 
 # My Journey with Cloud Atlas
 I have always been fascinated by the peaceful and knowledge-seeking society depicted in Star Trek. The movie
