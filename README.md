@@ -105,7 +105,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 - [x] Live Edit Cloud Atlas: A click on the settings icon brings you to Stackblitz and loads Cloud Atlas in a hot reloading developer IDE with preview. Not only for professionals! Try it out, you cant damage anything! ;)
 - [x] UI Branding: Animated Hex Grid background with moving light. Glassmorphism Style UI. Transitions and Fades.
 - [x] Atmosphere: Space and Ground Atmosphere added together with Google Photorealistic 3D tiles.
-- [ ] Link validation is performed using two methods: a regex pattern checks if the string starts with https://desireddomain.org/, and before submission, the app fetches the link. If the response is 200, the link is validated; if 404, the link is denied.
+- [ ] Link validation: Is performed using two methods: a regex pattern checks if the string starts with https://desireddomain.org/ID, and before submission, the app fetches the link. If the response is 200, the link is validated; if 404, the link is denied.
 - [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
 - [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
 - [ ] Swearwords Detection: a static list or API
