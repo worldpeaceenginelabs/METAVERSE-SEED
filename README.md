@@ -164,7 +164,7 @@ Simply get started with whatever you can think of. Everything is well pre-config
 
 - /DAPPS/HomeScreen.svelte(App Template): Infinit possibilities. For instance Title, Text, Zoom Link, and Coordinates alone are already enabling Online Meetings, but location based, for instance brainstorming, event planning, live session, you name it... It's perfect for social networks, multiplayer games, E-Learning, you name it...
 
-- from here you can do litteraly everything because you can connect everything with this digtal twin of the globe:
+- from here you can do litteraly everything because you can connect everything with this digital twin of the globe:
 HTML, JS, CSS, APIs! (JAMstack),  WASM (C, C++, C#, and Rust, but for the Web), WebContainers (Node in Browser), Unreal Engine 5 (Uses C++ as the primary programming language, with Blueprints for visual scripting, and also supports Python for scripting certain tasks.), Unity 3D (Uses C# as the primary programming language, with Unity Visual Scripting (Bolt) for visual scripting.), you name it!<br><br>
 
 # Summarize
