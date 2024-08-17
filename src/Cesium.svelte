@@ -12,11 +12,8 @@
 	  SampledProperty,
 	  ClockRange,
 	  HermitePolynomialApproximation,
-	  LabelStyle,
-	  VerticalOrigin,
 	  Cesium3DTileset,
 	  CustomDataSource,
-	  ScreenSpaceEventHandler,
 	  ScreenSpaceEventType,
 	} from 'cesium';
 	import * as Cesium from 'cesium';
@@ -76,7 +73,7 @@
 		const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
 		if (cursor) {
 		  // Process each record
-		  addLabelForRecord(cursor.value);
+		  addRecordToMap(cursor.value);
 		  cursor.continue();
 		}
 	  };
@@ -177,71 +174,49 @@
 	  }
 	};
   
-	// Function to add label and simple point for a record
-	const addLabelForRecord = (record: { mapid: string, latitude: string, longitude: string, title: string }) => {
-	  const latitude = parseFloat(record.latitude);
-	  const longitude = parseFloat(record.longitude);
-  
-	  if (!isNaN(latitude) && !isNaN(longitude)) {
+	const addRecordToMap = (record: { mapid: string, latitude: string, longitude: string, category: string }) => {
+	const latitude = parseFloat(record.latitude);
+	const longitude = parseFloat(record.longitude);
+
+	if (!isNaN(latitude) && !isNaN(longitude)) {
 		const position = Cartesian3.fromDegrees(longitude, latitude, 100);
-		
-		// Create a simple point entity for the record
-		const pointEntity = new Entity({
-		  id: record.mapid + "_point",
-		  position: position,
-		  point: {
-			pixelSize: 10,
-			color: Color.RED,
-			disableDepthTestDistance: Number.POSITIVE_INFINITY,
-		  }
+
+		// Determine the image URL based on the category
+		let imageURL: string;
+		switch (record.category) {
+			case 'brainstorming':
+				imageURL = "./pic/brainstorming.png";
+				break;
+			case 'actionevent':
+				imageURL = "./pic/actionevent.png";
+				break;
+			case 'petition':
+				imageURL = "./pic/petition.png";
+				break;
+			case 'crowdfunding':
+				imageURL = "./pic/crowdfunding.png";
+				break;
+			}
+
+		// Create an image entity for the record
+		const imageEntity = new Entity({
+			id: record.mapid + "_image",
+			position: position,
+			billboard: {
+				image: imageURL,  // The URL of the PNG file
+				width: 64,        // Width of the image in pixels
+				height: 64,       // Height of the image in pixels
+				pixelOffset: new Cartesian2(0, -16),  // Adjust if needed
+				disableDepthTestDistance: Number.POSITIVE_INFINITY,
+			}
 		});
 
-		function insertLineBreaks(text, maxChars) {
-  let lines = [];
-  let words = text.split(' ');
-  let currentLine = '';
-
-  words.forEach(word => {
-    if ((currentLine.length + word.length) <= maxChars) {
-      currentLine += word + ' ';
-    } else {
-      lines.push(currentLine.trim());
-      currentLine = word + ' ';
-    }
-  });
-
-  // Push the last line
-  if (currentLine !== '') {
-    lines.push(currentLine.trim());
-  }
-
-  return lines.join('\n');
-}
-
-
-		// Create a label for the record
-		const labelEntity = new Entity({
-		  id: record.mapid + "_label",
-		  position: position,
-		  label: {
-			text: insertLineBreaks(record.title, 25),
-			font: '24px sans-serif',
-			fillColor: Color.WHITE,
-			outlineColor: Color.BLACK,
-			outlineWidth: 2,
-			style: LabelStyle.FILL_AND_OUTLINE,
-			verticalOrigin: VerticalOrigin.BOTTOM,
-			pixelOffset: new Cartesian2(0, -9),
-			disableDepthTestDistance: Number.POSITIVE_INFINITY,
-		  }
-		});
-  
-		customDataSource.entities.add(pointEntity);
-		customDataSource.entities.add(labelEntity);
-	  } else {
+		customDataSource.entities.add(imageEntity);
+	} else {
 		console.error('Invalid latitude or longitude for record:', record);
-	  }
-	};
+	}
+};
+
   
 	// Initialization on mount
 	onMount(async () => {
@@ -485,7 +460,7 @@
   }
 
   const entityId = pickedFeature.id.id;
-  const mapid = entityId.replace(/(_point|_label)$/, '');
+  const mapid = entityId.replace(/(_image)$/, '');
 
   const transaction = db.transaction('locationpins', 'readonly');
   const objectStore = transaction.objectStore('locationpins');
@@ -554,7 +529,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
         openModalButton();
       } else {
         const entityId = pickedObject.id.id;
-        const mapid = entityId.replace(/(_point|_label)$/, '');
+		const mapid = entityId.replace(/(_image)$/, '');
 
         const transaction = db.transaction('locationpins', 'readonly');
         const objectStore = transaction.objectStore('locationpins');

@@ -480,6 +480,7 @@ function startRoom() {
     link: string;
     longitude: string;
     latitude: string;
+    category: string;
   }
   
   // Function to create an empty record with appid as a suffix to the mapid
@@ -491,7 +492,8 @@ function startRoom() {
       text: '',
       link: '',
       longitude: '',
-      latitude: ''
+      latitude: '',
+      category: 'brainstorming',
     };
   }
 
@@ -565,6 +567,7 @@ onMount(async () => {
 
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
+    <input type="hidden" bind:value={record.category} required>
 
     {#if $coordinates.latitude && $coordinates.longitude}
     <p class="coordgreen animated-gradient">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
