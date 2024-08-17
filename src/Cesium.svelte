@@ -665,10 +665,11 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
 	  <div>
-    <h2>{modalRecord.title}</h2>
-    <p>{modalRecord.text}</p>
+    <p class="title">{modalRecord.title}</p>
+    <p class="text">{modalRecord.text}</p>
 	</div>
 	<div>
+	<p class="created">CREATED {formatTimestamp(modalRecord.timestamp)}</p>
     <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></button></p>
 	</div>
 	<div><ShareButton 
@@ -676,10 +677,6 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
         text={modalRecord.text} 
         link={modalRecord.link} 
       /></div>
-	  <br>
-    <p>CREATED {formatTimestamp(modalRecord.timestamp)}</p>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
   </div>
 </div>
 {/if}
@@ -696,6 +693,23 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	opacity: 0; /* Initial state */
 	animation: fade-in-scale-up 3s ease-in-out forwards; /* Apply the fade-in animation */
 	animation-delay: 1s;
+	}
+
+	.title{
+		text-align: center;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.text{
+		text-align: center;
+		font-size: 1.0em;
+		font-weight: bold;
+	}
+
+	.created{
+		text-align: center;
+		font-size: 1.0em;
 	}
 
 	:global(.cesium-button.cesium-vrButton) {

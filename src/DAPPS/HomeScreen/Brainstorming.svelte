@@ -458,6 +458,13 @@ function startRoom() {
     return coordPattern.test(coord);
   }
 
+  function openChatGPT() {
+        const chatGPTBaseURL = "https://chat.openai.com/chat";
+        const query = encodeURIComponent(`optimize my call to action for clarity: Title: "${record.title}", Text: "${record.text}". Title max length: 100chars, Text max length: 150chars`);
+        const fullURL = `${chatGPTBaseURL}?q=${query}`;
+        window.open(fullURL, '_blank');
+    }
+
   // Function to hash data using SHA-256
   async function hashData(data: string): Promise<string> {
     // Convert the string data to an array buffer
@@ -574,9 +581,10 @@ onMount(async () => {
     {:else}
     <p class="coordgreen animated-gradient">Pin dropped...</p>
     {/if}
-
+    
     <button on:click|preventDefault={send}>Send Record</button>
   </form>
+  <button on:click={openChatGPT}>Improve Text Using ChatGPT</button>
   {/if}
 
 </main>
@@ -617,6 +625,7 @@ onMount(async () => {
       color: white;
       border: none;
       border-radius: 5px;
+      width: 100%;
       /* Apply glassmorphism style for the modal content */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
