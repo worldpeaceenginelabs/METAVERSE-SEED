@@ -255,7 +255,11 @@
 		baseLayerPicker: false,
 	  });
 	
+	// Render the Cesium Container background transparent
 	viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
+	
+	// remove the doubleclick event handler
+	viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 	
 	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
 	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
