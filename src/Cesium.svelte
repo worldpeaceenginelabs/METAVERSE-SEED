@@ -30,6 +30,7 @@
 	let viewer: Viewer;
 	let db: IDBDatabase;
 	let customDataSource = new CustomDataSource('locationpins');
+	let recordButtonText = '';
   
 	// Function to open connection to IndexedDB
 	const openDB = (): Promise<IDBDatabase> => {
@@ -216,6 +217,32 @@
 		console.error('Invalid latitude or longitude for record:', record);
 	}
 };
+
+
+// Reactive statement to update recordButtonText based on modalRecord
+$: {
+		if (modalRecord) {
+			switch (modalRecord.category) {
+				case 'brainstorming':
+					recordButtonText = "Join Brainstorming";
+					break;
+				case 'actionevent':
+					recordButtonText = "Take Action Now";
+					break;
+				case 'petition':
+					recordButtonText = "Sign Now";
+					break;
+				case 'crowdfunding':
+					recordButtonText = "Back this Project";
+					break;	
+				default:
+					recordButtonText = "Learn More"; // Default text
+			}
+		} else {
+			recordButtonText = "";
+		}
+	}
+
 
   
 	// Initialization on mount
@@ -670,7 +697,7 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 	</div>
 	<div>
 	<p class="created">CREATED {formatTimestamp(modalRecord.timestamp)}</p>
-    <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>Join Brainstorm Session</a></button></p>
+    <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>{recordButtonText}</a></button></p>
 	</div>
 	<div><ShareButton 
         title={modalRecord.title} 

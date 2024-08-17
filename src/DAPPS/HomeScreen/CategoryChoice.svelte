@@ -35,22 +35,22 @@
 
   <div style="padding: 20px;">
     <div class="box glassmorphism" on:click={() => openModal("Brainstorming")}>
-      <div class="title">Brainstorming (zoom.us)</div>
+      <div class="title">Brainstorming (Zoom.us)</div>
       <div class="description">Collaborate with a diverse community to brainstorm innovative solutions to local and global challenges...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("ActionEvent")}>
-      <div class="title">ActionEvent (coming soon)  (cloudatlas.club)</div>
+    <div class="box glassmorphism" on:click={() => openModal("ActionEvent")}>
+      <div class="title">ActionEvent (Telegram)</div>
       <div class="description">Mobilize collective action to bring your ideas to life through organized community efforts...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("Petition")}>
-      <div class="title">Petition (coming soon)  (change.org)</div>
+    <div class="box glassmorphism" on:click={() => openModal("Petition")}>
+      <div class="title">Petition (Change.org)</div>
       <div class="description">Advocate for change by securing the necessary permissions to improve public spaces and policies...</div>
     </div>
 
-    <div class="box" on:clickx={() => openModal("Crowdfunding")}>
-      <div class="title">Crowdfunding (coming soon)  (gofundme.com)</div>
+    <div class="box glassmorphism" on:click={() => openModal("Crowdfunding")}>
+      <div class="title">Crowdfunding (GoFundMe.com)</div>
       <div class="description">Empower your vision by raising the funds needed to turn your ideas into impactful realities...</div>
     </div>
   </div>

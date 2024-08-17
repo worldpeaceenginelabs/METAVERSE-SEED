@@ -29,7 +29,7 @@
   
   <!-- Add a button to trigger the share functionality -->
   <button class="glassmorphism" on:click={shareText}>
-    Invite to Session
+    Share
   </button>
   
   <style>

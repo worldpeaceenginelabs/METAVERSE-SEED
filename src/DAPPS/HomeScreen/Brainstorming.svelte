@@ -524,13 +524,13 @@ onMount(async () => {
         <div class="container">
           <div class="emoji">🌎</div>
           <div class="text">
-            Create and participate in brainstormings (zoom.us) addressing <strong>local and global</strong> issues. Find solutions together with people from all walks of life.
+            Create and participate in Brainstormings addressing <strong>local and global</strong> issues. Find solutions together with people from all walks of life.
           </div>
       </div>
       <div class="container">
         <div class="emoji">🔥</div>
         <div class="text">
-          Stream your Zoom meetings to YouTube for permanent storage.
+          Stream your Zoom Meetings to YouTube for permanent storage.
         </div>
       </div>
     <div class="container">
@@ -548,7 +548,7 @@ onMount(async () => {
 <div class="container">
   <div class="emoji">⚠️</div>
   <div class="text">
-    You can only have up to 5 posts at a time. Choose wisely!
+    You can have a maximum of 5 posts across all 4 dapps. Choose wisely!
   </div>
 </div>
 <div class="container">
@@ -564,12 +564,12 @@ onMount(async () => {
 {:else}
   <form>
     <label><div style="text-align:left">Title</div></label>
-    <input type="text" placeholder="The issue in one sentence - max 100 chars (ChatGPT)" maxlength="100" bind:value={record.title} required><br>
+    <input type="text" placeholder="The issue in one sentence - max 100 chars" maxlength="100" bind:value={record.title} required><br>
 
     <label><div style="text-align:left">Text</div></label>
-    <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
+    <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars" maxlength="150" bind:value={record.text} required></textarea><br>
 
-    <label><div style="text-align:left">Zoom Link</div></label>
+    <label><div style="text-align:left">Zoom.us Link</div></label>
     <input type="text" placeholder="https://us05web.zoom.us/j/ID?pwd=12345 or https://zoom.us/j/ID?pwd=12345" maxlength="100" bind:value={record.link} required><br>
 
     <input type="hidden" bind:value={record.latitude} required>
@@ -582,7 +582,7 @@ onMount(async () => {
     <p class="coordgreen animated-gradient">Pin dropped...</p>
     {/if}
     
-    <button on:click|preventDefault={send}>Send Record</button>
+    <button on:click|preventDefault={send}>Drop Pin</button>
   </form>
   <button on:click={openChatGPT}>Improve Text Using ChatGPT</button>
   {/if}

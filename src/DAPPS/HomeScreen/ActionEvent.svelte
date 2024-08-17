@@ -445,8 +445,8 @@ function startRoom() {
   // Function to check if a record is valid
   function recordIsValid(rec: Record): boolean {
     const isTitleValid = rec.title.trim() !== '';
-    // Regular expression to check if the link starts with the specified patterns
-    const linkPattern = /^https:\/\/(us05web\.)?zoom\.us\/j\/\d+/;
+    // Define the regex pattern for Telegram Group URLs
+    const linkPattern = /^(?:https?:\/\/)?(?:t\.me|telegram\.me|t\.dog|telegram\.dog)\/(?:joinchat\/|\+)?([\w-]+)$/i;
     const isLinkValid = linkPattern.test(rec.link.trim());
     
     return isTitleValid && isLinkValid;
@@ -457,6 +457,13 @@ function startRoom() {
     const coordPattern = /^[-+]?([1-8]?\d(\.\d{1,6})?|90(\.0{1,6})?)$/;
     return coordPattern.test(coord);
   }
+
+  function openChatGPT() {
+        const chatGPTBaseURL = "https://chat.openai.com/chat";
+        const query = encodeURIComponent(`optimize my call to action for clarity: Title: "${record.title}", Text: "${record.text}". Title max length: 100chars, Text max length: 150chars`);
+        const fullURL = `${chatGPTBaseURL}?q=${query}`;
+        window.open(fullURL, '_blank');
+    }
 
   // Function to hash data using SHA-256
   async function hashData(data: string): Promise<string> {
@@ -480,6 +487,7 @@ function startRoom() {
     link: string;
     longitude: string;
     latitude: string;
+    category: string;
   }
   
   // Function to create an empty record with appid as a suffix to the mapid
@@ -491,22 +499,23 @@ function startRoom() {
       text: '',
       link: '',
       longitude: '',
-      latitude: ''
+      latitude: '',
+      category: 'actionevent',
     };
   }
 
-//onMount(async () => { 
-    //await initializeApp();
-    //startRoom(config);
+onMount(async () => { 
+    await initializeApp();
+    startRoom(config);
 
     // Rate limiting
-    //updateFormDisabledStatus();
+    updateFormDisabledStatus();
     // Set interval to continuously update form disabled status
-    //const intervalId = setInterval(async () => {
-    //updateFormDisabledStatus();
-    //}, 5000); // Update every 5 seconds (adjust interval as needed)
+    const intervalId = setInterval(async () => {
+    updateFormDisabledStatus();
+    }, 5000); // Update every 5 seconds (adjust interval as needed)
   
-  //});
+  });
 
 </script>
 
@@ -515,15 +524,15 @@ function startRoom() {
         <div class="container">
           <div class="emoji">🌎</div>
           <div class="text">
-            The first app focuses on brainstorming private and public matters, local and global issues and creating solutions.
+            Realize your solutions through collaborations or sheer manpower with ActionEvents. Cloud Atlas leverages Telegram’s group chat, video calls, and real-time member tracking on the map while in the field.
           </div>
       </div>
       <div class="container">
         <div class="emoji">🔥</div>
         <div class="text">
-          Crowdfunding coming soon to fund your solutions...
+          Stream your ActionEvent to YouTube for permanent storage.
         </div>
-    </div>
+      </div>
     <div class="container">
       <div class="emoji">🔥</div>
       <div class="text">
@@ -539,19 +548,13 @@ function startRoom() {
 <div class="container">
   <div class="emoji">⚠️</div>
   <div class="text">
-    You can only have up to 5 posts at a time. Choose wisely!
+    You can have a maximum of 5 posts across all 4 dapps. Choose wisely!
   </div>
 </div>
 <div class="container">
   <div class="emoji">🔥</div>
   <div class="text">
     Other mechanisms for edit and delete are coming...
-  </div>
-</div>
-<div class="container">
-  <div class="emoji">🔥</div>
-  <div class="text">
-    Stream your Zoom meetings to YouTube for permanent storage.
   </div>
 </div>
 </h4>
@@ -561,25 +564,27 @@ function startRoom() {
 {:else}
   <form>
     <label><div style="text-align:left">Title</div></label>
-    <input type="text" placeholder="The issue in one sentence - max 100 chars (ChatGPT)" maxlength="100" bind:value={record.title} required><br>
+    <input type="text" placeholder="The issue in one sentence - max 100 chars" maxlength="100" bind:value={record.title} required><br>
 
     <label><div style="text-align:left">Text</div></label>
-    <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars (ChatGPT)" maxlength="150" bind:value={record.text} required></textarea><br>
+    <textarea placeholder="Describe positive outcome in 10 #hashtags - max 150 chars" maxlength="150" bind:value={record.text} required></textarea><br>
 
-    <label><div style="text-align:left">Zoom Link</div></label>
-    <input type="text" placeholder="https://us05web.zoom.us/j/ID?pwd=12345 or https://zoom.us/j/ID?pwd=12345" maxlength="100" bind:value={record.link} required><br>
+    <label><div style="text-align:left">Telegram Group Link</div></label>
+    <input type="text" placeholder="https://t.me/+rtygFbFZrJE5NjIy" maxlength="100" bind:value={record.link} required><br>
 
     <input type="hidden" bind:value={record.latitude} required>
     <input type="hidden" bind:value={record.longitude} required>
+    <input type="hidden" bind:value={record.category} required>
 
     {#if $coordinates.latitude && $coordinates.longitude}
     <p class="coordgreen animated-gradient">Coordinates: {$coordinates.latitude}, {$coordinates.longitude}</p>
     {:else}
     <p class="coordgreen animated-gradient">Pin dropped...</p>
     {/if}
-
-    <button on:click|preventDefault={send}>Send Record</button>
+    
+    <button on:click|preventDefault={send}>Drop Pin</button>
   </form>
+  <button on:click={openChatGPT}>Improve Text Using ChatGPT</button>
   {/if}
 
 </main>
@@ -594,7 +599,7 @@ function startRoom() {
     color: white;
     padding: 0%;
     margin: 0%;
-    text-decoration: none;   
+    text-decoration: none;
   }
 
   form {
@@ -620,6 +625,7 @@ function startRoom() {
       color: white;
       border: none;
       border-radius: 5px;
+      width: 100%;
       /* Apply glassmorphism style for the modal content */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -638,11 +644,6 @@ function startRoom() {
     font-size: medium;
     height: 100px;  /* Set the height to make the content scrollable */
     overflow: auto; /* Enable scrolling when content overflows */
-    padding: 10px; /* Optional: Add padding for better appearance */
-  }
-
-  .diffuseshadow {
-    background-color: rgba(0, 0, 0, 0.7); /* Background color directly on the text */
   }
 
   .container {
