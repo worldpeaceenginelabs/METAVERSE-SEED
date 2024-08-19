@@ -482,103 +482,105 @@ $: {
 
 
 
-	  // Pick entitities
-	  viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
-  const pickedFeature = viewer.scene.pick(movement.position);
-  if (!pickedFeature || !pickedFeature.id) {
-    return;
-  }
+// This block handles user interactions with the Cesium viewer, including picking entities and coordinates.
+
+
+
+// Function to fetch record from IndexedDB
+async function fetchRecord(mapid) {
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction('locationpins', 'readonly');
+    const objectStore = transaction.objectStore('locationpins');
+    const request = objectStore.get(mapid);
+
+    request.onsuccess = function(event) {
+      resolve(request.result);
+    };
+
+    request.onerror = function(event) {
+      reject(request.error);
+    };
+  });
+}
+
+// Function to handle entity picking
+async function handleEntityPick(pickedFeature) {
+  if (!pickedFeature || !pickedFeature.id) return;
 
   const entityId = pickedFeature.id.id;
   const mapid = entityId.replace(/(_image)$/, '');
 
-  const transaction = db.transaction('locationpins', 'readonly');
-  const objectStore = transaction.objectStore('locationpins');
-  const request = objectStore.get(mapid);
-
-  request.onsuccess = function(event: Event) {
-    const record = request.result;
+  try {
+    const record = await fetchRecord(mapid);
     if (record) {
-      // Show the modal and display the record
       showModal = true;
-      // Assuming you have a reactive variable for the record to be displayed in the modal
       modalRecord = record;
     }
+  } catch (error) {
+    console.error('Error fetching record:', error);
+  }
+}
+
+// Function to handle coordinate picking
+function handleCoordinatePick(result) {
+  const cartesian = viewer.scene.pickPosition(result.position);
+  if (!cartesian) return;
+
+  const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+  const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+  const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+
+  coordinates.set({ latitude: latitudeString, longitude: longitudeString });
+
+  if (pointEntity) {
+    viewer.entities.remove(pointEntity);
+  }
+
+  pointEntity = viewer.entities.add({
+    id: "pickedPoint",
+    position: cartesian,
+    point: {
+      pixelSize: 20,
+      color: Cesium.Color.GREEN,
+      disableDepthTestDistance: Number.POSITIVE_INFINITY,
+    }
+  });
+}
+
+// Debounce function to prevent multiple rapid touches
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
   };
+}
 
-  request.onerror = function(event: Event) {
-    console.error('Error fetching record:', request.error);
-  };
-}, ScreenSpaceEventType.LEFT_CLICK);
+// Event handler for picking entities
+viewer.screenSpaceEventHandler.setInputAction(async function onLeftClick(movement) {
+  const pickedFeature = viewer.scene.pick(movement.position);
+  await handleEntityPick(pickedFeature);
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
-
-// Pick coordinates
-
+// Event handler for picking coordinates
 let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-    let pointEntity; // Reference to the point entity
+let pointEntity;
 
-    handler.setInputAction(function(result) {
-      // Pick position
-      const cartesian = viewer.scene.pickPosition(result.position);
-      if (!cartesian) return;
+handler.setInputAction(debounce(function(result) {
+  handleCoordinatePick(result);
+}, 300), Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
-      // Save Cartesian coordinates (x, y, z)
-      const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+// Combined event handler for picking entities and coordinates
+viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
+  const pickedObject = viewer.scene.pick(click.position);
+  if (!Cesium.defined(pickedObject) || !pickedObject.id) return;
 
-      // Convert from Cartesian to Degrees and shorten the numbers to 7 digits after comma
-      const longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-      const latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
-
-      coordinates.set({ latitude: latitudeString, longitude: longitudeString });
-
-      // If a point entity already exists, remove it
-      if (pointEntity) {
-        viewer.entities.remove(pointEntity);
-      }
-
-      // Add a green point entity at the picked position and save the reference
-      pointEntity = viewer.entities.add({
-        id: "pickedPoint", // Unique ID for the entity
-        position: cartesian,
-        point: {
-          pixelSize: 20,
-          color: Cesium.Color.GREEN,
-          disableDepthTestDistance: Number.POSITIVE_INFINITY,
-        }
-      });
-	  
-
-    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-
-    // Add a click event listener to the viewer
-    viewer.screenSpaceEventHandler.setInputAction(function(click) {
-      const pickedObject = viewer.scene.pick(click.position);
-      if (!Cesium.defined(pickedObject) || !pickedObject.id) return;
-
-      if (pickedObject.id.id === "pickedPoint") {
-        openModalButton();
-      } else {
-        const entityId = pickedObject.id.id;
-		const mapid = entityId.replace(/(_image)$/, '');
-
-        const transaction = db.transaction('locationpins', 'readonly');
-        const objectStore = transaction.objectStore('locationpins');
-        const request = objectStore.get(mapid);
-
-        request.onsuccess = function(event) {
-          const record = request.result;
-          if (record) {
-            showModal = true;
-            modalRecord = record;
-          }
-        };
-
-        request.onerror = function(event) {
-          console.error('Error fetching record:', request.error);
-        };
-      }
-    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-
+  if (pickedObject.id.id === "pickedPoint") {
+    openModalButton();
+  } else {
+    await handleEntityPick(pickedObject);
+  }
+}, 300), Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
 
@@ -620,6 +622,8 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
   </script>
+
+  
 <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
   <main id="cesiumContainer"></main>
 </div>  
@@ -627,84 +631,60 @@ let handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
 
 
 
-  {#if showModalButton}
-	<div class="modal" transition:fade={{ duration: 500 }}>
-	  <div class="modal-category">
-	
-
-
-
-
-		<div class="close float-right" on:click={closeModalButton}>
-			<svg viewBox="0 0 36 36" class="circle">
-			  <path
-				stroke-dasharray="100, 100"
-				d="M18 2.0845
-				  a 15.9155 15.9155 0 0 1 0 31.831
-				  a 15.9155 15.9155 0 0 1 0 -31.831"
-			  />
-			</svg>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		  </div>
-	
-	
-	
-	
-	
-		
-		<div><CategoryChoice /></div>
-		
-	  </div>
-	</div>
-	{/if}
-  
-  
-
-  {#if showModal && modalRecord}
-<div class="modal" transition:fade={{ duration: 500 }}>
-  <div class="modal-record">
-
-
-
-
-
-	<div class="close float-right" on:click={closeModal}>
-		<svg viewBox="0 0 36 36" class="circle">
-		  <path
-			stroke-dasharray="100, 100"
-			d="M18 2.0845
-			  a 15.9155 15.9155 0 0 1 0 31.831
-			  a 15.9155 15.9155 0 0 1 0 -31.831"
-		  />
-		</svg>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-	  </div>
-
-
-
-
-
-	  <div>
-    <p class="title">{modalRecord.title}</p>
-    <p class="text">{modalRecord.text}</p>
-	</div>
-	<div>
-	<p class="created">CREATED {formatTimestamp(modalRecord.timestamp)}</p>
-    <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>{recordButtonText}</a></button></p>
-	</div>
-	<div><ShareButton 
-        title={modalRecord.title} 
-        text={modalRecord.text} 
-        link={modalRecord.link} 
-      /></div>
+{#if showModalButton}
+  <div class="modal" transition:fade={{ duration: 500 }}>
+    <div class="modal-category">
+      <div class="close float-right" on:click={closeModalButton}>
+        <svg viewBox="0 0 36 36" class="circle">
+          <path
+            stroke-dasharray="100, 100"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+        </svg>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div><CategoryChoice /></div>
+    </div>
   </div>
-</div>
+{/if}
+
+{#if showModal && modalRecord}
+  <div class="modal" transition:fade={{ duration: 500 }}>
+    <div class="modal-record">
+      <div class="close float-right" on:click={closeModal}>
+        <svg viewBox="0 0 36 36" class="circle">
+          <path
+            stroke-dasharray="100, 100"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+        </svg>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <p class="title">{modalRecord.title}</p>
+        <p class="text">{modalRecord.text}</p>
+      </div>
+      <div>
+        <p class="created">CREATED {formatTimestamp(modalRecord.timestamp)}</p>
+        <p><button class="glassmorphism"><a target="_blank" href={modalRecord.link}>{recordButtonText}</a></button></p>
+      </div>
+      <div><ShareButton 
+          title={modalRecord.title} 
+          text={modalRecord.text} 
+          link={modalRecord.link} 
+        /></div>
+    </div>
+  </div>
 {/if}
 
 
