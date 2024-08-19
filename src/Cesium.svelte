@@ -14,7 +14,6 @@
 	  HermitePolynomialApproximation,
 	  Cesium3DTileset,
 	  CustomDataSource,
-	  ScreenSpaceEventType,
 	} from 'cesium';
 	import * as Cesium from 'cesium';
 	import "cesium/Build/Cesium/Widgets/widgets.css";
@@ -186,16 +185,16 @@
 		let imageURL: string;
 		switch (record.category) {
 			case 'brainstorming':
-				imageURL = "./pic/brainstorming.png";
+				imageURL = "./mapicons/brainstorming.png";
 				break;
 			case 'actionevent':
-				imageURL = "./pic/actionevent.png";
+				imageURL = "./mapicons/actionevent.png";
 				break;
 			case 'petition':
-				imageURL = "./pic/petition.png";
+				imageURL = "./mapicons/petition.png";
 				break;
 			case 'crowdfunding':
-				imageURL = "./pic/crowdfunding.png";
+				imageURL = "./mapicons/crowdfunding.png";
 				break;
 			}
 
@@ -205,8 +204,8 @@
 			position: position,
 			billboard: {
 				image: imageURL,  // The URL of the PNG file
-				width: 64,        // Width of the image in pixels
-				height: 64,       // Height of the image in pixels
+				width: 50,        // Width of the image in pixels
+				height: 50,       // Height of the image in pixels
 				pixelOffset: new Cartesian2(0, -16),  // Adjust if needed
 				disableDepthTestDistance: Number.POSITIVE_INFINITY,
 			}
@@ -310,7 +309,7 @@ $: {
     });
 	
 	} catch (error) {console.log(error);}
-6
+
 	// Get the current camera position in Cartographic coordinates (longitude, latitude, height)
     var cameraPosition = viewer.scene.camera.positionCartographic;
 
@@ -456,8 +455,8 @@ $: {
 	hdr: true,
 	};
 
+
 	
-  
 	  // Open IndexedDB and fetch initial records
 	  try {
 		db = await openDB();

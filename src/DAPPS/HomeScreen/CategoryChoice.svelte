@@ -3,7 +3,6 @@
   import ActionEvent from "./ActionEvent.svelte";
   import Petition from "./Petition.svelte";
   import Crowdfunding from "./Crowdfunding.svelte";
-  import { onMount } from "svelte";
 
   let showModal = false;
   let currentComponent = null;
@@ -24,10 +23,6 @@
     showModal = false;
     currentComponent = null;
   }
-
-  onMount(() => {
-   
-  });
 </script>
 
 
