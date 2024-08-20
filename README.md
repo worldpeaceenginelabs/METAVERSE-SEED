@@ -1,3 +1,14 @@
+# Support Cloud Atlas
+
+## Funding Cloud Atlas
+Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj).
+
+## Become a Relay Node!
+Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
+
+Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br><br>
+
+
 # Index
 
 1. [Introduction](#introduction)
@@ -13,42 +24,43 @@
    - [CCC - Collective Computer Collaboration Hub (Developer Chat)](#ccc---collective-computer-collaboration-hub-developer-chat)
 
 4. [Support Cloud Atlas](#support-cloud-atlas)
+   - [Funding Cloud Atlas](#funding-cloud-atlas)
    - [Become a Relay Node](#become-a-relay-node)
 
-5. [About Metaverse-Seed](#about-metaverse-seed)
+6. [About Metaverse-Seed](#about-metaverse-seed)
    - [Cloud Atlas Overview](#cloud-atlas-overview)
    - [Decentralized Architecture](#decentralized-architecture)
 
-6. [Cloud Atlas Stack](#cloud-atlas-stack)
+7. [Cloud Atlas Stack](#cloud-atlas-stack)
 
-7. [Features](#features)
+8. [Features](#features)
    - [Already Working / What's Coming](#already-working--whats-coming)
 
-8. [Creating Your Own Apps](#creating-your-own-apps)
+9. [Creating Your Own Apps](#creating-your-own-apps)
    - [Stackblitz IDE Integration](#stackblitz-ide-integration)
    - [Future App Creation](#future-app-creation)
    - [Funding Innovation](#funding-innovation)
    - [Free Access to All Updates](#free-access-to-all-updates)
 
-9. [How to Create Your Idea, App, Game, Network](#how-to-create-your-idea-app-game-network)
+10. [How to Create Your Idea, App, Game, Network](#how-to-create-your-idea-app-game-network)
    - [No Framework Boilerplate](#no-framework-boilerplate)
    - [Connecting Creations to Coordinates](#connecting-creations-to-coordinates)
 
-10. [Summary](#summary)
+11. [Summary](#summary)
 
-11. [Resources](#resources)
+12. [Resources](#resources)
 
-12. [Imagine...](#imagine)
+13. [Imagine...](#imagine)
 
-13. [Highly Adaptable](#highly-adaptable)
+14. [Highly Adaptable](#highly-adaptable)
 
-14. [My Journey with Cloud Atlas](#my-journey-with-cloud-atlas)
+15. [My Journey with Cloud Atlas](#my-journey-with-cloud-atlas)
 
-15. [Pitch](#pitch)
+16. [Pitch](#pitch)
 
-16. [The Future](#the-future)
+17. [The Future](#the-future)
 
-17. [Some Inspiration](#some-inspiration)
+18. [Some Inspiration](#some-inspiration)
 
 <br><br><br>
 
@@ -73,7 +85,12 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
 
-# Want to Support Cloud Atlas? Become a Relay Node!
+# Support Cloud Atlas
+
+## Funding Cloud Atlas
+Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj).
+
+## Become a Relay Node!
 Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
 
 Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br><br>
