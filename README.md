@@ -1,7 +1,7 @@
 # Support Cloud Atlas
 
 ## Funding Cloud Atlas
-Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj).
+Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj). Everything above €6,000 a year will flow directly into enhancing Cloud Atlas.
 
 ## Become a Relay Node!
 Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
@@ -88,7 +88,7 @@ Become a part of Cloud Atlas today and join an exciting community that’s shapi
 # Support Cloud Atlas
 
 ## Funding Cloud Atlas
-Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj).
+Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj](https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj). Everything above €6,000 a year will flow directly into enhancing Cloud Atlas.
 
 ## Become a Relay Node!
 Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
