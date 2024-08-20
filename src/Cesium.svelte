@@ -21,8 +21,8 @@
 	import { coordinates } from './store.js';
 	import ShareButton from './Sharebutton.svelte';
 	import { fade } from 'svelte/transition';
-
-	// Declare global variables and states
+  
+	// Global variables and states
 	let showModal = false;
 	let showModalButton = false;
 	let modalRecord = null;
@@ -31,14 +31,13 @@
 	let customDataSource = new CustomDataSource('locationpins');
 	let recordButtonText = '';
   
-	// Function to open connection to IndexedDB
+	// Open connection to IndexedDB
 	const openDB = (): Promise<IDBDatabase> => {
 	  return new Promise((resolve, reject) => {
 		const request = indexedDB.open('indexeddbstore', 1);
   
 		request.onupgradeneeded = function(event: IDBVersionChangeEvent) {
 		  db = request.result;
-		  // Create object stores if they do not exist
 		  if (!db.objectStoreNames.contains('locationpins')) {
 			db.createObjectStore('locationpins', { keyPath: 'mapid' });
 		  }
@@ -59,20 +58,17 @@
 	  });
 	};
   
-	// Function to fetch and process records from IndexedDB
+	// Fetch and process records from IndexedDB
 	const fetchRecordsFromIndexedDB = () => {
-	  // Clear existing entities from the customDataSource before fetching new records
 	  customDataSource.entities.removeAll();
   
 	  const transaction = db.transaction('locationpins', 'readonly');
 	  const objectStore = transaction.objectStore('locationpins');
-  
 	  const cursorRequest = objectStore.openCursor();
   
 	  cursorRequest.onsuccess = function(event: Event) {
 		const cursor = (event.target as IDBRequest<IDBCursorWithValue>).result;
 		if (cursor) {
-		  // Process each record
 		  addRecordToMap(cursor.value);
 		  cursor.continue();
 		}
@@ -82,17 +78,13 @@
 		console.error('Error in cursor request:', cursorRequest.error);
 	  };
   
-	  transaction.oncomplete = function(event: Event) {
-		// Transaction completed
-	  };
-  
 	  transaction.onerror = function(event: Event) {
 		console.error('Error in transaction:', transaction.error);
 	  };
 	};
   
-	// Function to create a pulsating point entity
-	const createPulsatingPoint = (viewer: Viewer, pointId: string, userDestination: Cartesian3, color: Color): Entity => {
+	// Create a pulsating point entity
+	const createPulsatingPoint = (pointId: string, userDestination: Cartesian3, color: Color): Entity => {
 	  const start = JulianDate.now();
 	  const mid = JulianDate.addSeconds(start, 0.5, new JulianDate());
 	  const stop = JulianDate.addSeconds(start, 2, new JulianDate());
@@ -117,60 +109,44 @@
 		position: userDestination,
 		point: {
 		  pixelSize: pulseProperty,
-		  color: Cesium.Color.fromCssColorString('#4285F4'), // Blue color
-        outlineColor: Cesium.Color.WHITE, // White edge
-        outlineWidth: 1, // Width of the white edge
+		  color: Cesium.Color.fromCssColorString('#4285F4'),
+		  outlineColor: Cesium.Color.WHITE,
+		  outlineWidth: 1,
 		  disableDepthTestDistance: Number.POSITIVE_INFINITY,
 		},
 	  });
-	  
 	};
   
-	// Function to fetch user's geolocation
+	// Fetch user's geolocation
 	const getLocationFromNavigator = (): Promise<GeolocationPosition> => {
 	  return new Promise((resolve, reject) => {
 		if (navigator.geolocation) {
-		  navigator.geolocation.getCurrentPosition(
-			(position) => resolve(position),
-			(error) => reject(error)
-		  );
+		  navigator.geolocation.getCurrentPosition(resolve, reject);
 		} else {
 		  reject(new Error('Geolocation is not supported by this browser.'));
 		}
 	  });
 	};
   
-	// Function to add user's location as a pulsating point on the map
+	// Add user's location as a pulsating point on the map
 	const addUserLocation = async () => {
-	  let userLocation: GeolocationPosition | null = null;
 	  try {
-		userLocation = await getLocationFromNavigator();
+		const userLocation = await getLocationFromNavigator();
+		if (userLocation) {
+		  const { longitude, latitude } = userLocation.coords;
+		  const userPosition = Cartesian3.fromDegrees(longitude, latitude, 100);
+  
+		  const userLocationEntity = createPulsatingPoint('Your Location!', userPosition, Cesium.Color.BLUE);
+		  viewer.entities.add(userLocationEntity);
+  
+		  setTimeout(() => {
+			viewer.camera.flyTo({
+			  destination: Cartesian3.fromDegrees(longitude, latitude, 20000000.0),
+			});
+		  }, 3000);
+		}
 	  } catch (error) {
 		console.error(error);
-		return;
-	  }
-  
-	  if (userLocation !== null) {
-		const longitude = userLocation.coords.longitude;
-		const latitude = userLocation.coords.latitude;
-		const height = 100;
-  
-		const userPosition = Cartesian3.fromDegrees(longitude, latitude, height);
-		
-		
-  
-		const userLocationEntity = createPulsatingPoint(viewer, 'Your Location!', userPosition);
-		
-		viewer.entities.add(userLocationEntity);
-		
-		setTimeout(() => {
-      // Fly to the user's location
-		viewer.camera.flyTo({
-		  destination: Cartesian3.fromDegrees(longitude, latitude, 20000000.0),
-		});
-    	}, 3000);
-
-
 	  }
 	};
   
@@ -200,7 +176,7 @@
 
 		// Create an image entity for the record
 		const imageEntity = new Entity({
-			id: record.mapid + "_image",
+			id: `${record.mapid}_image`,
 			position: position,
 			billboard: {
 				image: imageURL,  // The URL of the PNG file
@@ -216,46 +192,33 @@
 		console.error('Invalid latitude or longitude for record:', record);
 	}
 };
-
-
-// Reactive statement to update recordButtonText based on modalRecord
-$: {
-		if (modalRecord) {
-			switch (modalRecord.category) {
-				case 'brainstorming':
-					recordButtonText = "Join Brainstorming";
-					break;
-				case 'actionevent':
-					recordButtonText = "Take Action Now";
-					break;
-				case 'petition':
-					recordButtonText = "Sign Now";
-					break;
-				case 'crowdfunding':
-					recordButtonText = "Back this Project";
-					break;	
-				default:
-					recordButtonText = "Learn More"; // Default text
-			}
-		} else {
-			recordButtonText = "";
-		}
+  
+	// Reactive statement to update recordButtonText based on modalRecord
+	$: {
+	if (modalRecord) {
+		const categoryMap = {
+		brainstorming: "Join Brainstorming",
+		actionevent: "Take Action Now",
+		petition: "Sign Now",
+		crowdfunding: "Back this Project",
+		};
+		recordButtonText = categoryMap[modalRecord.category] || "Go";
+	} else {
+		recordButtonText = "Go";
+	}
 	}
 
 
   
 	// Initialization on mount
 	onMount(async () => {
-	
-	// Set Cesium's base URL and access token
 	  window.CESIUM_BASE_URL = './';
+	  Ion.defaultAccessToken = import.meta.env.VITE_ION_ACCESS_TOKEN;
+	// FOR LIVE EDIT: Ion.defaultAccessToken = 'yourtoken';
+	// TO USE THE GLOBE IN LIVE EDIT GET A FREE API KEY AT https://ion.cesium.com/
 
-	  const ionaccesstoken = import.meta.env.VITE_ION_ACCESS_TOKEN;
-	  Ion.defaultAccessToken = ionaccesstoken;
-	  // FOR LIVE EDIT: Ion.defaultAccessToken = 'yourtoken';
-	  // TO USE THE GLOBE IN LIVE EDIT GET A FREE API KEY AT https://ion.cesium.com/
-
-	  // Initialize Cesium viewer with specified configuration options
+	  
+	  // Initialize Cesium viewer with configuration
 	  viewer = new Viewer('cesiumContainer', {
 		animation: false,
 		fullscreenButton: false,
@@ -268,196 +231,72 @@ $: {
 		navigationHelpButton: false,
 		shouldAnimate: true,
 		skyBox: false,
-		contextOptions: {
-		webgl: {
-		alpha: true
-		},
-		},
-		// 2D and Columbus View are not currently supported
-		// for global 3D Tiles tilesets
 		sceneModePicker: false,
-		// Imagery layers are not currently supported for
-		// global 3D Tiles tilesets
 		baseLayerPicker: false,
+		contextOptions: {
+		  webgl: { alpha: true },
+		},
 	  });
 	
 	// Render the Cesium Container background transparent
-	viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
+	  viewer.scene.backgroundColor = Cesium.Color.TRANSPARENT;
+
+	// Remove the doubleclick event handler
+	  viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
+  
+	  // Load Cesium 3D Tileset
+	  try {
+		const tileset = await Cesium3DTileset.fromIonAssetId(2275207);
+		viewer.scene.primitives.add(tileset);
 	
-	// remove the doubleclick event handler
-	viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
-	
-	// Load Cesium 3D Tileset from Cesium Ion using the specified asset ID (2275207=Google Photorealistic Earth)
-	try {const tileset = await Cesium3DTileset.fromIonAssetId(2275207);viewer.scene.primitives.add(tileset);
-
-	// Initially hide the 3D tileset
-    tileset.show = true;
-		
-    // Set up a camera move end event listener
-    viewer.camera.moveEnd.addEventListener(function () {
-      const height = viewer.camera.positionCartographic.height; console.log(`Distance to ground ${Math.floor(height / 1000)} km`);
-
-      if (height > 6000000) {
-        // Show the base layer and hide the 3D tileset
-        globe.show = true;
-        tileset.show = false;
-      } else {
-        // Hide the base layer and show the 3D tileset
-        globe.show = false;
-        tileset.show = true;
-      }
-    });
-	
-	} catch (error) {console.log(error);}
-
-	// Get the current camera position in Cartographic coordinates (longitude, latitude, height)
-    var cameraPosition = viewer.scene.camera.positionCartographic;
-
-    // Update the camera's position with the new height
-	viewer.scene.camera.setView({
-        destination: Cesium.Cartesian3.fromRadians(
-            cameraPosition.longitude,
-            cameraPosition.latitude,
-            20000000
-        ),
-        orientation: {
-            heading: viewer.scene.camera.heading,
-            pitch: viewer.scene.camera.pitch,
-            roll: viewer.scene.camera.roll
-        }
-    });
-
-	  // Atmosphere
-	  const scene = viewer.scene;
-		const globe = scene.globe;
-		const skyAtmosphere = scene.skyAtmosphere;
-
-		scene.highDynamicRange = true;
-		globe.enableLighting = true;
-		globe.atmosphereLightIntensity = 20.0;
-
-		// Function to get the current time in ISO 8601 format
+		// Initially hide the 3D tileset
+		tileset.show = true;
+  
+		viewer.camera.moveEnd.addEventListener(() => {
+		  const height = viewer.camera.positionCartographic.height;
+		  if (height > 6000000) {
+			// Show the base layer and hide the 3D tileset
+			globe.show = true;
+			tileset.show = false;
+		  } else {
+			// Hide the base layer and show the 3D tileset
+			globe.show = false;
+			tileset.show = true;
+		  }
+		});
+	  } catch (error) {
+		console.log(error);
+	  }
+  
+	  // Set initial camera position
+	  const cameraPosition = viewer.scene.camera.positionCartographic;
+	  viewer.scene.camera.setView({
+		destination: Cartesian3.fromRadians(cameraPosition.longitude, cameraPosition.latitude, 20000000),
+		orientation: {
+		  heading: viewer.scene.camera.heading,
+		  pitch: viewer.scene.camera.pitch,
+		  roll: viewer.scene.camera.roll,
+		},
+	  });
+	  
+	// Function to get the current time in ISO 8601 format
 	function getCurrentTimeIso8601() {
-		const now = new Date();
-		return now.toISOString();
-		}
+	const now = new Date();
+	return now.toISOString();
+	}
 
     // Get the current time in ISO 8601 format and update the viewer's clock
     const currentTime = getCurrentTimeIso8601();
     viewer.clock.currentTime = JulianDate.fromIso8601(currentTime);
 
-	const canvas = viewer.canvas;
-	canvas.setAttribute("tabindex", "0"); // needed to put focus on the canvas
-	canvas.onclick = function () {
-	canvas.focus();
-	};
-
-	const defaultGroundAtmosphereLightIntensity =
-	globe.atmosphereLightIntensity;
-	const defaultGroundAtmosphereRayleighCoefficient =
-	globe.atmosphereRayleighCoefficient;
-	const defaultGroundAtmosphereMieCoefficient =
-	globe.atmosphereMieCoefficient;
-	const defaultGroundAtmosphereMieAnisotropy =
-	globe.atmosphereMieAnisotropy;
-	const defaultGroundAtmosphereRayleighScaleHeight =
-	globe.atmosphereRayleighScaleHeight;
-	const defaultGroundAtmosphereMieScaleHeight =
-	globe.atmosphereMieScaleHeight;
-	const defaultGroundAtmosphereHueShift = globe.atmosphereHueShift;
-	const defaultGroundAtmosphereSaturationShift =
-	globe.atmosphereSaturationShift;
-	const defaultGroundAtmosphereBrightnessShift =
-	globe.atmosphereBrightnessShift;
-	const defaultLightFadeOut = globe.lightingFadeOutDistance;
-	const defaultLightFadeIn = globe.lightingFadeInDistance;
-	const defaultNightFadeOut = globe.nightFadeOutDistance;
-	const defaultNightFadeIn = globe.nightFadeInDistance;
-
-	const defaultSkyAtmosphereLightIntensity =
-	skyAtmosphere.atmosphereLightIntensity;
-	const defaultSkyAtmosphereRayleighCoefficient =
-	skyAtmosphere.atmosphereRayleighCoefficient;
-	const defaultSkyAtmosphereMieCoefficient =
-	skyAtmosphere.atmosphereMieCoefficient;
-	const defaultSkyAtmosphereMieAnisotropy =
-	skyAtmosphere.atmosphereMieAnisotropy;
-	const defaultSkyAtmosphereRayleighScaleHeight =
-	skyAtmosphere.atmosphereRayleighScaleHeight;
-	const defaultSkyAtmosphereMieScaleHeight =
-	skyAtmosphere.atmosphereMieScaleHeight;
-	const defaultSkyAtmosphereHueShift = skyAtmosphere.hueShift;
-	const defaultSkyAtmosphereSaturationShift =
-	skyAtmosphere.saturationShift;
-	const defaultSkyAtmosphereBrightnessShift =
-	skyAtmosphere.brightnessShift;
-
-	const viewModel = {
-	// Globe settings
-
-	enableTerrain: false,
-	enableLighting: true,
-	groundTranslucency: false,
-
-	// Ground atmosphere settings
-
-	showGroundAtmosphere: true,
-	groundAtmosphereLightIntensity: defaultGroundAtmosphereLightIntensity,
-	groundAtmosphereRayleighCoefficientR:
-		defaultGroundAtmosphereRayleighCoefficient.x / 1e-6,
-	groundAtmosphereRayleighCoefficientG:
-		defaultGroundAtmosphereRayleighCoefficient.y / 1e-6,
-	groundAtmosphereRayleighCoefficientB:
-		defaultGroundAtmosphereRayleighCoefficient.z / 1e-6,
-	groundAtmosphereMieCoefficient:
-		defaultGroundAtmosphereMieCoefficient.x / 1e-6,
-	groundAtmosphereRayleighScaleHeight: defaultGroundAtmosphereRayleighScaleHeight,
-	groundAtmosphereMieScaleHeight: defaultGroundAtmosphereMieScaleHeight,
-	groundAtmosphereMieAnisotropy: defaultGroundAtmosphereMieAnisotropy,
-	groundHueShift: defaultGroundAtmosphereHueShift,
-	groundSaturationShift: defaultGroundAtmosphereSaturationShift,
-	groundBrightnessShift: defaultGroundAtmosphereBrightnessShift,
-	lightingFadeOutDistance: defaultLightFadeOut,
-	lightingFadeInDistance: defaultLightFadeIn,
-	nightFadeOutDistance: defaultNightFadeOut,
-	nightFadeInDistance: defaultNightFadeIn,
-
-	// Sky atmosphere settings
-
-	showSkyAtmosphere: true,
-	skyAtmosphereLightIntensity: defaultSkyAtmosphereLightIntensity,
-	skyAtmosphereRayleighCoefficientR:
-		defaultSkyAtmosphereRayleighCoefficient.x / 1e-6,
-	skyAtmosphereRayleighCoefficientG:
-		defaultSkyAtmosphereRayleighCoefficient.y / 1e-6,
-	skyAtmosphereRayleighCoefficientB:
-		defaultSkyAtmosphereRayleighCoefficient.z / 1e-6,
-	skyAtmosphereMieCoefficient:
-		defaultSkyAtmosphereMieCoefficient.x / 1e-6,
-	skyAtmosphereRayleighScaleHeight: defaultSkyAtmosphereRayleighScaleHeight,
-	skyAtmosphereMieScaleHeight: defaultSkyAtmosphereMieScaleHeight,
-	skyAtmosphereMieAnisotropy: defaultSkyAtmosphereMieAnisotropy,
-	skyHueShift: defaultSkyAtmosphereHueShift,
-	skySaturationShift: defaultSkyAtmosphereSaturationShift,
-	skyBrightnessShift: defaultSkyAtmosphereBrightnessShift,
-	perFragmentAtmosphere: false,
-	dynamicLighting: true,
-	dynamicLightingFromSun: false,
-
-	// Fog settings
-
-	showFog: true,
-	density: 1.0,
-	minimumBrightness: 0.03,
-
-	// Scene settings
-
-	hdr: true,
-	};
-
-
-	
-	  // Open IndexedDB and fetch initial records
+	  // Atmosphere settings
+	  const scene = viewer.scene;
+	  const globe = scene.globe;
+	  globe.enableLighting = true;
+	  globe.atmosphereLightIntensity = 20.0;
+	  scene.highDynamicRange = true;
+  
+	  // Initialize IndexedDB and fetch initial records
 	  try {
 		db = await openDB();
 		fetchRecordsFromIndexedDB();
@@ -465,26 +304,20 @@ $: {
 		console.error('Failed to open IndexedDB:', error);
 	  }
   
-	  // Call functions to add user location and label for records
+	  // Add user location and fetch records periodically
 	  addUserLocation();
-  
-	  // Periodically fetch records from IndexedDB every 5000 milliseconds
 	  setInterval(fetchRecordsFromIndexedDB, 5000);
   
-	  // Add the custom data source with clustering enabled
+	  // Set up clustering for the custom data source
 	  customDataSource.clustering.enabled = true;
-	  customDataSource.clustering.pixelRange = 30;
+	  customDataSource.clustering.pixelRange = 10;
 	  customDataSource.clustering.minimumClusterSize = 2;
-	  customDataSource.clustering.clusterLabels = true;
-	  customDataSource.clustering.clusterPoints = false;
   
 	  viewer.dataSources.add(customDataSource);
 
 
 
 // This block handles user interactions with the Cesium viewer, including picking entities and coordinates.
-
-
 
 // Function to fetch record from IndexedDB
 async function fetchRecord(mapid) {
@@ -584,7 +417,6 @@ viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
 
 
 
-
 	});
   
 	// Function to open modal
@@ -601,6 +433,8 @@ viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
 	function closeModal() {
 	  showModal = false;
 	}
+  
+
 	
 	// Function to format the timestamp on the posts
 	function formatTimestamp(timestamp) {
@@ -616,12 +450,10 @@ viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
 
     // formating the timestamp output
     return `${day}.${month}.${year} ${hours}:${minutes}:${seconds} UTC`;
-  }
-
-  
-
+  	}
 
   </script>
+  
 
   
 <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
@@ -634,6 +466,8 @@ viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
 {#if showModalButton}
   <div class="modal" transition:fade={{ duration: 500 }}>
     <div class="modal-category">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div class="close float-right" on:click={closeModalButton}>
         <svg viewBox="0 0 36 36" class="circle">
           <path
@@ -656,6 +490,8 @@ viewer.screenSpaceEventHandler.setInputAction(debounce(async function(click) {
 {#if showModal && modalRecord}
   <div class="modal" transition:fade={{ duration: 500 }}>
     <div class="modal-record">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div class="close float-right" on:click={closeModal}>
         <svg viewBox="0 0 36 36" class="circle">
           <path
