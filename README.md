@@ -126,6 +126,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 - [x] Link validation: Is performed using two methods: 1. A regex pattern checks if the string .starts with https://desireddomain.org/ID (implemented/works), 2. Before submission, the app fetches the link. If the response is 200, the link is validated; if 404, the link is denied. (doesnt work for now due to CORS issue)
 - [x] Home Screen Dapps: Brainstorming (Zoom.us), ActionEvent (Telegram), Petition (Change.org), Crowdfunding (GoFundMe.com)
 - [ ] Template from Home Screen Dapps and distribution of Cesium, Trystero and UI for your creations.
+- [ ] For developers and non-technicians: GitHub Workspace Integration - "If you can describe it, you can code it"
 - [ ] USE YOUR OWN MAPTILE API KEY: Drop your API KEY and use your own free tier. The key stays local with you and will not be synced. Option for storing it in indexeddb or dropping the key every time manually.
 - [ ] Fallback on another decentralized network: The Nostr network serves as a fallback in case the BitTorrent network fails for any reason.
 - [ ] Swearwords Detection: a static list or API
