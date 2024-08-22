@@ -70,7 +70,7 @@
     
     <h4><strong>🔥 Want more apps? Reach out to me and our community anytime on GitHub, Element.io (DEVChat), or during our upcoming weekly Zoom brainstorming sessions on YouTube.</strong></h4><br>
 
-    <strong>Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: 1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj. Everything above €6,000 a year will flow directly into enhancing Cloud Atlas.</strong>
+    <strong>Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: 12KQqWzc4BkVgm6syqEMjy3yoBd7hhoCHA. Everything above €6,000 a year will flow directly into enhancing Cloud Atlas.</strong>
     <br><br>
     <div class="center"><h4><strong>⚠️ Please note our one essential guideline:⚠️</strong></h4></div>
     <h4 style="text-align:justify;">
@@ -87,7 +87,7 @@
     <a href="https://worldpeaceenginelabs.org/" target="_blank">
         <img class="bottomicons" style="background-color: white;" src="./icons/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
     </a>
-    <a href="https://bitcoinblockexplorers.com" target="_blank">
+    <a href="https://bitcoinblockexplorers.com/address/12KQqWzc4BkVgm6syqEMjy3yoBd7hhoCHA" target="_blank">
       <img class="bottomicons" src="./icons/bitcoin.png" alt="" title="Donate Bitcoin" height="30" width="30">
   </a>
     <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">
