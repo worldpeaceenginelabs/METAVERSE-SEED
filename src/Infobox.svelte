@@ -87,7 +87,7 @@
     <a href="https://worldpeaceenginelabs.org/" target="_blank">
         <img class="bottomicons" style="background-color: white;" src="./icons/tree-icon.gif" alt="" title="World Peace Engine Labs" height="30" width="30">
     </a>
-    <a href="https://bitcoinblockexplorers.com/address/1JncJkm2FwuuNBYH1w2HxnbQ2uphmJyYGj" target="_blank">
+    <a href="https://bitcoinblockexplorers.com" target="_blank">
       <img class="bottomicons" src="./icons/bitcoin.png" alt="" title="Donate Bitcoin" height="30" width="30">
   </a>
     <a href="https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im" target="_blank">
