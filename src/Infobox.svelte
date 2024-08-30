@@ -37,14 +37,17 @@
   </div>
 
   <div class="textbox" style="text-align:center;">
-    <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world, <strong>run by the people, for the people.</strong></h4>
+    <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world, <strong>run by the people, for the people.</strong><br><br>
+      <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
+    
+    
+    </h4>
   
-
+    
     <h4 style="text-align:justify;">
-    <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
     <strong>What is Cloud Atlas?</strong><br>
     Cloud Atlas is an independent, <strong>community-owned Google Earth</strong>, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer!<br><br>
-    
+    <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
     <strong>Where Your Vision Meets Collective Action...</strong><br>
     The <strong>Home Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm (zoom.us)</strong> solutions,  with people from all walks of life, realize your solutions through collaborations or sheer manpower with <strong>ActionEvents (Telegram)</strong>, secure eventually necessary permissions to enhance public spaces via <strong>Petition (change.org)</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding (gofundme.com).</strong><br><br>
     
