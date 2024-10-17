@@ -37,10 +37,9 @@
   </div>
 
   <div class="textbox" style="text-align:center;">
+    
     <h4><strong>Welcome to Cloud Atlas</strong><br>Your gateway to a new decentralized world, <strong>run by the people, for the people.</strong><br><br>
-      <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
-    
-    
+    <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
     </h4>
   
     

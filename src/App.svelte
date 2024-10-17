@@ -12,7 +12,7 @@
     let pictureUrl = "./cloudatlas8kzip.jpg";
     let quote = "“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.” Buckminster Fuller";
   
-    const isVisible = writable(true);
+    const isVisible = writable(false);
   </script>
   
   <div>
