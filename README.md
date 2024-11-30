@@ -1,4 +1,5 @@
 ![image](https://github.com/user-attachments/assets/f3ae5569-5822-485d-af0c-9e0eca9deff1)
+<br><br>
 ![image](https://github.com/user-attachments/assets/b002e6a8-ad64-45a2-bdb0-7f6b69897971)
 
 # Support Cloud Atlas
@@ -11,60 +12,47 @@ Become a contributor to our network by simply pinning the Cloud Atlas tab in you
 
 Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br><br>
 
-
-# Index
+# Table of Contents
 
 1. [Introduction](#introduction)
-   - [Restarted Project](#restarted-project)
-   - [Inspirational Quote](#inspirational-quote)
+    - [Welcome to Cloud Atlas](#welcome-to-cloud-atlas)
+    - [Live Links](#live-links)
+    - [Community and Collaboration](#community-and-collaboration)
 
-2. [Welcome to Cloud Atlas](#welcome-to-cloud-atlas)
-   - [Live Domain](#live-domain)
-   - [Live Edit on Stackblitz](#live-edit-on-stackblitz)
-   - [Live Preview](#live-preview)
+2. [About Cloud Atlas](#about-cloud-atlas)
+    - [Vision and Mission](#vision-and-mission)
+    - [What Makes Cloud Atlas Unique](#what-makes-cloud-atlas-unique)
+    - [Core Features](#core-features)
 
-3. [Join our Community](#join-our-community)
-   - [CCC - Collective Computer Collaboration Hub (Developer Chat)](#ccc---collective-computer-collaboration-hub-developer-chat)
+3. [Implemented Features](#implemented-features)
+4. [Planned Features](#planned-features)
 
-4. [Support Cloud Atlas](#support-cloud-atlas)
-   - [Funding Cloud Atlas](#funding-cloud-atlas)
-   - [Become a Relay Node](#become-a-relay-node)
+5. [Tech Stack](#tech-stack)
 
-6. [About Metaverse-Seed](#about-metaverse-seed)
-   - [Cloud Atlas Overview](#cloud-atlas-overview)
-   - [Decentralized Architecture](#decentralized-architecture)
+6. [Developer Guide](#developer-guide)
+    - [Getting Started](#getting-started)
+    - [Building Your Own Apps](#building-your-own-apps)
+    - [Stackblitz IDE Integration](#stackblitz-ide-integration)
+    - [Creating with Cloud Atlas](#creating-with-cloud-atlas)
 
-7. [Cloud Atlas Stack](#cloud-atlas-stack)
+7. [Supported Platforms and Tools](#supported-platforms-and-tools)
+8. [App Examples](#app-examples)
 
-8. [Features](#features)
-   - [Already Working / What's Coming](#already-working--whats-coming)
+9. [Decentralization Explained](#decentralization-explained)
+    - [CesiumJS and 3D Globe](#cesiumjs-and-3d-globe)
+    - [Trystero and WebRTC](#trystero-and-webrtc)
 
-9. [Creating Your Own Apps](#creating-your-own-apps)
-   - [Stackblitz IDE Integration](#stackblitz-ide-integration)
-   - [Future App Creation](#future-app-creation)
-   - [Funding Innovation](#funding-innovation)
-   - [Free Access to All Updates](#free-access-to-all-updates)
+10. [Imagining the Future](#imagining-the-future)
+    - [Potential Applications](#potential-applications)
+    - [Societal Impacts](#societal-impacts)
 
-10. [How to Create Your Idea, App, Game, Network](#how-to-create-your-idea-app-game-network)
-   - [No Framework Boilerplate](#no-framework-boilerplate)
-   - [Connecting Creations to Coordinates](#connecting-creations-to-coordinates)
+11. [Resources and References](#resources-and-references)
 
-11. [Summary](#summary)
+12. [Status and Updates](#status-and-updates)
 
-12. [Resources](#resources)
+13. [My Journey](#my-journey)
 
-13. [Imagine...](#imagine)
-
-14. [Highly Adaptable](#highly-adaptable)
-
-15. [My Journey with Cloud Atlas](#my-journey-with-cloud-atlas)
-
-16. [Pitch](#pitch)
-
-17. [The Future](#the-future)
-
-18. [Some Inspiration](#some-inspiration)
-
+14. [Get Involved](#get-involved)
 <br><br><br>
 
 
@@ -88,7 +76,7 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
 
-# Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
+# Cloud Atlas, a Collective Computer akin to those from the movies...
 
 ### Cloud Atlas - An independent, community-owned Google Earth, free from centralized servers and overpowered entities, owned solely by you and the public! A Collective Computer...<br>
 ### No need for back-end servers! Cloud Atlas syncs via public tracker networks using BitTorrent, with Nostr as a fallback coming soon. However, persistent storage and computational power (cloud/servers) can be simply added if needed.<br>
