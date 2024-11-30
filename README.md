@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/f3ae5569-5822-485d-af0c-9e0eca9deff1)
 <br><br>
-![image](https://github.com/user-attachments/assets/b002e6a8-ad64-45a2-bdb0-7f6b69897971)
+![image](https://github.com/user-attachments/assets/07e6952c-6459-4284-a8a6-67cb1789b357)
 
 # Support Cloud Atlas
 
