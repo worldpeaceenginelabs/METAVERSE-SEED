@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/0d28c258-3a2a-433e-af99-8f891b51c07b)
+![image](https://github.com/user-attachments/assets/f3ae5569-5822-485d-af0c-9e0eca9deff1)
+![image](https://github.com/user-attachments/assets/b002e6a8-ad64-45a2-bdb0-7f6b69897971)
 
 # Support Cloud Atlas
 
@@ -86,17 +87,6 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 [CCC - Collective Computer Collaboration Hub (Developer Chat)](https://app.element.io/#/room/#METAVERSE-DAO_CLOUD-ATLAS_community:gitter.im) <br>
 Become a part of Cloud Atlas today and join an exciting community that’s shaping a brighter future. Together, we can forge a better world for ourselves and the generations to come.
 <br><br>
-
-# Support Cloud Atlas
-
-## Funding Cloud Atlas
-Cloud Atlas, my passion project, intentionally remains non-profit and free forever. However, I dream of turning it into a full-time job while traveling. With just €6,000 for an entire year, I could dedicate myself fully to Cloud Atlas and lead a decent life. Please consider supporting me by contributing to my Bitcoin address: [12KQqWzc4BkVgm6syqEMjy3yoBd7hhoCHA](https://bitcoinblockexplorers.com/address/12KQqWzc4BkVgm6syqEMjy3yoBd7hhoCHA). Everything above €6,000 a year will flow directly into enhancing Cloud Atlas.
-
-## Become a Relay Node!
-Become a contributor to our network by simply pinning the Cloud Atlas tab in your desktop browser and help us grow.
-
-Background: Cloud Atlas operates on a decentralized back-end, synchronizing through WebRTC and signaling over the BitTorrent tracker network. By simply running our page, you become an integral part of our infrastructure as a relay node.<br><br><br>
-
 
 # Metaverse-Seed is the repository where we collaboratively work together on Cloud Atlas, a Collective Computer akin to those from the movies...
 
