@@ -59,7 +59,7 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 
 
 
-Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app is Cloud Atlas<br><br>
+Restarted Project The Seed on 30.03.2024<br><br>
 
 ![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
 # You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete. _Buckminster Fuller_
@@ -69,7 +69,7 @@ Restarted Project The Seed on 30.03.2024, now Metaverse-Seed, which the main app
 # Welcome to Cloud Atlas!
 
 **Live Domain:** [cloudatlas.club](https://cloudatlas.club)  
-**Live Edit on Stackblitz:** [Metaverse-Seed (MAIN)](https://stackblitz.com/github/worldpeaceenginelabs/METAVERSE-SEED)  
+**Live Edit on Stackblitz:** [Metaverse-Seed (MAIN)](https://stackblitz.com/github/worldpeaceenginelabs/CLOUD-ATLAS-OS)  
 **Live Preview:** [Preview](https://preview.metaverse-seed.pages.dev/)
 <br><br>
 
