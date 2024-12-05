@@ -69,7 +69,7 @@ Restarted Project The Seed on 30.03.2024<br><br>
 # Welcome to Cloud Atlas!
 
 **Live Domain:** [cloudatlas.club](https://cloudatlas.club)  
-**Live Edit on Stackblitz:** [Metaverse-Seed (MAIN)](https://stackblitz.com/github/worldpeaceenginelabs/CLOUD-ATLAS-OS)  
+**Live Edit on Stackblitz:** [CLOUD ATLAS OS (MAIN)](https://stackblitz.com/github/worldpeaceenginelabs/CLOUD-ATLAS-OS)  
 **Live Preview:** [Preview](https://preview.metaverse-seed.pages.dev/)
 <br><br>
 
