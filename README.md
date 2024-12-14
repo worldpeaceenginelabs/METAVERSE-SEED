@@ -1,9 +1,8 @@
-![image](https://github.com/user-attachments/assets/a711579f-2042-42d5-a9f6-4c3c161596cc)
+![image](https://github.com/user-attachments/assets/fd90a751-4381-4679-852e-dbfa01b240bf)
 <br><br>
 ![image](https://github.com/user-attachments/assets/e630a5a4-9309-45ea-a64f-168a049d3e81)
 <br><br>
-![image](https://github.com/user-attachments/assets/07e6952c-6459-4284-a8a6-67cb1789b357)
-
+![image](https://github.com/user-attachments/assets/69342182-2418-498b-8f48-0b978d95eed5)
 # Support Cloud Atlas
 
 ## Funding Cloud Atlas
