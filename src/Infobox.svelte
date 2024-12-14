@@ -38,7 +38,7 @@
 
   <div class="textbox" style="text-align:center;">
     
-    <h4><strong>Welcome to the Cloud Atlas</strong><br>Your gateway to a new decentralized world, <strong>run by the people, for the people.</strong><br><br>
+    <h4><strong>Cloud Atlas OS<br>A Community-Owned Google Maps featuring a Community-Driven dApp Store with Built-In Backend - Spatial Intelligence baked in. Run by the people, for the people.<br>But this is more than just a map...</strong><br><br>
     <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
     </h4>
   
