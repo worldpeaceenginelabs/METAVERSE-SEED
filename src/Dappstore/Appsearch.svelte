@@ -18,7 +18,7 @@
 <div class="searchcontainer">
     <input
         class="searchfield"
-        placeholder="DAPP-STORE"
+        placeholder="dAppStore"
         bind:value={searchTerm}
         on:focus={() => isFocused = true}
         use:clickOutside

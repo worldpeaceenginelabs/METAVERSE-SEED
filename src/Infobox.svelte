@@ -38,14 +38,14 @@
 
   <div class="textbox" style="text-align:center;">
     
-    <h4><strong>Cloud Atlas OS<br>A Community-Owned Google Maps featuring a Community-Driven dApp Store with Built-In Backend - Spatial Intelligence baked in. Run by the people, for the people.<br>But this is more than just a map...</strong><br><br>
+    <h4><strong>Cloud Atlas OS<br>A Community-Owned Google Maps 🔥 featuring a Community-Driven dApp Store 🔥 with Built-In Backend 🔥 Spatial Intelligence baked in 🔥 Run by the people, for the people.<br>But this is more than just a map...</strong><br><br>
     <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
     </h4>
   
     
     <h4 style="text-align:justify;">
     <strong>What is Cloud Atlas?</strong><br>
-    Cloud Atlas is an decentralized, Community-Owned Google Maps featuring a Community-Driven dApp Store with Built-In Backend 🔥🔥🔥 free from centralized servers and monopolistic control.<br>Owned by you and the public, it’s truly a Collective Computer!<br><br>
+    Cloud Atlas is a decentralized, community-owned real-world platform - free from centralized servers and monopolistic control. Entirely owned by you and the public, it’s truly a Global Public Collective Computer!<br><br>
     <strong>Our Main Directive:</strong> "Make the world work for 100% of humanity, in the shortest possible time, through spontaneous cooperation, without ecological offense or the disadvantage of anyone." <strong>Buckminster Fuller</strong><br><br>
     <strong>Where Your Vision Meets Collective Action...</strong><br>
     The <strong>Home Screen</strong> is a social network for crowdengineering good deeds where you can actively create and participate in missions addressing <strong>local and global</strong> issues. It offers a space to <strong>brainstorm (zoom.us)</strong> solutions,  with people from all walks of life, realize your solutions through collaborations or sheer manpower with <strong>in-person ActionEvents (Telegram's live location feature allows up to 200,000 users to coordinate seamlessly)</strong>, secure eventually necessary permissions to enhance public spaces via <strong>Petition (change.org)</strong>, and turn your visionary ideas into reality with the power of <strong>Crowdfunding (gofundme.com).</strong><br><br>
