@@ -5,6 +5,8 @@ We’ve developed **Crowd Engineering** into a **social network application**.
 **Cloud Atlas OS** is a revolutionary, decentralized, and community-owned **real-world platform**. Think of it as a community-owned Google Maps, Wikipedia, and App Store combined – all **without server farms, costs, or central authority**. It is **fully self-scaling** and designed to empower users worldwide.
 
 <br><br><br>
+![image](https://github.com/user-attachments/assets/27fd64c9-28b7-492c-a5d9-6f180fb5817c)
+<br><br><br>
 
 ## **Core Components**
 
@@ -18,6 +20,8 @@ Picture a **3D animated Wikipedia where articles visually roam the globe**, repr
 
 ### **3. Community-Driven DApp Store with Integrated Decentralized Back-End**
 ![image](https://github.com/user-attachments/assets/094a5a7d-9cd4-440c-b469-67257752a645)
+![image](https://github.com/user-attachments/assets/e630a5a4-9309-45ea-a64f-168a049d3e81)
+![image](https://github.com/user-attachments/assets/69342182-2418-498b-8f48-0b978d95eed5)
 - **Universal Developer & Platform Compatibility**: Developers can create **with their preferred tools for all platforms**.
 - **In-Browser Development**: Create directly in your browser with ease. Did you know? **Node.js now runs in browsers**!
 - **Self-Scaling Apps**: Leveraging **WebRTC** and **public BitTorrent tracker networks** for data transfer and signaling, **dApps scale automatically**, eliminating the need for centralized servers.<br><br>
@@ -29,18 +33,6 @@ The first privately developed dApp, **Couchsurfing Free**, sets the stage for wh
 ---
 
 **Let’s build a future without limits, together**
-
----
-
-![image](https://github.com/user-attachments/assets/27fd64c9-28b7-492c-a5d9-6f180fb5817c)
-
----
-
-![image](https://github.com/user-attachments/assets/e630a5a4-9309-45ea-a64f-168a049d3e81)
-
----
-
-![image](https://github.com/user-attachments/assets/69342182-2418-498b-8f48-0b978d95eed5)
 
 ---
 
