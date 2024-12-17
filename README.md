@@ -11,24 +11,31 @@ We’ve developed **Crowd Engineering** into a **social network application**.
 ## **Core Components**
 
 ### **1. Decentralized Government**
+A bold reimagining of governance that transforms **brainstorming, group action, petitioning,** and **crowdfunding** into an action-oriented system. Whether it’s addressing local challenges or tackling global issues, anyone can create or join missions, making governance accessible and participatory. This isn’t just governance - it’s empowerment at scale.<br>
+
 ![image](https://github.com/user-attachments/assets/ef465199-8a65-465f-8c84-720b2f166ce3)
-A bold reimagining of governance that transforms **brainstorming, group action, petitioning,** and **crowdfunding** into an action-oriented system. Whether it’s addressing local challenges or tackling global issues, anyone can create or join missions, making governance accessible and participatory. This isn’t just governance—it’s empowerment at scale.<br><br>
+<br><br>
 
 ### **2. Virtual Encyclopedia**
+Picture a **3D animated Wikipedia where articles visually roam the globe**, representing their content dynamically. Imagine spotting a green giraffe sipping coffee at Starbucks – an anomaly that flags a correction request to the Wikipedia community. This feature merges information with interactivity, creating an engaging and immersive way to explore and maintain knowledge.<br>
+
 ![image](https://github.com/user-attachments/assets/aea1940a-663f-4421-93fe-797b887b82bb)
-Picture a **3D animated Wikipedia where articles visually roam the globe**, representing their content dynamically. Imagine spotting a green giraffe sipping coffee at Starbucks – an anomaly that flags a correction request to the Wikipedia community. This feature merges information with interactivity, creating an engaging and immersive way to explore and maintain knowledge.<br><br>
+<br><br>
 
 ### **3. Community-Driven DApp Store with Integrated Decentralized Back-End**
+- **Universal Developer & Platform Compatibility**: Developers can create **with their preferred tools for all platforms**.
+- **In-Browser Development**: Create directly in your browser with ease. Did you know? **Node.js now runs in browsers**!
+- **Self-Scaling Apps**: Leveraging **WebRTC** and **public BitTorrent tracker networks** for data transfer and signaling, **dApps scale automatically**, eliminating the need for centralized servers.<br>
+
 ![image](https://github.com/user-attachments/assets/094a5a7d-9cd4-440c-b469-67257752a645)
 ![image](https://github.com/user-attachments/assets/e630a5a4-9309-45ea-a64f-168a049d3e81)
 ![image](https://github.com/user-attachments/assets/69342182-2418-498b-8f48-0b978d95eed5)
-- **Universal Developer & Platform Compatibility**: Developers can create **with their preferred tools for all platforms**.
-- **In-Browser Development**: Create directly in your browser with ease. Did you know? **Node.js now runs in browsers**!
-- **Self-Scaling Apps**: Leveraging **WebRTC** and **public BitTorrent tracker networks** for data transfer and signaling, **dApps scale automatically**, eliminating the need for centralized servers.<br><br>
+<br><br>
 
 ### Couchsurfing
+The first privately developed dApp, **Couchsurfing Free**, sets the stage for what’s possible. Upcoming projects like **dAmazon**, **dUber**, **dUber Eats**, and **dAirBNB** showcase the limitless potential for innovation, cutting out the middlemen. By the (p)eople, for the (p)eople – P2P at its finest.<br>
+
 ![image](https://github.com/user-attachments/assets/03c7895a-ab26-4483-aa89-d75c89c0cc1a)
-The first privately developed dApp, **Couchsurfing Free**, sets the stage for what’s possible. Upcoming projects like **dAmazon**, **dUber**, **dUber Eats**, and **dAirBNB** showcase the limitless potential for innovation, cutting out the middlemen. By the (p)eople, for the (p)eople – P2P at its finest.
 
 ---
 
