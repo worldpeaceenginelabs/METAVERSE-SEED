@@ -4,7 +4,7 @@ We’ve developed **Crowd Engineering** into a **social network application**.
 
 **Cloud Atlas OS** is a revolutionary, decentralized, and community-owned **real-world platform**. Think of it as a community-owned Google Maps, Wikipedia, and App Store combined – all **without server farms, costs, or central authority**. It is **fully self-scaling** and designed to empower users worldwide.
 
----
+<br><br><br>
 
 ## **Core Components**
 
@@ -58,14 +58,15 @@ Background: Cloud Atlas operates on a decentralized back-end, synchronizing thro
 
 # Table of Contents
 
-1. [Introduction](#introduction)
-2. [Tech Stack](#tech-stack)
-3. [Implemented Features](#implemented-features)
-4. [Planned Features](#planned-features)
+1. Introduction
+2. Tech Stack
+3. Implemented Features
+4. Planned Features
 5. Some nice remnants from the old, overbloated README - hopefully, they'll inspire you and offer deeper insights into the project's underlying ideas!
 
 ---
 
+<br>
 Restarted Project The Seed on 30.03.2024<br><br>
 
 ![image](https://github.com/user-attachments/assets/7fd81918-d51f-465b-b396-99287b8f6607)
@@ -93,7 +94,7 @@ Become a part of Cloud Atlas today and join an exciting community that’s shapi
 ### A serverfarm-less, decentralized Google Earth running as a 4MB standalone package, capable of working offline (coming) in your browser. It’s free and scales 99% autonomously! More users mean more app storage and computational power. You are the server farm.<br><br>
 
 # CLOUD ATLAS STACK
-![Cloud Atlas Stack](https://github.com/user-attachments/assets/a4d33219-c335-4368-9867-e1742a9aa8db)
+![image](https://github.com/user-attachments/assets/88b18843-42b5-4beb-ac8b-5b2f154ce806)
 
 # FEATURES
 
