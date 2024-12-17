@@ -37,8 +37,8 @@
   </div>
 
   <div class="textbox" style="text-align:center;">
-    
-    <h4><strong>Cloud Atlas OS<br>A Community-Owned Google Maps 🔥 featuring a Community-Driven dApp Store 🔥 with Built-In Backend 🔥 Spatial Intelligence baked in 🔥 Run by the people, for the people.<br>But this is more than just a map...</strong><br><br>
+    <h3><strong>We've developed Crowd Engineering into a Social Network application...</strong></h3>
+    <h4><strong>Cloud Atlas OS is a Community-Owned real-world platform 🔥 featuring a Community-Driven dApp Store 🔥 with Built-In Backend 🔥 Spatial Intelligence baked in 🔥 Run by the people, for the people.<br><br>But this is more than just a map...</strong><br><br>
     <strong>“You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete." Buckminster Fuller</strong><br><br>
     </h4>
   
@@ -65,8 +65,6 @@
     <div class="center">
       <a class="neumorphic" target="_blank" href="https://github.com/worldpeaceenginelabs/METAVERSE-SEED">Check out our GitHub and Collaboration Hub</a><br>
     </div>
-    <div class="center"><h4><strong>We've developed Crowd Engineering into a social network application.</strong><br>
-      UI and apps will thrive solely on your feedback and pull-requests.</h4></div>
     
   
     
